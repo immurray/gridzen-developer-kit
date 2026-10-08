@@ -22,8 +22,8 @@ Official registry: validate with scripts/validate_distribution.py; authenticate 
 Gridzen domain HTTP proof, then mcp-publisher publish server.json. Private signing
 keys and registry tokens must remain outside this checkout and all distributions.
 
-Other markets: see submissions/ for copy-ready material. Record the actual
-submission receipt and published URL in the private release ledger. Mark a channel
+Other markets: see submissions.md for copy-ready material. Record the actual
+submission receipt and published URL in STATUS.md and the private release ledger. Mark a channel
 live only after its listing is publicly visible and installation is verified.
 
 The downloaded publisher v1.8.1 advertises validate in help but does not implement

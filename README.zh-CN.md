@@ -53,3 +53,7 @@ Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
 源码：https://github.com/immurray/gridzen-developer-kit 。PyPI 尚未发布，
 当前请使用 GitHub 发布包或官网下载包。公开源码使用 MIT 许可证；第三方资料
 权利及研究边界见 NOTICE.md。
+
+## 市场发布状态
+
+源码、版本下载、官方 MCP Registry 和三个 Skills.sh 技能页已公开；Docker 目录投稿待审核。各渠道真实状态及剩余步骤见[发布台账](distribution/STATUS.md)。

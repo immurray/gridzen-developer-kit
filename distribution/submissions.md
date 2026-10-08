@@ -56,8 +56,9 @@ its returned ID. No test account is required. Do not send personal information.
   The release contains a Claude-format package and a repo marketplace.
 - OpenAI: https://platform.openai.com/plugins . Use the portable plugin ZIP with
   both MCP and Skills in the first submission. Confirm verified publisher identity.
-- Docker: https://github.com/docker/mcp-registry . Requires a separately validated
-  stdio container/catalog submission; the web preview container is not a substitute.
+- Docker: https://github.com/docker/mcp-registry . Remote Streamable HTTP entries
+  are accepted without a container image. Submit server.yaml, tools.json (`[]`)
+  and readme.md after official validator and catalog generation checks.
 - SkillsMP: https://skillsmp.com/ . Check actual indexing after the public release.
 - PulseMCP: https://www.pulsemcp.com/servers . New submissions paused when checked
   2026-10-08; recheck before attempting submission.

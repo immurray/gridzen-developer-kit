@@ -96,3 +96,7 @@ is `streamable-http`. Marketplace admission is separate from compatibility.
 
 Original code and Skills: MIT. Research provenance and third-party rights:
 [NOTICE.md](NOTICE.md). Support: open@gridzen.ai .
+
+## Marketplace availability
+
+Source, release downloads, the official MCP Registry entry and three Skills.sh pages are public. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.

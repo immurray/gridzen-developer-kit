@@ -54,3 +54,7 @@ Skills: `npx skills add immurray/gridzen-developer-kit`.
 Código: https://github.com/immurray/gridzen-developer-kit . El paquete de PyPI
 aún no está publicado: utilice GitHub Releases o la descarga del sitio web.
 Código original bajo MIT; consulte NOTICE.md para los derechos de terceros.
+
+## Publicación en directorios
+
+El código, las descargas, la entrada oficial de MCP Registry y tres páginas de Skills.sh están publicados. La propuesta del catálogo de Docker está pendiente de revisión. Consulta [el registro de publicación](distribution/STATUS.md).
