@@ -18,10 +18,13 @@ Skills ZIP and SHA256SUMS. PyPI publication is a separate manual workflow after
 configuring the repository as a Trusted Publisher in the publisher's PyPI account.
 No PyPI status is inferred from building a wheel or triggering a workflow.
 
-Official registry: mcp-publisher validate server.json; authenticate with the
+Official registry: validate with scripts/validate_distribution.py; authenticate with the
 Gridzen domain HTTP proof, then mcp-publisher publish server.json. Private signing
 keys and registry tokens must remain outside this checkout and all distributions.
 
 Other markets: see submissions/ for copy-ready material. Record the actual
 submission receipt and published URL in the private release ledger. Mark a channel
 live only after its listing is publicly visible and installation is verified.
+
+The downloaded publisher v1.8.1 advertises validate in help but does not implement
+that command. Local validation uses the pinned official JSON Schema instead.
