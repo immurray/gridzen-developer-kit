@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gridzen-developer-kit"
+version = "0.2.0"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE.md"]
+authors = [{name = "Gridzen", email = "open@gridzen.ai"}]
+keywords = ["mcp", "agent-skills", "identity-verification", "sandbox"]
+description = "Gridzen research catalog, integration planner and explicit verification sandbox"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp==2.3.0"]
+server = ["mcp==2.3.0", "fastapi==0.142.4", "uvicorn==0.54.0"]
+test = ["pytest", "httpx", "mcp==2.3.0", "fastapi==0.142.4", "uvicorn==0.54.0"]
+
+[project.scripts]
+gridzen = "gridzen_developer.cli:main"
+gridzen-mcp = "gridzen_developer.mcp:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+gridzen_developer = ["data/*.json", "web/*.html", "web/*.css", "web/*.js", "web/*.svg", "web/*.png"]
+
+[project.urls]
+Homepage = "https://gridzen.ai/developers/"
+Documentation = "https://gridzen.ai/developers/quickstart.html"
+Source = "https://github.com/immurray/gridzen-developer-kit"

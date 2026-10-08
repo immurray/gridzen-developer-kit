@@ -1,0 +1,55 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "gridzen-verification",
+  "version": "0.2.0",
+  "description": "Research verification options by country, plan integrations and test synthetic outcomes. No live identity verification.",
+  "author": {
+    "name": "Gridzen",
+    "email": "open@gridzen.ai",
+    "url": "https://gridzen.ai"
+  },
+  "homepage": "https://gridzen.ai/developers/",
+  "repository": "https://github.com/immurray/gridzen-developer-kit",
+  "license": "MIT",
+  "keywords": [
+    "identity-verification",
+    "KYC",
+    "bank-account",
+    "developer-tools",
+    "sandbox"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Gridzen Verification",
+        "shortDescription": "Plan and test verification",
+        "longDescription": "Research verification options by country, plan integrations and test synthetic outcomes. No live identity verification. Includes sourced research for 198 countries/territories, five synthetic test outcomes and three integration Skills. Research is not commercial coverage. Never send personal data.",
+        "developerName": "Gridzen",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Country research",
+          "Integration planning",
+          "Synthetic testing"
+        ],
+        "websiteURL": "https://gridzen.ai/developers/",
+        "supportURL": "https://gridzen.ai/developers/support.html",
+        "privacyPolicyURL": "https://gridzen.ai/developers/privacy.html",
+        "termsOfServiceURL": "https://gridzen.ai/developers/terms.html",
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.svg"
+      },
+      "publication": {
+        "translations": {
+          "zh-CN": {
+            "subtitle": "验证方式研究与沙盒测试",
+            "description": "按国家查询验证方式、制定接入方案并测试模拟结果。包含三个开发者 Skills，真实验证通道尚未开放。"
+          },
+          "es-ES": {
+            "subtitle": "Planifica y prueba verificaciones",
+            "description": "Investiga opciones por país, planifica integraciones y prueba resultados sintéticos. Sin verificación de personas reales."
+          }
+        }
+      }
+    }
+  }
+}

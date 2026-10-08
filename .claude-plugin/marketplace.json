@@ -1,0 +1,14 @@
+{
+  "name": "gridzen",
+  "owner": {
+    "name": "Gridzen",
+    "email": "open@gridzen.ai"
+  },
+  "plugins": [
+    {
+      "name": "gridzen-verification",
+      "source": "./",
+      "description": "Research verification options by country, plan integrations and test synthetic outcomes. No live identity verification."
+    }
+  ]
+}
