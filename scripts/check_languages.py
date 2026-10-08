@@ -28,7 +28,7 @@ with sync_playwright() as p:
   expect(page.locator('footer a[href="/developers/"]')).to_have_text(text['footer'])
   for w in (390,768,1440):
    page.set_viewport_size({'width':w,'height':1000});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(lang,w)
-  page.locator('a[href="/developers/quickstart.html"]').click();expect(page.locator('h1')).to_contain_text(text['guide']);page.reload();expect(page.locator('h1')).to_contain_text(text['guide']);assert page.locator('pre').count()==4;assert 'gridzen plan --country ID --event payout' in page.locator('pre').first.text_content()
+  page.locator('a[href="/developers/quickstart.html"]').click();expect(page.locator('h1')).to_contain_text(text['guide']);page.reload();expect(page.locator('h1')).to_contain_text(text['guide']);assert 'https://gridzen.ai/developers/mcp' in page.locator('body').text_content();assert 'npx skills add immurray/gridzen-developer-kit' in page.locator('body').text_content();assert 'gridzen plan --country ID --event payout' in page.locator('pre').first.text_content()
   page.goto('https://gridzen.ai/developers/',wait_until='networkidle');expect(page.locator('h1')).to_contain_text(text['h1'])
   page.route('**/api/sandbox/verifications',lambda r:r.fulfill(status=503,body='unavailable'));page.locator('#run').click();expect(page.locator('#status')).to_contain_text(text['error'])
   assert not errors,errors
