@@ -1,0 +1,24 @@
+{
+  "kind": "missing-evidence",
+  "prompt": "Evidence is missing. Identify gaps; do not infer permissions or compliance.",
+  "input": {},
+  "expected_output": {
+    "status": "needs_information",
+    "missing": [
+      "country",
+      "event",
+      "technical_owner",
+      "risk_owner",
+      "provider_route_reference",
+      "data_permission_reference",
+      "non_production"
+    ],
+    "blockers": [
+      "mexico_scope_required",
+      "non_production_required"
+    ],
+    "approval_granted": false,
+    "network_calls": false,
+    "limitations": "Completeness only; references are not verified. No legal approval, identity check, pilot activation or production decision."
+  }
+}

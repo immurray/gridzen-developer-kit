@@ -1,0 +1,11 @@
+{
+  "provider_product": "internal-reference-1",
+  "country": "MX",
+  "event": "payout",
+  "contract_reference": "internal-reference-1",
+  "permitted_use_reference": "internal-reference-1",
+  "downstream_use_reference": "internal-reference-1",
+  "retention_reference": "internal-reference-1",
+  "dpa_reference": "internal-reference-1",
+  "security_review_reference": "internal-reference-1"
+}

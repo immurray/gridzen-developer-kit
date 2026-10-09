@@ -14,7 +14,7 @@ def test_remote_discovery_fixtures_and_rejected_personal_inputs():
  with TestClient(app) as c:
   init=rpc(c,'initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'gridzen-test','version':'1'}})
   assert init.status_code==200,init.text
-  assert init.json()['result']['serverInfo']['version']=='0.2.0'
+  assert init.json()['result']['serverInfo']['version']=='0.3.0'
   tools=rpc(c,'tools/list').json()['result']['tools']
   assert len(tools)==5
   assert all(t['inputSchema']['additionalProperties'] is False for t in tools)

@@ -1,0 +1,13 @@
+{
+  "name": "mexico-pilot-scoper",
+  "fields": [
+    "country",
+    "event",
+    "technical_owner",
+    "risk_owner",
+    "provider_route_reference",
+    "data_permission_reference",
+    "non_production"
+  ],
+  "version": "1.0.0"
+}

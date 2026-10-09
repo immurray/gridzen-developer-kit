@@ -1,0 +1,23 @@
+{
+  "kind": "normal",
+  "prompt": "Create an offline draft from these synthetic references. Do not approve a real pilot, payment or provider.",
+  "input": {
+    "provider_product": "internal-reference-1",
+    "country": "MX",
+    "event": "payout",
+    "contract_reference": "internal-reference-1",
+    "permitted_use_reference": "internal-reference-1",
+    "downstream_use_reference": "internal-reference-1",
+    "retention_reference": "internal-reference-1",
+    "dpa_reference": "internal-reference-1",
+    "security_review_reference": "internal-reference-1"
+  },
+  "expected_output": {
+    "status": "draft_for_review",
+    "missing": [],
+    "blockers": [],
+    "approval_granted": false,
+    "network_calls": false,
+    "limitations": "Completeness only; references are not verified. No legal approval, identity check, pilot activation or production decision."
+  }
+}

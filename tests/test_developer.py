@@ -59,4 +59,4 @@ def test_distribution_has_no_private_or_recursive_files():
   names=z.namelist()
   assert all(not x.endswith('.zip') and '.env' not in x and 'secrets/' not in x for x in names)
   assert 'gridzen-developer-kit/src/gridzen_developer/data/catalog.json' in names
-  assert len([n for n in names if n.endswith('SKILL.md')])==3
+  assert len([n for n in names if n.endswith('SKILL.md')])==6

@@ -50,3 +50,16 @@ For PyPI, create a pending Trusted Publisher with:
 Then run the manual workflow from the verified release commit. Do not change an
 existing release tag or replace version 0.2.0 with different runtime code; new
 runtime changes require a new version.
+
+
+## 0.3.0 closeout — 2026-10-09
+
+Local preparation: six bundled Skills; the three new workflows retain version
+1.0.0, MIT, complete normal/missing/refusal fixtures and real-agent acceptance
+prompts. Offline fixture contracts are tested, not a claim of live client or model
+acceptance. Remote aggregate counter implementation and independent volume are
+prepared. PyPI Trusted Publisher configuration is still awaiting account-owner
+confirmation. No 0.3.0 publication or deployment is claimed by this preparation
+entry. The official MCP Registry's existing active record remains 0.2.0 until a
+separate new-version submission is confirmed. Existing marketplace PRs remain
+subject to their reviewers; this source update is not platform endorsement.

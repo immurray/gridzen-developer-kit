@@ -1,6 +1,6 @@
 # Kit de desarrollo Gridzen 0.1.1
 
-Investigación sobre 198 países y territorios, planificación de integraciones, cinco resultados simulados, CLI/SDK HTTP de Python, MCP local y tres Skills. No hay canales de proveedores reales activos. Ningún resultado simulado verifica a una persona real.
+Investigación sobre 198 países y territorios, planificación de integraciones, cinco resultados simulados, CLI/SDK HTTP de Python, MCP local y seis Skills. No hay canales de proveedores reales activos. Ningún resultado simulado verifica a una persona real.
 
 Prueba y guía: https://gridzen.ai/developers/ . El selector permite cambiar entre español, inglés y chino, y recuerda la elección. La investigación es del 2026-10-07; las fuentes y sus restricciones se conservan en el idioma original.
 
@@ -58,3 +58,27 @@ Código original bajo MIT; consulte NOTICE.md para los derechos de terceros.
 ## Publicación en directorios
 
 El código, las descargas, la entrada oficial de MCP Registry y tres páginas de Skills.sh están publicados. La propuesta del catálogo de Docker está pendiente de revisión. Consulta [el registro de publicación](distribution/STATUS.md).
+
+
+## Six bundled Skills (0.3.0)
+
+`python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
+and all six Skill directories. Once 0.3.0 is published, no extra MCP dependency
+installation is required. Until then, use the verified GitHub release wheel.
+
+```sh
+gridzen coverage --country MX
+gridzen skills
+gridzen-mcp
+```
+
+Connect `gridzen-mcp` as your client's stdio server, or use the remote endpoint
+`https://gridzen.ai/developers/mcp`. `gridzen skills` prints the installed directories;
+copy a complete directory into your assistant's configured Skills directory to
+activate it. Installing a wheel does not automatically activate a client's Skills.
+
+The existing select/integrate/explain Skills remain available. Added offline
+workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
+`provider-rights-readiness`. Each includes MIT, README, complete response fixtures
+and agent acceptance prompts. They make no third-party calls and grant no real
+verification, legal approval or regulatory conclusion.

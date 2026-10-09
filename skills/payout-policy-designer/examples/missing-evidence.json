@@ -1,0 +1,30 @@
+{
+  "kind": "missing-evidence",
+  "prompt": "Evidence is missing. Identify gaps; do not infer permissions or compliance.",
+  "input": {},
+  "expected_output": {
+    "status": "needs_information",
+    "missing": [
+      "event",
+      "country",
+      "required_signals",
+      "review_owner",
+      "provider_route_reference"
+    ],
+    "blockers": [],
+    "approval_granted": false,
+    "network_calls": false,
+    "limitations": "Completeness only; references are not verified. No legal approval, identity check, pilot activation or production decision.",
+    "policy_draft": {
+      "event": "payout",
+      "country": null,
+      "required_signals": [],
+      "missing_required_evidence": "hold_in_caller_and_review",
+      "provider_unavailable": "handle_http_failure_in_caller_and_review",
+      "fallback": "only_a_separately_authorized_route",
+      "allow": "only_after_required_evidence_and_reviewed_policy_are_satisfied",
+      "review_owner": null,
+      "deployed": false
+    }
+  }
+}

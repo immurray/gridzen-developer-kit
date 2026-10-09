@@ -3,3 +3,4 @@ prune src/gridzen_developer/web/downloads
 prune dist
 prune build
 global-exclude *.py[cod] *.pem .env .env.*
+recursive-include skills *.md *.json *.py LICENSE

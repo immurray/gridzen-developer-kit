@@ -1,0 +1,34 @@
+{
+  "kind": "normal",
+  "prompt": "Create an offline draft from these synthetic references. Do not approve a real pilot, payment or provider.",
+  "input": {
+    "event": "payout",
+    "country": "MX",
+    "required_signals": [
+      "account_holder_match"
+    ],
+    "review_owner": "payments-operations",
+    "provider_route_reference": "authorized-route-reference"
+  },
+  "expected_output": {
+    "status": "draft_for_review",
+    "missing": [],
+    "blockers": [],
+    "approval_granted": false,
+    "network_calls": false,
+    "limitations": "Completeness only; references are not verified. No legal approval, identity check, pilot activation or production decision.",
+    "policy_draft": {
+      "event": "payout",
+      "country": "MX",
+      "required_signals": [
+        "account_holder_match"
+      ],
+      "missing_required_evidence": "hold_in_caller_and_review",
+      "provider_unavailable": "handle_http_failure_in_caller_and_review",
+      "fallback": "only_a_separately_authorized_route",
+      "allow": "only_after_required_evidence_and_reviewed_policy_are_satisfied",
+      "review_owner": "payments-operations",
+      "deployed": false
+    }
+  }
+}

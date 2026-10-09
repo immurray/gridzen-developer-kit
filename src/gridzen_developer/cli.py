@@ -7,7 +7,11 @@ def main():
  x=s.add_parser('plan');x.add_argument('--country',required=True);x.add_argument('--event',choices=list(core.EVENTS),default='payout')
  x=s.add_parser('simulate');x.add_argument('--country',required=True);x.add_argument('--capability',required=True);x.add_argument('--scenario',choices=core.SCENARIOS,default='match')
  x=s.add_parser('explain');x.add_argument('reason_code')
+ s.add_parser('skills',help='List bundled Skill directories; copy a complete directory into your assistant to activate it')
  a=p.parse_args()
+ if a.command=='skills':
+  from .skills import list_skills
+  print(json.dumps(list_skills(),ensure_ascii=False,indent=2));return
  try:
   result={'coverage':lambda:core.coverage(a.country,a.capability),'plan':lambda:core.plan(a.country,a.event),'simulate':lambda:core.simulate(a.country,a.capability,a.scenario),'explain':lambda:core.explain(a.reason_code)}[a.command]()
  except ValueError as e:p.error(str(e))

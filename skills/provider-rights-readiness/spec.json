@@ -1,0 +1,15 @@
+{
+  "name": "provider-rights-readiness",
+  "fields": [
+    "provider_product",
+    "country",
+    "event",
+    "contract_reference",
+    "permitted_use_reference",
+    "downstream_use_reference",
+    "retention_reference",
+    "dpa_reference",
+    "security_review_reference"
+  ],
+  "version": "1.0.0"
+}

@@ -57,3 +57,27 @@ Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
 ## 市场发布状态
 
 源码、版本下载、官方 MCP Registry 和三个 Skills.sh 技能页已公开；Docker 目录投稿待审核。各渠道真实状态及剩余步骤见[发布台账](distribution/STATUS.md)。
+
+
+## Six bundled Skills (0.3.0)
+
+`python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
+and all six Skill directories. Once 0.3.0 is published, no extra MCP dependency
+installation is required. Until then, use the verified GitHub release wheel.
+
+```sh
+gridzen coverage --country MX
+gridzen skills
+gridzen-mcp
+```
+
+Connect `gridzen-mcp` as your client's stdio server, or use the remote endpoint
+`https://gridzen.ai/developers/mcp`. `gridzen skills` prints the installed directories;
+copy a complete directory into your assistant's configured Skills directory to
+activate it. Installing a wheel does not automatically activate a client's Skills.
+
+The existing select/integrate/explain Skills remain available. Added offline
+workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
+`provider-rights-readiness`. Each includes MIT, README, complete response fixtures
+and agent acceptance prompts. They make no third-party calls and grant no real
+verification, legal approval or regulatory conclusion.

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gridzen-developer-kit"
-version = "0.2.0"
+version = "0.3.0"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE", "NOTICE.md"]
@@ -12,7 +12,7 @@ authors = [{name = "Gridzen", email = "open@gridzen.ai"}]
 keywords = ["mcp", "agent-skills", "identity-verification", "sandbox"]
 description = "Gridzen research catalog, integration planner and explicit verification sandbox"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["mcp==2.3.0"]
 
 [project.optional-dependencies]
 mcp = ["mcp==2.3.0"]
@@ -33,3 +33,15 @@ gridzen_developer = ["data/*.json", "web/*.html", "web/*.css", "web/*.js", "web/
 Homepage = "https://gridzen.ai/developers/"
 Documentation = "https://gridzen.ai/developers/quickstart.html"
 Source = "https://github.com/immurray/gridzen-developer-kit"
+
+[tool.setuptools.data-files]
+"share/gridzen-developer-kit/skills/gridzen-explain-verification" = ["skills/gridzen-explain-verification/SKILL.md"]
+"share/gridzen-developer-kit/skills/gridzen-integrate-sandbox" = ["skills/gridzen-integrate-sandbox/SKILL.md"]
+"share/gridzen-developer-kit/skills/gridzen-integrate-sandbox/references" = ["skills/gridzen-integrate-sandbox/references/api.md"]
+"share/gridzen-developer-kit/skills/gridzen-select-verification" = ["skills/gridzen-select-verification/SKILL.md"]
+"share/gridzen-developer-kit/skills/mexico-pilot-scoper" = ["skills/mexico-pilot-scoper/LICENSE", "skills/mexico-pilot-scoper/README.md", "skills/mexico-pilot-scoper/SKILL.md", "skills/mexico-pilot-scoper/agent-evals.json", "skills/mexico-pilot-scoper/evaluate.py", "skills/mexico-pilot-scoper/example-input.json", "skills/mexico-pilot-scoper/spec.json", "skills/mexico-pilot-scoper/test_evaluate.py"]
+"share/gridzen-developer-kit/skills/mexico-pilot-scoper/examples" = ["skills/mexico-pilot-scoper/examples/missing-evidence.json", "skills/mexico-pilot-scoper/examples/normal.json", "skills/mexico-pilot-scoper/examples/out-of-scope.json"]
+"share/gridzen-developer-kit/skills/payout-policy-designer" = ["skills/payout-policy-designer/LICENSE", "skills/payout-policy-designer/README.md", "skills/payout-policy-designer/SKILL.md", "skills/payout-policy-designer/agent-evals.json", "skills/payout-policy-designer/evaluate.py", "skills/payout-policy-designer/example-input.json", "skills/payout-policy-designer/spec.json", "skills/payout-policy-designer/test_evaluate.py"]
+"share/gridzen-developer-kit/skills/payout-policy-designer/examples" = ["skills/payout-policy-designer/examples/missing-evidence.json", "skills/payout-policy-designer/examples/normal.json", "skills/payout-policy-designer/examples/out-of-scope.json"]
+"share/gridzen-developer-kit/skills/provider-rights-readiness" = ["skills/provider-rights-readiness/LICENSE", "skills/provider-rights-readiness/README.md", "skills/provider-rights-readiness/SKILL.md", "skills/provider-rights-readiness/agent-evals.json", "skills/provider-rights-readiness/evaluate.py", "skills/provider-rights-readiness/example-input.json", "skills/provider-rights-readiness/spec.json", "skills/provider-rights-readiness/test_evaluate.py"]
+"share/gridzen-developer-kit/skills/provider-rights-readiness/examples" = ["skills/provider-rights-readiness/examples/missing-evidence.json", "skills/provider-rights-readiness/examples/normal.json", "skills/provider-rights-readiness/examples/out-of-scope.json"]

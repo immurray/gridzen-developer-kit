@@ -1,0 +1,21 @@
+{
+  "kind": "normal",
+  "prompt": "Create an offline draft from these synthetic references. Do not approve a real pilot, payment or provider.",
+  "input": {
+    "country": "MX",
+    "event": "payout",
+    "technical_owner": "integration-team",
+    "risk_owner": "payments-operations",
+    "provider_route_reference": "authorized-route-reference",
+    "data_permission_reference": "test-permission-reference",
+    "non_production": true
+  },
+  "expected_output": {
+    "status": "draft_for_review",
+    "missing": [],
+    "blockers": [],
+    "approval_granted": false,
+    "network_calls": false,
+    "limitations": "Completeness only; references are not verified. No legal approval, identity check, pilot activation or production decision."
+  }
+}

@@ -1,6 +1,6 @@
-# Gridzen Developer Kit 0.2.0
+# Gridzen Developer Kit 0.3.0
 
-Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and three Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
+Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and six Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
 
 [中文指南](README.zh-CN.md) · [Guía en español](README.es.md)
 
@@ -99,4 +99,28 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 
 ## Marketplace availability
 
-Source, release downloads, the official MCP Registry entry and three Skills.sh pages are public. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
+Source, release downloads, the official MCP Registry entry and six Skills.sh pages are public. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
+
+
+## Six bundled Skills (0.3.0)
+
+`python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
+and all six Skill directories. Once 0.3.0 is published, no extra MCP dependency
+installation is required. Until then, use the verified GitHub release wheel.
+
+```sh
+gridzen coverage --country MX
+gridzen skills
+gridzen-mcp
+```
+
+Connect `gridzen-mcp` as your client's stdio server, or use the remote endpoint
+`https://gridzen.ai/developers/mcp`. `gridzen skills` prints the installed directories;
+copy a complete directory into your assistant's configured Skills directory to
+activate it. Installing a wheel does not automatically activate a client's Skills.
+
+The existing select/integrate/explain Skills remain available. Added offline
+workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
+`provider-rights-readiness`. Each includes MIT, README, complete response fixtures
+and agent acceptance prompts. They make no third-party calls and grant no real
+verification, legal approval or regulatory conclusion.

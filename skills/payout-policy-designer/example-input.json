@@ -1,0 +1,9 @@
+{
+  "event": "payout",
+  "country": "MX",
+  "required_signals": [
+    "account_holder_match"
+  ],
+  "review_owner": "payments-operations",
+  "provider_route_reference": "authorized-route-reference"
+}

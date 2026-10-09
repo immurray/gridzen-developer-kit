@@ -1,0 +1,23 @@
+{
+  "kind": "missing-evidence",
+  "prompt": "Evidence is missing. Identify gaps; do not infer permissions or compliance.",
+  "input": {},
+  "expected_output": {
+    "status": "needs_information",
+    "missing": [
+      "provider_product",
+      "country",
+      "event",
+      "contract_reference",
+      "permitted_use_reference",
+      "downstream_use_reference",
+      "retention_reference",
+      "dpa_reference",
+      "security_review_reference"
+    ],
+    "blockers": [],
+    "approval_granted": false,
+    "network_calls": false,
+    "limitations": "Completeness only; references are not verified. No legal approval, identity check, pilot activation or production decision."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "payout-policy-designer",
+  "fields": [
+    "event",
+    "country",
+    "required_signals",
+    "review_owner",
+    "provider_route_reference"
+  ],
+  "version": "1.0.0"
+}

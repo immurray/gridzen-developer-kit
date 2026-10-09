@@ -1,0 +1,9 @@
+{
+  "country": "MX",
+  "event": "payout",
+  "technical_owner": "integration-team",
+  "risk_owner": "payments-operations",
+  "provider_route_reference": "authorized-route-reference",
+  "data_permission_reference": "test-permission-reference",
+  "non_production": true
+}

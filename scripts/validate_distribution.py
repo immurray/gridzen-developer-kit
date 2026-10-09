@@ -12,7 +12,7 @@ for name in ['.claude-plugin/plugin.json','.cursor-plugin/plugin.json']:
 for archive in (root/'dist').glob('*.zip'):
  with zipfile.ZipFile(archive) as z:
   names=z.namelist()
-  assert len([n for n in names if n.endswith('SKILL.md')])==3
+  assert len([n for n in names if n.endswith('SKILL.md')])==6
   assert not any(n.startswith('/') or '..' in Path(n).parts or n.endswith(('.pem','.env')) or 'secrets/' in n for n in names)
   assert 'LICENSE' in names
   assert not any(n.endswith(('.whl','.tar.gz','.zip')) for n in names)
