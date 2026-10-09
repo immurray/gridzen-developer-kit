@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "gridzen": {
+      "type": "streamableHttp",
+      "url": "https://gridzen.ai/developers/mcp",
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

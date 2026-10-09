@@ -1,0 +1,10 @@
+{
+  "mcp": {
+    "gridzen": {
+      "type": "remote",
+      "url": "https://gridzen.ai/developers/mcp",
+      "enabled": true,
+      "oauth": false
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "gridzen": {
+      "type": "http",
+      "url": "https://gridzen.ai/developers/mcp"
+    }
+  }
+}

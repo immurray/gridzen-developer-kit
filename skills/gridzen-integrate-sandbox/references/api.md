@@ -1,6 +1,6 @@
 # Developer preview API
 
-Base: `https://gridzen.ai/developers/api`. No credentials needed for public research and synthetic fixtures. This is separate from the production `/api/v1/decisions/` contract.
+Base: `https://gridzen.ai/developers/api`. No credentials needed for public research and synthetic fixtures. Production customer APIs have separate contracts and authorization.
 
 - `GET /coverage?country=ID&capability=bank_account_match`: dated research and source evidence.
 - `POST /plan` with `{"country":"ID","event":"payout"}`: research requirements and sandbox request. Events: onboarding, payout, account_change.

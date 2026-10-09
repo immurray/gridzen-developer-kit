@@ -1,0 +1,179 @@
+{
+  "version": "0.4.0",
+  "checked_at": "2026-10-09",
+  "tools": 5,
+  "skills": 6,
+  "clients": [
+    {
+      "client": "codex",
+      "config_path": ".codex/config.toml",
+      "skill_path": ".agents/skills",
+      "template": "clients/codex.toml",
+      "manual_import": false,
+      "config_tests": "passed",
+      "client_version": "0.159.0",
+      "skill_discovery": "passed_explicit_inspection_six",
+      "mcp_discovery": "passed_five_actual_tool_calls",
+      "model_acceptance": "passed_timeout_boundary",
+      "reason": "Existing ChatGPT subscription, ephemeral read-only run. Explicitly requested six Skills; this does not test autonomous routing for every Skill. MCP endpoint supplied as an explicit session config override; automatic loading of untrusted project config is not claimed.",
+      "official_sources": [
+        "https://developers.openai.com/codex/mcp",
+        "https://developers.openai.com/codex/skills"
+      ]
+    },
+    {
+      "client": "claude-code",
+      "config_path": ".mcp.json",
+      "skill_path": ".claude/skills",
+      "template": "clients/claude-code.json",
+      "manual_import": false,
+      "config_tests": "passed",
+      "client_version": "2.1.295",
+      "skill_discovery": "not_tested",
+      "mcp_discovery": "blocked_workspace_approval",
+      "model_acceptance": "not_tested",
+      "reason": "CLI reports configured Gridzen HTTP endpoint pending approval. No logged-in Claude account; model acceptance untested.",
+      "official_sources": [
+        "https://code.claude.com/docs/en/mcp",
+        "https://code.claude.com/docs/en/skills"
+      ]
+    },
+    {
+      "client": "claude-desktop",
+      "config_path": "gridzen-clients/claude-desktop/claude_desktop_config.json",
+      "skill_path": "Six individual skill ZIPs; upload in Customize → Skills",
+      "template": "clients/claude-desktop.json",
+      "manual_import": true,
+      "config_tests": "passed",
+      "client_version": null,
+      "skill_discovery": "not_tested",
+      "mcp_discovery": "not_tested",
+      "model_acceptance": "not_tested",
+      "reason": "GUI application is absent on this Linux host; config generation tests passed, client/model acceptance untested.",
+      "official_sources": [
+        "https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop",
+        "https://support.claude.com/en/articles/12512198-how-to-create-custom-skills"
+      ]
+    },
+    {
+      "client": "cursor",
+      "config_path": ".cursor/mcp.json",
+      "skill_path": ".cursor/skills",
+      "template": "clients/cursor.json",
+      "manual_import": false,
+      "config_tests": "passed",
+      "client_version": null,
+      "skill_discovery": "not_tested",
+      "mcp_discovery": "not_tested",
+      "model_acceptance": "not_tested",
+      "reason": "GUI application is absent on this Linux host; config generation tests passed, client/model acceptance untested.",
+      "official_sources": [
+        "https://cursor.com/docs/mcp",
+        "https://cursor.com/docs/skills"
+      ]
+    },
+    {
+      "client": "vscode",
+      "config_path": ".vscode/mcp.json",
+      "skill_path": ".github/skills",
+      "template": "clients/vscode.json",
+      "manual_import": false,
+      "config_tests": "passed",
+      "client_version": null,
+      "skill_discovery": "not_tested",
+      "mcp_discovery": "not_tested",
+      "model_acceptance": "not_tested",
+      "reason": "GUI application is absent on this Linux host; config generation tests passed, client/model acceptance untested.",
+      "official_sources": [
+        "https://code.visualstudio.com/docs/agent-customization/mcp-servers",
+        "https://code.visualstudio.com/docs/agent-customization/agent-skills"
+      ]
+    },
+    {
+      "client": "copilot-cli",
+      "config_path": ".github/mcp.json",
+      "skill_path": ".github/skills",
+      "template": "clients/copilot-cli.json",
+      "manual_import": false,
+      "config_tests": "passed",
+      "client_version": "1.0.94",
+      "skill_discovery": "passed_six_native",
+      "mcp_discovery": "not_detected_by_mcp_list",
+      "model_acceptance": "not_tested",
+      "reason": "Native skill list discovers all six. mcp list reports no servers from project files; use documented --additional-mcp-config @clients/copilot-cli.json. No model session or paid calls performed.",
+      "official_sources": [
+        "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers",
+        "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference"
+      ]
+    },
+    {
+      "client": "gemini-cli",
+      "config_path": ".gemini/settings.json",
+      "skill_path": ".gemini/skills",
+      "template": "clients/gemini-cli.json",
+      "manual_import": false,
+      "config_tests": "passed",
+      "client_version": "0.63.0",
+      "skill_discovery": "blocked_workspace_trust",
+      "mcp_discovery": "blocked_workspace_trust",
+      "model_acceptance": "not_tested",
+      "reason": "CLI reads project HTTP configuration but disables MCP and project Skills in untrusted folder. No account/model calls performed.",
+      "official_sources": [
+        "https://geminicli.com/docs/tools/mcp-server/",
+        "https://geminicli.com/docs/cli/skills/"
+      ]
+    },
+    {
+      "client": "cline",
+      "config_path": "gridzen-clients/cline/cline_mcp_settings.json",
+      "skill_path": ".cline/skills",
+      "template": "clients/cline.json",
+      "manual_import": true,
+      "config_tests": "passed",
+      "client_version": null,
+      "skill_discovery": "not_tested",
+      "mcp_discovery": "not_tested",
+      "model_acceptance": "not_tested",
+      "reason": "GUI application is absent on this Linux host; config generation tests passed, client/model acceptance untested.",
+      "official_sources": [
+        "https://docs.cline.bot/mcp/mcp-overview",
+        "https://docs.cline.bot/customization/skills"
+      ]
+    },
+    {
+      "client": "roo-code",
+      "config_path": ".roo/mcp.json",
+      "skill_path": ".roo/skills",
+      "template": "clients/roo-code.json",
+      "manual_import": false,
+      "config_tests": "passed",
+      "client_version": null,
+      "skill_discovery": "not_tested",
+      "mcp_discovery": "not_tested",
+      "model_acceptance": "not_tested",
+      "reason": "GUI application is absent on this Linux host; config generation tests passed, client/model acceptance untested.",
+      "official_sources": [
+        "https://docs.roocode.com/features/mcp/using-mcp-in-roo",
+        "https://docs.roocode.com/features/skills"
+      ]
+    },
+    {
+      "client": "opencode",
+      "config_path": "opencode.json",
+      "skill_path": ".opencode/skills",
+      "template": "clients/opencode.json",
+      "manual_import": false,
+      "config_tests": "passed",
+      "client_version": "1.18.35",
+      "skill_discovery": "passed_six_native",
+      "mcp_discovery": "passed_connected",
+      "model_acceptance": "not_tested",
+      "reason": "Native mcp list connected to public endpoint. Model acceptance untested; no model-provider credentials supplied.",
+      "official_sources": [
+        "https://opencode.ai/docs/mcp-servers/",
+        "https://opencode.ai/docs/skills/"
+      ]
+    }
+  ],
+  "notice": "Template/installer validation does not establish real client or model acceptance. No live verification."
+}

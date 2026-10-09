@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gridzen": {
+      "command": "REPLACE_WITH_ABSOLUTE_PATH_TO_GRIDZEN_MCP",
+      "args": []
+    }
+  }
+}

@@ -8,7 +8,15 @@ def main():
  x=s.add_parser('simulate');x.add_argument('--country',required=True);x.add_argument('--capability',required=True);x.add_argument('--scenario',choices=core.SCENARIOS,default='match')
  x=s.add_parser('explain');x.add_argument('reason_code')
  s.add_parser('skills',help='List bundled Skill directories; copy a complete directory into your assistant to activate it')
+ from .setup import CLIENTS
+ x=s.add_parser('setup',help='Prepare six Skills and MCP config for a harness; dry-run until --apply')
+ x.add_argument('--client',choices=['all',*CLIENTS],required=True);x.add_argument('--project',default='.');x.add_argument('--apply',action='store_true')
  a=p.parse_args()
+ if a.command=='setup':
+  from .setup import setup
+  try: result=setup(a.client,a.project,a.apply)
+  except (ValueError,OSError) as exc:p.error(str(exc))
+  print(json.dumps(result,ensure_ascii=False,indent=2));return
  if a.command=='skills':
   from .skills import list_skills
   print(json.dumps(list_skills(),ensure_ascii=False,indent=2));return

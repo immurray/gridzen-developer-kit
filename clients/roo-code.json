@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gridzen": {
+      "type": "streamable-http",
+      "url": "https://gridzen.ai/developers/mcp"
+    }
+  }
+}
