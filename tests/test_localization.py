@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parents[1]
 def test_every_declared_translation_exists_in_three_languages():
  text=(ROOT/'src/gridzen_developer/web/locales.js').read_text()
- data=json.loads(text.split('=',1)[1].split(';\nfor ',1)[0])
+ data=json.JSONDecoder().raw_decode(text.split('=',1)[1].lstrip())[0]
  keys=set(data['en'])
  assert set(data)=={'en','zh','es'}
  for locale in data.values():

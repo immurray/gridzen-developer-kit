@@ -1,0 +1,12 @@
+{
+  "claude-desktop": "{\n  \"mcpServers\": {\n    \"gridzen\": {\n      \"command\": \"REPLACE_WITH_ABSOLUTE_PATH_TO_GRIDZEN_MCP\",\n      \"args\": []\n    }\n  }\n}\n",
+  "cursor": "{\n  \"mcpServers\": {\n    \"gridzen\": {\n      \"url\": \"https://gridzen.ai/developers/mcp\"\n    }\n  }\n}\n",
+  "codex": "[mcp_servers.gridzen]\nurl = \"https://gridzen.ai/developers/mcp\"\n",
+  "gemini-cli": "{\n  \"mcpServers\": {\n    \"gridzen\": {\n      \"httpUrl\": \"https://gridzen.ai/developers/mcp\"\n    }\n  }\n}\n",
+  "opencode": "{\n  \"mcp\": {\n    \"gridzen\": {\n      \"type\": \"remote\",\n      \"url\": \"https://gridzen.ai/developers/mcp\",\n      \"enabled\": true,\n      \"oauth\": false\n    }\n  }\n}\n",
+  "claude-code": "{\n  \"mcpServers\": {\n    \"gridzen\": {\n      \"type\": \"http\",\n      \"url\": \"https://gridzen.ai/developers/mcp\"\n    }\n  }\n}\n",
+  "roo-code": "{\n  \"mcpServers\": {\n    \"gridzen\": {\n      \"type\": \"streamable-http\",\n      \"url\": \"https://gridzen.ai/developers/mcp\"\n    }\n  }\n}\n",
+  "cline": "{\n  \"mcpServers\": {\n    \"gridzen\": {\n      \"type\": \"streamableHttp\",\n      \"url\": \"https://gridzen.ai/developers/mcp\",\n      \"disabled\": false,\n      \"autoApprove\": []\n    }\n  }\n}\n",
+  "copilot-cli": "{\n  \"mcpServers\": {\n    \"gridzen\": {\n      \"type\": \"http\",\n      \"url\": \"https://gridzen.ai/developers/mcp\",\n      \"tools\": [\n        \"*\"\n      ]\n    }\n  }\n}\n",
+  "vscode": "{\n  \"servers\": {\n    \"gridzen\": {\n      \"type\": \"http\",\n      \"url\": \"https://gridzen.ai/developers/mcp\"\n    }\n  }\n}\n"
+}

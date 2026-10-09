@@ -1,7 +1,7 @@
 name: gridzen-developer
 services:
   developer:
-    image: gridzen-developer:0.3.0
+    image: gridzen-developer:0.4.0
     ports: ['127.0.0.1:8030:8030']
     environment:
       GRIDZEN_MCP_EVENTS_DB: /metrics/counters.sqlite3

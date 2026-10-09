@@ -15,7 +15,7 @@ def build(name,extra):
  return hashlib.sha256((dest/name).read_bytes()).hexdigest()
 checks={
  'gridzen-verification-plugin.zip':build('gridzen-verification-plugin.zip',['plugin.json','mcp.json']),
- 'gridzen-verification-claude.zip':build('gridzen-verification-claude.zip',['.claude-plugin/plugin.json','.mcp.json']),
+ 'gridzen-verification-claude.zip':build('gridzen-verification-claude.zip',['.claude-plugin/plugin.json','.mcp.json','.claude-plugin/marketplace.json']),
  'gridzen-verification-cursor.zip':build('gridzen-verification-cursor.zip',['.cursor-plugin/plugin.json','.mcp.json']),
 }
 (dest/'plugin-sha256.json').write_text(json.dumps(checks,indent=2)+'\n')

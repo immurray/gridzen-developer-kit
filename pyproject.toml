@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gridzen-developer-kit"
-version = "0.3.0"
+version = "0.4.0"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE", "NOTICE.md"]
@@ -27,7 +27,7 @@ gridzen-mcp = "gridzen_developer.mcp:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-gridzen_developer = ["data/*.json", "web/*.html", "web/*.css", "web/*.js", "web/*.svg", "web/*.png"]
+gridzen_developer = ["data/*.json", "web/*.html", "web/*.css", "web/*.js", "web/*.svg", "web/*.png", "data/LICENSE", "web/*.json"]
 
 [project.urls]
 Homepage = "https://gridzen.ai/developers/"
