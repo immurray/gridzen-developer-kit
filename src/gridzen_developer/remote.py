@@ -1,4 +1,4 @@
-"""Bounded, stateless public MCP transport. No accounts, providers or storage."""
+"""Bounded, stateless public MCP transport. No accounts or providers; optional aggregate counts only."""
 from collections import OrderedDict
 from time import monotonic
 from starlette.responses import JSONResponse
@@ -6,6 +6,9 @@ from mcp.server.transport_security import TransportSecuritySettings
 from .mcp import server
 
 def make_transport():
+ from .usage import aggregate_calls
+ if aggregate_calls not in server.middleware:
+  server.middleware.append(aggregate_calls)
  return server.streamable_http_app(
   streamable_http_path='/mcp',json_response=True,stateless_http=True,
   max_request_body_size=4096,

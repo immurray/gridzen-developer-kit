@@ -10,3 +10,5 @@ src/gridzen_developer/web/downloads/
 .env.*
 *.pem
 .mcpregistry*
+*.sqlite3
+*.sqlite3-*
