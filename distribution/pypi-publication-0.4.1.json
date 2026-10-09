@@ -1,0 +1,9 @@
+{
+  "version": "0.4.1",
+  "source": "https://pypi.org/project/gridzen-developer-kit/0.4.1/",
+  "clean_venv_install": true,
+  "six_skills": 6,
+  "stdio": "passed",
+  "remote_mcp": "passed",
+  "workflow": "https://github.com/immurray/gridzen-developer-kit/actions/runs/37949594848"
+}

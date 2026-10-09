@@ -1,0 +1,82 @@
+{
+  "version": "0.4.1",
+  "source_commit": "5830723287aef952e414c69baf7291da603cf330",
+  "release": "https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.4.1",
+  "assets": [
+    {
+      "name": "gridzen-developer-kit.zip",
+      "sha256": "7a72555295ddc62a7da18802fd353100ccc48475bc75e8de694a0dfdf1214784",
+      "bytes": 139058
+    },
+    {
+      "name": "gridzen-explain-verification.zip",
+      "sha256": "4e7df67235643a8ba25f460c2107561aed6f7116c9573e6b0f75532e96ab1217",
+      "bytes": 1673
+    },
+    {
+      "name": "gridzen-harnesses.zip",
+      "sha256": "fea42c9cb00d9a5e59a255e275d5e3aed18e49c556371a885cccbf75c2466e70",
+      "bytes": 44388
+    },
+    {
+      "name": "gridzen-integrate-sandbox.zip",
+      "sha256": "67cdfe4ec1b67c65ab50bc199abe480937ce63d81ca770ab5829b6e9d0b49ac9",
+      "bytes": 2950
+    },
+    {
+      "name": "gridzen-select-verification.zip",
+      "sha256": "9b19f66f57502be402c1744c4b11668ac21ebee0b66aae38c220e13238e22283",
+      "bytes": 1847
+    },
+    {
+      "name": "gridzen-skills.zip",
+      "sha256": "9ac73682c5f1cd67175fab214b130a99f78d6d90f2d3f5e7d993d928f298d76c",
+      "bytes": 28917
+    },
+    {
+      "name": "mexico-pilot-scoper.zip",
+      "sha256": "8989de911b758b96cb2dc47373fac72f64753e0a7085bcbfd6d6e749a0303c1e",
+      "bytes": 7553
+    },
+    {
+      "name": "payout-policy-designer.zip",
+      "sha256": "9e4903ae6d7d6ecdc367bddcb4d77530ab9593964f2cc7e7684a13dcb89d295b",
+      "bytes": 7845
+    },
+    {
+      "name": "provider-rights-readiness.zip",
+      "sha256": "16fcd50b8eb2d27774a9e3fc50795ef1e9663ed92db3cf04522bf66d65c5fd06",
+      "bytes": 7644
+    },
+    {
+      "name": "gridzen-verification-claude.zip",
+      "sha256": "97569ae71d7b72a32d4734c4408827829ca8102b391a23be2b3c25a801c1fd50",
+      "bytes": 43990
+    },
+    {
+      "name": "gridzen-verification-cursor.zip",
+      "sha256": "05ae312bb9da018d05a96f5fb2c6fe7068586ea459b8aef1000003e762fde58c",
+      "bytes": 43677
+    },
+    {
+      "name": "gridzen-verification-plugin.zip",
+      "sha256": "025c9023a339a04ec676616bbb8c1c59ec6dafa1ac81a339f53424116d240ee3",
+      "bytes": 44400
+    },
+    {
+      "name": "gridzen_developer_kit-0.4.1-py3-none-any.whl",
+      "sha256": "77a11931daa0227704474066d9c775a8dd75ff3afbfe3b28bf2a7ced182fc520",
+      "bytes": 118941
+    },
+    {
+      "name": "gridzen_developer_kit-0.4.1.tar.gz",
+      "sha256": "9e1dc775a9458cdf7f439b6bd94fce69dee69b3909d0a6bd441ad598b1a465d4",
+      "bytes": 112136
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "294428285ae139244ec12bf2ba1fcfdb6535571432b7853cfc483850cb1afeaf",
+      "bytes": 1343
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "width": 360,
+      "lang": "en",
+      "passed": true
+    },
+    {
+      "width": 360,
+      "lang": "es",
+      "passed": true
+    },
+    {
+      "width": 360,
+      "lang": "zh",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "lang": "es",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "lang": "zh",
+      "passed": true
+    }
+  ],
+  "failures": 0
+}
