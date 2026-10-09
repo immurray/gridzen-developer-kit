@@ -22,3 +22,18 @@ Missing or unreadable counters return `status=unavailable, calls=null`, not zero
 An existing, readable database without calls in the selected dates returns zero.
 Infrastructure access logs are separate from this database and may contain normal
 network connection metadata. Optional website measurement has its own consent.
+
+
+## Rebuild from a clean source snapshot
+
+Generate the downloadable website archives before building the remote-service
+image (they are intentionally not tracked or included in wheel package data):
+
+```sh
+python scripts/build_downloads.py
+docker build -f deploy/Dockerfile -t gridzen-developer:0.3.0 .
+docker compose -f deploy/compose.yml up -d --no-build developer
+```
+
+Keep the previous image and compose for rollback. Do not use `down -v`; the
+independent metrics volume survives service replacement and restart.
