@@ -1,0 +1,33 @@
+{
+  "version": "0.4.0",
+  "public_record": "https://registry.modelcontextprotocol.io/v0.1/servers/ai.gridzen%2Fverification/versions/0.4.0",
+  "record": {
+    "server": {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.gridzen/verification",
+      "description": "Country verification research, integration planning and synthetic tests. No live identity checks.",
+      "title": "Gridzen Verification",
+      "repository": {
+        "url": "https://github.com/immurray/gridzen-developer-kit",
+        "source": "github"
+      },
+      "version": "0.4.0",
+      "websiteUrl": "https://gridzen.ai/developers/",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gridzen.ai/developers/mcp"
+        }
+      ]
+    },
+    "_meta": {
+      "io.modelcontextprotocol.registry/official": {
+        "status": "active",
+        "statusChangedAt": "2026-10-09T14:27:19.618339Z",
+        "publishedAt": "2026-10-09T14:27:19.618339Z",
+        "updatedAt": "2026-10-09T14:27:19.618339Z",
+        "isLatest": true
+      }
+    }
+  }
+}

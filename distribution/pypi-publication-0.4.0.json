@@ -1,0 +1,18 @@
+{
+  "version": "0.4.0",
+  "project": "https://pypi.org/project/gridzen-developer-kit/0.4.0/",
+  "workflow": "https://github.com/immurray/gridzen-developer-kit/actions/runs/37943320101",
+  "status": "published; clean venv CLI, all-ten setup and actual stdio passed",
+  "files": [
+    {
+      "filename": "gridzen_developer_kit-0.4.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/98/69/dedb55da6b4b4b25d111fad2e9038b6da5f0a20857b9dfd187b01a652b6e/gridzen_developer_kit-0.4.0-py3-none-any.whl",
+      "sha256": "cc74da964f86776d7a3a6818856a6b50cabaf678998a2a3594b133e9f41314e6"
+    },
+    {
+      "filename": "gridzen_developer_kit-0.4.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/d0/e2/4532526b44e65166c5c20ed2d82756cb05bc8dad350d3adcee0094e2c5b0/gridzen_developer_kit-0.4.0.tar.gz",
+      "sha256": "9bcd4576461a1681aacfcd4b16563205926392c265a0b2d9dd7fcadf1c2ad0b3"
+    }
+  ]
+}

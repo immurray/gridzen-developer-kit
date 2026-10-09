@@ -1,84 +1,40 @@
-# Marketplace status — 2026-10-09
+# Distribution status — 2026-10-09
 
-Version: **0.3.0**, public research and synthetic-test preview. Status records below
-are publication evidence, not claims of independent users, platform endorsement,
-live provider availability or production identity verification.
+Version **0.4.0**. Six Skills, five research/synthetic MCP tools, ten-client project setup. Publication is not platform endorsement, live verification or evidence of external adoption.
 
-| Channel | Actual status | Evidence / next step |
+| Channel | Actual status | Evidence / remaining step |
 | --- | --- | --- |
-| GitHub source and Release | Published | [Repository](https://github.com/immurray/gridzen-developer-kit), [v0.3.0 assets](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.3.0). Eight assets include six-Skill wheel/sdist/ZIPs and SHA256SUMS. Public CI and clean installation directly from the public Release wheel passed. |
-| Hosted MCP | Live | [Streamable HTTP endpoint](https://gridzen.ai/developers/mcp); Version 0.3.0, same five tools; all five tools tested with a real remote client. Independent aggregate counter persists after restart; its five baseline calls were our acceptance test. |
-| Official MCP Registry | Published, active | [Public version record](https://registry.modelcontextprotocol.io/v0.1/servers/ai.gridzen%2Fverification/versions/0.2.0). Publication receipt and unauthenticated lookup confirmed version 0.2.0 active on 2026-10-08. |
-| Skills.sh | Three confirmed pages; six Skills in source | [Project](https://skills.sh/immurray/gridzen-developer-kit). One real Codex installation acceptance test installed all three Skills. This is not evidence of external adoption. |
-| Docker MCP Catalog | Submitted; awaiting review | [Docker PR #5530](https://github.com/docker/mcp-registry/pull/5530). Official validator and catalog generation passed. No catalog availability is claimed before merge/release; Docker Desktop GUI/gateway acceptance remains untested. |
-| Smithery | Submission prepared; not submitted | [Publish](https://smithery.ai/new) requires publisher login. Use the hosted MCP URL and copy in submissions.md. |
-| Glama | Submission prepared; not submitted | [Directory](https://glama.ai/mcp/servers) Add Server requires an account; glama.json and repository/icon are ready. Complete any interactive account checks in the publisher session. |
-| Cline | Not submitted; client acceptance pending | [Submission repository](https://github.com/cline/mcp-marketplace). Its Cline-specific install check has not been performed. Generic MCP tests are not a substitute. |
-| Cursor | Package prepared; not submitted | [Publisher application](https://cursor.com/marketplace/publish) requires sign-in. Cursor package and metadata are ready; local client acceptance is still pending. |
-| Claude | Package prepared; not submitted | Claude-format release ZIP and repository marketplace are ready. Publisher-account access and client acceptance are pending. |
-| OpenAI plugins | Package prepared; not submitted | [Publisher portal](https://platform.openai.com/plugins). Portable plugin ZIP includes MCP + Skills; publisher identity/account requirements and client acceptance remain pending. |
-| PyPI | Published 0.3.0; installation verified | [Package](https://pypi.org/project/gridzen-developer-kit/0.3.0/), [publish workflow](https://github.com/immurray/gridzen-developer-kit/actions/runs/37936347356), [receipt](pypi-publication-0.3.0.json). Clean venv installation by package name, CLI, actual stdio MCP, six Skill directories and three installed offline helpers passed. |
-| SkillsMP | Indexing unconfirmed | Public source is available for indexing. No confirmed Gridzen listing or submission receipt yet. |
-| PulseMCP | Deferred | New submissions were paused when checked on 2026-10-08. |
-| MCP.so | Deferred | Paid submission is outside the current free-channel rollout. |
+| GitHub | Published | [v0.4.0](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.4.0); 15 assets. [Receipt](release-0.4.0.json). |
+| PyPI | Published; installation verified | [0.4.0](https://pypi.org/project/gridzen-developer-kit/0.4.0/). [Receipt](pypi-publication-0.4.0.json). Clean venv, CLI, all-ten setup, six Skills, installed offline helpers and actual stdio passed. |
+| Hosted MCP | Live 0.4.0 | [Endpoint](https://gridzen.ai/developers/mcp); five tools, five synthetic scenarios, retrieval/planning verified. Independent aggregate volume retained. |
+| Official MCP Registry | Active, latest 0.4.0 | [Version record](https://registry.modelcontextprotocol.io/v0.1/servers/ai.gridzen%2Fverification/versions/0.4.0). [Receipt](registry-publication-0.4.0.json). Domain proof restored as a durable public file; no private key is distributed. |
+| Docker MCP Catalog | Existing PR updated; awaiting review | [PR #5530](https://github.com/docker/mcp-registry/pull/5530), updated source head and description. Official validator/catalog generation passed. [Receipt](docker-update-0.4.0.json). Docker Desktop/gateway GUI remains untested. |
+| Skills.sh | Canonical source ready; six listings unconfirmed | `npx skills add immurray/gridzen-developer-kit`. Prior three listing observations are historical; no claim that all six new listing pages or third-party installs are confirmed. |
+| Smithery | Ready, login required; not submitted | [Publisher](https://smithery.ai/new) redirects to sign-in; current submission pack has six Skills and 0.4.0. |
+| Glama | Ready, publisher account required; not submitted | [Directory](https://glama.ai/mcp/servers), glama.json, public repo and icon. Complete publisher session. |
+| Cline Marketplace | Ready; client-specific acceptance required | [Contribution requirements](https://github.com/cline/mcp-marketplace). Cline GUI install acceptance was not run; cannot check its required successful-Cline-install assertion. |
+| Cursor Marketplace | Package ready; not submitted | Publisher login and actual Cursor GUI acceptance remain pending. |
+| Claude marketplace | Package/marketplace ready; not submitted | Existing account access and client acceptance remain pending. Claude Code here is not logged in; local MCP config is pending approval. |
+| OpenAI plugin portal | Portable package ready; not submitted | Publisher identity/login requirements remain pending; Codex acceptance is not marketplace approval. |
+| SkillsMP | Indexing unconfirmed | No verified listing receipt. |
+| PulseMCP | Current submission availability unconfirmed | Recheck returned HTTP 403; historical pause is not asserted as today's policy. |
+| MCP.so | Deferred | Paid route excluded. |
+| Social media | Drafts ready, not posted | [English/Chinese/Spanish drafts](promotion.md). |
 
-## Install the Skills
+## Actual client acceptance
+
+[Compatibility matrix](../clients/compatibility.json) records configuration tests separately from native discovery and model runs. Codex 0.159.0 used an existing ChatGPT subscription, explicitly inspected six Skills and called all five tools in a read-only synthetic run. MCP was supplied by a session override; automatic untrusted project loading and every Skill's autonomous routing were not tested. OpenCode 1.18.35 discovered six Skills and connected; Copilot CLI 1.0.94 discovered six Skills but its standalone MCP list did not detect project files. Gemini 0.63.0 requires workspace trust; Claude Code 2.1.295 requires approval/login. Desktop, Cursor, VS Code, Cline and Roo GUI acceptance remains untested on this Linux host. No paid model API calls or extra subscriptions.
+
+[Model evidence](harness-acceptance-2026-10-09.json), [live browser evidence](harness-browser-live-2026-10-09.json): 36 checks, zero failures. Existing main website: 96 pages × two viewports, zero failures. Public source: 32 tests; installed three offline helper suites passed.
+
+## Installation and promotion
 
 ```sh
-npx skills add immurray/gridzen-developer-kit
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade gridzen-developer-kit
+gridzen setup --client all --project .
+gridzen setup --client all --project . --apply
 ```
 
-- [gridzen-select-verification](https://skills.sh/immurray/gridzen-developer-kit/gridzen-select-verification)
-- [gridzen-integrate-sandbox](https://skills.sh/immurray/gridzen-developer-kit/gridzen-integrate-sandbox)
-- [gridzen-explain-verification](https://skills.sh/immurray/gridzen-developer-kit/gridzen-explain-verification)
-
-## Publisher handoff
-
-Use [submissions.md](submissions.md) for English descriptions, screenshots/icon
-requirements, endpoint, support/privacy/terms links and the synthetic review prompt.
-Use the matching ZIP from the GitHub release; retain each platform's actual receipt
-and published URL before changing a row to published.
-
-For PyPI, create a pending Trusted Publisher with:
-
-- Project: `gridzen-developer-kit`
-- GitHub owner: `immurray`
-- Repository: `gridzen-developer-kit`
-- Workflow: `publish-pypi.yml`
-- Environment: `pypi`
-
-Then run the manual workflow from the verified release commit. Do not change an
-existing release tag or replace version 0.2.0 with different runtime code; new
-runtime changes require a new version.
-
-
-## 0.3.0 closeout — 2026-10-09
-
-Published GitHub v0.3.0 and deployed remote MCP v0.3.0. All six Skill directories
-are present in wheel, sdist and ZIPs. The three new workflows retain version 1.0.0,
-MIT, README, complete normal/missing/refusal fixtures and agent acceptance prompts.
-Offline fixture contracts and installed helpers passed; this is not a claim of
-live model reasoning or client-specific acceptance for the new workflows.
-
-Evidence: [release](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.3.0),
-[release CI](https://github.com/immurray/gridzen-developer-kit/actions/runs/37917716580).
-Clean venv installation directly from the public Release wheel, CLI, six Skill
-asset discovery, installed workflow helpers, actual stdio MCP and remote five-tool
-acceptance passed. Public tests: 27, plus 18 original workflow helper tests.
-Existing website regression: 96 pages × 2 viewports, zero failures locally and live.
-The remote counter volume retained five acceptance calls after restart.
-
-**PyPI 0.3.0 is published and verified.** The owner confirmed Trusted Publisher
-configuration, and both workflow build and publish jobs succeeded. A clean venv
-installed `gridzen-developer-kit` directly from PyPI; CLI, actual stdio MCP, all six
-Skill assets and the three installed offline helpers passed. See the publication
-receipt above. PyPI Stats updates independently and may not yet have download
-statistics for this new project; missing statistics remain null, not zero.
-The official MCP Registry remains active at 0.2.0. Existing marketplace PRs retain their review
-status; public source and our own installation checks are not platform approval
-or external adoption evidence. The new three Skills.sh listings are unconfirmed.
-
-New workflows:
-- [mexico-pilot-scoper 1.0.0](../skills/mexico-pilot-scoper/README.md)
-- [payout-policy-designer 1.0.0](../skills/payout-policy-designer/README.md)
-- [provider-rights-readiness 1.0.0](../skills/provider-rights-readiness/README.md)
+Use one client instead of all if desired. Desktop/Cline require manual import; native clients require workspace trust and tool permissions. Complete platform-specific login/acceptance before claiming marketplace submission. [Client instructions](../docs/harness/README.md), [submission copy](submissions.md), [website](https://gridzen.ai/developers/harnesses.html). The three drafting workflows remain 1.0.0 and make no third-party calls or authorization conclusions.

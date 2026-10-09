@@ -1,0 +1,9 @@
+{
+  "url": "https://github.com/docker/mcp-registry/pull/5530",
+  "head_sha": "ef78f24f1cb957453d984a32052996f0cc1ad3f4",
+  "state": "open",
+  "merged": false,
+  "update": "six Skills, ten harnesses, release 0.4.0; actual GUI/account gaps retained",
+  "validator": "passed",
+  "catalog_generation": "passed"
+}

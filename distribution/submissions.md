@@ -60,8 +60,8 @@ its returned ID. No test account is required. Do not send personal information.
   are accepted without a container image. Submit server.yaml, tools.json (`[]`)
   and readme.md after official validator and catalog generation checks.
 - SkillsMP: https://skillsmp.com/ . Check actual indexing after the public release.
-- PulseMCP: https://www.pulsemcp.com/servers . New submissions paused when checked
-  2026-10-08; recheck before attempting submission.
+- PulseMCP: https://www.pulsemcp.com/servers . Current availability was not confirmed: recheck returned HTTP 403 on
+  2026-10-09. Do not claim a current pause without fresh evidence.
 - MCP.so: https://mcp.so/Submit?type=server . Current paid form is deferred.
 
 Packaging, schema validation and generic MCP acceptance do not mean a platform
