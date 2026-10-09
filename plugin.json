@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "gridzen-verification",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Research verification options by country, plan integrations and test synthetic outcomes. No live identity verification.",
   "author": {
     "name": "Gridzen",

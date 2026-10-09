@@ -15,7 +15,7 @@ mcp_app=make_transport()
 async def lifespan(_app):
  async with mcp_app.router.lifespan_context(mcp_app):yield
 
-app=FastAPI(title='Gridzen Developer Sandbox',version='0.4.0',lifespan=lifespan,docs_url=None,redoc_url=None,openapi_url='/api/openapi.json',servers=[{'url':'/developers'}])
+app=FastAPI(title='Gridzen Developer Sandbox',version='0.4.1',lifespan=lifespan,docs_url=None,redoc_url=None,openapi_url='/api/openapi.json',servers=[{'url':'/developers'}])
 app.add_middleware(MCPBounds)
 class PlanRequest(BaseModel):
  model_config=ConfigDict(extra='forbid',strict=True)
@@ -42,10 +42,10 @@ async def bounds(request:Request,call_next):
  response.headers['Cache-Control']='no-store' if request.url.path.startswith(('/api','/mcp')) else 'public, max-age=60'
  return response
 @app.get('/health')
-def health():return {'status':'ok','mode':'sandbox','live_routes':0,'version':'0.4.0','mcp_transport':'streamable-http'}
+def health():return {'status':'ok','mode':'sandbox','live_routes':0,'version':'0.4.1','mcp_transport':'streamable-http'}
 @app.get('/server-card.json')
 async def server_card():
- return {'serverInfo':{'name':'Gridzen Verification','version':'0.4.0'},'authentication':{'required':False},'tools':[tool.model_dump(by_alias=True,exclude_none=True) for tool in await mcp_server.list_tools()],'resources':[],'prompts':[]}
+ return {'serverInfo':{'name':'Gridzen Verification','version':'0.4.1'},'authentication':{'required':False},'tools':[tool.model_dump(by_alias=True,exclude_none=True) for tool in await mcp_server.list_tools()],'resources':[],'prompts':[]}
 @app.get('/api/coverage')
 def coverage(country:str|None=Query(None,max_length=2),capability:str|None=Query(None,max_length=40)):return core.coverage(country,capability)
 @app.post('/api/plan')

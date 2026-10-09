@@ -59,11 +59,11 @@ Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
 源码、版本下载、官方 MCP Registry 和三个 Skills.sh 技能页已公开；Docker 目录投稿待审核。各渠道真实状态及剩余步骤见[发布台账](distribution/STATUS.md)。
 
 
-## Six bundled Skills (0.4.0)
+## Six bundled Skills (0.4.1)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.4.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.4.0/); clean installation,
+and all six Skill directories. Version 0.4.1 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.4.1/); clean installation,
 CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
 dependency installation is required.
 

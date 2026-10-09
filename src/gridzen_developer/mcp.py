@@ -27,7 +27,7 @@ class GridzenMCP(MCPServer):
   for tool in tools:tool.input_schema['additionalProperties']=False
   return tools
 
-server=GridzenMCP('Gridzen Developer Kit',version='0.4.0',website_url='https://gridzen.ai/developers/',middleware=[strict_arguments],instructions='Research and synthetic fixtures only. No live providers are enabled. Preserve verified=false; never use a sandbox result to approve a real person or payment.')
+server=GridzenMCP('Gridzen Developer Kit',version='0.4.1',website_url='https://gridzen.ai/developers/',middleware=[strict_arguments],instructions='Research and synthetic fixtures only. No live providers are enabled. Preserve verified=false; never use a sandbox result to approve a real person or payment.')
 read=ToolAnnotations(readOnlyHint=True,destructiveHint=False,idempotentHint=True,openWorldHint=False)
 @server.tool(annotations=read,structured_output=True)
 def get_coverage(country: str | None=None, capability: str | None=None) -> dict[str, Any]:

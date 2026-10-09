@@ -1,4 +1,4 @@
-# Gridzen Developer Kit 0.4.0
+# Gridzen Developer Kit 0.4.1
 
 Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and six Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
 
@@ -77,10 +77,10 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.4.0"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.4.1"
 ```
 
-PyPI 0.4.0 is published and verified. Install with `python -m pip install
+PyPI 0.4.1 is published and verified. Install with `python -m pip install
 gridzen-developer-kit`. See [the release tracker](distribution/STATUS.md) for
 publication and installation evidence.
 
@@ -103,11 +103,11 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 Source, release downloads, the official MCP Registry entry and six Skills.sh pages are public. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
 
 
-## Six bundled Skills (0.4.0)
+## Six bundled Skills (0.4.1)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.4.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.4.0/); clean installation,
+and all six Skill directories. Version 0.4.1 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.4.1/); clean installation,
 CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
 dependency installation is required.
 
@@ -128,7 +128,7 @@ workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
 
-## Configure your assistant (v0.4.0)
+## Configure your assistant (v0.4.1)
 
 ```sh
 python3 -m venv .venv
