@@ -10,7 +10,7 @@ def test_every_declared_translation_exists_in_three_languages():
  for locale in data.values():
   assert set(locale)==keys
   assert all(isinstance(v,str) and v.strip() for v in locale.values())
- for file in ['index.html','quickstart.html']:
+ for file in [p.name for p in (ROOT/'src/gridzen_developer/web').glob('*.html')]:
   html=(ROOT/'src/gridzen_developer/web'/file).read_text()
   assert set(re.findall(r'data-i18n="([^"]+)"',html))<=keys
   assert '/developers/language.js' in html

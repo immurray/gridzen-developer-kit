@@ -4,7 +4,7 @@
  const caps={payout:'bank_account_match',onboarding:'commercial_identity',account_change:'phone_identity'};
  let result=null,countries=[],kind=null,pending=false,failed=false,copyKey='',sequence=0;
  const node=(tag,text)=>{const n=document.createElement(tag);n.textContent=text;return n};
- function countriesView(){if(!countries.length)return;const selected=$('country').value||'ID';$('country').replaceChildren();const rows=[...countries].sort((a,b)=>L.region(a.code).localeCompare(L.region(b.code),L.lang()));for(const c of rows){const option=node('option',c.code+' · '+L.region(c.code));option.value=c.code;$('country').append(option)}$('country').value=selected;}
+ function countriesView(){if(!countries.length)return;const selected=$('country').value||'MX';$('country').replaceChildren();const rows=[...countries].sort((a,b)=>L.region(a.code).localeCompare(L.region(b.code),L.lang()));for(const c of rows){const option=node('option',c.code+' · '+L.region(c.code));option.value=c.code;$('country').append(option)}$('country').value=selected;}
  function line(label,value){const row=node('dl','');row.className='result-line';row.append(node('dt',label),node('dd',value));$('summary').append(row)}
  function render(){
   $('sources').replaceChildren();$('summary').replaceChildren();$('copy-status').textContent=copyKey?L.t(copyKey):'';

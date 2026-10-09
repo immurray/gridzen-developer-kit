@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "checked_at": "2026-10-09",
   "tools": 5,
   "skills": 6,
@@ -175,5 +175,7 @@
       ]
     }
   ],
-  "notice": "Template/installer validation does not establish real client or model acceptance. No live verification."
+  "notice": "Template/installer validation does not establish real client or model acceptance. No live verification.",
+  "client_acceptance_release": "0.4.0",
+  "change_scope": "Presentation and shared website shell; five MCP tools and client configuration contract unchanged. Existing model acceptance is historical, not repeated for this presentation release."
 }
