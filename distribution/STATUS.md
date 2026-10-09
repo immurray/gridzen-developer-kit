@@ -17,7 +17,7 @@ live provider availability or production identity verification.
 | Cursor | Package prepared; not submitted | [Publisher application](https://cursor.com/marketplace/publish) requires sign-in. Cursor package and metadata are ready; local client acceptance is still pending. |
 | Claude | Package prepared; not submitted | Claude-format release ZIP and repository marketplace are ready. Publisher-account access and client acceptance are pending. |
 | OpenAI plugins | Package prepared; not submitted | [Publisher portal](https://platform.openai.com/plugins). Portable plugin ZIP includes MCP + Skills; publisher identity/account requirements and client acceptance remain pending. |
-| PyPI | Build verified; not published | Wheel/sdist are downloadable from GitHub. Configure PyPI Trusted Publishing before running publish-pypi.yml. No API token needs to be shared. |
+| PyPI | Published 0.3.0; installation verified | [Package](https://pypi.org/project/gridzen-developer-kit/0.3.0/), [publish workflow](https://github.com/immurray/gridzen-developer-kit/actions/runs/37936347356), [receipt](pypi-publication-0.3.0.json). Clean venv installation by package name, CLI, actual stdio MCP, six Skill directories and three installed offline helpers passed. |
 | SkillsMP | Indexing unconfirmed | Public source is available for indexing. No confirmed Gridzen listing or submission receipt yet. |
 | PulseMCP | Deferred | New submissions were paused when checked on 2026-10-08. |
 | MCP.so | Deferred | Paid submission is outside the current free-channel rollout. |
@@ -68,10 +68,13 @@ acceptance passed. Public tests: 27, plus 18 original workflow helper tests.
 Existing website regression: 96 pages × 2 viewports, zero failures locally and live.
 The remote counter volume retained five acceptance calls after restart.
 
-**PyPI remains unpublished** pending account-owner Trusted Publisher configuration
-confirmation. The release wheel is installable now; `pip install
-gridzen-developer-kit` from PyPI is not claimed to work yet. The official MCP
-Registry remains active at 0.2.0. Existing marketplace PRs retain their review
+**PyPI 0.3.0 is published and verified.** The owner confirmed Trusted Publisher
+configuration, and both workflow build and publish jobs succeeded. A clean venv
+installed `gridzen-developer-kit` directly from PyPI; CLI, actual stdio MCP, all six
+Skill assets and the three installed offline helpers passed. See the publication
+receipt above. PyPI Stats updates independently and may not yet have download
+statistics for this new project; missing statistics remain null, not zero.
+The official MCP Registry remains active at 0.2.0. Existing marketplace PRs retain their review
 status; public source and our own installation checks are not platform approval
 or external adoption evidence. The new three Skills.sh listings are unconfirmed.
 

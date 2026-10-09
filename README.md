@@ -77,11 +77,12 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.2.0"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.3.0"
 ```
 
-A PyPI package is not published yet. Use the GitHub release or website download
-until the release tracker records a verified PyPI URL.
+PyPI 0.3.0 is published and verified. Install with `python -m pip install
+gridzen-developer-kit`. See [the release tracker](distribution/STATUS.md) for
+publication and installation evidence.
 
 Remote client configuration (conventional JSON; client syntax may vary):
 
@@ -105,8 +106,10 @@ Source, release downloads, the official MCP Registry entry and six Skills.sh pag
 ## Six bundled Skills (0.3.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Once 0.3.0 is published, no extra MCP dependency
-installation is required. Until then, use the verified GitHub release wheel.
+and all six Skill directories. Version 0.3.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.3.0/); clean installation,
+CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
+dependency installation is required.
 
 ```sh
 gridzen coverage --country MX
