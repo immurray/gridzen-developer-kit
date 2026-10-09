@@ -1,17 +1,18 @@
-# Install Gridzen developer tools
+# GridZen developer kit — 0.4.0
 
-Remote MCP: https://gridzen.ai/developers/mcp (Streamable HTTP, no API key).
-Configure a remote HTTP MCP connection using your client's supported syntax.
-Call tools/list; expect five tools. Call create_sandbox_verification with
-country ID, capability bank_account_match, scenario timeout. Expect simulated=true,
-verified=false, status=inconclusive. No personal data is required or supported.
+Public research and synthetic sandbox, not real identity verification or payment authorization. Python 3.11+.
 
-Skills: npx skills add immurray/gridzen-developer-kit
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade gridzen-developer-kit
+gridzen setup --client all --project .
+gridzen setup --client all --project . --apply
+```
 
-Offline option: Python 3.11+ and Git, then install the tagged package:
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.2.0"
-Register the absolute path of gridzen-mcp as a local stdio command.
+Select one client instead of all: codex, claude-code, claude-desktop, cursor, vscode, copilot-cli, gemini-cli, cline, roo-code, opencode. Setup is project-scoped and previews by default. It refuses differing existing Gridzen config/Skills, backs up changed configs and preserves unrelated values. Trust the workspace and review tool permissions. Desktop/Cline require manual MCP import; Desktop produces six individual Skill ZIPs for manual upload when supported by the account.
 
-Do not configure production credentials, change firewall rules, disable client
-security settings or start paid provider calls. Research is not commercial coverage.
-Docs: https://gridzen.ai/developers/quickstart.html
+Remote MCP: https://gridzen.ai/developers/mcp (no API key). Offline stdio: absolute installed gridzen-mcp path. Five tools: get_coverage, plan_verification, create_sandbox_verification, get_sandbox_verification, explain_result. Six Skills: gridzen-select-verification, gridzen-integrate-sandbox, gridzen-explain-verification, mexico-pilot-scoper, payout-policy-designer, provider-rights-readiness.
+
+Instructions: https://gridzen.ai/developers/harnesses.html
+Actual test record: clients/compatibility.json. Config preparation is distinct from client/model acceptance. No claim of platform endorsement. Remote MCP records only date/tool/count aggregates; stdio is uncounted.

@@ -60,11 +60,11 @@ Código original bajo MIT; consulte NOTICE.md para los derechos de terceros.
 El código, las descargas, la entrada oficial de MCP Registry y tres páginas de Skills.sh están publicados. La propuesta del catálogo de Docker está pendiente de revisión. Consulta [el registro de publicación](distribution/STATUS.md).
 
 
-## Six bundled Skills (0.3.0)
+## Six bundled Skills (0.4.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.3.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.3.0/); clean installation,
+and all six Skill directories. Version 0.4.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.4.0/); clean installation,
 CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
 dependency installation is required.
 
@@ -84,3 +84,17 @@ workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
 `provider-rights-readiness`. Each includes MIT, README, complete response fixtures
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
+
+## Configura diez clientes
+
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade gridzen-developer-kit
+gridzen setup --client all --project .
+gridzen setup --client all --project . --apply
+```
+
+Usa Python 3.11+ en un entorno virtual. Primero revisa el resultado y después añade --apply. No cambia configuraciones globales. Desktop y Cline requieren importación manual; los demás necesitan confianza del proyecto. Configuración no equivale a aceptación del cliente o modelo.
+
+[Instructions / 使用说明](https://gridzen.ai/developers/harnesses.html) · [Compatibility / 测试记录](clients/compatibility.json)

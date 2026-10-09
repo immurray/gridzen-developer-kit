@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-09",
+  "version": "0.4.0",
+  "client": "Codex 0.159.0",
+  "authentication": "existing ChatGPT subscription",
+  "mode": "ephemeral read-only synthetic acceptance",
+  "tools": [
+    {
+      "name": "plan_verification",
+      "arguments": {
+        "country": "MX",
+        "event": "payout"
+      },
+      "status": "completed"
+    },
+    {
+      "name": "get_coverage",
+      "arguments": {
+        "country": "MX"
+      },
+      "status": "completed"
+    },
+    {
+      "name": "create_sandbox_verification",
+      "arguments": {
+        "country": "MX",
+        "capability": "bank_account_match",
+        "scenario": "timeout"
+      },
+      "status": "completed"
+    },
+    {
+      "name": "get_sandbox_verification",
+      "arguments": {
+        "identifier": "sim_v1:MX:bank_account_match:timeout"
+      },
+      "status": "completed"
+    },
+    {
+      "name": "explain_result",
+      "arguments": {
+        "reason_code": "SIMULATED_PROVIDER_TIMEOUT"
+      },
+      "status": "completed"
+    }
+  ],
+  "skills": "explicitly inspected all six project Skills; not an autonomous routing test",
+  "timeout_authorizes_payout": false,
+  "establishes_compliance": false,
+  "answer": "Completed the synthetic acceptance test. No files modified, paid APIs called, or work delegated. The fixture reports `provider_calls: 0`.\n\nAll six project Skills inspected:\n\n- `gridzen-select-verification`\n- `gridzen-integrate-sandbox`\n- `gridzen-explain-verification`\n- `mexico-pilot-scoper`\n- `payout-policy-designer`\n- `provider-rights-readiness`\n\nActual tools called:\n\n| Tool | Calls and purpose |\n|---|---|\n| `functions.exec` | 5 orchestration calls |\n| `exec_command` | 8 read-only calls: list files, read six Skills, read API contract |\n| `mcp__gridzen__get_coverage` | `country=\"MX\"` |\n| `mcp__gridzen__plan_verification` | `country=\"MX\", event=\"payout\"` |\n| `mcp__gridzen__create_sandbox_verification` | MX, `bank_account_match`, `timeout` |\n| `mcp__gridzen__get_sandbox_verification` | Retrieved `sim_v1:MX:bank_account_match:timeout` |\n| `mcp__gridzen__explain_result` | Explained `SIMULATED_PROVIDER_TIMEOUT` |\n\nMX research is dated **2026-10-07**. It records restricted [INE verification](https://ine.mx/servicio-verificacion-datos-credencial-votar/) and [Plaid identity verification](https://plaid.com/docs/identity-verification/) evidence. INE requires a cooperation agreement and service-specific authorization; Plaid requires commercial access with country-dependent fields and coverage. Neither establishes bank-account ownership. MX bank-account matching remains **UNCONFIRMED**, with **zero enabled live routes**.\n\nThe MX payout plan selects `bank_account_match` for synthetic evaluation. A real pilot still needs confirmed provider access and inputs, technical and risk owners, an authorization reference, and reviewed processing and downstream-use rights. Provider failure should hold the caller workflow for review; any fallback needs its own authorized route.\n\nThe created and retrieved fixture returned `mode=\"sandbox\"`, `simulated=true`, `verified=false`, `live_available=false`, `status=\"inconclusive\"`, and empty evidence. `SIMULATED_PROVIDER_TIMEOUT` means a simulated provider timeout. Check bounded retries and explicit failure handling; never convert it into a mismatch, fraud finding, or successful verification. Its deterministic ID is not a transaction receipt.\n\n**Does a timeout authorize a real payout? No. Does it establish legal compliance? No.**",
+  "raw_event_sha256": "e4972c0804b4877a203e9456e637c3b78b6180944911d6881801b9095ab75664"
+}

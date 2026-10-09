@@ -1,4 +1,4 @@
-# Gridzen marketplace submission pack — 0.2.0
+# Gridzen marketplace submission pack — 0.4.0
 
 Canonical repository: https://github.com/immurray/gridzen-developer-kit
 Website: https://gridzen.ai/developers/
@@ -18,7 +18,7 @@ Short description: Plan and test verification
 Gridzen helps developers research country-specific identity, bank-account and
 phone verification approaches, plan an integration, and test failure handling
 with five synthetic outcomes. It includes source-linked research for 198
-countries/territories, five MCP tools and three Agent Skills. All live provider
+countries/territories, five MCP tools and six Agent Skills. All live provider
 routes are disabled; research coverage is not commercial availability. No real
 person is verified and no personal data or credentials are needed.
 
@@ -66,3 +66,7 @@ its returned ID. No test account is required. Do not send personal information.
 
 Packaging, schema validation and generic MCP acceptance do not mean a platform
 has reviewed, approved or published this project. Record each result separately.
+
+## Multi-client installation
+
+Ten harness formats are documented at https://gridzen.ai/developers/harnesses.html. PyPI provides project-scoped `gridzen setup`; Claude Desktop and Cline need manual import. See clients/compatibility.json for tested clients, trust/login blockers and GUI gaps. Do not assert that every client was run.

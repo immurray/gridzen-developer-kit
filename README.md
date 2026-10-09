@@ -1,4 +1,4 @@
-# Gridzen Developer Kit 0.3.0
+# Gridzen Developer Kit 0.4.0
 
 Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and six Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
 
@@ -77,10 +77,10 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.3.0"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.4.0"
 ```
 
-PyPI 0.3.0 is published and verified. Install with `python -m pip install
+PyPI 0.4.0 is published and verified. Install with `python -m pip install
 gridzen-developer-kit`. See [the release tracker](distribution/STATUS.md) for
 publication and installation evidence.
 
@@ -103,11 +103,11 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 Source, release downloads, the official MCP Registry entry and six Skills.sh pages are public. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
 
 
-## Six bundled Skills (0.3.0)
+## Six bundled Skills (0.4.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.3.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.3.0/); clean installation,
+and all six Skill directories. Version 0.4.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.4.0/); clean installation,
 CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
 dependency installation is required.
 
@@ -127,3 +127,15 @@ workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
 `provider-rights-readiness`. Each includes MIT, README, complete response fixtures
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
+
+## Configure your assistant (v0.4.0)
+
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade gridzen-developer-kit
+gridzen setup --client all --project .
+gridzen setup --client all --project . --apply
+```
+
+Use `--client` for Codex, Claude Code/Desktop, Cursor, VS Code/Copilot, Copilot CLI, Gemini CLI, Cline, Roo Code or OpenCode. Setup previews by default, merges existing unrelated settings, backs up changed configurations and refuses differing Gridzen entries or Skill files. No global client settings are modified. Native clients require workspace trust; Desktop and Cline require manual MCP import. Desktop produces six separately uploadable ZIPs. See [client-specific instructions](docs/harness/README.md) and [actual compatibility evidence](clients/compatibility.json). Configuration preparation is not model acceptance or real verification.
