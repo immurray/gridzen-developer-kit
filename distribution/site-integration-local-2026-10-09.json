@@ -3,6 +3,7 @@
   "passed": 72,
   "failed": 0,
   "cross_project_round_trips": 24,
+  "synthetic_ui_cases": 15,
   "checks": [
     {
       "page": "index",

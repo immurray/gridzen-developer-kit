@@ -24,7 +24,7 @@ with sync_playwright() as p:
     page.on('pageerror',on_error)
     response=page.goto(base+'/developers/'+path+'?lang='+lang)
     assert response.status==200
-    page.wait_for_function('window.GridzenShellReady !== undefined')
+    page.wait_for_function('()=>window.GridzenShellReady !== undefined')
     assert page.evaluate('window.GridzenShellReady') is True
     assert nav_signature(page)==main_nav,(lang,path,'Different navigation')
     actual=page.locator('.site-nav').evaluate('(node)=>({background:getComputedStyle(node).backgroundColor,border:getComputedStyle(node).borderBottomColor,brand:getComputedStyle(node.querySelector(".brand")).fontFamily})')
@@ -35,8 +35,17 @@ with sync_playwright() as p:
     assert page.evaluate('document.documentElement.scrollWidth-innerWidth')<=2,(path,width,'Overflow')
     assert page.locator('.developer-subnav a').count()==3
     assert page.locator('.foot .foot-links a[href*="skills"]').count()==1
+    if path=='' and width==1440:
+     page.wait_for_function('()=>document.querySelector("#country").options.length>1')
+     assert page.input_value('#country')=='MX'
+     for scenario in ['match','mismatch','not_found','timeout','unsupported']:
+      page.select_option('#scenario',scenario);page.locator('#run').click()
+      page.wait_for_function('(scenario)=>{try{return JSON.parse(document.querySelector("#result").textContent).fixture_outcome===scenario}catch(_){return false}}',arg=scenario)
+      value=json.loads(page.locator('#result').text_content())
+      assert value['country']=='MX' and value['simulated'] is True and value['verified'] is False and value['provider_calls']==0
+      if scenario in ['not_found','timeout','unsupported']:assert value['status']=='inconclusive'
     if path=='harnesses.html':
-     page.wait_for_function('document.querySelector("#client").options.length===10')
+     page.wait_for_function('()=>document.querySelector("#client").options.length===10')
      for client in ['codex','claude-code','claude-desktop','cursor','vscode','copilot-cli','gemini-cli','cline','roo-code','opencode']:
       page.select_option('#client',client)
       assert client in page.locator('#setup').inner_text()
@@ -50,15 +59,15 @@ with sync_playwright() as p:
    # Traverse actual project entry points, rather than only testing URLs independently.
    page.goto(base+prefix+'/docs/')
    page.locator('.developer-entry-card').first.click()
-   page.wait_for_function('window.GridzenShellReady !== undefined');page.evaluate('window.GridzenShellReady')
+   page.wait_for_function('()=>window.GridzenShellReady !== undefined');page.evaluate('window.GridzenShellReady')
    assert page.url.endswith('/developers/harnesses.html?lang='+lang)
    page.locator('.site-links a').first.click()
    assert page.url.endswith(prefix+'/docs/')
    page.goto(base+prefix+'/skills/')
    page.locator('a[href="/developers/harnesses.html?lang='+lang+'"]').first.click()
-   page.wait_for_function('window.GridzenShellReady !== undefined');page.evaluate('window.GridzenShellReady')
+   page.wait_for_function('()=>window.GridzenShellReady !== undefined');page.evaluate('window.GridzenShellReady')
    page.locator('.foot-links a[href="'+prefix+'/skills/"]').click()
    assert page.url.endswith(prefix+'/skills/')
   page.close()
  browser.close()
-print(json.dumps({'base':base,'passed':len(checks),'failed':0,'cross_project_round_trips':24,'checks':checks},ensure_ascii=False,indent=2))
+print(json.dumps({'base':base,'passed':len(checks),'failed':0,'cross_project_round_trips':24,'synthetic_ui_cases':15,'checks':checks},ensure_ascii=False,indent=2))
