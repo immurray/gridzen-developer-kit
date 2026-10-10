@@ -1,5 +1,18 @@
 # Distribution status — 2026-10-09
 
+Version **0.5.0**: customer-task planning, fixed-category attempt/error evidence and explicit opt-in summaries. Six Skills and five MCP tools retained; no live routes or billing enabled.
+
+| Surface | Current evidence |
+| --- | --- |
+| GitHub | [v0.5.0 published](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.5.0); package/Skill assets attached; plugin assets attached by the release-assets workflow. |
+| PyPI | [0.5.0 published](https://pypi.org/project/gridzen-developer-kit/0.5.0/); official clean-install acceptance recorded in the main project. |
+| Hosted developer service | 0.5.0 deployed; priority task plans, ten fixtures and opt-in retry accepted. |
+| Official MCP Registry | Last verified latest remains 0.4.1. The domain publisher requires separate existing signing authorization; this change does not read or use its private key, and does not claim registry 0.5.0 publication. Existing 0.4.1 remains available. |
+
+[New task contract and privacy boundaries](../docs/product-tasks-0.5.0.md). New tests are deterministic protocol/fixture checks, not evidence of independent customers or current model recommendation rates. Historical native-client evidence below is retained as historical.
+
+## Historical 0.4.1 distribution record
+
 Version **0.4.1**. Six Skills, five research/synthetic MCP tools, ten-client project setup. Publication is not platform endorsement, live verification or evidence of external adoption.
 
 | Channel | Actual status | Evidence / remaining step |
