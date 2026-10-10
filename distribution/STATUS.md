@@ -2,7 +2,9 @@
 
 0.6.0 adds explicitly consented local CLI/stdio category events, a bounded offline queue, and six Skill feedback instructions. No production provider is enabled. Validation and publishing receipts are maintained in the private project.
 
-The following 0.5.0 record remains historical until 0.6.0 publication is verified.
+Verified 2026-10-10: GitHub tag/release v0.6.0 and PyPI 0.6.0 published; hosted health reports 0.6.0/zero live routes; official Registry 0.6.0 is active ([public receipt](registry-publication-0.6.0.json)). Clean official PyPI install and actual stdio MCP passed. Public suite: 47 tests. The private project separately collects consented local usage and generates task-focused demand reviews. Customer counts and purchase intent remain unknown.
+
+The following 0.5.0 record is historical.
 
 # Distribution status — 2026-10-09
 
