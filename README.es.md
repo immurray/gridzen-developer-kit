@@ -1,4 +1,4 @@
-# Kit de desarrollo Gridzen 0.1.1
+# Kit de desarrollo Gridzen 0.6.0
 
 Investigación sobre 198 países y territorios, planificación de integraciones, cinco resultados simulados, CLI/SDK HTTP de Python, MCP local y seis Skills. No hay canales de proveedores reales activos. Ningún resultado simulado verifica a una persona real.
 
@@ -29,7 +29,7 @@ Añade un servidor stdio local a un cliente compatible y sustituye command por l
 
 Prueba: «Planifica una verificación de pagos para Indonesia y simula una espera agotada del proveedor». Las cinco herramientas consultan cobertura, planifican, generan simulaciones, recuperan pruebas y explican resultados. La configuración depende del cliente; no hay endpoint MCP remoto de producción.
 
-Copia cada carpeta de `skills/` al directorio de habilidades del agente, conservando `SKILL.md` y sus referencias. Los tres Skills permiten elegir una verificación, integrar pruebas y explicar resultados. Los identificadores permanecen en inglés; el agente puede explicar los resultados en español.
+Copia cada carpeta de `skills/` al directorio de habilidades del agente, conservando `SKILL.md` y sus referencias. Los seis Skills cubren selección, integración de pruebas, explicación de resultados, preparación de permisos, políticas de pagos y planificación de pilotos en México. Los identificadores permanecen en inglés; el agente puede explicar los resultados en español.
 
 ## Interpretación
 
@@ -134,3 +134,11 @@ No network calls occur from local CLI/MCP when disabled. Consent is saved per OS
 La telemetría está desactivada por defecto. Tras consentimiento explícito, CLI y stdio envían categorías automáticamente. `gridzen telemetry disable` desactiva y borra la cola. Sin conexión: máximo 1000 eventos durante 30 días. Cada llamada o flush reintenta un evento; no hay servicio en segundo plano. No se envían conversaciones, identidad, credenciales ni IDs de usuarios/proyectos. Leer un Skill no se observa; un Agent puede registrar un resumen tras consentimiento previo. Son datos autodeclarados, no clientes autenticados.
 
 Local queued events expire after 30 days and are removed on the next enqueue/flush. Daily aggregates use server receipt date; delayed uploads are not proof that work occurred on that date.
+
+## Piloto independiente con aprobación del responsable
+
+El kit publicado 0.6.0 y sus cinco herramientas públicas siguen siendo de investigación y simulación. Puede solicitar un piloto independiente de validez básica del teléfono e incorporación de identidad: [solicitud](https://gridzen.ai/console/pilot?lang=es), [guía](https://gridzen.ai/console/pilot-guide?lang=es), [alcance](https://gridzen.ai/es/guides/customer-pilot/).
+
+Solicitar no activa producción. El responsable confirma derechos del proveedor, acuerdos, capacidades, límites y vencimiento; solo se usan cupos gratuitos confirmados. El piloto utiliza un cliente MCP separado y una clave comercial. No envíe documentos, caras ni claves del proveedor al MCP público. La validez básica no proporciona OTP ni prueba de titularidad.
+
+Se validaron una consulta real de teléfono y la lectura de una sesión histórica Approved del operador mediante API/MCP. Falta validar la finalización humana de una sesión nueva y su webhook final real. Pruebas internas, descargas e interés declarado no demuestran demanda. Esta actualización documental no cambia versiones de PyPI ni Registry.

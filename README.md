@@ -190,3 +190,11 @@ gridzen telemetry disable
 No network calls occur from local CLI/MCP when disabled. Consent is saved per OS user, not silently added to a project. Events contain only documented categories, ISO country, and a random per-event receipt, with no conversation, identity fields, credentials, user or project IDs. Feedback failures do not fail tool execution. The local queue is capped at 1,000 events/30 days; reconnect or `flush` retries one queued event, with a one-second HTTP timeout. Uploads are self-reported usage, not authenticated customers or completed verification. No background daemon is installed. Merely reading a Skill is unobservable; after consent, an Agent can explicitly record a fixed-category task summary.
 
 Local queued events expire after 30 days and are removed on the next enqueue/flush. Daily aggregates use server receipt date; delayed uploads are not proof that work occurred on that date.
+
+## Separate owner-approved customer pilot
+
+The published 0.6.0 kit and its five public tools remain research/synthetic tools. A separate hosted pilot accepts customer applications for basic signup-phone validity and hosted personal identity onboarding: [apply](https://gridzen.ai/console/pilot?lang=en), [integration guide](https://gridzen.ai/console/pilot-guide?lang=en), [public scope](https://gridzen.ai/guides/customer-pilot/).
+
+Submitting an application never activates production. The owner must approve supplier rights, downstream agreements, capabilities, request limits and expiry; only confirmed free allowances are used. The production pilot has its own downloaded MCP client and merchant API key. Do not send documents, faces or provider keys to the public research MCP. Basic phone validity does not provide OTP or ownership.
+
+Real basic phone checks and retrieval of a historical Approved operator identity session were validated through the live customer API/MCP. New-session human completion and its final real webhook remain unvalidated. Operator tests, downloads and self-reported interest are not customer demand. This documentation update does not change the PyPI package or Registry version.

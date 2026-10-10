@@ -1,6 +1,6 @@
-# Gridzen 开发者工具包 0.1.1
+# Gridzen 开发者工具包 0.6.0
 
-工具包提供 198 个国家/地区的核验研究、接入方案、五种模拟结果、Python CLI/HTTP SDK、本地 MCP 和三个 Skills。当前没有启用真实供应商通道，模拟结果不代表真实人员通过核验。
+工具包提供 198 个国家/地区的核验研究、接入方案、五种模拟结果、Python CLI/HTTP SDK、本地 MCP 和六个 Skills。当前没有启用真实供应商通道，模拟结果不代表真实人员通过核验。
 
 在线试用与中文指南：https://gridzen.ai/developers/ 。页面右上角可切换中文、英文和西班牙文，并记住选择。研究快照日期为 2026-10-07，来源和原始接入限制保持原文。
 
@@ -29,7 +29,7 @@ Windows 下使用 `.venv\Scripts\activate` 激活虚拟环境。CLI 和本地 MC
 
 可输入：“为印度尼西亚制定付款核验接入方案，然后测试供应商超时。”五个工具分别查询覆盖、规划、生成模拟结果、读取结果和解释原因。客户端配置格式可能不同；当前没有远程生产 MCP 地址。
 
-将 `skills/` 中各个文件夹复制到 Agent 支持的技能目录，保留 `SKILL.md` 和引用文件。三个 Skill 分别用于选择核验方案、接入沙盒、解释结果。代码标识和技能名称保持英文，Agent 可以用中文讲解。
+将 `skills/` 中各个文件夹复制到 Agent 支持的技能目录，保留 `SKILL.md` 和引用文件。六个 Skill 覆盖方案选择、沙盒接入、结果解释、供应商权限准备、提现政策和墨西哥试点规划。代码标识和技能名称保持英文，Agent 可以用中文讲解。
 
 ## 理解测试结果
 
@@ -133,3 +133,11 @@ No network calls occur from local CLI/MCP when disabled. Consent is saved per OS
 本地反馈默认关闭。用户先阅读说明并同意，再运行 `gridzen telemetry enable --consent`；此后 CLI 和本地 MCP 自动反馈分类事件。`gridzen telemetry disable` 立即关闭并清空待发送队列。断网最多保留 1000 条、30 天；恢复后每次调用或 flush 发送一条，无后台守护进程。只发送固定分类、国家和随机事件回执，不发送对话、身份资料、凭证或用户/项目标识。按服务器收到的日期统计，延迟上传不是该日实际发生的全部调用。仅阅读 Skill 无法自动观察，Agent 可在用户已经同意时主动 record 分类小结。它们仍是自报线索，不代表认证客户或真实核验完成。
 
 Local queued events expire after 30 days and are removed on the next enqueue/flush. Daily aggregates use server receipt date; delayed uploads are not proof that work occurred on that date.
+
+## 独立的客户生产试点
+
+已发行的 0.6.0 工具包与公开五个工具仍提供研究和模拟，不自动启用真人核验。客户可以申请独立试点：[申请入口](https://gridzen.ai/console/pilot?lang=zh)、[接入指南](https://gridzen.ai/console/pilot-guide?lang=zh)、[公开范围](https://gridzen.ai/zh/guides/customer-pilot/)。
+
+申请不会自动开通。负责人核对供应商权限、下游协议、能力、次数和有效期后批准，仅用确认的免费额度。生产试点使用独立下载的 MCP 客户端和商户 Key；不向研究 MCP 提交证件、人脸或供应商密钥。号码基础有效性不提供 OTP 或号码归属证明。
+
+已真实验收基础号码查询和历史 Approved 本人身份结果经新版 API/MCP 读取；新会话真人完成及最终真实回调尚未验收。自测、下载和费用意向不等于客户需求。这次只更新文档，不改变 PyPI 或 Registry 版本。
