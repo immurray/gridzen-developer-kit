@@ -1,5 +1,6 @@
 """Remote-only, fail-open UTC aggregates. No request fields or identifiers."""
 import asyncio
+from contextvars import ContextVar
 import os
 import sqlite3
 from datetime import date, datetime, timedelta, timezone
@@ -7,17 +8,23 @@ from pathlib import Path
 
 TOOLS = frozenset(('get_coverage', 'plan_verification', 'create_sandbox_verification', 'get_sandbox_verification', 'explain_result'))
 RETENTION_DAYS = 90
+CALL_SOURCE = ContextVar('gridzen_call_source', default='unknown')
+SOURCES = frozenset(('internal_test', 'self_reported_test', 'unknown'))
 
-def record(path, tool, day=None):
+def record(path, tool, day=None, source='unknown'):
     if tool not in TOOLS:
         return
+    source = source if source in SOURCES else 'unknown'
     day = day or datetime.now(timezone.utc).date()
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with sqlite3.connect(path, timeout=5) as db:
         db.execute('CREATE TABLE IF NOT EXISTS calls (day TEXT NOT NULL, tool TEXT NOT NULL, count INTEGER NOT NULL, PRIMARY KEY(day, tool))')
+        db.execute('CREATE TABLE IF NOT EXISTS call_sources (day TEXT NOT NULL, tool TEXT NOT NULL, source TEXT NOT NULL, count INTEGER NOT NULL, PRIMARY KEY(day, tool, source))')
+        db.execute('DELETE FROM call_sources WHERE day < ?', ((day - timedelta(days=RETENTION_DAYS - 1)).isoformat(),))
         db.execute('DELETE FROM calls WHERE day < ?', ((day - timedelta(days=RETENTION_DAYS - 1)).isoformat(),))
         db.execute('INSERT INTO calls VALUES (?, ?, 1) ON CONFLICT(day, tool) DO UPDATE SET count=count+1', (day.isoformat(), tool))
+        db.execute('INSERT INTO call_sources VALUES (?, ?, ?, 1) ON CONFLICT(day, tool, source) DO UPDATE SET count=count+1', (day.isoformat(), tool, source))
 
 def summarize(path, end=None):
     end = end or datetime.now(timezone.utc).date()
@@ -40,7 +47,7 @@ async def aggregate_calls(ctx, call_next):
         path = os.environ.get('GRIDZEN_MCP_EVENTS_DB')
         if path and isinstance(tool, str) and tool in TOOLS and not getattr(result, 'is_error', False):
             try:
-                await asyncio.to_thread(record, path, tool)
+                await asyncio.to_thread(record, path, tool, source=CALL_SOURCE.get())
             except (OSError, sqlite3.Error):
                 # Aggregate availability must never change tool behavior.
                 pass

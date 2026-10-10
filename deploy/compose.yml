@@ -1,10 +1,12 @@
 name: gridzen-developer
 services:
   developer:
-    image: gridzen-developer:0.4.1
+    image: gridzen-developer:0.4.1-geo1
     ports: ['127.0.0.1:8030:8030']
     environment:
       GRIDZEN_MCP_EVENTS_DB: /metrics/counters.sqlite3
+      # Loopback publish only; proxy must overwrite X-Real-IP.
+      GRIDZEN_MCP_LOCAL_TEST_PEERS: "127.0.0.1,::1,172.18.0.1"
     volumes:
       - mcp-metrics:/metrics
     restart: unless-stopped

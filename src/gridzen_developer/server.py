@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 from . import core
-from .remote import make_transport, MCPBounds
+from .remote import make_transport, MCPBounds, CallSourceMiddleware
 from .mcp import server as mcp_server
 
 mcp_app=make_transport()
@@ -17,6 +17,7 @@ async def lifespan(_app):
 
 app=FastAPI(title='Gridzen Developer Sandbox',version='0.4.1',lifespan=lifespan,docs_url=None,redoc_url=None,openapi_url='/api/openapi.json',servers=[{'url':'/developers'}])
 app.add_middleware(MCPBounds)
+app.add_middleware(CallSourceMiddleware)
 class PlanRequest(BaseModel):
  model_config=ConfigDict(extra='forbid',strict=True)
  country: str=Field(min_length=2,max_length=2,pattern=r'^[A-Za-z]{2}$')

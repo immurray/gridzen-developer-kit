@@ -1,5 +1,7 @@
 """Bounded, stateless public MCP transport. No accounts or providers; optional aggregate counts only."""
 from collections import OrderedDict
+import os
+from .usage import CALL_SOURCE
 from time import monotonic
 from starlette.responses import JSONResponse
 from mcp.server.transport_security import TransportSecuritySettings
@@ -17,6 +19,26 @@ def make_transport():
    allowed_origins=['https://gridzen.ai','http://127.0.0.1:*','http://localhost:*'],
   ),
  )
+
+class CallSourceMiddleware:
+ """Only explicit tests over the loopback-published service can be trusted.
+
+ The public reverse proxy MUST overwrite X-Real-IP. Publicly supplied labels
+ remain self-reported, never authenticated users. No addresses are persisted.
+ """
+ def __init__(self,app): self.app=app
+ async def __call__(self,scope,receive,send):
+  if scope['type'] != 'http' or scope.get('path') != '/mcp':
+   return await self.app(scope,receive,send)
+  headers=dict(scope.get('headers',[]))
+  source='unknown'
+  if headers.get(b'x-gridzen-purpose') == b'internal_test':
+   peer=(scope.get('client') or ('unknown',0))[0]
+   trusted=set(os.environ.get('GRIDZEN_MCP_LOCAL_TEST_PEERS','127.0.0.1,::1').split(','))
+   source='internal_test' if peer in trusted and b'x-real-ip' not in headers and b'x-forwarded-for' not in headers else 'self_reported_test'
+  token=CALL_SOURCE.set(source)
+  try: return await self.app(scope,receive,send)
+  finally: CALL_SOURCE.reset(token)
 
 class MCPBounds:
  """One process-wide and one per-client fixed window; no payload logging.

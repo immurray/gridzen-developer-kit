@@ -139,3 +139,20 @@ gridzen setup --client all --project . --apply
 ```
 
 Use `--client` for Codex, Claude Code/Desktop, Cursor, VS Code/Copilot, Copilot CLI, Gemini CLI, Cline, Roo Code or OpenCode. Setup previews by default, merges existing unrelated settings, backs up changed configurations and refuses differing Gridzen entries or Skill files. No global client settings are modified. Native clients require workspace trust; Desktop and Cline require manual MCP import. Desktop produces six separately uploadable ZIPs. See [client-specific instructions](docs/harness/README.md) and [actual compatibility evidence](clients/compatibility.json). Configuration preparation is not model acceptance or real verification.
+
+## Hosted MCP aggregate attribution
+
+Hosted calls count successful tool invocations, not customers. Existing totals
+remain unchanged. The hosted service records UTC day, tool name, one source
+category and a count; it never persists request arguments or client addresses.
+Historical and unlabelled calls remain `unknown`. Local stdio remains offline.
+
+Explicit acceptance requests to the loopback-published service may set
+`X-Gridzen-Purpose: internal_test`. Only configured local peers with no forwarded
+client headers are classified as `internal_test`. The public reverse proxy must
+overwrite `X-Real-IP`; publicly supplied labels are only `self_reported_test`.
+An unlabelled public request is not an authenticated external customer. The
+`GRIDZEN_MCP_LOCAL_TEST_PEERS` deployment setting must match the container gateway
+and must never contain public client addresses. Source counts use the existing
+90-day retention and fail-open behavior. This hosted change does not publish a
+new PyPI version or enable any live provider.
