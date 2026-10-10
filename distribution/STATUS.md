@@ -1,3 +1,9 @@
+# Current rollout
+
+0.6.0 adds explicitly consented local CLI/stdio category events, a bounded offline queue, and six Skill feedback instructions. No production provider is enabled. Validation and publishing receipts are maintained in the private project.
+
+The following 0.5.0 record remains historical until 0.6.0 publication is verified.
+
 # Distribution status — 2026-10-09
 
 Version **0.5.0**: customer-task planning, fixed-category attempt/error evidence and explicit opt-in summaries. Six Skills and five MCP tools retained; no live routes or billing enabled.

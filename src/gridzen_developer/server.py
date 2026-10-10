@@ -18,7 +18,7 @@ mcp_app=make_transport()
 async def lifespan(_app):
  async with mcp_app.router.lifespan_context(mcp_app):yield
 
-app=FastAPI(title='Gridzen Developer Sandbox',version='0.5.0',lifespan=lifespan,docs_url=None,redoc_url=None,openapi_url='/api/openapi.json',servers=[{'url':'/developers'}])
+app=FastAPI(title='Gridzen Developer Sandbox',version='0.6.0',lifespan=lifespan,docs_url=None,redoc_url=None,openapi_url='/api/openapi.json',servers=[{'url':'/developers'}])
 app.add_middleware(MCPBounds)
 app.add_middleware(CallSourceMiddleware)
 class PlanRequest(BaseModel):
@@ -67,10 +67,10 @@ async def bounds(request:Request,call_next):
  response.headers['Cache-Control']='no-store' if request.url.path.startswith(('/api','/mcp')) else 'public, max-age=60'
  return response
 @app.get('/health')
-def health():return {'status':'ok','mode':'sandbox','live_routes':0,'version':'0.5.0','mcp_transport':'streamable-http'}
+def health():return {'status':'ok','mode':'sandbox','live_routes':0,'version':'0.6.0','mcp_transport':'streamable-http'}
 @app.get('/server-card.json')
 async def server_card():
- return {'serverInfo':{'name':'Gridzen Verification','version':'0.5.0'},'authentication':{'required':False},'tools':[tool.model_dump(by_alias=True,exclude_none=True) for tool in await mcp_server.list_tools()],'resources':[],'prompts':[]}
+ return {'serverInfo':{'name':'Gridzen Verification','version':'0.6.0'},'authentication':{'required':False},'tools':[tool.model_dump(by_alias=True,exclude_none=True) for tool in await mcp_server.list_tools()],'resources':[],'prompts':[]}
 @app.get('/api/coverage')
 def coverage(country:str|None=Query(None,max_length=2),capability:str|None=Query(None,max_length=40)):return core.coverage(country,capability)
 @app.post('/api/plan')
@@ -93,6 +93,15 @@ async def feedback(request:Request):
   accepted=False
  if not accepted:return JSONResponse({'error':'FEEDBACK_TEMPORARILY_UNAVAILABLE'},status_code=503)
  return {'accepted':True,'evidence':'self_reported','authenticated_customer':False,'retention':'aggregate 90 days; receipt hash 30 days','duplicate_receipts':'deduplicated within UTC day'}
+
+@app.post('/api/usage-events')
+async def local_usage(request:Request):
+ from .product_feedback import accept_usage
+ try: accepted=accept_usage(os.environ.get('GRIDZEN_MCP_EVENTS_DB'),json.loads(await request.body()))
+ except ValueError: return JSONResponse({'error':'INVALID_USAGE_EVENT'},status_code=422)
+ except (OSError,sqlite3.Error): accepted=False
+ if not accepted: return JSONResponse({'error':'USAGE_TEMPORARILY_UNAVAILABLE'},status_code=503)
+ return {'accepted':True,'evidence':'self_reported_local_usage','authenticated_customer':False}
 
 app.router.routes.extend(mcp_app.routes)
 app.mount('/',StaticFiles(directory=Path(__file__).parent/'web',html=True),name='developer-web')

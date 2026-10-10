@@ -1,4 +1,4 @@
-# GridZen developer kit — 0.5.0
+# GridZen developer kit — 0.6.0
 
 Public research and synthetic sandbox, not real identity verification or payment authorization. Python 3.11+.
 

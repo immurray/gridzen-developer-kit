@@ -18,7 +18,26 @@ def main():
  from .setup import CLIENTS
  x=s.add_parser('setup',help='Prepare six Skills and MCP config for a harness; dry-run until --apply')
  x.add_argument('--client',choices=['all',*CLIENTS],required=True);x.add_argument('--project',default='.');x.add_argument('--apply',action='store_true')
+ x=s.add_parser('telemetry',help='Opt-in local category feedback; no chat, personal fields or credentials')
+ x.add_argument('action',choices=['enable','disable','status','flush','record'])
+ x.add_argument('--consent',action='store_true',help='Explicitly consent to automatic category uploads')
+ x.add_argument('--task',choices=sorted(TASKS),default='unknown');x.add_argument('--skill',choices=sorted(SKILLS),default='unknown')
+ x.add_argument('--outcome',choices=sorted(OUTCOMES),default='unknown');x.add_argument('--blocker',choices=sorted(REASONS),default='unknown')
  a=p.parse_args()
+ if a.command=='telemetry':
+  from . import telemetry
+  try:
+   if a.action=='enable':
+    if not a.consent:p.error('Enabling automatic feedback requires --consent. Fixed categories only; disable anytime.')
+    result=telemetry.configure(True)
+   elif a.action=='disable':result=telemetry.configure(False)
+   elif a.action=='status':result=telemetry.status()
+   elif a.action=='flush':result=telemetry.flush()
+   else:
+    telemetry.observe({'operation':'task_summary','task':a.task,'skill':a.skill,'mode':'local_draft','outcome':a.outcome,'reason':a.blocker})
+    result=telemetry.status()
+  except (OSError,ValueError) as exc:p.error(type(exc).__name__)
+  print(json.dumps(result,indent=2));return
  if a.command=='feedback':
   from .product_feedback import validate_summary
   try:
@@ -43,6 +62,12 @@ def main():
   print(json.dumps(list_skills(),ensure_ascii=False,indent=2));return
  try:
   result={'coverage':lambda:core.coverage(a.country,a.capability),'plan':lambda:core.plan(a.country,a.event,a.task,a.stage),'simulate':lambda:core.simulate(a.country,a.capability,a.scenario),'explain':lambda:core.explain(a.reason_code)}[a.command]()
- except ValueError as e:p.error(str(e))
+ except ValueError as e:
+  from .telemetry import observe
+  observe({'operation':{'coverage':'get_coverage','plan':'plan_verification','simulate':'create_sandbox_verification','explain':'explain_result'}[a.command],'task':getattr(a,'task',None),'country':getattr(a,'country',None),'outcome':'integration_error','reason':'schema_error'})
+  p.error(str(e))
+ from .telemetry import observe
+ blocked=a.command=='plan' and (a.stage=='production' or result.get('task_match_status') in ('unsupported','needs_clarification'))
+ observe({'operation':{'coverage':'get_coverage','plan':'plan_verification','simulate':'create_sandbox_verification','explain':'explain_result'}[a.command],'task':getattr(a,'task',None),'country':getattr(a,'country',None),'capability':result.get('capability',getattr(a,'capability',None)),'stage':getattr(a,'stage','prototype'),'mode':'research' if a.command in ('coverage','plan') else 'synthetic_fixture','outcome':'capability_unavailable' if blocked else 'technical_success','reason':'production_disabled' if blocked and a.stage=='production' else 'unavailable_route' if blocked else 'none'})
  print(json.dumps(result,ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

@@ -59,11 +59,11 @@ Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
 源码、版本下载、官方 MCP Registry 和三个 Skills.sh 技能页已公开；Docker 目录投稿待审核。各渠道真实状态及剩余步骤见[发布台账](distribution/STATUS.md)。
 
 
-## Six bundled Skills (0.5.0)
+## Six bundled Skills (0.6.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.5.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.5.0/); clean installation,
+and all six Skill directories. Version 0.6.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/); clean installation,
 CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
 dependency installation is required.
 
@@ -99,7 +99,7 @@ gridzen setup --client all --project . --apply
 [Instructions / 使用说明](https://gridzen.ai/developers/harnesses.html) · [Compatibility / 测试记录](clients/compatibility.json)
 
 
-## Customer tasks and voluntary feedback (0.5.0)
+## Customer tasks and voluntary feedback (0.6.0)
 
 ```sh
 gridzen plan --country US --event onboarding --task signup_phone
@@ -113,4 +113,21 @@ gridzen feedback --input task-summary.json --share
 
 Phone intelligence is not OTP or ownership verification. Identity fixtures are not hosted document/liveness sessions. Payout matching remains a prototype with no real enabled route. Provider intake Skills are for provider operations/BYO, not a universal customer gate.
 
-Remote APIs count fixed task/capability/country/stage/error categories for 90 days, including technical failures. They store no arguments, identity data, credentials, raw chats or per-user tracking. Offline Skills/CLI never upload automatically. Optional feedback requires explicit consent, contains only fixed categories, and is unverified self-reported evidence. A SHA-256 hash of its random receipt ID is retained 30 days for within-day retry deduplication; the ID itself is not stored. Counters are capped at 10,000 requests/day and 500 summaries/day per database; missing history or offline usage is unknown. Requests are not unique customers.
+Remote APIs count fixed task/capability/country/stage/error categories for 90 days, including technical failures. They store no arguments, identity data, credentials, raw chats or per-user tracking. Local feedback is off by default. After explicit opt-in, CLI and stdio MCP automatically upload category-only events. Reading static Skills remains unobservable. Optional feedback requires explicit consent, contains only fixed categories, and is unverified self-reported evidence. A SHA-256 hash of its random receipt ID is retained 30 days for 30-day retry deduplication; the ID itself is not stored. Counters are capped at 10,000 requests/day and 500 summaries/day per database; missing history or offline usage is unknown. Requests are not unique customers.
+
+## 首次同意后的本地自动反馈（0.6.0）
+
+```sh
+gridzen telemetry status
+# Run only after reading and agreeing to category-only automatic sharing:
+gridzen telemetry enable --consent
+gridzen plan --country US --event onboarding --task signup_phone
+# Send one queued event per invocation after reconnecting:
+gridzen telemetry flush
+# Disable future uploads and clear the pending queue:
+gridzen telemetry disable
+```
+
+No network calls occur from local CLI/MCP when disabled. Consent is saved per OS user, not silently added to a project. Events contain only documented categories, ISO country, and a random per-event receipt, with no conversation, identity fields, credentials, user or project IDs. Feedback failures do not fail tool execution. The local queue is capped at 1,000 events/30 days; reconnect or `flush` retries one queued event, with a one-second HTTP timeout. Uploads are self-reported usage, not authenticated customers or completed verification. No background daemon is installed. Merely reading a Skill is unobservable; after consent, an Agent can explicitly record a fixed-category task summary.
+
+本地反馈默认关闭。用户先阅读说明并同意，再运行 `gridzen telemetry enable --consent`；此后 CLI 和本地 MCP 自动反馈分类事件。`gridzen telemetry disable` 立即关闭并清空待发送队列。断网最多保留 1000 条、30 天；恢复后每次调用或 flush 发送一条，无后台守护进程。只发送固定分类、国家和随机事件回执，不发送对话、身份资料、凭证或用户/项目标识。按服务器收到的日期统计，延迟上传不是该日实际发生的全部调用。仅阅读 Skill 无法自动观察，Agent 可在用户已经同意时主动 record 分类小结。它们仍是自报线索，不代表认证客户或真实核验完成。

@@ -27,7 +27,7 @@ class GridzenMCP(MCPServer):
   for tool in tools:tool.input_schema['additionalProperties']=False
   return tools
 
-server=GridzenMCP('Gridzen Developer Kit',version='0.5.0',website_url='https://gridzen.ai/developers/',middleware=[strict_arguments],instructions='Research and synthetic fixtures only. No live providers are enabled. Preserve verified=false; never use a sandbox result to approve a real person or payment.')
+server=GridzenMCP('Gridzen Developer Kit',version='0.6.0',website_url='https://gridzen.ai/developers/',middleware=[strict_arguments],instructions='Research and synthetic fixtures only. No live providers are enabled. Preserve verified=false; never use a sandbox result to approve a real person or payment.')
 read=ToolAnnotations(readOnlyHint=True,destructiveHint=False,idempotentHint=True,openWorldHint=False)
 @server.tool(annotations=read,structured_output=True)
 def get_coverage(country: str | None=None, capability: str | None=None) -> dict[str, Any]:
@@ -50,5 +50,27 @@ def explain_result(reason_code: str) -> dict[str, Any]:
  """Explain a sandbox reason code; missing data and timeout remain inconclusive."""
  return core.explain(reason_code)
 TOOLS={fn.__name__:fn for fn in (get_coverage,plan_verification,create_sandbox_verification,get_sandbox_verification,explain_result)}
-def main():server.run(transport='stdio')
+async def local_feedback(ctx, call_next):
+ from .telemetry import observe
+ import asyncio
+ params=ctx.params if isinstance(ctx.params,dict) else {}
+ args=params.get('arguments') if isinstance(params.get('arguments'),dict) else {}
+ dims={'operation':params.get('name'),'task':args.get('task'),'country':args.get('country'),'capability':args.get('capability'),'stage':args.get('stage','prototype'),'mode':'research' if params.get('name') in ('get_coverage','plan_verification') else 'synthetic_fixture'}
+ try: result=await call_next(ctx)
+ except Exception:
+  if ctx.method=='tools/call':await asyncio.to_thread(observe,{**dims,'outcome':'integration_error','reason':'tool_error'})
+  raise
+ if ctx.method=='tools/call':
+  content=getattr(result,'structured_content',None) or {}
+  blocked=content.get('requested_stage')=='production' or content.get('task_match_status') in ('unsupported','needs_clarification')
+  failed=getattr(result,'is_error',False)
+  await asyncio.to_thread(observe,{**dims,'capability':content.get('capability',dims['capability']),'outcome':'integration_error' if failed else 'capability_unavailable' if blocked else 'technical_success','reason':'tool_error' if failed else 'production_disabled' if blocked and content.get('requested_stage')=='production' else 'unavailable_route' if blocked else 'none'})
+ return result
+
+def main():
+ from .telemetry import enabled
+ if enabled():
+  read.open_world_hint=True
+ server.middleware.insert(0,local_feedback)
+ server.run(transport='stdio')
 if __name__=='__main__':main()

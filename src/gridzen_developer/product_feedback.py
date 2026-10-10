@@ -15,7 +15,7 @@ TASKS = frozenset(('signup_phone','identity_onboarding','payout_account','phone_
 CAPABILITIES = frozenset(('official_identity','commercial_identity','consented_eid','bank_account_match','consented_bank','cardholder_name','phone_identity','phone_intelligence','identity_verification','otp','business_kyb','batch','webhook_recovery','policy_design','provider_rights','other','unknown'))
 SKILLS = frozenset(('gridzen-select-verification','gridzen-integrate-sandbox','gridzen-explain-verification','provider-rights-readiness','payout-policy-designer','mexico-pilot-scoper','unknown'))
 OPERATIONS = frozenset(('get_coverage','plan_verification','create_sandbox_verification','get_sandbox_verification','explain_result','merchant_create','merchant_read','merchant_simulate','merchant_refresh','merchant_capabilities','task_summary','transport_rejected','other'))
-SOURCES = frozenset(('internal_test','self_reported_test','unknown','authenticated_merchant_sandbox','self_reported_feedback','authenticated_feedback'))
+SOURCES = frozenset(('internal_test','self_reported_test','unknown','authenticated_merchant_sandbox','self_reported_feedback','authenticated_feedback','self_reported_local_usage'))
 MODES = frozenset(('research','synthetic_fixture','merchant_sandbox','local_draft','unknown'))
 OUTCOMES = frozenset(('technical_success','integration_error','capability_unavailable','completed_prototype','blocked','abandoned','unknown'))
 REASONS = frozenset(('none','auth_error','schema_error','rate_limit','timeout','transport_error','tool_error','unknown_country','unknown_capability','unavailable_route','coverage_gap','missing_workflow_step','price_unknown','production_disabled','already_solved_elsewhere','idempotency_conflict','record_not_found','other','unknown'))
@@ -57,7 +57,7 @@ def write(path, values, receipt=None, day=None):
             feedback=db.execute("SELECT COALESCE(SUM(count),0) FROM product_events WHERE day=? AND operation='task_summary'",(day.isoformat(),)).fetchone()[0]
             if feedback>=500:return False
             digest=hashlib.sha256(receipt.encode()).hexdigest()
-            if db.execute('SELECT 1 FROM feedback_receipts WHERE day=? AND hash=?',(day.isoformat(),digest)).fetchone():return True
+            if db.execute('SELECT 1 FROM feedback_receipts WHERE hash=?',(digest,)).fetchone():return True
             db.execute('INSERT INTO feedback_receipts VALUES (?,?)',(day.isoformat(),digest))
         columns='day,'+','.join(FIELDS)
         values=(day.isoformat(),*(safe[key] for key in FIELDS))
@@ -93,3 +93,16 @@ def accept_summary(path, value, source='self_reported_feedback'):
 
 def http_reason(status):
     return {400:'schema_error',401:'auth_error',403:'auth_error',404:'record_not_found',409:'idempotency_conflict',413:'schema_error',422:'schema_error',429:'rate_limit',502:'unavailable_route',503:'unavailable_route',504:'timeout'}.get(status,'tool_error' if status>=400 else 'none')
+
+
+def accept_usage(path, value):
+    if not isinstance(value,dict) or set(value)!={'schema_version','event_id','consent_to_share','dimensions'} or type(value['schema_version']) is not int or value['schema_version']!=1 or value['consent_to_share'] is not True:
+        raise ValueError('INVALID_USAGE_EVENT')
+    if not isinstance(value['event_id'],str) or len(value['event_id'])!=36: raise ValueError('INVALID_USAGE_EVENT')
+    try: UUID(value['event_id'])
+    except ValueError: raise ValueError('INVALID_USAGE_EVENT') from None
+    dimensions=value['dimensions']
+    if not isinstance(dimensions,dict) or set(dimensions)!=set(FIELDS) or safe_dimensions(dimensions)!=dimensions or dimensions['source']!='self_reported_local_usage': raise ValueError('INVALID_USAGE_EVENT')
+    if dimensions['operation'] not in OPERATIONS-{'merchant_create','merchant_read','merchant_simulate','merchant_refresh','merchant_capabilities','transport_rejected'}: raise ValueError('INVALID_USAGE_EVENT')
+    if dimensions['mode']=='merchant_sandbox': raise ValueError('INVALID_USAGE_EVENT')
+    return write(path,dimensions,receipt='local:'+value['event_id'])

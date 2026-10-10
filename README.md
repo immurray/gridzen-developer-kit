@@ -1,4 +1,4 @@
-# Gridzen Developer Kit 0.5.0
+# Gridzen Developer Kit 0.6.0
 
 Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and six Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
 
@@ -30,7 +30,7 @@ Register a local stdio server in your MCP client. Use the absolute path to the i
 {"mcpServers":{"gridzen":{"command":"/absolute/path/to/.venv/bin/gridzen-mcp","args":[]}}}
 ```
 
-Tools: get_coverage, plan_verification, create_sandbox_verification, get_sandbox_verification, explain_result. All operate on local research or synthetic fixtures, with read-only/idempotent annotations. Public research/sandbox MCP endpoint: `https://gridzen.ai/developers/mcp` (Streamable HTTP, no account or API key). It has the same five tools and zero live providers. Remote usage sends the documented arguments to Gridzen; local stdio remains offline. Limits: 120 requests/minute per client address and 600/minute overall, returning HTTP 429 with Retry-After.
+Tools: get_coverage, plan_verification, create_sandbox_verification, get_sandbox_verification, explain_result. All operate on local research or synthetic fixtures, with read-only/idempotent annotations. Public research/sandbox MCP endpoint: `https://gridzen.ai/developers/mcp` (Streamable HTTP, no account or API key). It has the same five tools and zero live providers. Remote usage sends the documented arguments to Gridzen; local stdio is offline by default. Limits: 120 requests/minute per client address and 600/minute overall, returning HTTP 429 with Retry-After.
 
 ## Skills
 
@@ -77,10 +77,10 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.5.0"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.6.0"
 ```
 
-PyPI 0.5.0 is published and verified. Install with `python -m pip install
+PyPI 0.6.0 is published and verified. Install with `python -m pip install
 gridzen-developer-kit`. See [the release tracker](distribution/STATUS.md) for
 publication and installation evidence.
 
@@ -103,11 +103,11 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 Source, release downloads, the official MCP Registry entry and six Skills.sh pages are public. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
 
 
-## Six bundled Skills (0.5.0)
+## Six bundled Skills (0.6.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.5.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.5.0/); clean installation,
+and all six Skill directories. Version 0.6.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/); clean installation,
 CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
 dependency installation is required.
 
@@ -128,7 +128,7 @@ workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
 
-## Configure your assistant (v0.5.0)
+## Configure your assistant (v0.6.0)
 
 ```sh
 python3 -m venv .venv
@@ -145,7 +145,7 @@ Use `--client` for Codex, Claude Code/Desktop, Cursor, VS Code/Copilot, Copilot 
 Hosted calls count successful tool invocations, not customers. Existing totals
 remain unchanged. The hosted service records UTC day, tool name, one source
 category and a count; it never persists request arguments or client addresses.
-Historical and unlabelled calls remain `unknown`. Local stdio remains offline.
+Historical and unlabelled calls remain `unknown`. Local stdio is offline by default.
 
 Explicit acceptance requests to the loopback-published service may set
 `X-Gridzen-Purpose: internal_test`. Only configured local peers with no forwarded
@@ -158,7 +158,7 @@ and must never contain public client addresses. Source counts use the existing
 new PyPI version or enable any live provider.
 
 
-## Customer tasks and voluntary feedback (0.5.0)
+## Customer tasks and voluntary feedback (0.6.0)
 
 ```sh
 gridzen plan --country US --event onboarding --task signup_phone
@@ -172,4 +172,19 @@ gridzen feedback --input task-summary.json --share
 
 Phone intelligence is not OTP or ownership verification. Identity fixtures are not hosted document/liveness sessions. Payout matching remains a prototype with no real enabled route. Provider intake Skills are for provider operations/BYO, not a universal customer gate.
 
-Remote APIs count fixed task/capability/country/stage/error categories for 90 days, including technical failures. They store no arguments, identity data, credentials, raw chats or per-user tracking. Offline Skills/CLI never upload automatically. Optional feedback requires explicit consent, contains only fixed categories, and is unverified self-reported evidence. A SHA-256 hash of its random receipt ID is retained 30 days for within-day retry deduplication; the ID itself is not stored. Counters are capped at 10,000 requests/day and 500 summaries/day per database; missing history or offline usage is unknown. Requests are not unique customers.
+Remote APIs count fixed task/capability/country/stage/error categories for 90 days, including technical failures. They store no arguments, identity data, credentials, raw chats or per-user tracking. Local feedback is off by default. After explicit opt-in, CLI and stdio MCP automatically upload category-only events. Reading static Skills remains unobservable. Optional feedback requires explicit consent, contains only fixed categories, and is unverified self-reported evidence. A SHA-256 hash of its random receipt ID is retained 30 days for 30-day retry deduplication; the ID itself is not stored. Counters are capped at 10,000 requests/day and 500 summaries/day per database; missing history or offline usage is unknown. Requests are not unique customers.
+
+## Optional automatic local feedback (0.6.0)
+
+```sh
+gridzen telemetry status
+# Run only after reading and agreeing to category-only automatic sharing:
+gridzen telemetry enable --consent
+gridzen plan --country US --event onboarding --task signup_phone
+# Send one queued event per invocation after reconnecting:
+gridzen telemetry flush
+# Disable future uploads and clear the pending queue:
+gridzen telemetry disable
+```
+
+No network calls occur from local CLI/MCP when disabled. Consent is saved per OS user, not silently added to a project. Events contain only documented categories, ISO country, and a random per-event receipt, with no conversation, identity fields, credentials, user or project IDs. Feedback failures do not fail tool execution. The local queue is capped at 1,000 events/30 days; reconnect or `flush` retries one queued event, with a one-second HTTP timeout. Uploads are self-reported usage, not authenticated customers or completed verification. No background daemon is installed. Merely reading a Skill is unobservable; after consent, an Agent can explicitly record a fixed-category task summary.
