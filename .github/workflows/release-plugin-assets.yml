@@ -22,4 +22,4 @@ jobs:
         run: |
           tag=$(python -c "import tomllib; print('v'+tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
           gh release view "$tag" >/dev/null
-          gh release upload "$tag" dist/plugins/*.zip dist/plugins/plugin-sha256.json --clobber
+          gh release upload "$tag" dist/gridzen-verification-*.zip dist/plugin-sha256.json --clobber

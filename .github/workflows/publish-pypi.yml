@@ -54,4 +54,4 @@ jobs:
       - name: Publish release assets
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" python-dist/* src/gridzen_developer/web/downloads/*.zip src/gridzen_developer/web/downloads/sha256.json dist/plugins/*.zip dist/plugins/plugin-sha256.json --title "Gridzen Developer Kit $GITHUB_REF_NAME" --notes "Task-specific phone and personal identity planning; fixed-category remote attempt/error metrics; explicit opt-in feedback. Five MCP tools retained. Synthetic and conditional sandbox only; no live verification or billing enabled."
+        run: gh release create "$GITHUB_REF_NAME" python-dist/* src/gridzen_developer/web/downloads/*.zip src/gridzen_developer/web/downloads/sha256.json dist/gridzen-verification-*.zip dist/plugin-sha256.json --title "Gridzen Developer Kit $GITHUB_REF_NAME" --notes "Task-specific phone and personal identity planning; fixed-category remote attempt/error metrics; explicit opt-in feedback. Five MCP tools retained. Synthetic and conditional sandbox only; no live verification or billing enabled."
