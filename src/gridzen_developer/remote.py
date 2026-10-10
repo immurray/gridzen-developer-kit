@@ -2,6 +2,7 @@
 from collections import OrderedDict
 import os
 from .usage import CALL_SOURCE
+from .product_feedback import record_safe, http_reason
 from time import monotonic
 from starlette.responses import JSONResponse
 from mcp.server.transport_security import TransportSecuritySettings
@@ -10,7 +11,7 @@ from .mcp import server
 def make_transport():
  from .usage import aggregate_calls
  if aggregate_calls not in server.middleware:
-  server.middleware.append(aggregate_calls)
+  server.middleware.insert(0,aggregate_calls)
  return server.streamable_http_app(
   streamable_http_path='/mcp',json_response=True,stateless_http=True,
   max_request_body_size=4096,
@@ -28,7 +29,7 @@ class CallSourceMiddleware:
  """
  def __init__(self,app): self.app=app
  async def __call__(self,scope,receive,send):
-  if scope['type'] != 'http' or scope.get('path') != '/mcp':
+  if scope['type'] != 'http' or not (scope.get('path')=='/mcp' or scope.get('path','').startswith('/api/')):
    return await self.app(scope,receive,send)
   headers=dict(scope.get('headers',[]))
   source='unknown'
@@ -51,7 +52,7 @@ class MCPBounds:
   self.started=clock();self.count=0;self.clients=OrderedDict()
 
  async def __call__(self,scope,receive,send):
-  if scope['type']!='http' or scope['path']!='/mcp':
+  if scope['type']!='http' or not (scope['path']=='/mcp' or scope['path']=='/api/feedback'):
    return await self.app(scope,receive,send)
   now=self.clock()
   if now-self.started>=60:
@@ -60,6 +61,7 @@ class MCPBounds:
   client=headers.get(b'x-real-ip',str(scope.get('client',('unknown',))[0]).encode())
   count=self.clients.get(client,0)
   if self.count>=self.total or count>=self.per_client or (client not in self.clients and len(self.clients)>=1024):
+   record_safe(os.environ.get('GRIDZEN_MCP_EVENTS_DB'),{'operation':'transport_rejected','source':CALL_SOURCE.get(),'outcome':'integration_error','reason':'rate_limit'})
    return await JSONResponse({'error':'RATE_LIMITED'},status_code=429,headers={'Retry-After':'60','Cache-Control':'no-store'})(scope,receive,send)
   self.count+=1;self.clients[client]=count+1
   return await self.app(scope,receive,send)

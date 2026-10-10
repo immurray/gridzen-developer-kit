@@ -27,16 +27,16 @@ class GridzenMCP(MCPServer):
   for tool in tools:tool.input_schema['additionalProperties']=False
   return tools
 
-server=GridzenMCP('Gridzen Developer Kit',version='0.4.1',website_url='https://gridzen.ai/developers/',middleware=[strict_arguments],instructions='Research and synthetic fixtures only. No live providers are enabled. Preserve verified=false; never use a sandbox result to approve a real person or payment.')
+server=GridzenMCP('Gridzen Developer Kit',version='0.5.0',website_url='https://gridzen.ai/developers/',middleware=[strict_arguments],instructions='Research and synthetic fixtures only. No live providers are enabled. Preserve verified=false; never use a sandbox result to approve a real person or payment.')
 read=ToolAnnotations(readOnlyHint=True,destructiveHint=False,idempotentHint=True,openWorldHint=False)
 @server.tool(annotations=read,structured_output=True)
 def get_coverage(country: str | None=None, capability: str | None=None) -> dict[str, Any]:
  """List country research or inspect one ISO-2 country's capability/access evidence; not live coverage."""
  return core.coverage(country,capability)
 @server.tool(annotations=read,structured_output=True)
-def plan_verification(country: str, event: str='payout') -> dict[str, Any]:
- """Plan onboarding, payout or account_change; returns research requirements and sandbox example."""
- return core.plan(country,event)
+def plan_verification(country: str, event: str='payout', task: str | None=None, stage: str='prototype') -> dict[str, Any]:
+ """Plan a specific signup_phone, identity_onboarding or payout_account task. Set stage=production to report missing live routes; legacy event-only calls remain supported."""
+ return core.plan(country,event,task,stage)
 @server.tool(annotations=read,structured_output=True)
 def create_sandbox_verification(country: str, capability: str, scenario: str='match') -> dict[str, Any]:
  """Return a synthetic match/mismatch/not_found/timeout/unsupported fixture. Never provide personal data."""

@@ -41,14 +41,28 @@ def summarize(path, end=None):
     return result
 
 async def aggregate_calls(ctx, call_next):
-    result = await call_next(ctx)
-    if ctx.method == 'tools/call' and isinstance(ctx.params, dict):
-        tool = ctx.params.get('name')
-        path = os.environ.get('GRIDZEN_MCP_EVENTS_DB')
-        if path and isinstance(tool, str) and tool in TOOLS and not getattr(result, 'is_error', False):
-            try:
-                await asyncio.to_thread(record, path, tool, source=CALL_SOURCE.get())
-            except (OSError, sqlite3.Error):
-                # Aggregate availability must never change tool behavior.
-                pass
+    from .product_feedback import record_safe
+    path=os.environ.get('GRIDZEN_MCP_EVENTS_DB')
+    params=ctx.params if isinstance(ctx.params,dict) else {}
+    arguments=params.get('arguments') if isinstance(params.get('arguments'),dict) else {}
+    name=params.get('name')
+    observe=ctx.method=='tools/call'
+    dimensions={'operation':name,'task':arguments.get('task'),'capability':arguments.get('capability'),'country':arguments.get('country'),'stage':arguments.get('stage','prototype'),'source':CALL_SOURCE.get(),'mode':'research' if name in ('get_coverage','plan_verification') else 'synthetic_fixture'}
+    try:
+        result=await call_next(ctx)
+    except Exception as error:
+        if observe:
+            await asyncio.to_thread(record_safe,path,{**dimensions,'outcome':'integration_error','reason':'schema_error' if getattr(getattr(error,'error',None),'code',None)==-32602 else 'tool_error'})
+        raise
+    if observe:
+        failed=getattr(result,'is_error',False)
+        structured=getattr(result,'structured_content',None)
+        if isinstance(structured,dict):
+            dimensions['capability']=structured.get('capability',dimensions['capability'])
+        blocked=isinstance(structured,dict) and (structured.get('task_match_status') in ('unsupported','needs_clarification') or structured.get('requested_stage')=='production')
+        reason='tool_error' if failed else 'production_disabled' if blocked and structured.get('requested_stage')=='production' else 'unavailable_route' if blocked else 'none'
+        await asyncio.to_thread(record_safe,path,{**dimensions,'outcome':'integration_error' if failed else 'capability_unavailable' if blocked else 'technical_success','reason':reason})
+        if path and isinstance(name,str) and name in TOOLS and not failed:
+            try:await asyncio.to_thread(record,path,name,source=CALL_SOURCE.get())
+            except (OSError,sqlite3.Error):pass
     return result

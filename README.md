@@ -1,4 +1,4 @@
-# Gridzen Developer Kit 0.4.1
+# Gridzen Developer Kit 0.5.0
 
 Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and six Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
 
@@ -77,10 +77,10 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.4.1"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.5.0"
 ```
 
-PyPI 0.4.1 is published and verified. Install with `python -m pip install
+PyPI 0.5.0 is published and verified. Install with `python -m pip install
 gridzen-developer-kit`. See [the release tracker](distribution/STATUS.md) for
 publication and installation evidence.
 
@@ -103,11 +103,11 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 Source, release downloads, the official MCP Registry entry and six Skills.sh pages are public. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
 
 
-## Six bundled Skills (0.4.1)
+## Six bundled Skills (0.5.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.4.1 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.4.1/); clean installation,
+and all six Skill directories. Version 0.5.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.5.0/); clean installation,
 CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
 dependency installation is required.
 
@@ -128,7 +128,7 @@ workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
 
-## Configure your assistant (v0.4.1)
+## Configure your assistant (v0.5.0)
 
 ```sh
 python3 -m venv .venv
@@ -156,3 +156,20 @@ An unlabelled public request is not an authenticated external customer. The
 and must never contain public client addresses. Source counts use the existing
 90-day retention and fail-open behavior. This hosted change does not publish a
 new PyPI version or enable any live provider.
+
+
+## Customer tasks and voluntary feedback (0.5.0)
+
+```sh
+gridzen plan --country US --event onboarding --task signup_phone
+gridzen plan --country US --event onboarding --task identity_onboarding
+gridzen plan --country US --event onboarding --task identity_onboarding --stage production
+python examples/customer_tasks.py
+gridzen feedback --task signup_phone --country US --outcome blocked --blocker missing_workflow_step --output task-summary.json
+# Only after choosing to share:
+gridzen feedback --input task-summary.json --share
+```
+
+Phone intelligence is not OTP or ownership verification. Identity fixtures are not hosted document/liveness sessions. Payout matching remains a prototype with no real enabled route. Provider intake Skills are for provider operations/BYO, not a universal customer gate.
+
+Remote APIs count fixed task/capability/country/stage/error categories for 90 days, including technical failures. They store no arguments, identity data, credentials, raw chats or per-user tracking. Offline Skills/CLI never upload automatically. Optional feedback requires explicit consent, contains only fixed categories, and is unverified self-reported evidence. A SHA-256 hash of its random receipt ID is retained 30 days for within-day retry deduplication; the ID itself is not stored. Counters are capped at 10,000 requests/day and 500 summaries/day per database; missing history or offline usage is unknown. Requests are not unique customers.

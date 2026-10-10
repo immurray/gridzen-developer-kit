@@ -21,3 +21,6 @@ assert result['status'] == 'inconclusive'
 ```
 
 Unexpected fields are rejected (422); unknown country/capability/fixture is rejected (400). Network errors and HTTP failures are integration failures, not verification outcomes. Do not retry indefinitely. Local core and local MCP work offline after installation; Python HTTP SDK sends only documented fixture parameters to Gridzen.
+
+
+Task-specific planning (kit 0.5.0): `plan_verification(country="US", event="onboarding", task="signup_phone", stage="prototype")`. Identity task: `identity_onboarding`. Task and event must agree. Fixtures accept `phone_intelligence` and `identity_verification` in addition to existing research capability names. All fixture outcomes remain simulated and verified=false. Production planning always reports NO_LIVE_ROUTE_ENABLED. No extra MCP tool is added.

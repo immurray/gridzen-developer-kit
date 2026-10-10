@@ -59,11 +59,11 @@ Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
 源码、版本下载、官方 MCP Registry 和三个 Skills.sh 技能页已公开；Docker 目录投稿待审核。各渠道真实状态及剩余步骤见[发布台账](distribution/STATUS.md)。
 
 
-## Six bundled Skills (0.4.1)
+## Six bundled Skills (0.5.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.4.1 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.4.1/); clean installation,
+and all six Skill directories. Version 0.5.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.5.0/); clean installation,
 CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
 dependency installation is required.
 
@@ -97,3 +97,20 @@ gridzen setup --client all --project . --apply
 安装命令需要在 Python 3.11+ 虚拟环境中执行。先预览，再加 --apply。不会修改客户端全局设置；Desktop 和 Cline 需要手动导入，其他客户端需要信任工作区。配置生成成功不代表每个客户端或模型均已实测。
 
 [Instructions / 使用说明](https://gridzen.ai/developers/harnesses.html) · [Compatibility / 测试记录](clients/compatibility.json)
+
+
+## Customer tasks and voluntary feedback (0.5.0)
+
+```sh
+gridzen plan --country US --event onboarding --task signup_phone
+gridzen plan --country US --event onboarding --task identity_onboarding
+gridzen plan --country US --event onboarding --task identity_onboarding --stage production
+python examples/customer_tasks.py
+gridzen feedback --task signup_phone --country US --outcome blocked --blocker missing_workflow_step --output task-summary.json
+# Only after choosing to share:
+gridzen feedback --input task-summary.json --share
+```
+
+Phone intelligence is not OTP or ownership verification. Identity fixtures are not hosted document/liveness sessions. Payout matching remains a prototype with no real enabled route. Provider intake Skills are for provider operations/BYO, not a universal customer gate.
+
+Remote APIs count fixed task/capability/country/stage/error categories for 90 days, including technical failures. They store no arguments, identity data, credentials, raw chats or per-user tracking. Offline Skills/CLI never upload automatically. Optional feedback requires explicit consent, contains only fixed categories, and is unverified self-reported evidence. A SHA-256 hash of its random receipt ID is retained 30 days for within-day retry deduplication; the ID itself is not stored. Counters are capped at 10,000 requests/day and 500 summaries/day per database; missing history or offline usage is unknown. Requests are not unique customers.

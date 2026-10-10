@@ -13,3 +13,12 @@ For deterministic completeness checks, run `python3 evaluate.py < example-input.
 
 Source and follow-up: https://gridzen.ai/guides/provider-failures/
 Package version: 1.0.0. First-party static release only; no external marketplace listing or token2.io service invocation is claimed.
+
+
+## Customer task boundary
+
+Payout account matching currently has no real enabled Gridzen route. Keep outputs as policy drafts and prototypes; record missing account-holder matching separately from technical failures.
+
+## Optional task feedback
+
+Offline use is not tracked. Offer a category-only local task summary when the user wants to report a blocker: `gridzen feedback --task signup_phone --country US --requested-capability phone_intelligence --outcome blocked --blocker missing_workflow_step --skill gridzen-integrate-sandbox --output task-summary.json`. Choose the actual fixed categories; do not fabricate demand. Inspect the file with the user. Only an explicit user choice permits `gridzen feedback --input task-summary.json --share`; otherwise stop at the local file. Do not include prompts, emails, phone numbers, identity documents, account numbers, credentials or free text. Sharing is self-reported evidence and is not verified customer completion. No hidden upload, background call or new MCP tool is required.

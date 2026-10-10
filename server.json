@@ -3,7 +3,7 @@
   "name": "ai.gridzen/verification",
   "title": "Gridzen Verification",
   "description": "Country verification research, integration planning and synthetic tests. No live identity checks.",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "websiteUrl": "https://gridzen.ai/developers/",
   "repository": {
     "url": "https://github.com/immurray/gridzen-developer-kit",

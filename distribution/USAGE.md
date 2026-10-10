@@ -31,7 +31,7 @@ image (they are intentionally not tracked or included in wheel package data):
 
 ```sh
 python scripts/build_downloads.py
-docker build -f deploy/Dockerfile -t gridzen-developer:0.4.1 .
+docker build -f deploy/Dockerfile -t gridzen-developer:0.5.0 .
 docker compose -f deploy/compose.yml up -d --no-build developer
 ```
 
