@@ -1,5 +1,11 @@
 # Gridzen Developer Kit 0.6.0
 
+## Start immediately without signup
+
+Open [GridZen instant trial](https://gridzen.ai/console/start?lang=en) to run synthetic signup-phone and identity-onboarding responses without an account, API key or approval. Success, rejection and unavailable scenarios make no upstream calls and verify no real person. Agents can use the separate [key-free trial MCP](https://gridzen.ai/console/downloads/quickstart_mcp.py), installed with `mcp==2.3.0` and `httpx==0.28.1` in a virtual environment.
+
+For persistent test records and supplier sandbox callbacks, connect a verified merchant sandbox account. Production is a separate controlled free pilot; self-service production and payments are not enabled. This documentation update does not change PyPI or the official MCP Registry version.
+
 Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and six Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
 
 [中文指南](README.zh-CN.md) · [Guía en español](README.es.md)

@@ -1,5 +1,11 @@
 # Kit de desarrollo Gridzen 0.6.0
 
+## Probar inmediatamente sin registro
+
+Abra la [prueba inmediata de GridZen](https://gridzen.ai/console/start?lang=es) para simular comprobaciones telefónicas e incorporación de identidad sin cuenta, clave ni aprobación. Los escenarios de éxito, rechazo e indisponibilidad no llaman a proveedores reales ni verifican personas. Los agentes pueden usar el [MCP de prueba sin clave](https://gridzen.ai/console/downloads/quickstart_mcp.py) con `mcp==2.3.0` y `httpx==0.28.1` en un entorno virtual.
+
+Conecte una cuenta sandbox con correo verificado para guardar registros y recibir callbacks. La producción sigue siendo un piloto gratuito controlado; autoservicio de producción y pagos no están habilitados. Esta actualización documental no cambia PyPI ni la versión del registro oficial MCP.
+
 Investigación sobre 198 países y territorios, planificación de integraciones, cinco resultados simulados, CLI/SDK HTTP de Python, MCP local y seis Skills. No hay canales de proveedores reales activos. Ningún resultado simulado verifica a una persona real.
 
 Prueba y guía: https://gridzen.ai/developers/ . El selector permite cambiar entre español, inglés y chino, y recuerda la elección. La investigación es del 2026-10-07; las fuentes y sus restricciones se conservan en el idioma original.
