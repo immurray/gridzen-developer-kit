@@ -204,3 +204,6 @@ The published 0.6.0 kit and its five public tools remain research/synthetic tool
 Submitting an application never activates production. The owner must approve supplier rights, downstream agreements, capabilities, request limits and expiry; only confirmed free allowances are used. The production pilot has its own downloaded MCP client and merchant API key. Do not send documents, faces or provider keys to the public research MCP. Basic phone validity does not provide OTP or ownership.
 
 Real basic phone checks and retrieval of a historical Approved operator identity session were validated through the live customer API/MCP. New-session human completion and its final real webhook remain unvalidated. Operator tests, downloads and self-reported interest are not customer demand. This documentation update does not change the PyPI package or Registry version.
+
+
+Use `gridzen start --task identity_onboarding --lang en` to find the anonymous trial, free sandbox account and integration assistant. `gridzen start` makes no network calls. Account progress measurement is a separate, optional console consent; completing a sandbox does not verify a real person. Real payments remain disabled.

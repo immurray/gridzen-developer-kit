@@ -148,3 +148,6 @@ El kit publicado 0.6.0 y sus cinco herramientas públicas siguen siendo de inves
 Solicitar no activa producción. El responsable confirma derechos del proveedor, acuerdos, capacidades, límites y vencimiento; solo se usan cupos gratuitos confirmados. El piloto utiliza un cliente MCP separado y una clave comercial. No envíe documentos, caras ni claves del proveedor al MCP público. La validez básica no proporciona OTP ni prueba de titularidad.
 
 Se validaron una consulta real de teléfono y la lectura de una sesión histórica Approved del operador mediante API/MCP. Falta validar la finalización humana de una sesión nueva y su webhook final real. Pruebas internas, descargas e interés declarado no demuestran demanda. Esta actualización documental no cambia versiones de PyPI ni Registry.
+
+
+Use `gridzen start --task identity_onboarding --lang es` para encontrar la prueba anónima, la cuenta gratuita de sandbox y el asistente. El comando no hace llamadas de red. La medición de progreso requiere consentimiento opcional en la consola. Completar el sandbox no verifica a una persona real; los cobros reales siguen desactivados.

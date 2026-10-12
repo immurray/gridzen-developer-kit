@@ -1,3 +1,9 @@
+# Activation bridge — 0.6.1
+
+Adds `gridzen start` with language-preserving links from installation to anonymous trial, verified sandbox account, assistant and tutorials. No network call or automatic account tracking is added to the CLI. Six Skills and five MCP tools are unchanged. Real charging remains disabled; the private Console has a clearly simulated TEST wallet.
+
+Release verification is pending until the tag workflow finishes. No new marketplace approval or independent customer adoption is claimed. [Activation guide](../docs/activation.md).
+
 # Current rollout
 
 0.6.0 adds explicitly consented local CLI/stdio category events, a bounded offline queue, and six Skill feedback instructions. No production provider is enabled. Validation and publishing receipts are maintained in the private project.

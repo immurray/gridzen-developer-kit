@@ -5,6 +5,8 @@ from . import core
 
 def main():
  p=argparse.ArgumentParser(description='Gridzen research + synthetic sandbox (no real provider calls)');s=p.add_subparsers(dest='command',required=True)
+ x=s.add_parser('start',help='Show the free trial, account and integration path; no network calls')
+ x.add_argument('--task',choices=['identity_onboarding','signup_phone'],default='identity_onboarding');x.add_argument('--lang',choices=['en','es','zh'],default='en')
  x=s.add_parser('coverage');x.add_argument('--country');x.add_argument('--capability')
  x=s.add_parser('plan');x.add_argument('--country',required=True);x.add_argument('--event',choices=list(core.EVENTS),default='payout')
  x.add_argument('--task',choices=list(core.TASK_ROUTES));x.add_argument('--stage',choices=['research','prototype','production'],default='prototype')
@@ -24,6 +26,8 @@ def main():
  x.add_argument('--task',choices=sorted(TASKS),default='unknown');x.add_argument('--skill',choices=sorted(SKILLS),default='unknown')
  x.add_argument('--outcome',choices=sorted(OUTCOMES),default='unknown');x.add_argument('--blocker',choices=sorted(REASONS),default='unknown')
  a=p.parse_args()
+ if a.command=='start':
+  print(json.dumps({'task':a.task,'trial':'https://gridzen.ai/console/start?lang='+a.lang,'account':'https://gridzen.ai/console/?source=developer_kit&lang='+a.lang,'assistant':'https://gridzen.ai/console/assessment?lang='+a.lang,'tutorials':'https://gridzen.ai/console/learn?lang='+a.lang,'mode':'synthetic_entry','network_calls':0,'verified':False,'real_payments_enabled':False,'measurement':'optional_explicit_consent_in_console; no account tracking by this command'},ensure_ascii=False,indent=2));return
  if a.command=='telemetry':
   from . import telemetry
   try:
