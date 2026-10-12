@@ -2,7 +2,7 @@
 
 Adds `gridzen start` with language-preserving links from installation to anonymous trial, verified sandbox account, assistant and tutorials. No network call or automatic account tracking is added to the CLI. Six Skills and five MCP tools are unchanged. Real charging remains disabled; the private Console has a clearly simulated TEST wallet.
 
-Release verification is pending until the tag workflow finishes. No new marketplace approval or independent customer adoption is claimed. [Activation guide](../docs/activation.md).
+Verified 2026-10-12: [GitHub release v0.6.1](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.6.1), PyPI clean installation with six Skills, 48 package tests, actual stdio MCP checks, hosted health 0.6.1 and official Registry active. [Registry receipt](registry-publication-0.6.1.json). No new marketplace approval or independent customer adoption is claimed. [Activation guide](../docs/activation.md).
 
 # Current rollout
 
