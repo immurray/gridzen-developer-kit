@@ -10,6 +10,19 @@ Research for 198 countries/territories, a verification integration planner, five
 
 [中文指南](README.zh-CN.md) · [Guía en español](README.es.md)
 
+## Runnable task guides and distribution
+
+| Customer task | Guide | Runnable code |
+| --- | --- | --- |
+| First identity onboarding | [Guide](https://gridzen.ai/console/learn/identity-first-run?lang=en) | [Delivery fixture](examples/verification_delivery/) |
+| Registration phone boundaries | [Guide](https://gridzen.ai/console/learn/phone-check-boundaries?lang=en) | [Four-branch example](https://gridzen.ai/guides/signup-phone-check/) |
+| Missing or delayed callback | [Guide](https://gridzen.ai/console/learn/callback-recovery?lang=en) | [Recovery fixture](examples/verification_delivery/) |
+| Verification to business permission | [Guide](https://gridzen.ai/console/learn/business-permission-boundary?lang=en) | [Self-hosted n8n fixture](examples/n8n/) |
+
+[Chinese and Spanish article files](distribution/market-expansion-2026-10-13/articles/) · [Demo video](distribution/market-expansion-2026-10-13/media/identity-three-outcomes.mp4) · [Smithery listing](https://smithery.ai/servers/support-35ug/gridzen-verification).
+
+Public examples are synthetic. Per-check production pricing is being prepared; live payments remain disabled. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
+
 ## Try it
 
 Public playground: https://gridzen.ai/developers/

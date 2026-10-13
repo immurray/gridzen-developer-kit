@@ -1,7 +1,8 @@
 # Smithery URL submission
 
 Display name: GridZen verification planning and sandbox
-Namespace proposal: immurray/gridzen-verification (availability not confirmed)
+Published namespace: support-35ug/gridzen-verification
+Listing: https://smithery.ai/servers/support-35ug/gridzen-verification
 Public Streamable HTTP URL: https://gridzen.ai/developers/mcp
 Repository: https://github.com/immurray/gridzen-developer-kit
 
@@ -11,7 +12,7 @@ Official flow: https://smithery.ai/docs/build/publish
 
 ```bash
 # Only after authorized publisher login and namespace ownership:
-npx @smithery/cli mcp publish https://gridzen.ai/developers/mcp -n immurray/gridzen-verification
+npx @smithery/cli mcp publish https://gridzen.ai/developers/mcp -n support-35ug/gridzen-verification
 ```
 
-Recheck the installed CLI syntax before use. New account registration has not been authorized by automatic approval review. No API key is embedded, no deployment/hosting plan is purchased, and this file is not a publication receipt.
+Recheck the installed CLI syntax before use. Free registration and publication are explicitly authorized. The owner supplied deployment-success evidence; listing HTTP200 and direct MCP initialization passed. Anonymous gateway /mcp returned403; client acceptance remains unverified. No API key is embedded, no deployment/hosting plan is purchased, and this file is not a publication receipt.

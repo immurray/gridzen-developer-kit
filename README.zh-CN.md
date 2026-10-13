@@ -1,5 +1,17 @@
 # Gridzen 开发者工具包 0.6.0
 
+## 直接运行客户任务示例
+
+- [身份首次接入](https://gridzen.ai/console/learn/identity-first-run?lang=zh)
+- [注册号码检查边界](https://gridzen.ai/console/learn/phone-check-boundaries?lang=zh)
+- [延迟回调恢复](https://gridzen.ai/console/learn/callback-recovery?lang=zh)
+- [核验后业务权限](https://gridzen.ai/console/learn/business-permission-boundary?lang=zh)
+
+[SQLite](examples/verification_delivery/) · [n8n](examples/n8n/) · [Smithery](https://smithery.ai/servers/support-35ug/gridzen-verification)
+
+公开示例是模拟。按次核验报价正在准备，生产收费尚未启用。
+
+
 ## 无需注册，立即试用
 
 打开[立即试用](https://gridzen.ai/console/start?lang=zh)，无需账号、密钥或审批即可运行注册号码与身份入驻的模拟响应。可测试成功、未通过和暂不可用；不调用真实上游，不核验真人。Agent 可下载独立的[免密钥试用 MCP](https://gridzen.ai/console/downloads/quickstart_mcp.py)，在虚拟环境安装 `mcp==2.3.0`、`httpx==0.28.1` 后启动。

@@ -47,8 +47,8 @@
     },
     {
       "id": "smithery",
-      "state": "authorized_registration_blocked_at_security_verification",
-      "entry": "https://smithery.ai/new",
+      "state": "published_owner_receipt_client_gateway_not_yet_verified",
+      "entry": "https://smithery.ai/servers/support-35ug/gridzen-verification",
       "materials": "smithery.md"
     },
     {
@@ -59,23 +59,26 @@
     },
     {
       "id": "n8n",
-      "state": "creator_email_confirmed_template_submitted_ai_review_pending",
+      "state": "final_review_submitted_publication_not_verified",
       "entry": "https://creators.n8n.io/",
       "materials": "../../examples/n8n/README.md",
       "published": false,
-      "submitted_at": "2026-10-13"
+      "submitted_at": "2026-10-13",
+      "workflow_id": 20861
     },
     {
       "id": "reddit",
-      "state": "network_verification_required_not_posted",
+      "state": "account_registered_not_posted",
       "entry": "https://www.reddit.com/submit/",
-      "materials": "community-posts.md"
+      "materials": "community-posts.md",
+      "username": "immurray"
     },
     {
       "id": "show_hn",
-      "state": "registration_disabled_by_platform",
+      "state": "account_registered_not_posted",
       "entry": "https://news.ycombinator.com/submit",
-      "materials": "community-posts.md"
+      "materials": "community-posts.md",
+      "username": "ismurray"
     },
     {
       "id": "youtube_linkedin_x",

@@ -1,5 +1,17 @@
 # Kit de desarrollo Gridzen 0.6.0
 
+## Ejecutar ejemplos de tareas
+
+- [Primera integración de identidad](https://gridzen.ai/console/learn/identity-first-run?lang=es)
+- [Límites de teléfonos de registro](https://gridzen.ai/console/learn/phone-check-boundaries?lang=es)
+- [Recuperar callbacks retrasados](https://gridzen.ai/console/learn/callback-recovery?lang=es)
+- [Permisos después de verificar](https://gridzen.ai/console/learn/business-permission-boundary?lang=es)
+
+[SQLite](examples/verification_delivery/) · [n8n](examples/n8n/) · [Smithery](https://smithery.ai/servers/support-35ug/gridzen-verification)
+
+Los ejemplos son sintéticos. Se prepara el precio por verificación; pagos reales deshabilitados.
+
+
 ## Probar inmediatamente sin registro
 
 Abra la [prueba inmediata de GridZen](https://gridzen.ai/console/start?lang=es) para simular comprobaciones telefónicas e incorporación de identidad sin cuenta, clave ni aprobación. Los escenarios de éxito, rechazo e indisponibilidad no llaman a proveedores reales ni verifican personas. Los agentes pueden usar el [MCP de prueba sin clave](https://gridzen.ai/console/downloads/quickstart_mcp.py) con `mcp==2.3.0` y `httpx==0.28.1` en un entorno virtual.
