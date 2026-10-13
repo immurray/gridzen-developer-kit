@@ -6,7 +6,6 @@
     {
       "id": "dev",
       "state": "four_articles_published_verified",
-      "next": "upgrade_two_existing_posts_and_publish_two_more",
       "entry": "https://dev.to/ismurray",
       "articles": [
         {
@@ -30,7 +29,6 @@
     {
       "id": "github",
       "state": "published",
-      "next": "publish_task_examples_workflow_articles_and_demo",
       "entry": "https://github.com/immurray/gridzen-developer-kit",
       "commit": "6cd3846"
     },
@@ -49,21 +47,23 @@
     },
     {
       "id": "smithery",
-      "state": "new_account_requires_explicit_authorization",
+      "state": "authorized_registration_blocked_at_security_verification",
       "entry": "https://smithery.ai/new",
       "materials": "smithery.md"
     },
     {
       "id": "hashnode",
-      "state": "new_account_requires_explicit_authorization",
+      "state": "authorized_registration_not_completed_authentication_entry_unavailable",
       "entry": "https://hashnode.com/onboard",
       "materials": "articles/"
     },
     {
       "id": "n8n",
-      "state": "template_import_and_fixture_execution_passed_creator_login_missing",
+      "state": "creator_email_confirmed_template_submitted_ai_review_pending",
       "entry": "https://creators.n8n.io/",
-      "materials": "../../examples/n8n/README.md"
+      "materials": "../../examples/n8n/README.md",
+      "published": false,
+      "submitted_at": "2026-10-13"
     },
     {
       "id": "reddit",
@@ -73,7 +73,7 @@
     },
     {
       "id": "show_hn",
-      "state": "publisher_login_missing_not_posted",
+      "state": "registration_disabled_by_platform",
       "entry": "https://news.ycombinator.com/submit",
       "materials": "community-posts.md"
     },
@@ -83,5 +83,6 @@
       "materials": "media/"
     }
   ],
-  "notice": "listed/submitted/published are channel outcomes, not customers or adoption"
+  "notice": "listed/submitted/published are channel outcomes, not customers or adoption",
+  "free_account_registration_authorized": true
 }

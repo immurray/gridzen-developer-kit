@@ -185,6 +185,22 @@
         "height": 220,
         "width": 800
       }
+    },
+    {
+      "id": "fixture-setup-note",
+      "name": "Read before running \u2014 synthetic local fixture",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        -320
+      ],
+      "parameters": {
+        "content": "## Test identity callbacks and timeout recovery with HTTP Request\n\n**Who it is for:** developers testing an onboarding integration in self-hosted n8n.\n\n**How it works:** create a synthetic session, receive fixture callbacks, and recover after a bounded wait. The SQLite fixture handles tenant/user binding and idempotent grants. These are simulated outcomes, not real identity verification or signed supplier events.\n\n**Setup:** clone https://github.com/immurray/gridzen-developer-kit and follow examples/n8n/README.md. Start the supplied fixture server in the n8n network namespace at 127.0.0.1:8787. Import this workflow and run Start fixture. Use the documented callback fixtures to test approval, duplicates, wrong bindings and expiry.\n\n**Requirements:** self-hosted n8n and Python 3 with the local fixture service. No provider credentials or paid service is needed. n8n Cloud cannot reach this loopback fixture.\n\n**Customize:** replace the fixture only after implementing authenticated callbacks and your own business rules. Approved never means unconditional customer permission. Keep bounded timeouts and idempotency.\n\n**Limits:** fixture restart persistence tested; n8n Wait resumption after restart not yet tested. This workflow is inactive by default.",
+        "height": 700,
+        "width": 500,
+        "color": 5
+      }
     }
   ],
   "connections": {
