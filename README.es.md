@@ -151,3 +151,11 @@ Se validaron una consulta real de teléfono y la lectura de una sesión históri
 
 
 Use `gridzen start --task identity_onboarding --lang es` para encontrar la prueba anónima, la cuenta gratuita de sandbox y el asistente. El comando no hace llamadas de red. La medición de progreso requiere consentimiento opcional en la consola. Completar el sandbox no verifica a una persona real; los cobros reales siguen desactivados.
+
+## Guías y ejemplos ejecutables
+
+[Identity](https://gridzen.ai/console/learn/identity-first-run) · [Phone](https://gridzen.ai/console/learn/phone-check-boundaries) · [Callbacks](https://gridzen.ai/console/learn/callback-recovery) · [Permissions](https://gridzen.ai/console/learn/business-permission-boundary)
+
+[SQLite fixture](examples/verification_delivery/README.md) · [n8n fixture](examples/n8n/README.md)
+
+Synthetic only / Solo sintético / 仅模拟；没有真人核验、生产批准或真实收费。

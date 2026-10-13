@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-10-13T06:57:24.550922+00:00",
+  "n8n_version": "2.42.7",
+  "import": "passed",
+  "real_n8n_callback": "passed_synthetic_only",
+  "first_grants": 1,
+  "duplicate_grants": 1,
+  "binding_error_http": 422,
+  "fixture_restart_grants": 1,
+  "injected_deadline_late_grants": 0,
+  "fixture_offline_http": 422,
+  "fixture_offline_state": "unknown",
+  "wait_node_imported": true,
+  "wait_after_n8n_restart": "not_tested",
+  "provider_calls": 0,
+  "additional_cost_usd": 0,
+  "credentials_embedded": false
+}

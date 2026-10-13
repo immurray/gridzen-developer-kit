@@ -1,4 +1,4 @@
-# Gridzen Developer Kit 0.6.0
+# Gridzen Developer Kit 0.6.1
 
 ## Start immediately without signup
 
@@ -207,3 +207,25 @@ Real basic phone checks and retrieval of a historical Approved operator identity
 
 
 Use `gridzen start --task identity_onboarding --lang en` to find the anonymous trial, free sandbox account and integration assistant. `gridzen start` makes no network calls. Account progress measurement is a separate, optional console consent; completing a sandbox does not verify a real person. Real payments remain disabled.
+
+## Complete a customer task
+
+- [Identity onboarding: three outcomes and application decisions](https://gridzen.ai/console/learn/identity-first-run?lang=en)
+- [Phone checks: validity, ownership and unavailable outcomes](https://gridzen.ai/console/learn/phone-check-boundaries?lang=en)
+- [Recover delayed callbacks](https://gridzen.ai/console/learn/callback-recovery?lang=en)
+- [Bind verification to seller permissions](https://gridzen.ai/console/learn/business-permission-boundary?lang=en)
+- [Runnable SQLite delivery example](examples/verification_delivery/README.md)
+- [Importable n8n fixture workflow](examples/n8n/README.md)
+
+These are synthetic integration examples. They do not prove real identity,
+production webhook delivery, customer adoption or payment. No account is needed
+for the anonymous response trial or local examples.
+
+Install the existing six skills into your project:
+
+```bash
+npx skills add immurray/gridzen-developer-kit --skill '*' --agent codex --copy -y
+```
+
+Choose your supported agent instead of `codex`. Installation compatibility does
+not prove all agents have executed or recommended the skills.

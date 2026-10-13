@@ -1,0 +1,28 @@
+[
+  {
+    "channel": "glama",
+    "url": "https://glama.ai/mcp/connectors/ai.gridzen/verification",
+    "http": 200,
+    "checked_at": "2026-10-13T06:46:44.370827+00:00",
+    "title": "Gridzen Verification - MCP Connector | Glama",
+    "project_matched": true,
+    "expected_tools_found": [
+      "get_coverage",
+      "plan_verification",
+      "create_sandbox_verification",
+      "get_sandbox_verification",
+      "explain_result"
+    ],
+    "state": "listed"
+  },
+  {
+    "channel": "skills",
+    "url": "https://skills.sh/immurray/gridzen-developer-kit",
+    "http": 200,
+    "checked_at": "2026-10-13T06:46:46.033354+00:00",
+    "title": "immurray/gridzen-developer-kit \u2014 Agent skills",
+    "project_matched": true,
+    "expected_tools_found": [],
+    "state": "listed"
+  }
+]

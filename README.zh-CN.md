@@ -150,3 +150,11 @@ Local queued events expire after 30 days and are removed on the next enqueue/flu
 
 
 运行 `gridzen start --task identity_onboarding --lang zh` 查看匿名试用、免费沙盒账号及接入助手。该命令不联网。账号进度统计需在 Console 单独明确同意；完成沙盒不代表真人核验，真实收费仍关闭。
+
+## 任务教程与可运行示例
+
+[Identity](https://gridzen.ai/console/learn/identity-first-run) · [Phone](https://gridzen.ai/console/learn/phone-check-boundaries) · [Callbacks](https://gridzen.ai/console/learn/callback-recovery) · [Permissions](https://gridzen.ai/console/learn/business-permission-boundary)
+
+[SQLite fixture](examples/verification_delivery/README.md) · [n8n fixture](examples/n8n/README.md)
+
+Synthetic only / Solo sintético / 仅模拟；没有真人核验、生产批准或真实收费。
