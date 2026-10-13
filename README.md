@@ -23,6 +23,8 @@ Research for 198 countries/territories, a verification integration planner, five
 
 Public examples are synthetic. Per-check production pricing is being prepared; live payments remain disabled. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
 
+[Per-check plan and activation requirements](https://gridzen.ai/console/quote?lang=en) · [JSON](https://gridzen.ai/console/api/commercial/options)
+
 ## Try it
 
 Public playground: https://gridzen.ai/developers/

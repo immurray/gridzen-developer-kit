@@ -1,5 +1,7 @@
 # Kit de desarrollo Gridzen 0.6.0
 
+[Plan por verificación y requisitos de activación](https://gridzen.ai/console/quote?lang=es) · [JSON](https://gridzen.ai/console/api/commercial/options)
+
 ## Ejecutar ejemplos de tareas
 
 - [Primera integración de identidad](https://gridzen.ai/console/learn/identity-first-run?lang=es)

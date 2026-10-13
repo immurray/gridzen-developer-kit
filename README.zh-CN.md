@@ -1,5 +1,7 @@
 # Gridzen 开发者工具包 0.6.0
 
+[按次核验方案与开通条件](https://gridzen.ai/console/quote?lang=zh) · [JSON](https://gridzen.ai/console/api/commercial/options)
+
 ## 直接运行客户任务示例
 
 - [身份首次接入](https://gridzen.ai/console/learn/identity-first-run?lang=zh)
