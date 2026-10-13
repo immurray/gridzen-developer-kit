@@ -1,1 +1,87 @@
-{"as_of":"2026-10-13","new_paid_spend":0,"customer_cold_outreach":false,"channels":[{"id":"dev","state":"existing_account_ready","next":"upgrade_two_existing_posts_and_publish_two_more","entry":"https://dev.to/ismurray"},{"id":"github","state":"write_access_verified","next":"publish_task_examples_workflow_articles_and_demo","entry":"https://github.com/immurray/gridzen-developer-kit"},{"id":"glama","state":"listed_verified","entry":"https://glama.ai/mcp/connectors/ai.gridzen/verification","tools_verified":5},{"id":"skills","state":"listed_verified_install_test_passed","entry":"https://skills.sh/immurray/gridzen-developer-kit","skills_verified":6,"test_telemetry":"disabled"},{"id":"smithery","state":"new_account_requires_explicit_authorization","entry":"https://smithery.ai/new","materials":"smithery.md"},{"id":"hashnode","state":"new_account_requires_explicit_authorization","entry":"https://hashnode.com/onboard","materials":"articles/"},{"id":"n8n","state":"template_import_passed_creator_login_missing","entry":"https://creators.n8n.io/","materials":"../../examples/n8n/"},{"id":"reddit","state":"network_verification_required_not_posted","entry":"https://www.reddit.com/submit/","materials":"community-posts.md"},{"id":"show_hn","state":"publisher_login_missing_not_posted","entry":"https://news.ycombinator.com/submit","materials":"community-posts.md"},{"id":"youtube_linkedin_x","state":"demo_and_copy_prepared_not_posted","materials":"media/"}],"notice":"listed/submitted/published are channel outcomes, not customers or adoption"}
+{
+  "as_of": "2026-10-13",
+  "new_paid_spend": 0,
+  "customer_cold_outreach": false,
+  "channels": [
+    {
+      "id": "dev",
+      "state": "four_articles_published_verified",
+      "next": "upgrade_two_existing_posts_and_publish_two_more",
+      "entry": "https://dev.to/ismurray",
+      "articles": [
+        {
+          "topic": "identity-first-run",
+          "url": "https://dev.to/ismurray/your-first-identity-onboarding-sandbox-run-1ej2"
+        },
+        {
+          "topic": "phone-check-boundaries",
+          "url": "https://dev.to/ismurray/add-a-phone-check-without-promising-ownership-5dpj"
+        },
+        {
+          "topic": "callback-recovery",
+          "url": "https://dev.to/ismurray/recover-a-delayed-verification-callback-3f68"
+        },
+        {
+          "topic": "business-permission-boundary",
+          "url": "https://dev.to/ismurray/separate-verification-results-from-business-permissions-44om"
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "state": "published",
+      "next": "publish_task_examples_workflow_articles_and_demo",
+      "entry": "https://github.com/immurray/gridzen-developer-kit",
+      "commit": "6cd3846"
+    },
+    {
+      "id": "glama",
+      "state": "listed_verified",
+      "entry": "https://glama.ai/mcp/connectors/ai.gridzen/verification",
+      "tools_verified": 5
+    },
+    {
+      "id": "skills",
+      "state": "listed_verified_install_test_passed",
+      "entry": "https://skills.sh/immurray/gridzen-developer-kit",
+      "skills_verified": 6,
+      "test_telemetry": "disabled"
+    },
+    {
+      "id": "smithery",
+      "state": "new_account_requires_explicit_authorization",
+      "entry": "https://smithery.ai/new",
+      "materials": "smithery.md"
+    },
+    {
+      "id": "hashnode",
+      "state": "new_account_requires_explicit_authorization",
+      "entry": "https://hashnode.com/onboard",
+      "materials": "articles/"
+    },
+    {
+      "id": "n8n",
+      "state": "template_import_and_fixture_execution_passed_creator_login_missing",
+      "entry": "https://creators.n8n.io/",
+      "materials": "../../examples/n8n/README.md"
+    },
+    {
+      "id": "reddit",
+      "state": "network_verification_required_not_posted",
+      "entry": "https://www.reddit.com/submit/",
+      "materials": "community-posts.md"
+    },
+    {
+      "id": "show_hn",
+      "state": "publisher_login_missing_not_posted",
+      "entry": "https://news.ycombinator.com/submit",
+      "materials": "community-posts.md"
+    },
+    {
+      "id": "youtube_linkedin_x",
+      "state": "demo_and_copy_prepared_not_posted",
+      "materials": "media/"
+    }
+  ],
+  "notice": "listed/submitted/published are channel outcomes, not customers or adoption"
+}
