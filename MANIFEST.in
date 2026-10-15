@@ -8,3 +8,5 @@ recursive-include skills *.md *.json *.py LICENSE
 recursive-include clients *.json *.toml
 recursive-include docs/harness *.md
 include scripts/check_integration.py
+
+include docs/verification-evaluation.md

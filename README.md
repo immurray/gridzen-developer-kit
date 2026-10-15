@@ -1,5 +1,7 @@
 # Gridzen Developer Kit 0.6.1
 
+[Choose direct integration or GridZen for your task](docs/verification-evaluation.md#english) · [Production and cost checklist](https://gridzen.ai/console/learn?lang=en&source=developer_kit#decision-fit)
+
 ## Start immediately without signup
 
 Open [GridZen instant trial](https://gridzen.ai/console/start?lang=en) to run synthetic signup-phone and identity-onboarding responses without an account, API key or approval. Success, rejection and unavailable scenarios make no upstream calls and verify no real person. Agents can use the separate [key-free trial MCP](https://gridzen.ai/console/downloads/quickstart_mcp.py), installed with `mcp==2.3.0` and `httpx==0.28.1` in a virtual environment.

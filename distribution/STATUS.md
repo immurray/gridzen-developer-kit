@@ -1,5 +1,20 @@
 # Activation bridge — 0.6.1
 
+## Task evaluation and content handoff — 2026-10-15
+
+The three READMEs now link to the shared [task evaluation guide](../docs/verification-evaluation.md):
+direct integration versus orchestration, production-readiness evidence and pilot
+cost components. The first-party [decision cards](https://gridzen.ai/console/learn?lang=en&source=developer_kit#decision-fit)
+are live in English, Chinese and Spanish. The source download includes this guide.
+This documentation update creates no new PyPI version or MCP Registry release.
+
+Public-page checks on this date: the [Smithery listing](https://smithery.ai/servers/support-35ug/gridzen-verification)
+returns HTTP 200; its client gateway remains unverified. The submitted n8n template's
+public entry `/workflows/20861` returns HTTP 404, so public availability and review
+approval are not claimed. HTTP reachability, marketplace approval and independent
+adoption remain different facts. Historical distribution tables below retain their
+original dates and do not override this dated update.
+
 Adds `gridzen start` with language-preserving links from installation to anonymous trial, verified sandbox account, assistant and tutorials. No network call or automatic account tracking is added to the CLI. Six Skills and five MCP tools are unchanged. Real charging remains disabled; the private Console has a clearly simulated TEST wallet.
 
 Verified 2026-10-12: [GitHub release v0.6.1](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.6.1), PyPI clean installation with six Skills, 48 package tests, actual stdio MCP checks, hosted health 0.6.1 and official Registry active. [Registry receipt](registry-publication-0.6.1.json). No new marketplace approval or independent customer adoption is claimed. [Activation guide](../docs/activation.md).

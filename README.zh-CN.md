@@ -1,5 +1,7 @@
 # Gridzen 开发者工具包 0.6.0
 
+[直连还是使用 GridZen：按任务评估](docs/verification-evaluation.md#中文) · [正式上线与费用检查](https://gridzen.ai/console/learn?lang=zh&source=developer_kit#decision-fit)
+
 [按次核验方案与开通条件](https://gridzen.ai/console/quote?lang=zh) · [JSON](https://gridzen.ai/console/api/commercial/options)
 
 ## 直接运行客户任务示例

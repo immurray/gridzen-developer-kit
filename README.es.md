@@ -1,5 +1,7 @@
 # Kit de desarrollo Gridzen 0.6.0
 
+[Integración directa o GridZen: evalúe su tarea](docs/verification-evaluation.md#español) · [Preparación y costes](https://gridzen.ai/console/learn?lang=es&source=developer_kit#decision-fit)
+
 [Plan por verificación y requisitos de activación](https://gridzen.ai/console/quote?lang=es) · [JSON](https://gridzen.ai/console/api/commercial/options)
 
 ## Ejecutar ejemplos de tareas
