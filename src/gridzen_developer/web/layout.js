@@ -25,7 +25,7 @@
     }
   }
   localizeLinks(document);
-  async function getShell(path) { const response = await fetch(path, {signal: AbortSignal.timeout(5000)}); if (!response.ok) throw Error('Shared shell unavailable'); return response.json(); }
+  async function getShell(path) { const response = await fetch(path, {cache:'no-store',signal: AbortSignal.timeout(5000)}); if (!response.ok) throw Error('Shared shell unavailable'); return response.json(); }
   window.GridzenShellReady = getShell('/assets/site-shell.json').catch(() => getShell('/developers/site-shell.json')).then(shell => {
     const current = shell.languages[lang];
     document.getElementById('gz-nav').innerHTML = current.nav;
