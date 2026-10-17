@@ -1,5 +1,7 @@
 # Gridzen Developer Kit 0.6.1
 
+The hosted developer interface supports Vietnamese alongside English, Spanish and Simplified Chinese: https://gridzen.ai/developers/?lang=vi . UI language does not enable live checks or country coverage. See [UI language maintenance](docs/multilingual-ui.md).
+
 [Choose direct integration or GridZen for your task](docs/verification-evaluation.md#english) · [Production and cost checklist](https://gridzen.ai/console/learn?lang=en&source=developer_kit#decision-fit)
 
 ## Start immediately without signup

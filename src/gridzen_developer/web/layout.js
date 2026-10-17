@@ -1,10 +1,10 @@
 (() => {
   'use strict';
-  const supported = ['en', 'es', 'zh'];
+  const supported = Object.keys(window.GZ_DEVELOPER_LOCALES);
   const query = new URLSearchParams(location.search);
   let lang = query.get('lang');
   if (!supported.includes(lang)) {
-    try { const ref = new URL(document.referrer); if (ref.origin === location.origin) lang = /^\/(es|zh)\//.exec(ref.pathname)?.[1] || new URLSearchParams(ref.search).get('lang'); } catch (_) {}
+    try { const ref = new URL(document.referrer); if (ref.origin === location.origin) lang = /^\/(es|zh|vi)\//.exec(ref.pathname)?.[1] || new URLSearchParams(ref.search).get('lang'); } catch (_) {}
     try { if (!supported.includes(lang)) lang = localStorage.getItem('gz-lang'); } catch (_) {}
   }
   if (!supported.includes(lang)) lang = 'en';
