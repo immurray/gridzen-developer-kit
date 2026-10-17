@@ -1,3 +1,7 @@
+# Example update — 2026-10-17
+
+The source example now includes policy version checks, local permission revocation, explicit re-decisions and persisted agent handoff. This is a synthetic fixture, not production authorization. It is distributed through the example source and website download; the installed package remains 0.6.1. No new customer, performance or supplier-access claim is made.
+
 # Activation bridge — 0.6.1
 
 ## Task evaluation and content handoff — 2026-10-15

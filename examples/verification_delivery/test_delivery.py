@@ -66,5 +66,28 @@ class DeliveryTests(unittest.TestCase):
         self.assertFalse(result['permission_granted'])
 
 
+    def test_policy_revision_rejects_stale_versions_and_revokes_local_action(self):
+        self.identity.event('fixture-approved', policy=True)
+        r=self.identity.revise_policy(expected_version=1,allow=False)
+        self.assertEqual(r['policy_version'],2)
+        other=Identity(self.path)
+        self.assertEqual(other.read()['status'],'approved')
+        self.assertFalse(other.event('fixture-approved',policy=True)['permission_granted'])
+        with self.assertRaises(ValueError):other.revise_policy(expected_version=1,allow=True)
+        with self.assertRaises(ValueError):other.revise_policy(expected_version=2,allow=1)
+
+    def test_policy_reenable_needs_an_explicit_current_decision_and_handoff(self):
+        self.identity.event('fixture-approved',policy=True)
+        self.identity.revise_policy(expected_version=1,allow=False)
+        self.identity.revise_policy(expected_version=2,allow=True)
+        self.assertFalse(Identity(self.path).read()['permission_granted'])
+        self.identity.decide(expected_version=3,approve=True,now=2)
+        self.assertEqual(self.identity.decide(expected_version=3,approve=True,now=2)['grant_count'],2)
+        handoff=Identity(self.path).handoff()
+        self.assertEqual(handoff['policy_version'],3)
+        self.assertFalse(handoff['verified'])
+        self.assertFalse(handoff['live_permission_changed'])
+
+
 if __name__ == '__main__':
     unittest.main()

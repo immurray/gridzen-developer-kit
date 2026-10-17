@@ -6,7 +6,7 @@ def test_every_declared_translation_exists_in_three_languages():
  text=(ROOT/'src/gridzen_developer/web/locales.js').read_text()
  data=json.JSONDecoder().raw_decode(text.split('=',1)[1].lstrip())[0]
  keys=set(data['en'])
- assert set(data)=={'en','zh','es'}
+ assert set(data)=={'en','zh','es','vi'}
  for locale in data.values():
   assert set(locale)==keys
   assert all(isinstance(v,str) and v.strip() for v in locale.values())

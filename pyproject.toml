@@ -45,3 +45,6 @@ Source = "https://github.com/immurray/gridzen-developer-kit"
 "share/gridzen-developer-kit/skills/payout-policy-designer/examples" = ["skills/payout-policy-designer/examples/missing-evidence.json", "skills/payout-policy-designer/examples/normal.json", "skills/payout-policy-designer/examples/out-of-scope.json"]
 "share/gridzen-developer-kit/skills/provider-rights-readiness" = ["skills/provider-rights-readiness/LICENSE", "skills/provider-rights-readiness/README.md", "skills/provider-rights-readiness/SKILL.md", "skills/provider-rights-readiness/agent-evals.json", "skills/provider-rights-readiness/evaluate.py", "skills/provider-rights-readiness/example-input.json", "skills/provider-rights-readiness/spec.json", "skills/provider-rights-readiness/test_evaluate.py"]
 "share/gridzen-developer-kit/skills/provider-rights-readiness/examples" = ["skills/provider-rights-readiness/examples/missing-evidence.json", "skills/provider-rights-readiness/examples/normal.json", "skills/provider-rights-readiness/examples/out-of-scope.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

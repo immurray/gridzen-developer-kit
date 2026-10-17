@@ -42,3 +42,11 @@ The local link is executable but synthetic; it collects no identity information.
 El enlace local funciona como simulación, no recoge documentos. No valida firmas reales. Reinicie con la misma base para recuperar el estado; plazo de 60 segundos. No publique este servidor.
 
 本地链接可运行但仍是模拟，不采集资料、不验证真实回调签名、不可公网部署。重启使用同一数据库恢复状态；60 秒超时，独立实验使用新数据库。生产签名与真实托管链接仍未测试。
+
+## Policy revisions / Revisiones / 策略变更
+
+`revise_policy(expected_version=1, allow=False)` revokes only the local synthetic permission while preserving provider evidence. Re-enabling a policy requires a separate `decide(expected_version=3, approve=True, now=2)` against current evidence and the deadline. Stale versions and non-boolean decisions fail. `handoff()` reads persisted state for the next agent; every result remains synthetic and changes no real permission.
+
+La revisión revoca el permiso local de simulación; volver a habilitar requiere una decisión explícita sobre la versión actual. No realiza verificaciones reales.
+
+策略变更只撤销本地合成权限并保留证据；重新允许后仍需显式决策。旧版本和非布尔决策会失败。交接从磁盘读取当前状态，不授予真实权限。

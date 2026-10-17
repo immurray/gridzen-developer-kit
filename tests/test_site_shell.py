@@ -12,7 +12,7 @@ class Links(HTMLParser):
 
 def test_packaged_shell_has_language_safe_product_and_skill_paths():
     shell = json.loads((ROOT / 'src/gridzen_developer/web/site-shell.json').read_text())
-    assert set(shell['languages']) == {'en', 'es', 'zh'}
+    assert set(shell['languages']) == {'en', 'es', 'zh', 'vi'}
     for lang, row in shell['languages'].items():
         prefix = '' if lang == 'en' else '/' + lang
         nav = Links(); nav.feed(row['nav'])
@@ -29,3 +29,11 @@ def test_source_download_contains_same_fallback_shell():
     expected = (ROOT / 'src/gridzen_developer/web/site-shell.json').read_bytes()
     with zipfile.ZipFile(ROOT / 'src/gridzen_developer/web/downloads/gridzen-developer-kit.zip') as archive:
         assert archive.read('gridzen-developer-kit/src/gridzen_developer/web/site-shell.json') == expected
+
+
+def test_source_download_contains_current_synthetic_delivery_example():
+    import zipfile
+    with zipfile.ZipFile(ROOT/'src/gridzen_developer/web/downloads/gridzen-developer-kit.zip') as archive:
+        for name in ('delivery.py','test_delivery.py','README.md'):
+            relative='examples/verification_delivery/'+name
+            assert archive.read('gridzen-developer-kit/'+relative)==(ROOT/relative).read_bytes()
