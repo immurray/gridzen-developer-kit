@@ -4,6 +4,7 @@ from pydantic import ValidationError
 import pytest
 
 def test_cep_discovery_does_not_enable_public_execution():
+    assert PlanRequest(country='MX',event='payout',task='mx_cep_existing_payment').task=='mx_cep_existing_payment'
     r=core.plan('MX','payout','mx_cep_existing_payment','production')
     assert r['task_match_status']=='matched'
     assert r['provider_calls']==0 and r['verified'] is False
