@@ -35,7 +35,7 @@ def get_coverage(country: str | None=None, capability: str | None=None) -> dict[
  return core.coverage(country,capability)
 @server.tool(annotations=read,structured_output=True)
 def plan_verification(country: str, event: str='payout', task: str | None=None, stage: str='prototype') -> dict[str, Any]:
- """Plan a specific signup_phone, identity_onboarding or payout_account task. Set stage=production to report missing live routes; legacy event-only calls remain supported."""
+ """Plan signup_phone, identity_onboarding, payout_account or MX mx_cep_existing_payment (existing SPEI evidence). CEP only discovers the separate authenticated trial; never submit transaction data here. Set stage=production to report missing live routes; legacy event-only calls remain supported."""
  return core.plan(country,event,task,stage)
 @server.tool(annotations=read,structured_output=True)
 def create_sandbox_verification(country: str, capability: str, scenario: str='match') -> dict[str, Any]:

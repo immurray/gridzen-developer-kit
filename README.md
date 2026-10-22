@@ -248,3 +248,7 @@ npx skills add immurray/gridzen-developer-kit --skill '*' --agent codex --copy -
 
 Choose your supported agent instead of `codex`. Installation compatibility does
 not prove all agents have executed or recommended the skills.
+
+## Existing Mexico SPEI payment evidence
+
+Use `gridzen plan --country MX --event payout --task mx_cep_existing_payment --stage production` to discover the separate authenticated CEP trial. Public tools remain research/synthetic only. [Live capability conditions](https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities) require a merchant key; do not send transaction details or keys to public tools. [Runnable offline example](examples/cep_reconciliation/) makes no network calls. CEP preserves original XML, independent signature and exact expected-transaction binding; historical names do not establish current identity or account control. No transfer is created; paid checkout remains disabled.

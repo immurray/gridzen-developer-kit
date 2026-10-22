@@ -1,6 +1,6 @@
 ---
 name: gridzen-select-verification
-description: Select identity, account ownership or phone verification approaches for a country and business event using Gridzen's sourced research. Use for verification coverage and access planning, not login or account authentication.
+description: Select identity, account ownership, phone verification or existing Mexico SPEI payment-evidence approaches for a country and business event using Gridzen's sourced research. Use for verification coverage and access planning, not login or account authentication.
 ---
 
 Use the Gridzen MCP tools `get_coverage` and `plan_verification` if installed. Otherwise use `gridzen coverage --country <ISO2>` and `gridzen plan --country <ISO2> --event <event>` from the developer kit. Installation: https://gridzen.ai/developers/quickstart.html . The same read-only research is available at https://gridzen.ai/developers/api/coverage?country=ID .
@@ -22,3 +22,7 @@ Offline use is not tracked. Offer a category-only local task summary when the us
 
 
 Local feedback in kit 0.6.0 is off by default. If the CLI is installed, `gridzen telemetry status` shows consent. Never enable it on the user's behalf without explicit agreement. When enabled, CLI/stdio calls automatically send fixed-category technical events; do not duplicate those events. For a Skill-only workflow, record one task summary after actual work with `gridzen telemetry record --skill gridzen-select-verification --task <documented-task> --outcome <documented-outcome> --blocker <documented-reason>`, only if consent is already enabled. Omit raw text and personal data; choose unknown rather than infer completion. Do not install a dependency just to report telemetry. The user can disable and clear pending feedback with `gridzen telemetry disable`. Reading these instructions alone is not tracked.
+
+## Existing Mexico SPEI payment evidence
+
+For an existing authorized Mexican SPEI transaction, use `plan_verification(country="MX", event="payout", task="mx_cep_existing_payment", stage="production")` to discover the separate merchant route. Public tools never receive bank details or credentials. Read its current authenticated capabilities before suggesting real execution. Require transaction date, trace, amount, institutions and CLABE; CLABE plus a name alone is insufficient. Original retrieval, signature validation, exact transaction binding and name comparison are separate. A historical bank name does not prove current identity or control; an upstream restriction remains pending/review, never fraud. Do not initiate a transfer to fill missing evidence. [Integration example](https://github.com/immurray/gridzen-developer-kit/tree/main/examples/cep_reconciliation).

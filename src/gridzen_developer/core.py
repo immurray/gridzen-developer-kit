@@ -4,6 +4,7 @@ import json
 
 SCENARIOS = ('match', 'mismatch', 'not_found', 'timeout', 'unsupported')
 TASK_ROUTES = {
+ 'mx_cep_existing_payment': ('payout','payment_evidence','original_signature_and_exact_transaction_binding'),
  'signup_phone': ('onboarding','phone_intelligence','number_line_type'),
  'identity_onboarding': ('onboarding','identity_verification','document_and_liveness'),
  'payout_account': ('payout','bank_account_match','account_holder_match'),
@@ -47,6 +48,24 @@ def coverage(country_code=None, capability_id=None):
 
 def plan(country_code, event='payout', task=None, stage='prototype'):
  c=country(country_code)
+ if task=='mx_cep_existing_payment':
+  if event!='payout':raise ValueError('TASK_EVENT_MISMATCH')
+  if stage not in ('research','prototype','production'):raise ValueError('UNKNOWN_STAGE')
+  supported=c['code']=='MX'
+  return {'mode':'planning','task':task,'country':c['code'],'event':event,'requested_stage':stage,
+   'capability':'payment_evidence','task_match_status':'matched' if supported else 'unsupported',
+   'verified':False,'provider_calls':0,
+   'execution':{'sandbox_available':False,'live_available':False,'ready_for_requested_stage':False,
+                'blockers':['USE_SEPARATE_AUTHENTICATED_MERCHANT_ROUTE'] if supported else ['MX_SPEI_ONLY']},
+   'required_inputs':['operation_date','tracking_key','amount_minor','issuer_code','receiver_code','CLABE18','authorization_reference','verified_business_domain'],
+   'merchant_surface':{'product_url':'https://gridzen.ai/mexico/cep-verification/',
+      'capabilities_url':'https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities',
+      'docs_url':'https://gridzen.ai/console/payment-evidence/mx/cep/docs',
+      'mcp_client_url':'https://gridzen.ai/console/downloads/production_mcp.py',
+      'authentication':'separate verified merchant account and key','availability_must_be_checked':True,
+      'payments_enabled':False,'creates_transfer':False,'trial_domain_lifetime_attempts':10,'trial_global_daily_attempts':50},
+   'workflow_requirements':['reuse_idempotency_key','bounded_polling','preserve_pending_and_official_restrictions','verify_original_signature_and_independent_transaction_fields','do_not_infer_current_identity_or_account_control'],
+   'notice':'Public MCP only discovers and plans. Never send transaction data or credentials here. The separate limited real trial is subject to live eligibility, worker, upstream and quota checks; no completion SLA.'}
  if event not in EVENTS:raise ValueError('UNKNOWN_EVENT')
  if stage not in ('research','prototype','production'):raise ValueError('UNKNOWN_STAGE')
  if task is not None:

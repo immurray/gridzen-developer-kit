@@ -25,7 +25,7 @@ class PlanRequest(BaseModel):
  model_config=ConfigDict(extra='forbid',strict=True)
  country: str=Field(min_length=2,max_length=2,pattern=r'^[A-Za-z]{2}$')
  event: Literal['onboarding','payout','account_change']='payout'
- task: Literal['signup_phone','identity_onboarding','payout_account','phone_possession','business_onboarding','account_change'] | None=None
+ task: Literal['signup_phone','identity_onboarding','payout_account','phone_possession','business_onboarding','account_change','mx_cep_existing_payment'] | None=None
  stage: Literal['research','prototype','production']='prototype'
 class SandboxRequest(BaseModel):
  model_config=ConfigDict(extra='forbid',strict=True)
