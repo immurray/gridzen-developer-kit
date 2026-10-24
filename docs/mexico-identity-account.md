@@ -1,44 +1,52 @@
-# Mexico CURP + CLABE identity and bank-name comparison
+# Mexico identity and beneficiary-account verification
 
-Updated 2026-10-24, automatic bank-evidence mode. Use for first account binding, account changes or exception review. Customer guide: https://gridzen.ai/merchant-guide.html (Chinese); PDF: https://gridzen.ai/downloads/gridzen-merchant-guide-zh.pdf .
+GridZen helps merchants check consistency between identity and beneficiary-account information, for first account binding, account changes and exception review. The current Mexico service uses CURP and CLABE as its basic inputs. GridZen performs the verification; merchants do not integrate upstream suppliers or implement our internal decision process.
 
-## Merchant task
+Customer guide: https://gridzen.ai/merchant-guide.html . Downloadable PDF: https://gridzen.ai/downloads/gridzen-merchant-guide-zh.pdf . Workspace: https://gridzen.ai/console/bank-account-name#identity-account .
 
-Submit an authorized CURP and 18-digit CLABE. GridZen queries the registry full name. Only after a complete name is confirmed and the merchant explicitly authorizes the recipient's **real 1 MXN verification transfer**, the existing payment worker obtains bank evidence, retrieves CEP through the native SDK, verifies its signature and exact transaction binding, and compares the source names. **No customer CEP upload or bank-name input is required by default.**
+## Stable merchant journey
 
-The current automatic route supports BBVA MEXICO (012), SANTANDER (014), and NVIO (710), subject to authenticated capabilities and the bound quote. Card16 and grade A direct bank-CURP binding are unavailable. This is asynchronous; official restrictions can delay or prevent a conclusion. B means consistent full names across sources, not current account control or lending approval.
+1. Register and verify your email at https://gridzen.ai/console/ ; complete requested account security steps.
+2. Register the actual legal business and permitted use, and explicitly accept the applicable terms and subject authority.
+3. Prepare funds using the workspace instructions. An offline funding request does not add balance; confirmed actual receipt and approval are required.
+4. Submit the verification data for a quote. Review the current price and any necessary task-specific authorization before creating the check.
+5. Keep the original request UUID and task ID; read results, status and charges from the same record. Recover an uncertain request rather than replacing it.
 
-## Access and price
+Supported account types, regions, grades, availability, limits and prices belong to the authenticated capabilities, product page and accepted quote. They are not fixed in this general guide. If an operation involves actual movement of money or source costs, it must be specifically disclosed and authorized before the action; account registration or general enrollment does not imply that consent.
 
-Register at https://gridzen.ai/console/ , verify email and complete MFA if requested. Enroll the legal business, actual country and explicit representative/subject/restricted-use acceptance in https://gridzen.ai/console/bank-account-name#identity-account . Enrollment does not create a payment or prove independent KYB.
+## Results
 
-Arrange offline MXN payment through an operator-confirmed channel and submit a funding request. Only confirmed actual receipt and approval increase the wallet. No online checkout, automatic recharge or default credit is offered.
+| Grade | Business meaning |
+|---|---|
+| A | Stronger evidence of a direct consistent relationship |
+| B | Evidence of consistency; not equivalent to A-level direct linkage |
+| C | Similarity, partial consistency or ambiguity requiring review |
+| D | An explicit conflict in valid evidence |
+| No conclusion | Pending, insufficient, unsupported or unavailable evidence; never assume pass or conflict |
 
-The completed combination costs **14 MXN/check before tax**, including the verification transfer principal, up to 3 MXN rail fee and disclosed registry costs; do not add the separate bank product's 6 MXN. Inconclusive checks have no completion fee and settle only accepted, actually incurred source components. Unknown sends/costs retain a reservation and must not be automatically retried. One parent reserves at most 14 MXN; its bank child creates no extra merchant charge.
+Not every service supports every grade. Follow current capabilities rather than assuming an A result is available. Verification grades do not establish presence, current account control, fraud or lending approval; merchants own their business decisions.
 
-Current UTC daily limits: 10 new combination tasks per merchant and 50 globally, also subject to shared bank-route limits. This is not 1000+/day capacity. Read authenticated capabilities rather than assuming activation from this document.
+Read final charges and reservations from the wallet and task. A reservation is not a settled charge, and a result grade is not a billing formula. Unknown sends or costs require original-task recovery or reconciliation, not a new request.
 
-## HTTP sequence
+## Technical contract
 
-Base: `/console/api/bank-account-name/identity`. Use the merchant's server-side Bearer API key; read-only keys cannot POST. Cookie clients also need existing same-origin CSRF protection.
+The authenticated API base is `/console/api/bank-account-name/identity`. Keep the merchant API key server-side; write operations need the proper key permission. Browser sessions also use the existing Origin/CSRF protection.
 
 | Method | Path | Purpose |
 |---|---|---|
-| GET | `/capabilities` | Default automatic-route status and optional existing-evidence availability |
-| GET/POST | `/enrollment` | Read terms / explicitly enroll |
-| GET | `/wallet` | Shared available funds, funding and charges |
-| GET/POST | `/topups` | Read or request offline funding; never immediate credit |
-| POST | `/quote` | Bound quote, no source call or transfer |
-| POST | `/checks` | One authorized combination task |
-| GET | `/checks`, `/checks/{id}` | Own history and result |
-| GET | `/requests/{idempotency_key}` | Recover without a new send |
+| GET | `/capabilities` | Current supported capabilities and restrictions |
+| GET/POST | `/enrollment` | Read and explicitly accept use terms |
+| GET | `/wallet` | Shared balance, funding and charges |
+| GET/POST | `/topups` | Read or request offline funding; no immediate credit |
+| POST | `/quote` | Bind inputs to the current quote without a live check |
+| POST | `/checks` | Submit an authorized check with the quote and persistent UUID |
+| GET | `/checks`, `/checks/{id}` | Own task history and details |
+| GET | `/requests/{idempotency_key}` | Recover the original task without creating another check |
 
-Quote: `personal_number`, `clabe`, `business_event` (`first_binding`, `account_change`, `exception_review`). Omit `bank_evidence_id` for platform acquisition. Create adds the same inputs, original `quote_token`, persistent `idempotency_key` UUID, `consent_reference` UUID, `consent_to_verify=true`, `accept_disclosed_source_cost=true`, `authorize_transfer=true`, and `terms_version=mx-identity-account-2026-10-24`. Explicit consent is mandatory; never infer it. Changed or expired input needs another quote.
+Read the current merchant OpenAPI at https://gridzen.ai/console/api/openapi.json for field formats, task-specific consent and response schemas. Never infer agreement, ignore additional required authorization, derive a charge from a grade, or treat an unfamiliar status as pass/fail. Use the original request after timeout or response loss.
 
-`bank_queued` / `awaiting_bank` means the bank step is pending. `cost_unknown` requires reconciliation, not a new UUID. Read `charged_minor` and `reserved_minor`; do not derive billing from a grade. `bank_transfer_intents` is not confirmed transfer success; `new_bank_transfers` is 0 before send, null after uncertain send and 1 only after reported payment success.
+Authenticated merchant MCP is available through `/console/downloads/production_mcp.py`; it follows the same account, data, consent and billing rules. Public research MCP, Skills and local previews remain research/synthetic tools and must not receive live identifiers or credentials.
 
-Optional existing-evidence reuse remains supported: supply your own tenant's verified CEP task UUID as `bank_evidence_id`. Evidence age follows the original transaction date (currently seven days). It creates no new transfer; uploaded original parsing alone never proves signature or binding. This is optional, not a prerequisite for automatic mode.
+Supplier or internal routing changes do not require merchants to reimplement the decision process. Material changes to required data, consent, billing responsibility, grade semantics or incompatible interfaces require corresponding customer-facing notice and documentation.
 
-Authenticated merchant MCP download: `/console/downloads/production_mcp.py`. Quote tool allows omitted evidence ID. Verify tool requires explicit transfer authorization and a consent UUID for automatic mode. Public research MCP, Skills, previews and PyPI kit remain synthetic/research; never send real identifiers or keys there. No package or Registry release is created by this documentation update.
-
-Engineering validation is isolated and synthetic; it does not prove a new paying customer's completion or repeat use. Existing source tests are not market demand or a production SLA.
+Support: support@gridzen.ai . Send your merchant email, task ID, UTC time and a redacted error code; never send passwords, API keys or complete identity/account details. This guide does not establish customer adoption, provider availability or a production SLA.
