@@ -1,53 +1,44 @@
-# Mexico identity and beneficiary-name comparison
+# Mexico CURP + CLABE identity and bank-name comparison
 
-Updated 2026-10-24. Use this for first account binding, account changes or exception review, rather than checking every repeat payout by default.
+Updated 2026-10-24, automatic bank-evidence mode. Use for first account binding, account changes or exception review. Customer guide: https://gridzen.ai/merchant-guide.html (Chinese); PDF: https://gridzen.ai/downloads/gridzen-merchant-guide-zh.pdf .
 
-The authenticated merchant workspace is https://gridzen.ai/console/bank-account-name#identity-account . Read https://gridzen.ai/console/api/bank-account-name/identity/capabilities with your own merchant credentials. A false available flag means new live combination tasks are unavailable.
+## Merchant task
 
-Price: 14 MXN/check before tax. The authenticated service supports confirmed offline MXN funding and merchant-owned verified bank evidence, subject to current capabilities, enrollment and quote. There is no online checkout. The separate CLABE/name quote is 6 MXN and excludes CURP. Current prices and access boundaries: https://gridzen.ai/pricing/ .
+Submit an authorized CURP and 18-digit CLABE. GridZen queries the registry full name. Only after a complete name is confirmed and the merchant explicitly authorizes the recipient's **real 1 MXN verification transfer**, the existing payment worker obtains bank evidence, retrieves CEP through the native SDK, verifies its signature and exact transaction binding, and compares the source names. **No customer CEP upload or bank-name input is required by default.**
 
-A requires source-established direct bank account/CURP binding. B compares full registry and trustworthy bank names; it is not direct identifier binding or current account control. C requires review; D requires established conflict. Unsupported, missing and failed checks are unknown. A submitted given name that matches a registry given name is not a full-name mismatch, but does not by itself verify the full name.
+The current automatic route supports BBVA MEXICO (012), SANTANDER (014), and NVIO (710), subject to authenticated capabilities and the bound quote. Card16 and grade A direct bank-CURP binding are unavailable. This is asynchronous; official restrictions can delay or prevent a conclusion. B means consistent full names across sources, not current account control or lending approval.
 
-## Test without personal data
+## Access and price
 
-After merchant authentication, POST /console/api/bank-account-name/identity/preview with one of these synthetic bodies:
+Register at https://gridzen.ai/console/ , verify email and complete MFA if requested. Enroll the legal business, actual country and explicit representative/subject/restricted-use acceptance in https://gridzen.ai/console/bank-account-name#identity-account . Enrollment does not create a payment or prove independent KYB.
 
-```json
-{"case":"match"}
-```
+Arrange offline MXN payment through an operator-confirmed channel and submit a funding request. Only confirmed actual receipt and approval increase the wallet. No online checkout, automatic recharge or default credit is offered.
 
-Other cases: partial_name, name_conflict, missing_bank. They produce hypothetical B, C, D and unknown results, always mode=synthetic, verified=false, provider_calls=0, charged_minor=0. No real CURP, account, name or provider key belongs in a preview or public research MCP/Skill. Browser clients also use the existing same-origin CSRF token; scoped merchant API keys use Bearer authentication.
+The completed combination costs **14 MXN/check before tax**, including the verification transfer principal, up to 3 MXN rail fee and disclosed registry costs; do not add the separate bank product's 6 MXN. Inconclusive checks have no completion fee and settle only accepted, actually incurred source components. Unknown sends/costs retain a reservation and must not be automatically retried. One parent reserves at most 14 MXN; its bank child creates no extra merchant charge.
 
-Production must bind the merchant, subject, supported account, authorized purpose and source evidence. Existing evidence must be scoped to the requesting merchant and marked with its actual age. Retries and polling must not initiate duplicate charges or transfers; unknown costs retain reservations for reconciliation. Do not substitute a synthetic pass for a live one, and do not automatically approve a loan based on the evidence grade.
+Current UTC daily limits: 10 new combination tasks per merchant and 50 globally, also subject to shared bank-route limits. This is not 1000+/day capacity. Read authenticated capabilities rather than assuming activation from this document.
 
-This is documentation for the authenticated merchant service; it does not publish a new PyPI/Registry version or enable live routes in the public developer kit.
+## HTTP sequence
 
-## Connect the live merchant service
-
-1. Register and verify your email at https://gridzen.ai/console/ . Complete MFA if required.
-2. Open https://gridzen.ai/console/bank-account-name#identity-account . Register your legal business name, actual country and explicit subject authority / restricted-use acceptance. MX, AU, CA, GB, NZ, SG and US are supported for this purpose. This is not independent KYB and does not authorize a bank transfer. A website is not required for this evidence-reuse product.
-3. Arrange offline MXN payment through the operator-confirmed channel, then submit the amount and payment reference in the workspace funding form. Track pending/approved/rejected status and wallet entries there. Funds become usable only after the operator confirms actual settlement and approves the request; a request or screenshot does not mint credit.
-4. Upload your own original CEP XML in the workspace, review the parsed transaction and institution fields, explicitly authorize verification and wait for the independent native-SDK retrieval and official validation result. Offline parsing alone is not signature verification. Select your own tenant's verified CEP record and matching 18-digit CLABE plus an authorized CURP. Evidence reuse currently requires a transaction within seven days. If missing, the quote is blocked before the paid registry query.
-5. Request a quote, read the disclosed conversion and source-fee conditions, then explicitly accept and submit with one persistent UUID. Complete evidence-backed results cost 14 MXN; inconclusive results have no completion fee and only the accepted source component. Unknown send/cost retains the reservation for reconciliation; recover the same UUID without resending.
-
-All routes below use `/console/api/bank-account-name/identity` and authenticated merchant credentials:
+Base: `/console/api/bank-account-name/identity`. Use the merchant's server-side Bearer API key; read-only keys cannot POST. Cookie clients also need existing same-origin CSRF protection.
 
 | Method | Path | Purpose |
 |---|---|---|
+| GET | `/capabilities` | Default automatic-route status and optional existing-evidence availability |
 | GET/POST | `/enrollment` | Read terms / explicitly enroll |
-| GET | `/wallet` | Available balance, settled funding, adjustments and charges |
-| GET/POST | `/topups` | Read or submit an offline-funding request; never immediate credit |
-| POST | `/bank-evidence/inspect` | Parse original locally on the server; no provider call or signature claim |
-| POST | `/bank-evidence` | Submit your own original CEP XML for existing official validation; no transfer |
-| POST | `/quote` | Check evidence and receive a bound quote token; no registry query |
-| POST | `/checks` | One authorized registry request, result and shared-wallet settlement |
-| GET | `/checks` | Read your recent tasks |
-| GET | `/requests/{idempotency_key}` | Recover the original task without another send |
+| GET | `/wallet` | Shared available funds, funding and charges |
+| GET/POST | `/topups` | Read or request offline funding; never immediate credit |
+| POST | `/quote` | Bound quote, no source call or transfer |
+| POST | `/checks` | One authorized combination task |
+| GET | `/checks`, `/checks/{id}` | Own history and result |
+| GET | `/requests/{idempotency_key}` | Recover without a new send |
 
-Enrollment fields: `legal_name`, `country`, `authorized_representative=true`, `subjects_consented=true`, `restricted_use_accepted=true`, `terms_version=mx-identity-account-2026-10-24`. Read the returned terms first; agents must not infer agreement.
+Quote: `personal_number`, `clabe`, `business_event` (`first_binding`, `account_change`, `exception_review`). Omit `bank_evidence_id` for platform acquisition. Create adds the same inputs, original `quote_token`, persistent `idempotency_key` UUID, `consent_reference` UUID, `consent_to_verify=true`, `accept_disclosed_source_cost=true`, `authorize_transfer=true`, and `terms_version=mx-identity-account-2026-10-24`. Explicit consent is mandatory; never infer it. Changed or expired input needs another quote.
 
-Quote fields: `personal_number`, `clabe`, `bank_evidence_id` (UUID), `business_event` (`first_binding`, `account_change`, or `exception_review`). Create adds `quote_token`, `idempotency_key` (UUID), `consent_to_verify=true`, `accept_disclosed_source_cost=true`, and the same terms version. Changed inputs require another quote. Do not include real personal data in issue reports or public research tools.
+`bank_queued` / `awaiting_bank` means the bank step is pending. `cost_unknown` requires reconciliation, not a new UUID. Read `charged_minor` and `reserved_minor`; do not derive billing from a grade. `bank_transfer_intents` is not confirmed transfer success; `new_bank_transfers` is 0 before send, null after uncertain send and 1 only after reported payment success.
 
-The own-original endpoint uses the existing CEP request fields: transaction date, tracking key, amount in MXN minor units, issuer/receiver institution codes, account, authorization reference, explicit authority, `terms_version=cep-existing-payment-2026-10-22`, and `original_xml_b64`. A website can be omitted only here after identity enrollment; an original is mandatory. `202 queued` is not verified. Read `/console/api/payment-evidence/mx/cep/checks/{id}` until its truthful terminal status.
+Optional existing-evidence reuse remains supported: supply your own tenant's verified CEP task UUID as `bank_evidence_id`. Evidence age follows the original transaction date (currently seven days). It creates no new transfer; uploaded original parsing alone never proves signature or binding. This is optional, not a prerequisite for automatic mode.
 
-The authenticated merchant MCP download adds `mexico_identity_account_enrollment` and `enroll_mexico_identity_account` to the existing capabilities / quote / verify / recovery tools. Public research MCP and the offline PyPI kit remain separate, synthetic/research interfaces.
+Authenticated merchant MCP download: `/console/downloads/production_mcp.py`. Quote tool allows omitted evidence ID. Verify tool requires explicit transfer authorization and a consent UUID for automatic mode. Public research MCP, Skills, previews and PyPI kit remain synthetic/research; never send real identifiers or keys there. No package or Registry release is created by this documentation update.
+
+Engineering validation is isolated and synthetic; it does not prove a new paying customer's completion or repeat use. Existing source tests are not market demand or a production SLA.
