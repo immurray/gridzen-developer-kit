@@ -26,8 +26,8 @@ This is documentation for the authenticated merchant service; it does not publis
 
 1. Register and verify your email at https://gridzen.ai/console/ . Complete MFA if required.
 2. Open https://gridzen.ai/console/bank-account-name#identity-account . Register your legal business name, actual country and explicit subject authority / restricted-use acceptance. MX, AU, CA, GB, NZ, SG and US are supported for this purpose. This is not independent KYB and does not authorize a bank transfer. A website is not required for this evidence-reuse product.
-3. Arrange offline MXN payment through the operator-confirmed channel. Funds become usable only after actual settlement is confirmed and recorded. A submitted screenshot does not mint credit.
-4. Use your own tenant's verified CEP task ID and matching 18-digit CLABE plus an authorized CURP. Evidence reuse currently requires a transaction within seven days. If missing, the quote is blocked before the paid registry query.
+3. Arrange offline MXN payment through the operator-confirmed channel, then submit the amount and payment reference in the workspace funding form. Track pending/approved/rejected status and wallet entries there. Funds become usable only after the operator confirms actual settlement and approves the request; a request or screenshot does not mint credit.
+4. Upload your own original CEP XML in the workspace, review the parsed transaction and institution fields, explicitly authorize verification and wait for the independent native-SDK retrieval and official validation result. Offline parsing alone is not signature verification. Select your own tenant's verified CEP record and matching 18-digit CLABE plus an authorized CURP. Evidence reuse currently requires a transaction within seven days. If missing, the quote is blocked before the paid registry query.
 5. Request a quote, read the disclosed conversion and source-fee conditions, then explicitly accept and submit with one persistent UUID. Complete evidence-backed results cost 14 MXN; inconclusive results have no completion fee and only the accepted source component. Unknown send/cost retains the reservation for reconciliation; recover the same UUID without resending.
 
 All routes below use `/console/api/bank-account-name/identity` and authenticated merchant credentials:
@@ -35,6 +35,9 @@ All routes below use `/console/api/bank-account-name/identity` and authenticated
 | Method | Path | Purpose |
 |---|---|---|
 | GET/POST | `/enrollment` | Read terms / explicitly enroll |
+| GET | `/wallet` | Available balance, settled funding, adjustments and charges |
+| GET/POST | `/topups` | Read or submit an offline-funding request; never immediate credit |
+| POST | `/bank-evidence/inspect` | Parse original locally on the server; no provider call or signature claim |
 | POST | `/bank-evidence` | Submit your own original CEP XML for existing official validation; no transfer |
 | POST | `/quote` | Check evidence and receive a bound quote token; no registry query |
 | POST | `/checks` | One authorized registry request, result and shared-wallet settlement |
