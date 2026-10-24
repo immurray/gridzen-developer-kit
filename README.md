@@ -8,7 +8,7 @@ The hosted developer interface supports Vietnamese alongside English, Spanish an
 
 Open [GridZen instant trial](https://gridzen.ai/console/start?lang=en) to run synthetic signup-phone and identity-onboarding responses without an account, API key or approval. Success, rejection and unavailable scenarios make no upstream calls and verify no real person. Agents can use the separate [key-free trial MCP](https://gridzen.ai/console/downloads/quickstart_mcp.py), installed with `mcp==2.3.0` and `httpx==0.28.1` in a virtual environment.
 
-For persistent test records and supplier sandbox callbacks, connect a verified merchant sandbox account. Production is a separate controlled free pilot; self-service production and payments are not enabled. This documentation update does not change PyPI or the official MCP Registry version.
+For persistent test records and supplier sandbox callbacks, connect a verified merchant sandbox account. Production access is capability-specific: eligible routes may offer bounded real trials, while others remain unavailable. Read the authenticated capability conditions; published prices do not enable paid purchases. This documentation update does not change PyPI or the official MCP Registry version.
 
 Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and six Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
 
@@ -25,7 +25,7 @@ Research for 198 countries/territories, a verification integration planner, five
 
 [Chinese and Spanish article files](distribution/market-expansion-2026-10-13/articles/) · [Demo video](distribution/market-expansion-2026-10-13/media/identity-three-outcomes.mp4) · [Smithery listing](https://smithery.ai/servers/support-35ug/gridzen-verification).
 
-Public examples are synthetic. Per-check production pricing is being prepared; live payments remain disabled. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
+Public examples are synthetic. Approved prices and per-product availability are published at https://gridzen.ai/pricing/; live payments remain disabled. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
 
 [Per-check plan and activation requirements](https://gridzen.ai/console/quote?lang=en) · [JSON](https://gridzen.ai/console/api/commercial/options)
 
@@ -252,3 +252,9 @@ not prove all agents have executed or recommended the skills.
 ## Existing Mexico SPEI payment evidence
 
 In the updated GitHub checkout or developer ZIP (the existing PyPI release does not yet include this task), use `gridzen plan --country MX --event payout --task mx_cep_existing_payment --stage production` to discover the separate authenticated CEP trial. Public tools remain research/synthetic only. [Live capability conditions](https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities) require a merchant key; do not send transaction details or keys to public tools. [Runnable offline example](examples/cep_reconciliation/) makes no network calls. CEP preserves original XML, independent signature and exact expected-transaction binding; historical names do not establish current identity or account control. No transfer is created; paid checkout remains disabled.
+
+## Mexico identity and beneficiary-name comparison
+
+[Task, pricing boundaries and zero-cost integration examples](docs/mexico-identity-account.md) cover first account binding, account changes and exception review. The 14 MXN quote does not enable production calls; read the authenticated capability response. Public MCP and Skills remain research/synthetic only.
+
+[Run the identity/account result example offline, without signup](examples/mx_identity_account/).

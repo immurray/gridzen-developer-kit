@@ -1,0 +1,62 @@
+{
+  "match": {
+    "mode": "synthetic",
+    "verified": false,
+    "provider_calls": 0,
+    "payments_created": 0,
+    "charged_minor": 0,
+    "result": {
+      "grade": "B",
+      "reason": "NORMALIZED_FULL_NAME",
+      "identity_name_match": "matched",
+      "bank_registered_curp_match": "not_checked",
+      "account_control": "not_checked",
+      "business_approval": false
+    }
+  },
+  "partial_name": {
+    "mode": "synthetic",
+    "verified": false,
+    "provider_calls": 0,
+    "payments_created": 0,
+    "charged_minor": 0,
+    "result": {
+      "grade": "C",
+      "reason": "NAME_COMPONENTS_MISSING",
+      "identity_name_match": "review",
+      "bank_registered_curp_match": "not_checked",
+      "account_control": "not_checked",
+      "business_approval": false
+    }
+  },
+  "name_conflict": {
+    "mode": "synthetic",
+    "verified": false,
+    "provider_calls": 0,
+    "payments_created": 0,
+    "charged_minor": 0,
+    "result": {
+      "grade": "D",
+      "reason": "TRUSTED_FULL_NAMES_DIFFER",
+      "identity_name_match": "not_matched",
+      "bank_registered_curp_match": "not_checked",
+      "account_control": "not_checked",
+      "business_approval": false
+    }
+  },
+  "missing_bank": {
+    "mode": "synthetic",
+    "verified": false,
+    "provider_calls": 0,
+    "payments_created": 0,
+    "charged_minor": 0,
+    "result": {
+      "grade": "unknown",
+      "reason": "EVIDENCE_INCOMPLETE",
+      "identity_name_match": "not_checked",
+      "bank_registered_curp_match": "not_checked",
+      "account_control": "not_checked",
+      "business_approval": false
+    }
+  }
+}
