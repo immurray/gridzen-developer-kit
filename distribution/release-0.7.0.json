@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-28T17:48:02.599179+00:00",
+  "version": "0.7.0",
+  "source_commit": "f8f2928",
+  "pypi": "https://pypi.org/project/gridzen-developer-kit/0.7.0/",
+  "release": "https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.7.0",
+  "release_assets": 24,
+  "files": [
+    {
+      "name": "gridzen_developer_kit-0.7.0-py3-none-any.whl",
+      "sha256": "6dfea6ff7d148338742de636239086c32e087b6f5fedfe4e0d2c541cc592b691"
+    },
+    {
+      "name": "gridzen_developer_kit-0.7.0.tar.gz",
+      "sha256": "dfba21c4ef10c0349faef4ff769d132b509a1ec6a545775fa07c64f3cbcde38d"
+    }
+  ],
+  "tests": {
+    "pytest": 66,
+    "product_client_configuration_pairs": 80,
+    "browser_cases": 48,
+    "actual_local_stdio_profiles": 3,
+    "clean_pypi_installed_skills": 14
+  },
+  "native_model_acceptance_all_clients": false,
+  "live_provider_calls_performed": 0
+}
