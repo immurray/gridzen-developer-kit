@@ -1,0 +1,44 @@
+{
+  "recorded_at": "2026-10-29",
+  "version": "0.7.0",
+  "website": "https://gridzen.ai/tools/",
+  "tool_pages": {
+    "products": 8,
+    "languages": [
+      "en",
+      "es",
+      "zh",
+      "vi"
+    ],
+    "live_site_cases": 400,
+    "failures": 0
+  },
+  "developer_pages": {
+    "live_cases": 48,
+    "failures": 0
+  },
+  "individual_skill_download_hashes_verified": 14,
+  "all_download_archive_hashes_verified": 17,
+  "remote_mcp": {
+    "discovery": "passed",
+    "synthetic_cases": "passed",
+    "live_provider_checks": 0,
+    "anonymous_tool_count": 5
+  },
+  "product_profiles": 8,
+  "local_profiles": 3,
+  "merchant_profiles": 5,
+  "native_model_acceptance_for_new_profiles": "not_performed",
+  "docker_catalog": {
+    "pr": "https://github.com/docker/mcp-registry/pull/5530",
+    "updated_commit": "6757fc4c54c881c060048ea73f8bc592e28e20c4",
+    "status": "pending_review"
+  },
+  "marketing": {
+    "product_angle_candidates": 16,
+    "new_articles_or_videos_claimed_published": false,
+    "per_product_channel_plan": "atomic-products/manifest.json",
+    "new_advertising_or_subscription_budget": 0
+  },
+  "market_validated": false
+}

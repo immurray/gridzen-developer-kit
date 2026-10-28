@@ -1,5 +1,25 @@
 {
   "version": "2026-10-29.1",
+  "release": {
+    "version": "0.7.0",
+    "recorded_at": "2026-10-29",
+    "website": "published_indexing_unconfirmed",
+    "developer_kit": "published",
+    "directory": "official_registry_active_catalog_pr_pending_review",
+    "evidence": {
+      "website": "https://gridzen.ai/tools/",
+      "pypi": "https://pypi.org/project/gridzen-developer-kit/0.7.0/",
+      "release": "https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.7.0",
+      "registry": "https://registry.modelcontextprotocol.io/v0.1/servers/ai.gridzen%2Fverification/versions/0.7.0",
+      "docker_catalog_pr": "https://github.com/docker/mcp-registry/pull/5530"
+    },
+    "anonymous_remote_tools": 5,
+    "anonymous_remote_scope": "research_and_synthetic_only",
+    "product_profiles": 8,
+    "total_skills": 14,
+    "marketplace_approval_for_new_profiles": false,
+    "independent_customer_adoption_established": false
+  },
   "products": [
     {
       "product_id": "mx-cep",
@@ -20,14 +40,14 @@
       "channels": [
         {
           "channel": "website",
-          "action": "indexed_product_page_and_existing_footer",
+          "action": "public_product_page_canonical_sitemap_and_existing_footer",
           "url": "https://gridzen.ai/tools/mx-cep/",
-          "status": "release_pending"
+          "status": "published_indexing_unconfirmed"
         },
         {
           "channel": "developer_kit",
           "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
-          "status": "release_pending"
+          "status": "published"
         },
         {
           "channel": "search",
@@ -46,8 +66,8 @@
         },
         {
           "channel": "directory",
-          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
-          "status": "materials_ready_not_approved"
+          "action": "existing research/synthetic server listing updated; product profiles require their separate install path and acceptance",
+          "status": "official_registry_active_catalog_pr_pending_review"
         },
         {
           "channel": "integration",
@@ -88,14 +108,14 @@
       "channels": [
         {
           "channel": "website",
-          "action": "indexed_product_page_and_existing_footer",
+          "action": "public_product_page_canonical_sitemap_and_existing_footer",
           "url": "https://gridzen.ai/tools/mx-account-name/",
-          "status": "release_pending"
+          "status": "published_indexing_unconfirmed"
         },
         {
           "channel": "developer_kit",
           "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
-          "status": "release_pending"
+          "status": "published"
         },
         {
           "channel": "search",
@@ -114,8 +134,8 @@
         },
         {
           "channel": "directory",
-          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
-          "status": "materials_ready_not_approved"
+          "action": "existing research/synthetic server listing updated; product profiles require their separate install path and acceptance",
+          "status": "official_registry_active_catalog_pr_pending_review"
         },
         {
           "channel": "integration",
@@ -156,14 +176,14 @@
       "channels": [
         {
           "channel": "website",
-          "action": "indexed_product_page_and_existing_footer",
+          "action": "public_product_page_canonical_sitemap_and_existing_footer",
           "url": "https://gridzen.ai/tools/ip-risk/",
-          "status": "release_pending"
+          "status": "published_indexing_unconfirmed"
         },
         {
           "channel": "developer_kit",
           "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
-          "status": "release_pending"
+          "status": "published"
         },
         {
           "channel": "search",
@@ -182,8 +202,8 @@
         },
         {
           "channel": "directory",
-          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
-          "status": "materials_ready_not_approved"
+          "action": "existing research/synthetic server listing updated; product profiles require their separate install path and acceptance",
+          "status": "official_registry_active_catalog_pr_pending_review"
         },
         {
           "channel": "integration",
@@ -224,14 +244,14 @@
       "channels": [
         {
           "channel": "website",
-          "action": "indexed_product_page_and_existing_footer",
+          "action": "public_product_page_canonical_sitemap_and_existing_footer",
           "url": "https://gridzen.ai/tools/hosted-identity/",
-          "status": "release_pending"
+          "status": "published_indexing_unconfirmed"
         },
         {
           "channel": "developer_kit",
           "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
-          "status": "release_pending"
+          "status": "published"
         },
         {
           "channel": "search",
@@ -250,8 +270,8 @@
         },
         {
           "channel": "directory",
-          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
-          "status": "materials_ready_not_approved"
+          "action": "existing research/synthetic server listing updated; product profiles require their separate install path and acceptance",
+          "status": "official_registry_active_catalog_pr_pending_review"
         },
         {
           "channel": "integration",
@@ -292,14 +312,14 @@
       "channels": [
         {
           "channel": "website",
-          "action": "indexed_product_page_and_existing_footer",
+          "action": "public_product_page_canonical_sitemap_and_existing_footer",
           "url": "https://gridzen.ai/tools/mx-identity-account/",
-          "status": "release_pending"
+          "status": "published_indexing_unconfirmed"
         },
         {
           "channel": "developer_kit",
           "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
-          "status": "release_pending"
+          "status": "published"
         },
         {
           "channel": "search",
@@ -318,8 +338,8 @@
         },
         {
           "channel": "directory",
-          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
-          "status": "materials_ready_not_approved"
+          "action": "existing research/synthetic server listing updated; product profiles require their separate install path and acceptance",
+          "status": "official_registry_active_catalog_pr_pending_review"
         },
         {
           "channel": "integration",
@@ -360,14 +380,14 @@
       "channels": [
         {
           "channel": "website",
-          "action": "indexed_product_page_and_existing_footer",
+          "action": "public_product_page_canonical_sitemap_and_existing_footer",
           "url": "https://gridzen.ai/tools/phone-format/",
-          "status": "release_pending"
+          "status": "published_indexing_unconfirmed"
         },
         {
           "channel": "developer_kit",
           "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
-          "status": "release_pending"
+          "status": "published"
         },
         {
           "channel": "search",
@@ -386,8 +406,8 @@
         },
         {
           "channel": "directory",
-          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
-          "status": "materials_ready_not_approved"
+          "action": "existing research/synthetic server listing updated; product profiles require their separate install path and acceptance",
+          "status": "official_registry_active_catalog_pr_pending_review"
         },
         {
           "channel": "integration",
@@ -428,14 +448,14 @@
       "channels": [
         {
           "channel": "website",
-          "action": "indexed_product_page_and_existing_footer",
+          "action": "public_product_page_canonical_sitemap_and_existing_footer",
           "url": "https://gridzen.ai/tools/clabe-format/",
-          "status": "release_pending"
+          "status": "published_indexing_unconfirmed"
         },
         {
           "channel": "developer_kit",
           "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
-          "status": "release_pending"
+          "status": "published"
         },
         {
           "channel": "search",
@@ -454,8 +474,8 @@
         },
         {
           "channel": "directory",
-          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
-          "status": "materials_ready_not_approved"
+          "action": "existing research/synthetic server listing updated; product profiles require their separate install path and acceptance",
+          "status": "official_registry_active_catalog_pr_pending_review"
         },
         {
           "channel": "integration",
@@ -496,14 +516,14 @@
       "channels": [
         {
           "channel": "website",
-          "action": "indexed_product_page_and_existing_footer",
+          "action": "public_product_page_canonical_sitemap_and_existing_footer",
           "url": "https://gridzen.ai/tools/result-explanation/",
-          "status": "release_pending"
+          "status": "published_indexing_unconfirmed"
         },
         {
           "channel": "developer_kit",
           "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
-          "status": "release_pending"
+          "status": "published"
         },
         {
           "channel": "search",
@@ -522,8 +542,8 @@
         },
         {
           "channel": "directory",
-          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
-          "status": "materials_ready_not_approved"
+          "action": "existing research/synthetic server listing updated; product profiles require their separate install path and acceptance",
+          "status": "official_registry_active_catalog_pr_pending_review"
         },
         {
           "channel": "integration",
