@@ -1,0 +1,54 @@
+{
+  "id": "phone-format",
+  "price_id": null,
+  "capability_id": null,
+  "task": "signup_phone",
+  "kind": "local",
+  "priority": 6,
+  "title": [
+    "Clean phone formatting",
+    "Normaliza el teléfono",
+    "整理号码格式",
+    "Chuẩn hóa số điện thoại"
+  ],
+  "summary": [
+    "Remove presentation separators from an international number and check E.164-shaped syntax locally.",
+    "Elimina separadores de un número internacional y comprueba su estructura E.164 de forma local.",
+    "在本地移除国际号码中的展示分隔符，检查 E.164 形式的结构。",
+    "Loại dấu phân cách của số quốc tế và kiểm tra cấu trúc E.164 ngay trên máy."
+  ],
+  "inputs": "A phone string with explicit +country calling code; never infer a country from the visitor's location.",
+  "output": "Normalized candidate and structure_valid. No carrier, allocation, reachability or ownership lookup.",
+  "boundary": "Structure-only local utility. No network, OTP, lookup billing or claim that the number exists.",
+  "entry": "/tools/phone-format/#try",
+  "guide": "/guides/signup-phone-check/",
+  "tools": [
+    "normalize_phone_format"
+  ],
+  "topics": [
+    "Clean international signup phone formatting before any paid check",
+    "A correctly formatted phone number does not prove possession"
+  ],
+  "audience": "Registration form and CRM import developers",
+  "query": [
+    "E164 phone formatting local tool",
+    "normalizar teléfono E164"
+  ],
+  "sample_input": {
+    "phone": "+1 (202) 555-0123"
+  },
+  "product_url": "https://gridzen.ai/tools/phone-format/",
+  "version": "1.0.0",
+  "price": null,
+  "sample_output": {
+    "normalized": "+12025550123",
+    "structure_valid": true,
+    "scope": "syntax_only",
+    "number_exists": null,
+    "ownership_verified": false,
+    "network_calls": 0,
+    "charged": false
+  },
+  "sample_is_synthetic": true,
+  "installation_enables_production": false
+}

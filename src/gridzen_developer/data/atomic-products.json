@@ -1,0 +1,510 @@
+{
+  "version": "2026-10-29.1",
+  "package_version": "0.7.0",
+  "products": [
+    {
+      "id": "mx-cep",
+      "price_id": "mx_cep_existing_payment",
+      "capability_id": "mx_cep_existing_payment",
+      "task": "mx_existing_payment_evidence",
+      "kind": "merchant",
+      "priority": 1,
+      "title": [
+        "Check a SPEI payment",
+        "Comprueba un pago SPEI",
+        "查证一笔 SPEI 付款",
+        "Kiểm tra một khoản SPEI"
+      ],
+      "summary": [
+        "Retrieve the CEP for an authorized existing payment and inspect its signature and transaction binding.",
+        "Obtén el CEP de un pago existente autorizado y revisa su firma y vinculación con la operación.",
+        "为已获授权的现有付款取得 CEP，查看签名与精确交易绑定。",
+        "Lấy CEP của khoản thanh toán đã được phép và kiểm tra chữ ký cùng liên kết giao dịch."
+      ],
+      "inputs": "Operation date, tracking key, sending and receiving institution codes, account, amount and authorization reference.",
+      "output": "Task status, original-evidence availability, signature status and exact transaction binding. Pending or unavailable remains inconclusive.",
+      "boundary": "Does not initiate a transfer or prove present account control, identity or a safe payout. Source access restrictions can delay a task.",
+      "entry": "/console/payment-evidence/mx/cep",
+      "guide": "/mexico/cep-verification/",
+      "tools": [
+        "mexico_cep_capabilities",
+        "submit_mexico_cep_check",
+        "get_mexico_cep_check",
+        "recover_mexico_cep_check"
+      ],
+      "topics": [
+        "A payment screenshot versus a signed CEP: what can your reconciliation job accept?",
+        "Recover a pending SPEI evidence request without creating a duplicate"
+      ],
+      "audience": "Mexico payment operations, reconciliation developers and finance automation teams",
+      "query": [
+        "verify SPEI payment CEP API",
+        "verificar pago SPEI CEP API"
+      ],
+      "sample": {
+        "status": "pending",
+        "original_available": false,
+        "signature_status": "not_checked",
+        "transaction_binding": "not_checked",
+        "verified": false
+      },
+      "product_url": "https://gridzen.ai/tools/mx-cep/",
+      "version": "1.0.0",
+      "price": {
+        "id": "mx_cep_existing_payment",
+        "country": "MX",
+        "currency": "MXN",
+        "unit_minor": 25,
+        "price_status": "approved",
+        "availability": "limited_trial",
+        "package_checks": 1000,
+        "package_minor": 25000,
+        "valid_days": 30,
+        "entry": "/console/payment-evidence/mx/cep"
+      },
+      "sample_output": {
+        "status": "pending",
+        "original_available": false,
+        "signature_status": "not_checked",
+        "transaction_binding": "not_checked",
+        "verified": false
+      },
+      "sample_is_synthetic": true,
+      "installation_enables_production": false
+    },
+    {
+      "id": "mx-account-name",
+      "price_id": "mx_clabe_name",
+      "capability_id": "payout_account",
+      "task": "payout_account",
+      "kind": "merchant",
+      "priority": 2,
+      "title": [
+        "Match a CLABE name",
+        "Coteja el nombre CLABE",
+        "核对 CLABE 账户姓名",
+        "Đối chiếu tên CLABE"
+      ],
+      "summary": [
+        "Compare an expected beneficiary name with supported bank evidence for one authorized CLABE.",
+        "Compara el nombre esperado del beneficiario con evidencia bancaria admitida para una CLABE autorizada.",
+        "针对一个获准查询的 CLABE，把预期收款人姓名与受支持的银行证据核对。",
+        "Đối chiếu tên người thụ hưởng dự kiến với bằng chứng ngân hàng hỗ trợ cho một CLABE được phép."
+      ],
+      "inputs": "CLABE, expected beneficiary name, holder type, current quote, authorization reference and stable request UUID.",
+      "output": "Task state and name comparison with its evidence and charges; uncertain similarity requires review.",
+      "boundary": "A quoted microtransfer may apply and requires explicit recipient and spending authority. This is not document identity or proof of current account control.",
+      "entry": "/console/bank-account-name/live",
+      "guide": "/guides/current-capabilities/",
+      "tools": [
+        "mexico_account_name_capabilities",
+        "quote_mexico_account_name",
+        "verify_mexico_account_name",
+        "get_mexico_account_name",
+        "recover_mexico_account_name"
+      ],
+      "topics": [
+        "Check a new beneficiary CLABE before changing payout details",
+        "Separate the transfer principal, source cost and fee in a bank-name quote"
+      ],
+      "audience": "Mexico marketplaces and payout integration teams",
+      "query": [
+        "Mexico CLABE beneficiary name API",
+        "validar nombre beneficiario CLABE"
+      ],
+      "sample": {
+        "status": "review",
+        "name_match": "inconclusive",
+        "verified": false,
+        "automatic_business_approval": false
+      },
+      "product_url": "https://gridzen.ai/tools/mx-account-name/",
+      "version": "1.0.0",
+      "price": {
+        "id": "mx_clabe_name",
+        "country": "MX",
+        "currency": "MXN",
+        "unit_minor": 600,
+        "price_status": "approved",
+        "availability": "prepaid",
+        "principal_minor": 100,
+        "provider_fee_ceiling_minor": 300,
+        "service_fee_minor": 200,
+        "entry": "/console/bank-account-name/live"
+      },
+      "sample_output": {
+        "status": "review",
+        "name_match": "inconclusive",
+        "verified": false,
+        "automatic_business_approval": false
+      },
+      "sample_is_synthetic": true,
+      "installation_enables_production": false
+    },
+    {
+      "id": "ip-risk",
+      "price_id": "registration_risk",
+      "capability_id": "registration_risk",
+      "task": "registration_risk",
+      "kind": "merchant",
+      "priority": 3,
+      "title": [
+        "Check registration IP risk",
+        "Consulta riesgo de IP",
+        "检查注册 IP 风险",
+        "Kiểm tra rủi ro IP"
+      ],
+      "summary": [
+        "Request IP risk signals for one authorized registration event and keep the decision in your application.",
+        "Consulta señales de riesgo IP para un registro autorizado y conserva la decisión en tu aplicación.",
+        "为一个获授权的注册事件查询 IP 风险信号，由你的应用决定后续动作。",
+        "Tra cứu tín hiệu rủi ro IP cho một sự kiện đăng ký được phép; ứng dụng của bạn quyết định bước tiếp theo."
+      ],
+      "inputs": "Authorized public IP address, consent reference, stable request UUID and explicit trial or paid mode.",
+      "output": "IP risk signals and available explanatory evidence for the event; not an identity or fraud verdict.",
+      "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires confirmed prepaid credit. A risk score alone must not approve or reject a person.",
+      "entry": "/console/production",
+      "guide": "/guides/current-capabilities/",
+      "tools": [
+        "production_capabilities",
+        "check_registration_risk",
+        "get_production_verification",
+        "refresh_production_verification"
+      ],
+      "topics": [
+        "Use an IP risk signal in signup without calling it identity verification",
+        "Keep an unavailable IP score separate from low risk"
+      ],
+      "audience": "SaaS signup, marketplace and fraud operations developers",
+      "query": [
+        "registration IP risk API",
+        "API riesgo IP registro"
+      ],
+      "sample": {
+        "status": "unavailable",
+        "ip_risk_score": null,
+        "verified": false,
+        "automatic_business_approval": false
+      },
+      "product_url": "https://gridzen.ai/tools/ip-risk/",
+      "version": "1.0.0",
+      "price": {
+        "id": "registration_risk",
+        "country": null,
+        "currency": "USD",
+        "package_checks": 100,
+        "package_minor": 900,
+        "valid_days": 90,
+        "price_status": "approved",
+        "availability": "payment_setup_pending",
+        "entry": "/console/billing"
+      },
+      "sample_output": {
+        "status": "unavailable",
+        "ip_risk_score": null,
+        "verified": false,
+        "automatic_business_approval": false
+      },
+      "sample_is_synthetic": true,
+      "installation_enables_production": false
+    },
+    {
+      "id": "hosted-identity",
+      "price_id": "identity_hosted",
+      "capability_id": "identity_onboarding",
+      "task": "identity_onboarding",
+      "kind": "merchant",
+      "priority": 5,
+      "title": [
+        "Start hosted identity",
+        "Inicia identidad alojada",
+        "发起托管身份核验",
+        "Bắt đầu xác minh danh tính"
+      ],
+      "summary": [
+        "Create a hosted verification link and retrieve its authoritative result after the person completes the journey.",
+        "Crea un enlace de verificación alojada y consulta el resultado autorizado después de que la persona complete el proceso.",
+        "创建托管核验链接，本人完成流程后读取权威结果。",
+        "Tạo liên kết xác minh lưu trữ và đọc kết quả chính thức sau khi người dùng hoàn tất."
+      ],
+      "inputs": "Subject authorization reference, stable request UUID and explicit trial or paid mode; no document or face in the assistant chat.",
+      "output": "Hosted URL, task state and authoritative completion status. Approved does not grant application permissions.",
+      "boundary": "The person completes identity and liveness steps. New-person full approval acceptance remains pending; online purchases require payment-channel acceptance.",
+      "entry": "/console/production?task=identity_onboarding",
+      "guide": "/guides/missing-verification-webhook/",
+      "tools": [
+        "production_capabilities",
+        "start_identity_onboarding",
+        "get_production_verification",
+        "refresh_production_verification"
+      ],
+      "topics": [
+        "Start a hosted identity journey without putting documents in an AI chat",
+        "Recover a missing identity callback by reading the original task"
+      ],
+      "audience": "Small B2B onboarding teams and SaaS developers",
+      "query": [
+        "hosted identity verification API webhook",
+        "API identidad alojada webhook"
+      ],
+      "sample": {
+        "status": "pending",
+        "hosted_url": null,
+        "verified": false,
+        "automatic_business_approval": false
+      },
+      "product_url": "https://gridzen.ai/tools/hosted-identity/",
+      "version": "1.0.0",
+      "price": {
+        "id": "identity_hosted",
+        "country": null,
+        "currency": "USD",
+        "package_checks": 10,
+        "package_minor": 990,
+        "valid_days": 90,
+        "price_status": "approved",
+        "availability": "payment_setup_pending",
+        "entry": "/console/billing"
+      },
+      "sample_output": {
+        "status": "pending",
+        "hosted_url": null,
+        "verified": false,
+        "automatic_business_approval": false
+      },
+      "sample_is_synthetic": true,
+      "installation_enables_production": false
+    },
+    {
+      "id": "mx-identity-account",
+      "price_id": "mx_identity_account",
+      "capability_id": "mx_identity_account",
+      "task": "mx_identity_account",
+      "kind": "merchant",
+      "priority": 4,
+      "title": [
+        "Compare identity and account",
+        "Coteja identidad y cuenta",
+        "核对身份与收款账户",
+        "Đối chiếu danh tính và tài khoản"
+      ],
+      "summary": [
+        "Submit authorized CURP and CLABE for one identity and beneficiary-account comparison, with a bound quote.",
+        "Envía CURP y CLABE autorizadas para un cotejo de identidad y cuenta beneficiaria con cotización vinculada.",
+        "按绑定报价提交已获授权的 CURP 与 CLABE，完成一次身份与收款账户核对。",
+        "Gửi CURP và CLABE được phép để đối chiếu danh tính với tài khoản thụ hưởng theo báo giá ràng buộc."
+      ],
+      "inputs": "Authorized CURP and CLABE, current quote, required evidence and consents, stable request UUID.",
+      "output": "Verification grade, task status, evidence and charges. Supported grades and required actions follow the live quote.",
+      "boundary": "No unconditional approval or arbitrary person lookup. No direct bank-CURP identifier claim, unsupported card input or transfer without the quote's explicit authorization.",
+      "entry": "/console/bank-account-name#identity-account",
+      "guide": "/guides/current-capabilities/",
+      "tools": [
+        "mexico_identity_account_capabilities",
+        "mexico_identity_account_enrollment",
+        "quote_mexico_identity_account",
+        "verify_mexico_identity_account",
+        "recover_mexico_identity_account"
+      ],
+      "topics": [
+        "Separate a name mismatch from missing evidence in CURP and CLABE onboarding",
+        "Read the verification grade before deciding a beneficiary change"
+      ],
+      "audience": "Mexico business onboarding and beneficiary management developers",
+      "query": [
+        "CURP CLABE identity account comparison",
+        "verificar CURP y CLABE beneficiario"
+      ],
+      "sample": {
+        "status": "review",
+        "grade": null,
+        "verified": false,
+        "automatic_business_approval": false
+      },
+      "product_url": "https://gridzen.ai/tools/mx-identity-account/",
+      "version": "1.0.0",
+      "price": {
+        "id": "mx_identity_account",
+        "country": "MX",
+        "currency": "MXN",
+        "unit_minor": 1400,
+        "price_status": "approved",
+        "availability": "prepaid",
+        "entry": "/console/bank-account-name#identity-account",
+        "full_cost_ceiling_minor": 980,
+        "tax_included": false
+      },
+      "sample_output": {
+        "status": "review",
+        "grade": null,
+        "verified": false,
+        "automatic_business_approval": false
+      },
+      "sample_is_synthetic": true,
+      "installation_enables_production": false
+    },
+    {
+      "id": "phone-format",
+      "price_id": null,
+      "capability_id": null,
+      "task": "signup_phone",
+      "kind": "local",
+      "priority": 6,
+      "title": [
+        "Clean phone formatting",
+        "Normaliza el teléfono",
+        "整理号码格式",
+        "Chuẩn hóa số điện thoại"
+      ],
+      "summary": [
+        "Remove presentation separators from an international number and check E.164-shaped syntax locally.",
+        "Elimina separadores de un número internacional y comprueba su estructura E.164 de forma local.",
+        "在本地移除国际号码中的展示分隔符，检查 E.164 形式的结构。",
+        "Loại dấu phân cách của số quốc tế và kiểm tra cấu trúc E.164 ngay trên máy."
+      ],
+      "inputs": "A phone string with explicit +country calling code; never infer a country from the visitor's location.",
+      "output": "Normalized candidate and structure_valid. No carrier, allocation, reachability or ownership lookup.",
+      "boundary": "Structure-only local utility. No network, OTP, lookup billing or claim that the number exists.",
+      "entry": "/tools/phone-format/#try",
+      "guide": "/guides/signup-phone-check/",
+      "tools": [
+        "normalize_phone_format"
+      ],
+      "topics": [
+        "Clean international signup phone formatting before any paid check",
+        "A correctly formatted phone number does not prove possession"
+      ],
+      "audience": "Registration form and CRM import developers",
+      "query": [
+        "E164 phone formatting local tool",
+        "normalizar teléfono E164"
+      ],
+      "sample_input": {
+        "phone": "+1 (202) 555-0123"
+      },
+      "product_url": "https://gridzen.ai/tools/phone-format/",
+      "version": "1.0.0",
+      "price": null,
+      "sample_output": {
+        "normalized": "+12025550123",
+        "structure_valid": true,
+        "scope": "syntax_only",
+        "number_exists": null,
+        "ownership_verified": false,
+        "network_calls": 0,
+        "charged": false
+      },
+      "sample_is_synthetic": true,
+      "installation_enables_production": false
+    },
+    {
+      "id": "clabe-format",
+      "price_id": null,
+      "capability_id": null,
+      "task": "payout_account",
+      "kind": "local",
+      "priority": 7,
+      "title": [
+        "Check CLABE formatting",
+        "Valida formato CLABE",
+        "检查 CLABE 格式",
+        "Kiểm tra định dạng CLABE"
+      ],
+      "summary": [
+        "Check an 18-digit CLABE checksum locally before starting an account verification.",
+        "Comprueba localmente el dígito verificador de una CLABE de 18 dígitos antes de verificar la cuenta.",
+        "在发起账户核验前，本地检查 18 位 CLABE 的校验位。",
+        "Kiểm tra chữ số kiểm tra của CLABE 18 chữ số trên máy trước khi xác minh tài khoản."
+      ],
+      "inputs": "An 18-digit CLABE, optionally separated by spaces or hyphens.",
+      "output": "structure_valid, checksum_valid and institution code. No live bank query or account-ownership assertion.",
+      "boundary": "A correct checksum does not prove that an account exists, can receive funds or belongs to a person.",
+      "entry": "/tools/clabe-format/#try",
+      "guide": "/guides/current-capabilities/",
+      "tools": [
+        "check_clabe_format"
+      ],
+      "topics": [
+        "Reject a mistyped CLABE before requesting a paid bank-name check",
+        "CLABE checksum versus account ownership: two different answers"
+      ],
+      "audience": "Mexico payout forms and payment-file import developers",
+      "query": [
+        "CLABE checksum validator",
+        "validar dígito verificador CLABE"
+      ],
+      "sample_input": {
+        "clabe": "032180000118359719"
+      },
+      "product_url": "https://gridzen.ai/tools/clabe-format/",
+      "version": "1.0.0",
+      "price": null,
+      "sample_output": {
+        "structure_valid": true,
+        "checksum_valid": true,
+        "institution_code": "032",
+        "scope": "checksum_only",
+        "account_exists": null,
+        "ownership_verified": false,
+        "network_calls": 0,
+        "charged": false
+      },
+      "sample_is_synthetic": true,
+      "installation_enables_production": false
+    },
+    {
+      "id": "result-explanation",
+      "price_id": null,
+      "capability_id": null,
+      "task": "identity_onboarding",
+      "kind": "local",
+      "priority": 8,
+      "title": [
+        "Explain a check result",
+        "Explica un resultado",
+        "解释核验结果",
+        "Giải thích kết quả xác minh"
+      ],
+      "summary": [
+        "Turn a documented status into a clear recovery step without sending a new request.",
+        "Convierte un estado documentado en un paso claro de recuperación sin enviar otra solicitud.",
+        "把已记录的状态解释为明确的恢复步骤，不发起新查询。",
+        "Giải thích trạng thái đã biết thành bước khôi phục rõ ràng mà không gửi yêu cầu mới."
+      ],
+      "inputs": "A documented status code only; no raw identity documents, customer messages or credentials.",
+      "output": "Meaning, whether the result is conclusive and a safe next step. Unknown codes remain unknown.",
+      "boundary": "Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, payment or business approval.",
+      "entry": "/tools/result-explanation/#try",
+      "guide": "/docs/response-reference/",
+      "tools": [
+        "explain_verification_status"
+      ],
+      "topics": [
+        "Handle pending, declined and unavailable as different integration states",
+        "Recover after a timeout without paying twice for the same request"
+      ],
+      "audience": "AI assistants, support engineering and verification integration developers",
+      "query": [
+        "verification API timeout recovery",
+        "API verificación resultado pendiente"
+      ],
+      "sample_input": {
+        "status": "pending"
+      },
+      "product_url": "https://gridzen.ai/tools/result-explanation/",
+      "version": "1.0.0",
+      "price": null,
+      "sample_output": {
+        "status": "pending",
+        "known": true,
+        "meaning": "The task has not reached an authoritative final result.",
+        "next_step": "Read the original task using its existing ID.",
+        "automatic_business_approval": false,
+        "network_calls": 0,
+        "charged": false
+      },
+      "sample_is_synthetic": true,
+      "installation_enables_production": false
+    }
+  ]
+}

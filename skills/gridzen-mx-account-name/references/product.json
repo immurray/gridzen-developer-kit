@@ -1,0 +1,69 @@
+{
+  "id": "mx-account-name",
+  "price_id": "mx_clabe_name",
+  "capability_id": "payout_account",
+  "task": "payout_account",
+  "kind": "merchant",
+  "priority": 2,
+  "title": [
+    "Match a CLABE name",
+    "Coteja el nombre CLABE",
+    "核对 CLABE 账户姓名",
+    "Đối chiếu tên CLABE"
+  ],
+  "summary": [
+    "Compare an expected beneficiary name with supported bank evidence for one authorized CLABE.",
+    "Compara el nombre esperado del beneficiario con evidencia bancaria admitida para una CLABE autorizada.",
+    "针对一个获准查询的 CLABE，把预期收款人姓名与受支持的银行证据核对。",
+    "Đối chiếu tên người thụ hưởng dự kiến với bằng chứng ngân hàng hỗ trợ cho một CLABE được phép."
+  ],
+  "inputs": "CLABE, expected beneficiary name, holder type, current quote, authorization reference and stable request UUID.",
+  "output": "Task state and name comparison with its evidence and charges; uncertain similarity requires review.",
+  "boundary": "A quoted microtransfer may apply and requires explicit recipient and spending authority. This is not document identity or proof of current account control.",
+  "entry": "/console/bank-account-name/live",
+  "guide": "/guides/current-capabilities/",
+  "tools": [
+    "mexico_account_name_capabilities",
+    "quote_mexico_account_name",
+    "verify_mexico_account_name",
+    "get_mexico_account_name",
+    "recover_mexico_account_name"
+  ],
+  "topics": [
+    "Check a new beneficiary CLABE before changing payout details",
+    "Separate the transfer principal, source cost and fee in a bank-name quote"
+  ],
+  "audience": "Mexico marketplaces and payout integration teams",
+  "query": [
+    "Mexico CLABE beneficiary name API",
+    "validar nombre beneficiario CLABE"
+  ],
+  "sample": {
+    "status": "review",
+    "name_match": "inconclusive",
+    "verified": false,
+    "automatic_business_approval": false
+  },
+  "product_url": "https://gridzen.ai/tools/mx-account-name/",
+  "version": "1.0.0",
+  "price": {
+    "id": "mx_clabe_name",
+    "country": "MX",
+    "currency": "MXN",
+    "unit_minor": 600,
+    "price_status": "approved",
+    "availability": "prepaid",
+    "principal_minor": 100,
+    "provider_fee_ceiling_minor": 300,
+    "service_fee_minor": 200,
+    "entry": "/console/bank-account-name/live"
+  },
+  "sample_output": {
+    "status": "review",
+    "name_match": "inconclusive",
+    "verified": false,
+    "automatic_business_approval": false
+  },
+  "sample_is_synthetic": true,
+  "installation_enables_production": false
+}

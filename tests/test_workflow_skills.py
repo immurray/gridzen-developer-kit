@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 NAMES = ['mexico-pilot-scoper','payout-policy-designer','provider-rights-readiness']
 
 
-def test_six_skill_assets_are_discoverable():
-    assert len(list_skills()) == 6
+def test_fourteen_skill_assets_are_discoverable():
+    assert len(list_skills()) == 14
 
 
 @pytest.mark.parametrize('name', NAMES)

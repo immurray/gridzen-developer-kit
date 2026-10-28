@@ -4,15 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gridzen-developer-kit"
-version = "0.6.1"
+version = "0.7.0"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE", "NOTICE.md"]
 authors = [{name = "Gridzen", email = "open@gridzen.ai"}]
 keywords = ["mcp", "agent-skills", "identity-verification", "sandbox"]
-description = "Gridzen research catalog, integration planner and explicit verification sandbox"
+description = "Single-task MCP profiles and Skills, offline utilities, research and explicit verification sandbox"
 requires-python = ">=3.11"
-dependencies = ["mcp==2.3.0"]
+dependencies = ["mcp==2.3.0", "httpx==0.28.1"]
 
 [project.optional-dependencies]
 mcp = ["mcp==2.3.0"]
@@ -45,6 +45,23 @@ Source = "https://github.com/immurray/gridzen-developer-kit"
 "share/gridzen-developer-kit/skills/payout-policy-designer/examples" = ["skills/payout-policy-designer/examples/missing-evidence.json", "skills/payout-policy-designer/examples/normal.json", "skills/payout-policy-designer/examples/out-of-scope.json"]
 "share/gridzen-developer-kit/skills/provider-rights-readiness" = ["skills/provider-rights-readiness/LICENSE", "skills/provider-rights-readiness/README.md", "skills/provider-rights-readiness/SKILL.md", "skills/provider-rights-readiness/agent-evals.json", "skills/provider-rights-readiness/evaluate.py", "skills/provider-rights-readiness/example-input.json", "skills/provider-rights-readiness/spec.json", "skills/provider-rights-readiness/test_evaluate.py"]
 "share/gridzen-developer-kit/skills/provider-rights-readiness/examples" = ["skills/provider-rights-readiness/examples/missing-evidence.json", "skills/provider-rights-readiness/examples/normal.json", "skills/provider-rights-readiness/examples/out-of-scope.json"]
+
+"share/gridzen-developer-kit/skills/gridzen-clabe-format" = ["skills/gridzen-clabe-format/LICENSE", "skills/gridzen-clabe-format/README.md", "skills/gridzen-clabe-format/SKILL.md", "skills/gridzen-clabe-format/agent-evals.json"]
+"share/gridzen-developer-kit/skills/gridzen-clabe-format/references" = ["skills/gridzen-clabe-format/references/product.json"]
+"share/gridzen-developer-kit/skills/gridzen-hosted-identity" = ["skills/gridzen-hosted-identity/LICENSE", "skills/gridzen-hosted-identity/README.md", "skills/gridzen-hosted-identity/SKILL.md", "skills/gridzen-hosted-identity/agent-evals.json"]
+"share/gridzen-developer-kit/skills/gridzen-hosted-identity/references" = ["skills/gridzen-hosted-identity/references/product.json"]
+"share/gridzen-developer-kit/skills/gridzen-ip-risk" = ["skills/gridzen-ip-risk/LICENSE", "skills/gridzen-ip-risk/README.md", "skills/gridzen-ip-risk/SKILL.md", "skills/gridzen-ip-risk/agent-evals.json"]
+"share/gridzen-developer-kit/skills/gridzen-ip-risk/references" = ["skills/gridzen-ip-risk/references/product.json"]
+"share/gridzen-developer-kit/skills/gridzen-mx-account-name" = ["skills/gridzen-mx-account-name/LICENSE", "skills/gridzen-mx-account-name/README.md", "skills/gridzen-mx-account-name/SKILL.md", "skills/gridzen-mx-account-name/agent-evals.json"]
+"share/gridzen-developer-kit/skills/gridzen-mx-account-name/references" = ["skills/gridzen-mx-account-name/references/product.json"]
+"share/gridzen-developer-kit/skills/gridzen-mx-cep" = ["skills/gridzen-mx-cep/LICENSE", "skills/gridzen-mx-cep/README.md", "skills/gridzen-mx-cep/SKILL.md", "skills/gridzen-mx-cep/agent-evals.json"]
+"share/gridzen-developer-kit/skills/gridzen-mx-cep/references" = ["skills/gridzen-mx-cep/references/product.json"]
+"share/gridzen-developer-kit/skills/gridzen-mx-identity-account" = ["skills/gridzen-mx-identity-account/LICENSE", "skills/gridzen-mx-identity-account/README.md", "skills/gridzen-mx-identity-account/SKILL.md", "skills/gridzen-mx-identity-account/agent-evals.json"]
+"share/gridzen-developer-kit/skills/gridzen-mx-identity-account/references" = ["skills/gridzen-mx-identity-account/references/product.json"]
+"share/gridzen-developer-kit/skills/gridzen-phone-format" = ["skills/gridzen-phone-format/LICENSE", "skills/gridzen-phone-format/README.md", "skills/gridzen-phone-format/SKILL.md", "skills/gridzen-phone-format/agent-evals.json"]
+"share/gridzen-developer-kit/skills/gridzen-phone-format/references" = ["skills/gridzen-phone-format/references/product.json"]
+"share/gridzen-developer-kit/skills/gridzen-result-explanation" = ["skills/gridzen-result-explanation/LICENSE", "skills/gridzen-result-explanation/README.md", "skills/gridzen-result-explanation/SKILL.md", "skills/gridzen-result-explanation/agent-evals.json"]
+"share/gridzen-developer-kit/skills/gridzen-result-explanation/references" = ["skills/gridzen-result-explanation/references/product.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

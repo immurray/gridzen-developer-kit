@@ -9,7 +9,7 @@ def write(name,paths,prefix):
     z.writestr(info,p.read_bytes())
  return hashlib.sha256((dest/name).read_bytes()).hexdigest()
 source=[root/'pyproject.toml',root/'MANIFEST.in',root/'README.md',root/'LICENSE',root/'NOTICE.md']+list((root/'src/gridzen_developer').glob('*.py'))+list((root/'src/gridzen_developer/data').glob('*.json'))+[root/'src/gridzen_developer/data/LICENSE']+list((root/'examples').rglob('*'))+list((root/'skills').rglob('*'))
-source+=[root/'docs/activation.md',root/'docs/verification-evaluation.md']
+source+=[root/'docs/atomic-tools.md',root/'docs/activation.md',root/'docs/verification-evaluation.md']
 source+=list(root.glob('README.*.md'))
 source+=list((root/'src/gridzen_developer/web').glob('*.html'))+list((root/'src/gridzen_developer/web').glob('*.css'))+list((root/'src/gridzen_developer/web').glob('*.js'))
 source+=list((root/'src/gridzen_developer/web').glob('*.svg'))+list((root/'src/gridzen_developer/web').glob('*.png'))

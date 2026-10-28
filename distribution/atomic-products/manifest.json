@@ -1,0 +1,550 @@
+{
+  "version": "2026-10-29.1",
+  "products": [
+    {
+      "product_id": "mx-cep",
+      "title": "Check a SPEI payment",
+      "audience": "Mexico payment operations, reconciliation developers and finance automation teams",
+      "input": "Operation date, tracking key, sending and receiving institution codes, account, amount and authorization reference.",
+      "output": "Task status, original-evidence availability, signature status and exact transaction binding. Pending or unavailable remains inconclusive.",
+      "boundary": "Does not initiate a transfer or prove present account control, identity or a safe payout. Source access restrictions can delay a task.",
+      "topics": [
+        "A payment screenshot versus a signed CEP: what can your reconciliation job accept?",
+        "Recover a pending SPEI evidence request without creating a duplicate"
+      ],
+      "query_hypotheses": [
+        "verify SPEI payment CEP API",
+        "verificar pago SPEI CEP API"
+      ],
+      "url": "https://gridzen.ai/tools/mx-cep/",
+      "channels": [
+        {
+          "channel": "website",
+          "action": "indexed_product_page_and_existing_footer",
+          "url": "https://gridzen.ai/tools/mx-cep/",
+          "status": "release_pending"
+        },
+        {
+          "channel": "developer_kit",
+          "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
+          "status": "release_pending"
+        },
+        {
+          "channel": "search",
+          "action": "English/Spanish intent hypotheses; canonical/hreflang/sitemap/llms; observe GSC and existing monthly GEO panel",
+          "status": "candidate_not_observed_demand"
+        },
+        {
+          "channel": "dev",
+          "action": "two distinct owned angles inside existing reviewed article queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "youtube",
+          "action": "one input/result/recovery/CTA in existing bounded line-animation queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "directory",
+          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
+          "status": "materials_ready_not_approved"
+        },
+        {
+          "channel": "integration",
+          "action": "reusable Python/stdio recipe; extend to an external integration only after runnable acceptance",
+          "status": "python_stdio_ready_other_integrations_candidate"
+        },
+        {
+          "channel": "community",
+          "action": "prepare task-specific question/demo drafts; respect each channel eligibility and AI-content policy; no automated comments or unsolicited messages",
+          "status": "draft_only"
+        },
+        {
+          "channel": "referral",
+          "action": "share the individual tool page with a truthful source marker; no recipient identity or incentive invented",
+          "status": "link_ready"
+        }
+      ],
+      "paid_ads": false,
+      "new_spending": 0,
+      "market_validated": false
+    },
+    {
+      "product_id": "mx-account-name",
+      "title": "Match a CLABE name",
+      "audience": "Mexico marketplaces and payout integration teams",
+      "input": "CLABE, expected beneficiary name, holder type, current quote, authorization reference and stable request UUID.",
+      "output": "Task state and name comparison with its evidence and charges; uncertain similarity requires review.",
+      "boundary": "A quoted microtransfer may apply and requires explicit recipient and spending authority. This is not document identity or proof of current account control.",
+      "topics": [
+        "Check a new beneficiary CLABE before changing payout details",
+        "Separate the transfer principal, source cost and fee in a bank-name quote"
+      ],
+      "query_hypotheses": [
+        "Mexico CLABE beneficiary name API",
+        "validar nombre beneficiario CLABE"
+      ],
+      "url": "https://gridzen.ai/tools/mx-account-name/",
+      "channels": [
+        {
+          "channel": "website",
+          "action": "indexed_product_page_and_existing_footer",
+          "url": "https://gridzen.ai/tools/mx-account-name/",
+          "status": "release_pending"
+        },
+        {
+          "channel": "developer_kit",
+          "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
+          "status": "release_pending"
+        },
+        {
+          "channel": "search",
+          "action": "English/Spanish intent hypotheses; canonical/hreflang/sitemap/llms; observe GSC and existing monthly GEO panel",
+          "status": "candidate_not_observed_demand"
+        },
+        {
+          "channel": "dev",
+          "action": "two distinct owned angles inside existing reviewed article queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "youtube",
+          "action": "one input/result/recovery/CTA in existing bounded line-animation queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "directory",
+          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
+          "status": "materials_ready_not_approved"
+        },
+        {
+          "channel": "integration",
+          "action": "reusable Python/stdio recipe; extend to an external integration only after runnable acceptance",
+          "status": "python_stdio_ready_other_integrations_candidate"
+        },
+        {
+          "channel": "community",
+          "action": "prepare task-specific question/demo drafts; respect each channel eligibility and AI-content policy; no automated comments or unsolicited messages",
+          "status": "draft_only"
+        },
+        {
+          "channel": "referral",
+          "action": "share the individual tool page with a truthful source marker; no recipient identity or incentive invented",
+          "status": "link_ready"
+        }
+      ],
+      "paid_ads": false,
+      "new_spending": 0,
+      "market_validated": false
+    },
+    {
+      "product_id": "ip-risk",
+      "title": "Check registration IP risk",
+      "audience": "SaaS signup, marketplace and fraud operations developers",
+      "input": "Authorized public IP address, consent reference, stable request UUID and explicit trial or paid mode.",
+      "output": "IP risk signals and available explanatory evidence for the event; not an identity or fraud verdict.",
+      "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires confirmed prepaid credit. A risk score alone must not approve or reject a person.",
+      "topics": [
+        "Use an IP risk signal in signup without calling it identity verification",
+        "Keep an unavailable IP score separate from low risk"
+      ],
+      "query_hypotheses": [
+        "registration IP risk API",
+        "API riesgo IP registro"
+      ],
+      "url": "https://gridzen.ai/tools/ip-risk/",
+      "channels": [
+        {
+          "channel": "website",
+          "action": "indexed_product_page_and_existing_footer",
+          "url": "https://gridzen.ai/tools/ip-risk/",
+          "status": "release_pending"
+        },
+        {
+          "channel": "developer_kit",
+          "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
+          "status": "release_pending"
+        },
+        {
+          "channel": "search",
+          "action": "English/Spanish intent hypotheses; canonical/hreflang/sitemap/llms; observe GSC and existing monthly GEO panel",
+          "status": "candidate_not_observed_demand"
+        },
+        {
+          "channel": "dev",
+          "action": "two distinct owned angles inside existing reviewed article queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "youtube",
+          "action": "one input/result/recovery/CTA in existing bounded line-animation queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "directory",
+          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
+          "status": "materials_ready_not_approved"
+        },
+        {
+          "channel": "integration",
+          "action": "reusable Python/stdio recipe; extend to an external integration only after runnable acceptance",
+          "status": "python_stdio_ready_other_integrations_candidate"
+        },
+        {
+          "channel": "community",
+          "action": "prepare task-specific question/demo drafts; respect each channel eligibility and AI-content policy; no automated comments or unsolicited messages",
+          "status": "draft_only"
+        },
+        {
+          "channel": "referral",
+          "action": "share the individual tool page with a truthful source marker; no recipient identity or incentive invented",
+          "status": "link_ready"
+        }
+      ],
+      "paid_ads": false,
+      "new_spending": 0,
+      "market_validated": false
+    },
+    {
+      "product_id": "hosted-identity",
+      "title": "Start hosted identity",
+      "audience": "Small B2B onboarding teams and SaaS developers",
+      "input": "Subject authorization reference, stable request UUID and explicit trial or paid mode; no document or face in the assistant chat.",
+      "output": "Hosted URL, task state and authoritative completion status. Approved does not grant application permissions.",
+      "boundary": "The person completes identity and liveness steps. New-person full approval acceptance remains pending; online purchases require payment-channel acceptance.",
+      "topics": [
+        "Start a hosted identity journey without putting documents in an AI chat",
+        "Recover a missing identity callback by reading the original task"
+      ],
+      "query_hypotheses": [
+        "hosted identity verification API webhook",
+        "API identidad alojada webhook"
+      ],
+      "url": "https://gridzen.ai/tools/hosted-identity/",
+      "channels": [
+        {
+          "channel": "website",
+          "action": "indexed_product_page_and_existing_footer",
+          "url": "https://gridzen.ai/tools/hosted-identity/",
+          "status": "release_pending"
+        },
+        {
+          "channel": "developer_kit",
+          "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
+          "status": "release_pending"
+        },
+        {
+          "channel": "search",
+          "action": "English/Spanish intent hypotheses; canonical/hreflang/sitemap/llms; observe GSC and existing monthly GEO panel",
+          "status": "candidate_not_observed_demand"
+        },
+        {
+          "channel": "dev",
+          "action": "two distinct owned angles inside existing reviewed article queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "youtube",
+          "action": "one input/result/recovery/CTA in existing bounded line-animation queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "directory",
+          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
+          "status": "materials_ready_not_approved"
+        },
+        {
+          "channel": "integration",
+          "action": "reusable Python/stdio recipe; extend to an external integration only after runnable acceptance",
+          "status": "python_stdio_ready_other_integrations_candidate"
+        },
+        {
+          "channel": "community",
+          "action": "prepare task-specific question/demo drafts; respect each channel eligibility and AI-content policy; no automated comments or unsolicited messages",
+          "status": "draft_only"
+        },
+        {
+          "channel": "referral",
+          "action": "share the individual tool page with a truthful source marker; no recipient identity or incentive invented",
+          "status": "link_ready"
+        }
+      ],
+      "paid_ads": false,
+      "new_spending": 0,
+      "market_validated": false
+    },
+    {
+      "product_id": "mx-identity-account",
+      "title": "Compare identity and account",
+      "audience": "Mexico business onboarding and beneficiary management developers",
+      "input": "Authorized CURP and CLABE, current quote, required evidence and consents, stable request UUID.",
+      "output": "Verification grade, task status, evidence and charges. Supported grades and required actions follow the live quote.",
+      "boundary": "No unconditional approval or arbitrary person lookup. No direct bank-CURP identifier claim, unsupported card input or transfer without the quote's explicit authorization.",
+      "topics": [
+        "Separate a name mismatch from missing evidence in CURP and CLABE onboarding",
+        "Read the verification grade before deciding a beneficiary change"
+      ],
+      "query_hypotheses": [
+        "CURP CLABE identity account comparison",
+        "verificar CURP y CLABE beneficiario"
+      ],
+      "url": "https://gridzen.ai/tools/mx-identity-account/",
+      "channels": [
+        {
+          "channel": "website",
+          "action": "indexed_product_page_and_existing_footer",
+          "url": "https://gridzen.ai/tools/mx-identity-account/",
+          "status": "release_pending"
+        },
+        {
+          "channel": "developer_kit",
+          "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
+          "status": "release_pending"
+        },
+        {
+          "channel": "search",
+          "action": "English/Spanish intent hypotheses; canonical/hreflang/sitemap/llms; observe GSC and existing monthly GEO panel",
+          "status": "candidate_not_observed_demand"
+        },
+        {
+          "channel": "dev",
+          "action": "two distinct owned angles inside existing reviewed article queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "youtube",
+          "action": "one input/result/recovery/CTA in existing bounded line-animation queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "directory",
+          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
+          "status": "materials_ready_not_approved"
+        },
+        {
+          "channel": "integration",
+          "action": "reusable Python/stdio recipe; extend to an external integration only after runnable acceptance",
+          "status": "python_stdio_ready_other_integrations_candidate"
+        },
+        {
+          "channel": "community",
+          "action": "prepare task-specific question/demo drafts; respect each channel eligibility and AI-content policy; no automated comments or unsolicited messages",
+          "status": "draft_only"
+        },
+        {
+          "channel": "referral",
+          "action": "share the individual tool page with a truthful source marker; no recipient identity or incentive invented",
+          "status": "link_ready"
+        }
+      ],
+      "paid_ads": false,
+      "new_spending": 0,
+      "market_validated": false
+    },
+    {
+      "product_id": "phone-format",
+      "title": "Clean phone formatting",
+      "audience": "Registration form and CRM import developers",
+      "input": "A phone string with explicit +country calling code; never infer a country from the visitor's location.",
+      "output": "Normalized candidate and structure_valid. No carrier, allocation, reachability or ownership lookup.",
+      "boundary": "Structure-only local utility. No network, OTP, lookup billing or claim that the number exists.",
+      "topics": [
+        "Clean international signup phone formatting before any paid check",
+        "A correctly formatted phone number does not prove possession"
+      ],
+      "query_hypotheses": [
+        "E164 phone formatting local tool",
+        "normalizar teléfono E164"
+      ],
+      "url": "https://gridzen.ai/tools/phone-format/",
+      "channels": [
+        {
+          "channel": "website",
+          "action": "indexed_product_page_and_existing_footer",
+          "url": "https://gridzen.ai/tools/phone-format/",
+          "status": "release_pending"
+        },
+        {
+          "channel": "developer_kit",
+          "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
+          "status": "release_pending"
+        },
+        {
+          "channel": "search",
+          "action": "English/Spanish intent hypotheses; canonical/hreflang/sitemap/llms; observe GSC and existing monthly GEO panel",
+          "status": "candidate_not_observed_demand"
+        },
+        {
+          "channel": "dev",
+          "action": "two distinct owned angles inside existing reviewed article queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "youtube",
+          "action": "one input/result/recovery/CTA in existing bounded line-animation queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "directory",
+          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
+          "status": "materials_ready_not_approved"
+        },
+        {
+          "channel": "integration",
+          "action": "reusable Python/stdio recipe; extend to an external integration only after runnable acceptance",
+          "status": "python_stdio_ready_other_integrations_candidate"
+        },
+        {
+          "channel": "community",
+          "action": "prepare task-specific question/demo drafts; respect each channel eligibility and AI-content policy; no automated comments or unsolicited messages",
+          "status": "draft_only"
+        },
+        {
+          "channel": "referral",
+          "action": "share the individual tool page with a truthful source marker; no recipient identity or incentive invented",
+          "status": "link_ready"
+        }
+      ],
+      "paid_ads": false,
+      "new_spending": 0,
+      "market_validated": false
+    },
+    {
+      "product_id": "clabe-format",
+      "title": "Check CLABE formatting",
+      "audience": "Mexico payout forms and payment-file import developers",
+      "input": "An 18-digit CLABE, optionally separated by spaces or hyphens.",
+      "output": "structure_valid, checksum_valid and institution code. No live bank query or account-ownership assertion.",
+      "boundary": "A correct checksum does not prove that an account exists, can receive funds or belongs to a person.",
+      "topics": [
+        "Reject a mistyped CLABE before requesting a paid bank-name check",
+        "CLABE checksum versus account ownership: two different answers"
+      ],
+      "query_hypotheses": [
+        "CLABE checksum validator",
+        "validar dígito verificador CLABE"
+      ],
+      "url": "https://gridzen.ai/tools/clabe-format/",
+      "channels": [
+        {
+          "channel": "website",
+          "action": "indexed_product_page_and_existing_footer",
+          "url": "https://gridzen.ai/tools/clabe-format/",
+          "status": "release_pending"
+        },
+        {
+          "channel": "developer_kit",
+          "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
+          "status": "release_pending"
+        },
+        {
+          "channel": "search",
+          "action": "English/Spanish intent hypotheses; canonical/hreflang/sitemap/llms; observe GSC and existing monthly GEO panel",
+          "status": "candidate_not_observed_demand"
+        },
+        {
+          "channel": "dev",
+          "action": "two distinct owned angles inside existing reviewed article queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "youtube",
+          "action": "one input/result/recovery/CTA in existing bounded line-animation queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "directory",
+          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
+          "status": "materials_ready_not_approved"
+        },
+        {
+          "channel": "integration",
+          "action": "reusable Python/stdio recipe; extend to an external integration only after runnable acceptance",
+          "status": "python_stdio_ready_other_integrations_candidate"
+        },
+        {
+          "channel": "community",
+          "action": "prepare task-specific question/demo drafts; respect each channel eligibility and AI-content policy; no automated comments or unsolicited messages",
+          "status": "draft_only"
+        },
+        {
+          "channel": "referral",
+          "action": "share the individual tool page with a truthful source marker; no recipient identity or incentive invented",
+          "status": "link_ready"
+        }
+      ],
+      "paid_ads": false,
+      "new_spending": 0,
+      "market_validated": false
+    },
+    {
+      "product_id": "result-explanation",
+      "title": "Explain a check result",
+      "audience": "AI assistants, support engineering and verification integration developers",
+      "input": "A documented status code only; no raw identity documents, customer messages or credentials.",
+      "output": "Meaning, whether the result is conclusive and a safe next step. Unknown codes remain unknown.",
+      "boundary": "Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, payment or business approval.",
+      "topics": [
+        "Handle pending, declined and unavailable as different integration states",
+        "Recover after a timeout without paying twice for the same request"
+      ],
+      "query_hypotheses": [
+        "verification API timeout recovery",
+        "API verificación resultado pendiente"
+      ],
+      "url": "https://gridzen.ai/tools/result-explanation/",
+      "channels": [
+        {
+          "channel": "website",
+          "action": "indexed_product_page_and_existing_footer",
+          "url": "https://gridzen.ai/tools/result-explanation/",
+          "status": "release_pending"
+        },
+        {
+          "channel": "developer_kit",
+          "action": "individual_skill_cli_mcp_profile_and_runnable_examples",
+          "status": "release_pending"
+        },
+        {
+          "channel": "search",
+          "action": "English/Spanish intent hypotheses; canonical/hreflang/sitemap/llms; observe GSC and existing monthly GEO panel",
+          "status": "candidate_not_observed_demand"
+        },
+        {
+          "channel": "dev",
+          "action": "two distinct owned angles inside existing reviewed article queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "youtube",
+          "action": "one input/result/recovery/CTA in existing bounded line-animation queue",
+          "status": "queued_candidate_not_published"
+        },
+        {
+          "channel": "directory",
+          "action": "accurate install metadata and existing-listing update where eligible; no duplicate or misleading remote listing",
+          "status": "materials_ready_not_approved"
+        },
+        {
+          "channel": "integration",
+          "action": "reusable Python/stdio recipe; extend to an external integration only after runnable acceptance",
+          "status": "python_stdio_ready_other_integrations_candidate"
+        },
+        {
+          "channel": "community",
+          "action": "prepare task-specific question/demo drafts; respect each channel eligibility and AI-content policy; no automated comments or unsolicited messages",
+          "status": "draft_only"
+        },
+        {
+          "channel": "referral",
+          "action": "share the individual tool page with a truthful source marker; no recipient identity or incentive invented",
+          "status": "link_ready"
+        }
+      ],
+      "paid_ads": false,
+      "new_spending": 0,
+      "market_validated": false
+    }
+  ],
+  "publication_is_not_customer_adoption": true
+}

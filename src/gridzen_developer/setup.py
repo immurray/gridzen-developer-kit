@@ -53,11 +53,20 @@ def skill_zip(directory):
  return stream.getvalue()
 
 
-def setup(client, project, apply=False):
+def setup(client, project, apply=False, product=None):
  root = Path(project).resolve()
  if not root.is_dir(): raise ValueError('Project directory must already exist.')
  skills = list_skills()
- if len(skills) != 6: raise ValueError('Expected six installed Skills; reinstall the complete package.')
+ if not skills: raise ValueError('Installed Skills are missing; reinstall the complete package.')
+ server_name='gridzen'
+ product_args=None
+ if product is not None:
+  from .atomic import catalog
+  catalog(product)
+  skills=[s for s in skills if s['name']=='gridzen-'+product]
+  if len(skills)!=1:raise ValueError('Selected product Skill is missing; reinstall the complete package.')
+  server_name='gridzen-'+product
+  product_args=['-m','gridzen_developer.atomic','--product',product]
  names = list(CLIENTS) if client == 'all' else [client]
  writes = {}
  originals = {}
@@ -80,24 +89,29 @@ def setup(client, project, apply=False):
   text = old.decode('utf-8') if old is not None else ''
   if kind == 'toml':
    current = tomllib.loads(text) if text else {}
-   wanted = {'url': URL}
-   existing = current.get('mcp_servers', {}).get('gridzen')
+   wanted = {'command':sys.executable,'args':product_args} if product_args else {'url': URL}
+   if product_args and catalog(product)['kind']=='merchant':wanted['env_vars']=['GRIDZEN_API_KEY','GRIDZEN_PROJECT_ID']
+   existing = current.get('mcp_servers', {}).get(server_name)
    if existing is not None and existing != wanted: raise ValueError(f'Existing Gridzen configuration differs: {config}')
-   content = old if existing is not None else (text.rstrip()+'\n\n[mcp_servers.gridzen]\nurl = '+json.dumps(URL)+'\n').lstrip().encode()
+   content = old if existing is not None else (text.rstrip()+'\n\n[mcp_servers.'+server_name+']\n'+''.join(k+' = '+json.dumps(v)+'\n' for k,v in wanted.items())).lstrip().encode()
   else:
    current = json.loads(text) if text else {}
    if not isinstance(current,dict): raise ValueError(f'Expected configuration object: {config}')
    key = 'servers' if kind == 'vscode' else 'mcp' if kind == 'opencode' else 'mcpServers'
    group = current.setdefault(key,{})
    if not isinstance(group,dict): raise ValueError(f'Expected server map: {config}')
-   wanted = server_entry(kind)
-   if 'gridzen' in group:
-    existing = group['gridzen']
+   if product_args:
+    wanted={'command':[sys.executable,*product_args],'type':'local','enabled':True} if kind=='opencode' else {'command':sys.executable,'args':product_args}
+    if kind in ('vscode','copilot'):wanted['type']='stdio'
+    if kind=='cline':wanted.update(disabled=False,autoApprove=[])
+   else:wanted = server_entry(kind)
+   if server_name in group:
+    existing = group[server_name]
     if not isinstance(existing,dict) or any(existing.get(k) != v for k,v in wanted.items()):
      raise ValueError(f'Existing Gridzen configuration differs: {config}')
     content = old
    else:
-    group['gridzen'] = wanted
+    group[server_name] = wanted
     content = (json.dumps(current,ensure_ascii=False,indent=2)+'\n').encode()
   writes[file] = content
   for skill in skills:
@@ -112,7 +126,7 @@ def setup(client, project, apply=False):
     relative = f'gridzen-clients/claude-desktop/skills/{source.name}.zip'
     data = skill_zip(source);previous=proposed(relative,data)
     if previous is not None and previous != data: raise ValueError(f'Existing Skill archive differs: {relative}')
-  summaries.append({'client':name,'config':config,'skills':skill_path or 'gridzen-clients/claude-desktop/skills','skill_count':6,'activation':mode})
+  summaries.append({'client':name,'config':config,'skills':skill_path or 'gridzen-clients/claude-desktop/skills','skill_count':len(skills),'activation':mode,'product':product,'credential_handling':'local environment; never written by setup'})
  changed = [path for path,data in writes.items() if originals[path] != data]
  # Validate every destination before making any writes. Do not print existing config.
  for path in changed:

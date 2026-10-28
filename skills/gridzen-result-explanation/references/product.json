@@ -1,0 +1,54 @@
+{
+  "id": "result-explanation",
+  "price_id": null,
+  "capability_id": null,
+  "task": "identity_onboarding",
+  "kind": "local",
+  "priority": 8,
+  "title": [
+    "Explain a check result",
+    "Explica un resultado",
+    "解释核验结果",
+    "Giải thích kết quả xác minh"
+  ],
+  "summary": [
+    "Turn a documented status into a clear recovery step without sending a new request.",
+    "Convierte un estado documentado en un paso claro de recuperación sin enviar otra solicitud.",
+    "把已记录的状态解释为明确的恢复步骤，不发起新查询。",
+    "Giải thích trạng thái đã biết thành bước khôi phục rõ ràng mà không gửi yêu cầu mới."
+  ],
+  "inputs": "A documented status code only; no raw identity documents, customer messages or credentials.",
+  "output": "Meaning, whether the result is conclusive and a safe next step. Unknown codes remain unknown.",
+  "boundary": "Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, payment or business approval.",
+  "entry": "/tools/result-explanation/#try",
+  "guide": "/docs/response-reference/",
+  "tools": [
+    "explain_verification_status"
+  ],
+  "topics": [
+    "Handle pending, declined and unavailable as different integration states",
+    "Recover after a timeout without paying twice for the same request"
+  ],
+  "audience": "AI assistants, support engineering and verification integration developers",
+  "query": [
+    "verification API timeout recovery",
+    "API verificación resultado pendiente"
+  ],
+  "sample_input": {
+    "status": "pending"
+  },
+  "product_url": "https://gridzen.ai/tools/result-explanation/",
+  "version": "1.0.0",
+  "price": null,
+  "sample_output": {
+    "status": "pending",
+    "known": true,
+    "meaning": "The task has not reached an authoritative final result.",
+    "next_step": "Read the original task using its existing ID.",
+    "automatic_business_approval": false,
+    "network_calls": 0,
+    "charged": false
+  },
+  "sample_is_synthetic": true,
+  "installation_enables_production": false
+}

@@ -4,7 +4,12 @@ from uuid import uuid4
 from . import core
 
 def main():
- p=argparse.ArgumentParser(description='Gridzen research + synthetic sandbox (no real provider calls)');s=p.add_subparsers(dest='command',required=True)
+ p=argparse.ArgumentParser(description='Gridzen research, local tools and separately authorized merchant MCP profiles');s=p.add_subparsers(dest='command',required=True)
+ from .atomic import catalog,execute,run_mcp
+ products=[r['id'] for r in catalog()['products']]
+ x=s.add_parser('tools',help='Inspect product inputs, outputs, prices and access requirements offline');x.add_argument('--product',choices=products)
+ x=s.add_parser('tool',help='Run one free local utility; never a live check');x.add_argument('product',choices=['phone-format','clabe-format','result-explanation']);x.add_argument('--input-file',required=True)
+ x=s.add_parser('mcp',help='Run one local or separately authorized merchant MCP profile');x.add_argument('--product',required=True,choices=products)
  x=s.add_parser('start',help='Show the free trial, account and integration path; no network calls')
  x.add_argument('--task',choices=['identity_onboarding','signup_phone'],default='identity_onboarding');x.add_argument('--lang',choices=['en','es','zh'],default='en')
  x=s.add_parser('coverage');x.add_argument('--country');x.add_argument('--capability')
@@ -18,14 +23,24 @@ def main():
  x=s.add_parser('explain');x.add_argument('reason_code')
  s.add_parser('skills',help='List bundled Skill directories; copy a complete directory into your assistant to activate it')
  from .setup import CLIENTS
- x=s.add_parser('setup',help='Prepare six Skills and MCP config for a harness; dry-run until --apply')
+ x=s.add_parser('setup',help='Prepare Skills and MCP config for a harness; dry-run until --apply')
  x.add_argument('--client',choices=['all',*CLIENTS],required=True);x.add_argument('--project',default='.');x.add_argument('--apply',action='store_true')
+ x.add_argument('--product',choices=products,help='Install only this Skill and its stdio MCP profile; credentials are never written')
  x=s.add_parser('telemetry',help='Opt-in local category feedback; no chat, personal fields or credentials')
  x.add_argument('action',choices=['enable','disable','status','flush','record'])
  x.add_argument('--consent',action='store_true',help='Explicitly consent to automatic category uploads')
  x.add_argument('--task',choices=sorted(TASKS),default='unknown');x.add_argument('--skill',choices=sorted(SKILLS),default='unknown')
  x.add_argument('--outcome',choices=sorted(OUTCOMES),default='unknown');x.add_argument('--blocker',choices=sorted(REASONS),default='unknown')
  a=p.parse_args()
+ if a.command=='tools':print(json.dumps(catalog(a.product),ensure_ascii=False,indent=2));return
+ if a.command=='mcp':run_mcp(a.product);return
+ if a.command=='tool':
+  try:
+   blob=Path(a.input_file).read_bytes()
+   if len(blob)>4096:raise ValueError('INPUT_TOO_LARGE')
+   result=execute(a.product,json.loads(blob))
+  except (OSError,ValueError,TypeError) as e:p.error(str(e))
+  print(json.dumps(result,ensure_ascii=False,indent=2));return
  if a.command=='start':
   print(json.dumps({'task':a.task,'trial':'https://gridzen.ai/console/start?lang='+a.lang,'account':'https://gridzen.ai/console/?source=developer_kit&lang='+a.lang,'assistant':'https://gridzen.ai/console/assessment?lang='+a.lang,'tutorials':'https://gridzen.ai/console/learn?lang='+a.lang,'mode':'synthetic_entry','network_calls':0,'verified':False,'real_payments_enabled':False,'measurement':'optional_explicit_consent_in_console; no account tracking by this command'},ensure_ascii=False,indent=2));return
  if a.command=='telemetry':
@@ -58,7 +73,7 @@ def main():
   print(json.dumps(result,indent=2));return
  if a.command=='setup':
   from .setup import setup
-  try: result=setup(a.client,a.project,a.apply)
+  try: result=setup(a.client,a.project,a.apply,product=a.product)
   except (ValueError,OSError) as exc:p.error(str(exc))
   print(json.dumps(result,ensure_ascii=False,indent=2));return
  if a.command=='skills':

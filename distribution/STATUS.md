@@ -1,3 +1,9 @@
+# Single-task release — 0.7.0
+
+Eight new product Skills (1.0.0 each), eight MCP profiles and three offline CLI/browser utilities. The package contains fourteen Skills in total. Five merchant profiles wrap the existing authenticated API; this public repository contains no provider credentials, merchant records or private decision engine.
+
+Current release preparation: source/tests/build pending final validation. Publication receipts will be added after registry/package verification; a prepared artifact is not an approved listing. Existing marketplace status below is historical and does not prove approval for new profiles.
+
 # Example update — 2026-10-17
 
 The source example now includes policy version checks, local permission revocation, explicit re-decisions and persisted agent handoff. This is a synthetic fixture, not production authorization. It is distributed through the example source and website download; the installed package remains 0.6.1. No new customer, performance or supplier-access claim is made.

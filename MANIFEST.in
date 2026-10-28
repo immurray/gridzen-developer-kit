@@ -10,3 +10,6 @@ recursive-include docs/harness *.md
 include scripts/check_integration.py
 
 include docs/verification-evaluation.md
+
+include docs/atomic-tools.md
+recursive-include examples/atomic_tools *.json *.py *.md

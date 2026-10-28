@@ -1,0 +1,70 @@
+{
+  "id": "mx-cep",
+  "price_id": "mx_cep_existing_payment",
+  "capability_id": "mx_cep_existing_payment",
+  "task": "mx_existing_payment_evidence",
+  "kind": "merchant",
+  "priority": 1,
+  "title": [
+    "Check a SPEI payment",
+    "Comprueba un pago SPEI",
+    "查证一笔 SPEI 付款",
+    "Kiểm tra một khoản SPEI"
+  ],
+  "summary": [
+    "Retrieve the CEP for an authorized existing payment and inspect its signature and transaction binding.",
+    "Obtén el CEP de un pago existente autorizado y revisa su firma y vinculación con la operación.",
+    "为已获授权的现有付款取得 CEP，查看签名与精确交易绑定。",
+    "Lấy CEP của khoản thanh toán đã được phép và kiểm tra chữ ký cùng liên kết giao dịch."
+  ],
+  "inputs": "Operation date, tracking key, sending and receiving institution codes, account, amount and authorization reference.",
+  "output": "Task status, original-evidence availability, signature status and exact transaction binding. Pending or unavailable remains inconclusive.",
+  "boundary": "Does not initiate a transfer or prove present account control, identity or a safe payout. Source access restrictions can delay a task.",
+  "entry": "/console/payment-evidence/mx/cep",
+  "guide": "/mexico/cep-verification/",
+  "tools": [
+    "mexico_cep_capabilities",
+    "submit_mexico_cep_check",
+    "get_mexico_cep_check",
+    "recover_mexico_cep_check"
+  ],
+  "topics": [
+    "A payment screenshot versus a signed CEP: what can your reconciliation job accept?",
+    "Recover a pending SPEI evidence request without creating a duplicate"
+  ],
+  "audience": "Mexico payment operations, reconciliation developers and finance automation teams",
+  "query": [
+    "verify SPEI payment CEP API",
+    "verificar pago SPEI CEP API"
+  ],
+  "sample": {
+    "status": "pending",
+    "original_available": false,
+    "signature_status": "not_checked",
+    "transaction_binding": "not_checked",
+    "verified": false
+  },
+  "product_url": "https://gridzen.ai/tools/mx-cep/",
+  "version": "1.0.0",
+  "price": {
+    "id": "mx_cep_existing_payment",
+    "country": "MX",
+    "currency": "MXN",
+    "unit_minor": 25,
+    "price_status": "approved",
+    "availability": "limited_trial",
+    "package_checks": 1000,
+    "package_minor": 25000,
+    "valid_days": 30,
+    "entry": "/console/payment-evidence/mx/cep"
+  },
+  "sample_output": {
+    "status": "pending",
+    "original_available": false,
+    "signature_status": "not_checked",
+    "transaction_binding": "not_checked",
+    "verified": false
+  },
+  "sample_is_synthetic": true,
+  "installation_enables_production": false
+}

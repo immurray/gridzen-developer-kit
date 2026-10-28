@@ -1,0 +1,67 @@
+{
+  "id": "ip-risk",
+  "price_id": "registration_risk",
+  "capability_id": "registration_risk",
+  "task": "registration_risk",
+  "kind": "merchant",
+  "priority": 3,
+  "title": [
+    "Check registration IP risk",
+    "Consulta riesgo de IP",
+    "检查注册 IP 风险",
+    "Kiểm tra rủi ro IP"
+  ],
+  "summary": [
+    "Request IP risk signals for one authorized registration event and keep the decision in your application.",
+    "Consulta señales de riesgo IP para un registro autorizado y conserva la decisión en tu aplicación.",
+    "为一个获授权的注册事件查询 IP 风险信号，由你的应用决定后续动作。",
+    "Tra cứu tín hiệu rủi ro IP cho một sự kiện đăng ký được phép; ứng dụng của bạn quyết định bước tiếp theo."
+  ],
+  "inputs": "Authorized public IP address, consent reference, stable request UUID and explicit trial or paid mode.",
+  "output": "IP risk signals and available explanatory evidence for the event; not an identity or fraud verdict.",
+  "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires confirmed prepaid credit. A risk score alone must not approve or reject a person.",
+  "entry": "/console/production",
+  "guide": "/guides/current-capabilities/",
+  "tools": [
+    "production_capabilities",
+    "check_registration_risk",
+    "get_production_verification",
+    "refresh_production_verification"
+  ],
+  "topics": [
+    "Use an IP risk signal in signup without calling it identity verification",
+    "Keep an unavailable IP score separate from low risk"
+  ],
+  "audience": "SaaS signup, marketplace and fraud operations developers",
+  "query": [
+    "registration IP risk API",
+    "API riesgo IP registro"
+  ],
+  "sample": {
+    "status": "unavailable",
+    "ip_risk_score": null,
+    "verified": false,
+    "automatic_business_approval": false
+  },
+  "product_url": "https://gridzen.ai/tools/ip-risk/",
+  "version": "1.0.0",
+  "price": {
+    "id": "registration_risk",
+    "country": null,
+    "currency": "USD",
+    "package_checks": 100,
+    "package_minor": 900,
+    "valid_days": 90,
+    "price_status": "approved",
+    "availability": "payment_setup_pending",
+    "entry": "/console/billing"
+  },
+  "sample_output": {
+    "status": "unavailable",
+    "ip_risk_score": null,
+    "verified": false,
+    "automatic_business_approval": false
+  },
+  "sample_is_synthetic": true,
+  "installation_enables_production": false
+}

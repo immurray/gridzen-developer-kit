@@ -1,0 +1,68 @@
+{
+  "id": "mx-identity-account",
+  "price_id": "mx_identity_account",
+  "capability_id": "mx_identity_account",
+  "task": "mx_identity_account",
+  "kind": "merchant",
+  "priority": 4,
+  "title": [
+    "Compare identity and account",
+    "Coteja identidad y cuenta",
+    "核对身份与收款账户",
+    "Đối chiếu danh tính và tài khoản"
+  ],
+  "summary": [
+    "Submit authorized CURP and CLABE for one identity and beneficiary-account comparison, with a bound quote.",
+    "Envía CURP y CLABE autorizadas para un cotejo de identidad y cuenta beneficiaria con cotización vinculada.",
+    "按绑定报价提交已获授权的 CURP 与 CLABE，完成一次身份与收款账户核对。",
+    "Gửi CURP và CLABE được phép để đối chiếu danh tính với tài khoản thụ hưởng theo báo giá ràng buộc."
+  ],
+  "inputs": "Authorized CURP and CLABE, current quote, required evidence and consents, stable request UUID.",
+  "output": "Verification grade, task status, evidence and charges. Supported grades and required actions follow the live quote.",
+  "boundary": "No unconditional approval or arbitrary person lookup. No direct bank-CURP identifier claim, unsupported card input or transfer without the quote's explicit authorization.",
+  "entry": "/console/bank-account-name#identity-account",
+  "guide": "/guides/current-capabilities/",
+  "tools": [
+    "mexico_identity_account_capabilities",
+    "mexico_identity_account_enrollment",
+    "quote_mexico_identity_account",
+    "verify_mexico_identity_account",
+    "recover_mexico_identity_account"
+  ],
+  "topics": [
+    "Separate a name mismatch from missing evidence in CURP and CLABE onboarding",
+    "Read the verification grade before deciding a beneficiary change"
+  ],
+  "audience": "Mexico business onboarding and beneficiary management developers",
+  "query": [
+    "CURP CLABE identity account comparison",
+    "verificar CURP y CLABE beneficiario"
+  ],
+  "sample": {
+    "status": "review",
+    "grade": null,
+    "verified": false,
+    "automatic_business_approval": false
+  },
+  "product_url": "https://gridzen.ai/tools/mx-identity-account/",
+  "version": "1.0.0",
+  "price": {
+    "id": "mx_identity_account",
+    "country": "MX",
+    "currency": "MXN",
+    "unit_minor": 1400,
+    "price_status": "approved",
+    "availability": "prepaid",
+    "entry": "/console/bank-account-name#identity-account",
+    "full_cost_ceiling_minor": 980,
+    "tax_included": false
+  },
+  "sample_output": {
+    "status": "review",
+    "grade": null,
+    "verified": false,
+    "automatic_business_approval": false
+  },
+  "sample_is_synthetic": true,
+  "installation_enables_production": false
+}

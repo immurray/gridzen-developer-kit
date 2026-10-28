@@ -51,7 +51,7 @@ with sync_playwright() as p:
       assert client in page.locator('#setup').inner_text()
       assert page.locator('#config').text_content().strip()
       assert page.locator('#client-status').inner_text().strip()
-     assert page.locator('#skills a').count()==6
+     assert page.locator('#skills a').count()==14
      assert not page.locator('.config-details').get_attribute('open')
     assert not errors,(path,errors)
     page.remove_listener('pageerror',on_error)

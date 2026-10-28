@@ -1,0 +1,67 @@
+{
+  "id": "hosted-identity",
+  "price_id": "identity_hosted",
+  "capability_id": "identity_onboarding",
+  "task": "identity_onboarding",
+  "kind": "merchant",
+  "priority": 5,
+  "title": [
+    "Start hosted identity",
+    "Inicia identidad alojada",
+    "发起托管身份核验",
+    "Bắt đầu xác minh danh tính"
+  ],
+  "summary": [
+    "Create a hosted verification link and retrieve its authoritative result after the person completes the journey.",
+    "Crea un enlace de verificación alojada y consulta el resultado autorizado después de que la persona complete el proceso.",
+    "创建托管核验链接，本人完成流程后读取权威结果。",
+    "Tạo liên kết xác minh lưu trữ và đọc kết quả chính thức sau khi người dùng hoàn tất."
+  ],
+  "inputs": "Subject authorization reference, stable request UUID and explicit trial or paid mode; no document or face in the assistant chat.",
+  "output": "Hosted URL, task state and authoritative completion status. Approved does not grant application permissions.",
+  "boundary": "The person completes identity and liveness steps. New-person full approval acceptance remains pending; online purchases require payment-channel acceptance.",
+  "entry": "/console/production?task=identity_onboarding",
+  "guide": "/guides/missing-verification-webhook/",
+  "tools": [
+    "production_capabilities",
+    "start_identity_onboarding",
+    "get_production_verification",
+    "refresh_production_verification"
+  ],
+  "topics": [
+    "Start a hosted identity journey without putting documents in an AI chat",
+    "Recover a missing identity callback by reading the original task"
+  ],
+  "audience": "Small B2B onboarding teams and SaaS developers",
+  "query": [
+    "hosted identity verification API webhook",
+    "API identidad alojada webhook"
+  ],
+  "sample": {
+    "status": "pending",
+    "hosted_url": null,
+    "verified": false,
+    "automatic_business_approval": false
+  },
+  "product_url": "https://gridzen.ai/tools/hosted-identity/",
+  "version": "1.0.0",
+  "price": {
+    "id": "identity_hosted",
+    "country": null,
+    "currency": "USD",
+    "package_checks": 10,
+    "package_minor": 990,
+    "valid_days": 90,
+    "price_status": "approved",
+    "availability": "payment_setup_pending",
+    "entry": "/console/billing"
+  },
+  "sample_output": {
+    "status": "pending",
+    "hosted_url": null,
+    "verified": false,
+    "automatic_business_approval": false
+  },
+  "sample_is_synthetic": true,
+  "installation_enables_production": false
+}

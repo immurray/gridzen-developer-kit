@@ -16,9 +16,9 @@ def test_all_clients_dry_run_apply_and_repeat(tmp_path):
  assert json.loads((tmp_path/'.vscode/mcp.json').read_text())['servers']['gridzen']['type'] == 'http'
  assert json.loads((tmp_path/'.gemini/settings.json').read_text())['mcpServers']['gridzen']['httpUrl'].endswith('/mcp')
  for name,(_,skills,_,mode) in CLIENTS.items():
-  if skills: assert len(list((tmp_path/skills).glob('*/SKILL.md'))) == 6
+  if skills: assert len(list((tmp_path/skills).glob('*/SKILL.md'))) == 14
  archives=list((tmp_path/'gridzen-clients/claude-desktop/skills').glob('*.zip'))
- assert len(archives)==6
+ assert len(archives)==14
  for archive in archives:
   with zipfile.ZipFile(archive) as z:
    assert sum(name.endswith('/SKILL.md') for name in z.namelist())==1

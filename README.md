@@ -1,8 +1,19 @@
-# Gridzen Developer Kit 0.6.1
+# Gridzen Developer Kit 0.7.0
 
 The hosted developer interface supports Vietnamese alongside English, Spanish and Simplified Chinese: https://gridzen.ai/developers/?lang=vi . UI language does not enable live checks or country coverage. See [UI language maintenance](docs/multilingual-ui.md).
 
 [Choose direct integration or GridZen for your task](docs/verification-evaluation.md#english) · [Production and cost checklist](https://gridzen.ai/console/learn?lang=en&source=developer_kit#decision-fit)
+
+
+Single-task entry points: [tool catalog](https://gridzen.ai/tools/) · [setup and boundaries](docs/atomic-tools.md).
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install gridzen-developer-kit
+.venv/bin/gridzen tools
+.venv/bin/gridzen setup --client codex --product clabe-format --project .
+# Review the preview, then add --apply. No key is needed for local tools.
+```
 
 ## Start immediately without signup
 
@@ -10,7 +21,7 @@ Open [GridZen instant trial](https://gridzen.ai/console/start?lang=en) to run sy
 
 For persistent test records and supplier sandbox callbacks, connect a verified merchant sandbox account. Production access is capability-specific: eligible routes may offer bounded real trials, while others remain unavailable. Read the authenticated capability conditions; published prices do not enable paid purchases. This documentation update does not change PyPI or the official MCP Registry version.
 
-Research for 198 countries/territories, a verification integration planner, five synthetic outcomes, an HTTP SDK, local MCP server and six Skills. **No live provider is enabled. No real person is verified.** The research snapshot is dated 2026-10-07, with source links and file hashes.
+Fourteen Skills: the original six research/workflow Skills plus eight single-task profiles. Three new tools run offline; five merchant profiles call the existing authenticated GridZen API only with separate authorization, current availability and funding. The anonymous remote MCP retains five research/synthetic tools and never performs live verification. Research covers 198 countries/territories as a dated 2026-10-07 snapshot, not live service coverage.
 
 [中文指南](README.zh-CN.md) · [Guía en español](README.es.md)
 
@@ -125,7 +136,7 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 
 ## Marketplace availability
 
-Source, release downloads, the official MCP Registry entry and six Skills.sh pages are public. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
+Source and previous release downloads are public. Existing Registry and Skills.sh listings cover the research service; new product profiles are not separate approved listings. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
 
 
 ## Six bundled Skills (0.6.0)
@@ -163,7 +174,7 @@ gridzen setup --client all --project .
 gridzen setup --client all --project . --apply
 ```
 
-Use `--client` for Codex, Claude Code/Desktop, Cursor, VS Code/Copilot, Copilot CLI, Gemini CLI, Cline, Roo Code or OpenCode. Setup previews by default, merges existing unrelated settings, backs up changed configurations and refuses differing Gridzen entries or Skill files. No global client settings are modified. Native clients require workspace trust; Desktop and Cline require manual MCP import. Desktop produces six separately uploadable ZIPs. See [client-specific instructions](docs/harness/README.md) and [actual compatibility evidence](clients/compatibility.json). Configuration preparation is not model acceptance or real verification.
+Use `--client` for Codex, Claude Code/Desktop, Cursor, VS Code/Copilot, Copilot CLI, Gemini CLI, Cline, Roo Code or OpenCode. Setup previews by default, merges existing unrelated settings, backs up changed configurations and refuses differing Gridzen entries or Skill files. No global client settings are modified. Native clients require workspace trust; Desktop and Cline require manual MCP import. Desktop produces separately uploadable Skill ZIPs. See [client-specific instructions](docs/harness/README.md) and [actual compatibility evidence](clients/compatibility.json). Configuration preparation is not model acceptance or real verification.
 
 ## Hosted MCP aggregate attribution
 
@@ -240,7 +251,7 @@ These are synthetic integration examples. They do not prove real identity,
 production webhook delivery, customer adoption or payment. No account is needed
 for the anonymous response trial or local examples.
 
-Install the existing six skills into your project:
+Install all fourteen skills into your project:
 
 ```bash
 npx skills add immurray/gridzen-developer-kit --skill '*' --agent codex --copy -y

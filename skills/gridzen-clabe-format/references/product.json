@@ -1,0 +1,55 @@
+{
+  "id": "clabe-format",
+  "price_id": null,
+  "capability_id": null,
+  "task": "payout_account",
+  "kind": "local",
+  "priority": 7,
+  "title": [
+    "Check CLABE formatting",
+    "Valida formato CLABE",
+    "检查 CLABE 格式",
+    "Kiểm tra định dạng CLABE"
+  ],
+  "summary": [
+    "Check an 18-digit CLABE checksum locally before starting an account verification.",
+    "Comprueba localmente el dígito verificador de una CLABE de 18 dígitos antes de verificar la cuenta.",
+    "在发起账户核验前，本地检查 18 位 CLABE 的校验位。",
+    "Kiểm tra chữ số kiểm tra của CLABE 18 chữ số trên máy trước khi xác minh tài khoản."
+  ],
+  "inputs": "An 18-digit CLABE, optionally separated by spaces or hyphens.",
+  "output": "structure_valid, checksum_valid and institution code. No live bank query or account-ownership assertion.",
+  "boundary": "A correct checksum does not prove that an account exists, can receive funds or belongs to a person.",
+  "entry": "/tools/clabe-format/#try",
+  "guide": "/guides/current-capabilities/",
+  "tools": [
+    "check_clabe_format"
+  ],
+  "topics": [
+    "Reject a mistyped CLABE before requesting a paid bank-name check",
+    "CLABE checksum versus account ownership: two different answers"
+  ],
+  "audience": "Mexico payout forms and payment-file import developers",
+  "query": [
+    "CLABE checksum validator",
+    "validar dígito verificador CLABE"
+  ],
+  "sample_input": {
+    "clabe": "032180000118359719"
+  },
+  "product_url": "https://gridzen.ai/tools/clabe-format/",
+  "version": "1.0.0",
+  "price": null,
+  "sample_output": {
+    "structure_valid": true,
+    "checksum_valid": true,
+    "institution_code": "032",
+    "scope": "checksum_only",
+    "account_exists": null,
+    "ownership_verified": false,
+    "network_calls": 0,
+    "charged": false
+  },
+  "sample_is_synthetic": true,
+  "installation_enables_production": false
+}
