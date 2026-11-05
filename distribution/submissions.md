@@ -18,7 +18,7 @@ Short description: Plan and test verification
 Gridzen helps developers research country-specific identity, bank-account and
 phone verification approaches, plan an integration, and test failure handling
 with five synthetic outcomes. It includes source-linked research for 198
-countries/territories, five MCP tools and six Agent Skills. All live provider
+countries/territories, five public research/synthetic MCP tools and 14 Agent Skills (6 research/workflow Skills and 8 single-task profiles, including 3 offline and 5 merchant profiles requiring separate authorization). All live provider
 routes are disabled; research coverage is not commercial availability. No real
 person is verified and no personal data or credentials are needed.
 

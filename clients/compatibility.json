@@ -41,7 +41,7 @@
     {
       "client": "claude-desktop",
       "config_path": "gridzen-clients/claude-desktop/claude_desktop_config.json",
-      "skill_path": "Six individual skill ZIPs; upload in Customize → Skills",
+      "skill_path": "14 individual skill ZIPs; upload in Customize → Skills",
       "template": "clients/claude-desktop.json",
       "manual_import": true,
       "config_tests": "passed",

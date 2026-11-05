@@ -22,7 +22,7 @@ Abra la [prueba inmediata de GridZen](https://gridzen.ai/console/start?lang=es) 
 
 Conecte una cuenta sandbox con correo verificado para guardar registros y recibir callbacks. La producción sigue siendo un piloto gratuito controlado; autoservicio de producción y pagos no están habilitados. Esta actualización documental no cambia PyPI ni la versión del registro oficial MCP.
 
-Investigación sobre 198 países y territorios, planificación de integraciones, cinco resultados simulados, CLI/SDK HTTP de Python, MCP local y seis Skills. No hay canales de proveedores reales activos. Ningún resultado simulado verifica a una persona real.
+Investigación sobre 198 países y territorios, planificación de integraciones, cinco resultados simulados, CLI/SDK HTTP de Python, MCP local y 14 Skills. No hay canales de proveedores reales activos. Ningún resultado simulado verifica a una persona real.
 
 Prueba y guía: https://gridzen.ai/developers/ . El selector permite cambiar entre español, inglés y chino, y recuerda la elección. La investigación es del 2026-10-07; las fuentes y sus restricciones se conservan en el idioma original.
 
@@ -51,7 +51,7 @@ Añade un servidor stdio local a un cliente compatible y sustituye command por l
 
 Prueba: «Planifica una verificación de pagos para Indonesia y simula una espera agotada del proveedor». Las cinco herramientas consultan cobertura, planifican, generan simulaciones, recuperan pruebas y explican resultados. La configuración depende del cliente; no hay endpoint MCP remoto de producción.
 
-Copia cada carpeta de `skills/` al directorio de habilidades del agente, conservando `SKILL.md` y sus referencias. Los seis Skills cubren selección, integración de pruebas, explicación de resultados, preparación de permisos, políticas de pagos y planificación de pilotos en México. Los identificadores permanecen en inglés; el agente puede explicar los resultados en español.
+Copia cada carpeta de `skills/` al directorio de habilidades del agente, conservando `SKILL.md` y sus referencias. Los 6 Skills de investigación/flujos cubren selección, integración de pruebas, explicación de resultados, preparación de permisos, políticas de pagos y planificación de pilotos en México. Los identificadores permanecen en inglés; el agente puede explicar los resultados en español.
 
 ## Interpretación
 
@@ -82,13 +82,14 @@ Código original bajo MIT; consulte NOTICE.md para los derechos de terceros.
 El código, las descargas, la entrada oficial de MCP Registry y tres páginas de Skills.sh están publicados. La propuesta del catálogo de Docker está pendiente de revisión. Consulta [el registro de publicación](distribution/STATUS.md).
 
 
-## Six bundled Skills (0.6.0)
+## 14 bundled Skills (0.7.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.6.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/); clean installation,
-CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
-dependency installation is required.
+and all 14 Skill directories.
+
+The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification. No extra MCP
+dependency installation is required. Version 0.6.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/).
 
 ```sh
 gridzen coverage --country MX

@@ -1,6 +1,6 @@
 # copilot-cli · GridZen 0.4.0
 
-Python 3.11+; installed GridZen kit. Six Skills and five public MCP tools.
+Python 3.11+; installed GridZen kit. The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification.
 
 ```sh
 python3 -m venv .venv
@@ -37,7 +37,7 @@ Official sources (checked 2026-10-09):
 
 ### Observed CLI discovery limitation
 
-Copilot CLI 1.0.94 discovers all six project Skills, but its standalone `mcp list` did not discover project MCP files in our isolated test. For a session, explicitly load the generated file:
+Copilot CLI 1.0.94 discovered the six research/workflow Skills in the recorded isolated test, but its standalone `mcp list` did not discover project MCP files in our isolated test. For a session, explicitly load the generated file:
 
 ```sh
 copilot --additional-mcp-config @.github/mcp.json

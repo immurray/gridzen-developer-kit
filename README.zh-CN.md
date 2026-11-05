@@ -22,7 +22,7 @@
 
 需要保存测试记录、接收供应商沙盒回传时，再连接已验证邮箱的商户沙盒账号。真实核验仍为独立受控免费试点；自助生产和收费尚未开放。本次只更新接入说明，不更改 PyPI 或官方 MCP Registry 版本。
 
-工具包提供 198 个国家/地区的核验研究、接入方案、五种模拟结果、Python CLI/HTTP SDK、本地 MCP 和六个 Skills。当前没有启用真实供应商通道，模拟结果不代表真实人员通过核验。
+工具包提供 198 个国家/地区的核验研究、接入方案、五种模拟结果、Python CLI/HTTP SDK、本地 MCP 和 14 个 Skills。当前没有启用真实供应商通道，模拟结果不代表真实人员通过核验。
 
 在线试用与中文指南：https://gridzen.ai/developers/ 。页面右上角可切换中文、英文和西班牙文，并记住选择。研究快照日期为 2026-10-07，来源和原始接入限制保持原文。
 
@@ -51,7 +51,7 @@ Windows 下使用 `.venv\Scripts\activate` 激活虚拟环境。CLI 和本地 MC
 
 可输入：“为印度尼西亚制定付款核验接入方案，然后测试供应商超时。”五个工具分别查询覆盖、规划、生成模拟结果、读取结果和解释原因。客户端配置格式可能不同；当前没有远程生产 MCP 地址。
 
-将 `skills/` 中各个文件夹复制到 Agent 支持的技能目录，保留 `SKILL.md` 和引用文件。六个 Skill 覆盖方案选择、沙盒接入、结果解释、供应商权限准备、提现政策和墨西哥试点规划。代码标识和技能名称保持英文，Agent 可以用中文讲解。
+将 `skills/` 中各个文件夹复制到 Agent 支持的技能目录，保留 `SKILL.md` 和引用文件。6 个研究/工作流 Skills 覆盖方案选择、沙盒接入、结果解释、供应商权限准备、提现政策和墨西哥试点规划。代码标识和技能名称保持英文，Agent 可以用中文讲解。
 
 ## 理解测试结果
 
@@ -81,13 +81,14 @@ Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
 源码、版本下载、官方 MCP Registry 和三个 Skills.sh 技能页已公开；Docker 目录投稿待审核。各渠道真实状态及剩余步骤见[发布台账](distribution/STATUS.md)。
 
 
-## Six bundled Skills (0.6.0)
+## 14 bundled Skills (0.7.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.6.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/); clean installation,
-CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
-dependency installation is required.
+and all 14 Skill directories.
+
+The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification. No extra MCP
+dependency installation is required. Version 0.6.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/).
 
 ```sh
 gridzen coverage --country MX

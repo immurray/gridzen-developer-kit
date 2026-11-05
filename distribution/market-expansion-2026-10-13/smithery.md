@@ -6,7 +6,7 @@ Listing: https://smithery.ai/servers/support-35ug/gridzen-verification
 Public Streamable HTTP URL: https://gridzen.ai/developers/mcp
 Repository: https://github.com/immurray/gridzen-developer-kit
 
-Description: Research verification options, plan identity onboarding or signup-phone integrations, and exercise synthetic outcomes. Five public MCP tools; six installable Skills. No account or credential is required for public research/fixtures. No real person is verified. Research coverage is not production authorization.
+Description: Research verification options, plan identity onboarding or signup-phone integrations, and exercise synthetic outcomes. Five public MCP tools; 14 installable Skills (6 research/workflow Skills and 8 single-task profiles, including 3 offline and 5 merchant profiles requiring separate authorization). No account or credential is required for public research/fixtures. No real person is verified. Research coverage is not production authorization.
 
 Official flow: https://smithery.ai/docs/build/publish
 
