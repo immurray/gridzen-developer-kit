@@ -1,6 +1,6 @@
 # roo-code · GridZen 0.4.0
 
-Python 3.11+; installed GridZen kit. Six Skills and five public MCP tools.
+Python 3.11+; installed GridZen kit. The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification.
 
 ```sh
 python3 -m venv .venv
@@ -19,7 +19,7 @@ provider keys or model API credentials are installed.
 
 MCP target: `.roo/mcp.json`. Skill target: `.roo/skills`.
 
-Open this workspace in Roo Code; project .roo/mcp.json uses streamable-http. Review the six Skills in .roo/skills.
+Open this workspace in Roo Code; project .roo/mcp.json uses streamable-http. Review the 14 Skills in .roo/skills.
 
 Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
 evidence, then test a synthetic provider timeout. Do not authorize a real payment.”

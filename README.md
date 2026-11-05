@@ -139,13 +139,14 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 Source and previous release downloads are public. Existing Registry and Skills.sh listings cover the research service; new product profiles are not separate approved listings. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
 
 
-## Six bundled Skills (0.6.0)
+## 14 bundled Skills (0.7.0)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
-and all six Skill directories. Version 0.6.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/); clean installation,
-CLI, stdio MCP and all six bundled Skill directories were verified. No extra MCP
-dependency installation is required.
+and all 14 Skill directories.
+
+The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification. No extra MCP
+dependency installation is required. Version 0.6.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/).
 
 ```sh
 gridzen coverage --country MX

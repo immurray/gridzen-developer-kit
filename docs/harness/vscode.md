@@ -1,6 +1,6 @@
 # vscode · GridZen 0.4.0
 
-Python 3.11+; installed GridZen kit. Six Skills and five public MCP tools.
+Python 3.11+; installed GridZen kit. The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification.
 
 ```sh
 python3 -m venv .venv
@@ -19,7 +19,7 @@ provider keys or model API credentials are installed.
 
 MCP target: `.vscode/mcp.json`. Skill target: `.github/skills`.
 
-Trust the workspace and start Gridzen from MCP: List Servers. Project .vscode/mcp.json uses servers, while six Skills live in .github/skills. Review tools before approving calls.
+Trust the workspace and start Gridzen from MCP: List Servers. Project .vscode/mcp.json uses servers, while 14 Skills live in .github/skills. Review tools before approving calls.
 
 Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
 evidence, then test a synthetic provider timeout. Do not authorize a real payment.”

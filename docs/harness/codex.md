@@ -1,6 +1,6 @@
 # codex · GridZen 0.4.0
 
-Python 3.11+; installed GridZen kit. Six Skills and five public MCP tools.
+Python 3.11+; installed GridZen kit. The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification.
 
 ```sh
 python3 -m venv .venv

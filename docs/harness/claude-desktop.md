@@ -1,6 +1,6 @@
 # claude-desktop · GridZen 0.4.0
 
-Python 3.11+; installed GridZen kit. Six Skills and five public MCP tools.
+Python 3.11+; installed GridZen kit. The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification.
 
 ```sh
 python3 -m venv .venv
@@ -17,9 +17,9 @@ Do not bypass the system Python protection. The first setup command previews;
 config files and refuses different existing Gridzen entries or Skills. No accounts,
 provider keys or model API credentials are installed.
 
-MCP target: `gridzen-clients/claude-desktop/claude_desktop_config.json`. Skill target: `Six individual skill ZIPs; upload in Customize → Skills`.
+MCP target: `gridzen-clients/claude-desktop/claude_desktop_config.json`. Skill target: `14 individual skill ZIPs; upload in Customize → Skills`.
 
-Import/merge the generated MCP entry into Claude Desktop’s developer configuration, replacing no existing servers. Setup uses the absolute executable path from this installation. Restart Desktop. Upload the six individual Skill ZIPs in Customize → Skills; a multi-Skill bundle is not a single upload. Account plan, code execution and policy restrictions still apply.
+Import/merge the generated MCP entry into Claude Desktop’s developer configuration, replacing no existing servers. Setup uses the absolute executable path from this installation. Restart Desktop. Upload the 14 individual Skill ZIPs in Customize → Skills; a multi-Skill bundle is not a single upload. Account plan, code execution and policy restrictions still apply.
 
 Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
 evidence, then test a synthetic provider timeout. Do not authorize a real payment.”

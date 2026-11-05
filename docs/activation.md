@@ -14,4 +14,4 @@ python3 -m venv .venv
 
 Source categories are user-confirmed, not verified acquisition attribution. Linked measurement expires after 90 days and can be withdrawn/deleted without losing service. A separate reminder subscription is available only after the independent customer mailbox passes acceptance; at most two emails, at least 72 hours apart. Reply, activation or unsubscribe stops it.
 
-Do not put customer keys, real documents or conversations into marketing prompts. The five research/synthetic MCP tools and six Skills retain their existing boundaries. Production access, provider rights and prices require a separate review.
+Do not put customer keys, real documents or conversations into marketing prompts. The five research/synthetic MCP tools and 14 Skills (6 research/workflow Skills and 8 single-task profiles, including 3 offline and 5 merchant profiles requiring separate authorization) retain their existing boundaries. Production access, provider rights and prices require a separate review.
