@@ -113,10 +113,10 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.6.0"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.7.0"
 ```
 
-PyPI 0.6.0 is published and verified. Install with `python -m pip install
+PyPI 0.7.0 is the latest published release. Install with `python -m pip install
 gridzen-developer-kit`. See [the release tracker](distribution/STATUS.md) for
 publication and installation evidence.
 
@@ -145,8 +145,8 @@ Source and previous release downloads are public. Existing Registry and Skills.s
 and all 14 Skill directories.
 
 The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification. No extra MCP
-dependency installation is required. Version 0.6.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/).
+dependency installation is required. Version 0.7.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.7.0/).
 
 ```sh
 gridzen coverage --country MX
@@ -230,7 +230,7 @@ Local queued events expire after 30 days and are removed on the next enqueue/flu
 
 ## Separate owner-approved customer pilot
 
-The published 0.6.0 kit and its five public tools remain research/synthetic tools. A separate hosted pilot accepts customer applications for basic signup-phone validity and hosted personal identity onboarding: [apply](https://gridzen.ai/console/pilot?lang=en), [integration guide](https://gridzen.ai/console/pilot-guide?lang=en), [public scope](https://gridzen.ai/guides/customer-pilot/).
+The five public tools in the published 0.7.0 kit remain research/synthetic tools. A separate hosted pilot accepts customer applications for basic signup-phone validity and hosted personal identity onboarding: [apply](https://gridzen.ai/console/pilot?lang=en), [integration guide](https://gridzen.ai/console/pilot-guide?lang=en), [public scope](https://gridzen.ai/guides/customer-pilot/).
 
 Submitting an application never activates production. The owner must approve supplier rights, downstream agreements, capabilities, request limits and expiry; only confirmed free allowances are used. The production pilot has its own downloaded MCP client and merchant API key. Do not send documents, faces or provider keys to the public research MCP. Basic phone validity does not provide OTP or ownership.
 
@@ -263,7 +263,7 @@ not prove all agents have executed or recommended the skills.
 
 ## Existing Mexico SPEI payment evidence
 
-In the updated GitHub checkout or developer ZIP (the existing PyPI release does not yet include this task), use `gridzen plan --country MX --event payout --task mx_cep_existing_payment --stage production` to discover the separate authenticated CEP trial. Public tools remain research/synthetic only. [Live capability conditions](https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities) require a merchant key; do not send transaction details or keys to public tools. [Runnable offline example](examples/cep_reconciliation/) makes no network calls. CEP preserves original XML, independent signature and exact expected-transaction binding; historical names do not establish current identity or account control. No transfer is created; paid checkout remains disabled.
+PyPI 0.7.0 includes this planning task. Use `gridzen plan --country MX --event payout --task mx_cep_existing_payment --stage production` to discover the separate authenticated CEP trial. Public tools remain research/synthetic only. [Live capability conditions](https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities) require a merchant key; do not send transaction details or keys to public tools. [Runnable offline example](examples/cep_reconciliation/) makes no network calls. CEP preserves original XML, independent signature and exact expected-transaction binding; historical names do not establish current identity or account control. No transfer is created; paid checkout remains disabled.
 
 ## Mexico identity and beneficiary-name comparison
 

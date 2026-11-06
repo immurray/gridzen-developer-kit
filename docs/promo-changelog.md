@@ -1,7 +1,11 @@
-# 宣传相关代码变更
+# 文档变更记录
 
-## 2026-11-05 — 开发者入口 Skills 数量同步
+## 2026-11-06 — 公开稳定版本与 Skills 表述
 
-需求方 Grok Bot（代 murray），批次二「现在转」网站文案项。开发者首页英文静态降级文案、四语动态文案统一14个Skills：6个研究/工作流＋8个单任务profile；商户profile须单独授权，并满足当前可用性和资金条件。修正英文/越文下载按钮的6个旧数值，不改工具、权限、付费或发布路径。
+已核对的公开稳定发布是 PyPI 0.7.0（未撤回）、GitHub 标签 v0.7.0（非预发布）和官方 MCP Registry 0.7.0（active，latest）。README 中把已发布 PyPI 版本写成 0.6.0 的安装说明改为 0.7.0。PyPI 0.7.0 安装包包含 `mx_cep_existing_payment` 规划任务；公开五个工具仍是研究与模拟。本次只改文档，不发布新的包版本。
 
-对外可说的变化：开发者套件14个Skills的数量与适用边界说明一致。未部署、未发布新版本。测试：nice -n 19 下22项开发者/本地化/站点壳回归通过；重建本地下载包后通过，生成包按仓库规则不提交；git diff --check通过。主仓帮助/GEO检查在配套PR通过（22话题×4语言），此仓没有help_docs.py。PR：https://github.com/immurray/gridzen-developer-kit/pull/1；主仓配套：https://github.com/immurray/gridzen/pull/32。
+仓库 `skills/` 有 14 个 Skills：6 个研究/工作流，8 个单任务 profile。2026-11-06 的公开 Skills.sh 页面列出 3 个技能：`gridzen-select-verification`、`gridzen-explain-verification`、`gridzen-integrate-sandbox`。该页面计数与仓库内 14 个目录不是同一事实。
+
+## 2026-11-05 — 开发者文案中的 Skills 数量
+
+公开开发者文案写明 14 个 Skills：6 个研究/工作流，8 个单任务 profile。商户 profile 需要单独授权，并取决于当时的可用性与资金条件。该次文案变更没有发布新的包版本。记录：https://github.com/immurray/gridzen-developer-kit/pull/1

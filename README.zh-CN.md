@@ -1,4 +1,4 @@
-# Gridzen 开发者工具包 0.6.0
+# Gridzen 开发者工具包 0.7.0
 
 [直连还是使用 GridZen：按任务评估](docs/verification-evaluation.md#中文) · [正式上线与费用检查](https://gridzen.ai/console/learn?lang=zh&source=developer_kit#decision-fit)
 
@@ -51,7 +51,7 @@ Windows 下使用 `.venv\Scripts\activate` 激活虚拟环境。CLI 和本地 MC
 
 可输入：“为印度尼西亚制定付款核验接入方案，然后测试供应商超时。”五个工具分别查询覆盖、规划、生成模拟结果、读取结果和解释原因。客户端配置格式可能不同；当前没有远程生产 MCP 地址。
 
-将 `skills/` 中各个文件夹复制到 Agent 支持的技能目录，保留 `SKILL.md` 和引用文件。6 个研究/工作流 Skills 覆盖方案选择、沙盒接入、结果解释、供应商权限准备、提现政策和墨西哥试点规划。代码标识和技能名称保持英文，Agent 可以用中文讲解。
+将 `skills/` 中各个文件夹复制到 Agent 支持的技能目录，保留 `SKILL.md` 和引用文件。目录内共 14 个 Skills：6 个研究/工作流 Skills，以及 8 个单任务 profile。这 8 个里有 3 个离线运行，5 个商户 profile 须单独授权。6 个研究/工作流 Skills 覆盖方案选择、沙盒接入、结果解释、供应商权限准备、提现政策和墨西哥试点规划。代码标识和技能名称保持英文，Agent 可以用中文讲解。
 
 ## 理解测试结果
 
@@ -72,8 +72,8 @@ Windows 下使用 `.venv\Scripts\activate` 激活虚拟环境。CLI 和本地 MC
 工具参数发送到 Gridzen；本地 stdio 安装后仍可离线运行。
 
 Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
-源码：https://github.com/immurray/gridzen-developer-kit 。PyPI 尚未发布，
-当前请使用 GitHub 发布包或官网下载包。公开源码使用 MIT 许可证；第三方资料
+源码：https://github.com/immurray/gridzen-developer-kit 。0.2.0 发行时还没有 PyPI 包，
+当时使用 GitHub 发布包或官网下载包。当前已发布的稳定版是 PyPI 0.7.0。公开源码使用 MIT 许可证；第三方资料
 权利及研究边界见 NOTICE.md。
 
 ## 市场发布状态
@@ -87,8 +87,8 @@ Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
 and all 14 Skill directories.
 
 The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification. No extra MCP
-dependency installation is required. Version 0.6.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/).
+dependency installation is required. Version 0.7.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.7.0/).
 
 ```sh
 gridzen coverage --country MX
@@ -159,7 +159,7 @@ Local queued events expire after 30 days and are removed on the next enqueue/flu
 
 ## 独立的客户生产试点
 
-已发行的 0.6.0 工具包与公开五个工具仍提供研究和模拟，不自动启用真人核验。客户可以申请独立试点：[申请入口](https://gridzen.ai/console/pilot?lang=zh)、[接入指南](https://gridzen.ai/console/pilot-guide?lang=zh)、[公开范围](https://gridzen.ai/zh/guides/customer-pilot/)。
+已发行的 0.7.0 工具包中，公开的五个工具仍提供研究和模拟，不自动启用真人核验。客户可以申请独立试点：[申请入口](https://gridzen.ai/console/pilot?lang=zh)、[接入指南](https://gridzen.ai/console/pilot-guide?lang=zh)、[公开范围](https://gridzen.ai/zh/guides/customer-pilot/)。
 
 申请不会自动开通。负责人核对供应商权限、下游协议、能力、次数和有效期后批准，仅用确认的免费额度。生产试点使用独立下载的 MCP 客户端和商户 Key；不向研究 MCP 提交证件、人脸或供应商密钥。号码基础有效性不提供 OTP 或号码归属证明。
 

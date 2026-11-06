@@ -31,6 +31,8 @@ Verified 2026-10-12: [GitHub release v0.6.1](https://github.com/immurray/gridzen
 
 # Current rollout
 
+The published stable release is 0.7.0 and contains 14 Skills. The next paragraph records the 0.6.0 release.
+
 0.6.0 adds explicitly consented local CLI/stdio category events, a bounded offline queue, and six Skill feedback instructions. No production provider is enabled. Validation and publishing receipts are maintained in the private project.
 
 Verified 2026-10-10: GitHub tag/release v0.6.0 and PyPI 0.6.0 published; hosted health reports 0.6.0/zero live routes; official Registry 0.6.0 is active ([public receipt](registry-publication-0.6.0.json)). Clean official PyPI install and actual stdio MCP passed. Public suite: 47 tests. The private project separately collects consented local usage and generates task-focused demand reviews. Customer counts and purchase intent remain unknown.
