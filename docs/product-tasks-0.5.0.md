@@ -1,3 +1,5 @@
+> Historical release records below describe their dated versions. Current inventory: **14 Skills (6 research/workflow + 8 single-task)**. See [current installation](https://gridzen.ai/developers/harnesses.html).
+
 # Product tasks and evidence in 0.5.0
 
 Six Skills remain. Select/integrate/explain are the main customer path; provider rights are advanced BYO/provider operations; payout policy and Mexico scope remain supporting drafts. Five MCP tools remain backwards compatible.

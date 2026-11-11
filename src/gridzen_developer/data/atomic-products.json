@@ -23,7 +23,7 @@
       ],
       "inputs": "Operation date, tracking key, sending and receiving institution codes, account, amount and authorization reference.",
       "output": "Task status, original-evidence availability, signature status and exact transaction binding. Pending or unavailable remains inconclusive.",
-      "boundary": "Does not initiate a transfer or prove present account control, identity or a safe payout. Source access restrictions can delay a task.",
+      "boundary": "Does not initiate a transfer or prove present account control, identity or a safe business action. Source access restrictions can delay a task.",
       "entry": "/console/payment-evidence/mx/cep",
       "guide": "/mexico/cep-verification/",
       "tools": [
@@ -88,7 +88,7 @@
       "summary": [
         "Compare an expected beneficiary name with supported bank evidence for one authorized CLABE.",
         "Compara el nombre esperado del beneficiario con evidencia bancaria admitida para una CLABE autorizada.",
-        "针对一个获准查询的 CLABE，把预期收款人姓名与受支持的银行证据核对。",
+        "针对一个获准查询的 CLABE，把预期账户持有人姓名与受支持的银行证据核对。",
         "Đối chiếu tên người thụ hưởng dự kiến với bằng chứng ngân hàng hỗ trợ cho một CLABE được phép."
       ],
       "inputs": "CLABE, expected beneficiary name, holder type, current quote, authorization reference and stable request UUID.",
@@ -104,10 +104,10 @@
         "recover_mexico_account_name"
       ],
       "topics": [
-        "Check a new beneficiary CLABE before changing payout details",
+        "Check a new beneficiary CLABE before changing beneficiary details",
         "Separate the transfer principal, source cost and fee in a bank-name quote"
       ],
-      "audience": "Mexico marketplaces and payout integration teams",
+      "audience": "Mexico marketplaces and account verification integration teams",
       "query": [
         "Mexico CLABE beneficiary name API",
         "validar nombre beneficiario CLABE"
@@ -127,10 +127,10 @@
         "unit_minor": 600,
         "price_status": "approved",
         "availability": "prepaid",
+        "entry": "/console/bank-account-name/live",
         "principal_minor": 100,
         "provider_fee_ceiling_minor": 300,
-        "service_fee_minor": 200,
-        "entry": "/console/bank-account-name/live"
+        "service_fee_minor": 200
       },
       "sample_output": {
         "status": "review",
@@ -162,7 +162,7 @@
       ],
       "inputs": "Authorized public IP address, consent reference, stable request UUID and explicit trial or paid mode.",
       "output": "IP risk signals and available explanatory evidence for the event; not an identity or fraud verdict.",
-      "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires confirmed prepaid credit. A risk score alone must not approve or reject a person.",
+      "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires the current authorized service terms and sufficient credit. A risk score alone must not approve or reject a person.",
       "entry": "/console/production",
       "guide": "/guides/current-capabilities/",
       "tools": [
@@ -192,11 +192,11 @@
         "id": "registration_risk",
         "country": null,
         "currency": "USD",
+        "price_status": "approved",
+        "availability": "payment_setup_pending",
         "package_checks": 100,
         "package_minor": 900,
         "valid_days": 90,
-        "price_status": "approved",
-        "availability": "payment_setup_pending",
         "entry": "/console/billing"
       },
       "sample_output": {
@@ -259,11 +259,11 @@
         "id": "identity_hosted",
         "country": null,
         "currency": "USD",
+        "price_status": "approved",
+        "availability": "payment_setup_pending",
         "package_checks": 10,
         "package_minor": 990,
         "valid_days": 90,
-        "price_status": "approved",
-        "availability": "payment_setup_pending",
         "entry": "/console/billing"
       },
       "sample_output": {
@@ -285,13 +285,13 @@
       "title": [
         "Compare identity and account",
         "Coteja identidad y cuenta",
-        "核对身份与收款账户",
+        "核对身份与账户",
         "Đối chiếu danh tính và tài khoản"
       ],
       "summary": [
         "Submit authorized CURP and CLABE for one identity and beneficiary-account comparison, with a bound quote.",
         "Envía CURP y CLABE autorizadas para un cotejo de identidad y cuenta beneficiaria con cotización vinculada.",
-        "按绑定报价提交已获授权的 CURP 与 CLABE，完成一次身份与收款账户核对。",
+        "按绑定报价提交已获授权的 CURP 与 CLABE，完成一次身份与账户核对。",
         "Gửi CURP và CLABE được phép để đối chiếu danh tính với tài khoản thụ hưởng theo báo giá ràng buộc."
       ],
       "inputs": "Authorized CURP and CLABE, current quote, required evidence and consents, stable request UUID.",
@@ -331,7 +331,6 @@
         "price_status": "approved",
         "availability": "prepaid",
         "entry": "/console/bank-account-name#identity-account",
-        "full_cost_ceiling_minor": 980,
         "tax_included": false
       },
       "sample_output": {
@@ -428,7 +427,7 @@
         "Reject a mistyped CLABE before requesting a paid bank-name check",
         "CLABE checksum versus account ownership: two different answers"
       ],
-      "audience": "Mexico payout forms and payment-file import developers",
+      "audience": "Mexico account forms and payment-file import developers",
       "query": [
         "CLABE checksum validator",
         "validar dígito verificador CLABE"

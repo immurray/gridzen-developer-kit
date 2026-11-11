@@ -1,6 +1,6 @@
 ---
 name: gridzen-integrate-sandbox
-description: Build and test phone, identity or bank-account verification workflows in an existing app using Gridzen's synthetic developer sandbox. Use for signup, onboarding, payout or account-change integration prototypes and provider failure handling. Real checks, OTP delivery and production coverage require a separate authorized service.
+description: Build and test phone, identity or bank-account verification workflows in an existing app using Gridzen's synthetic developer sandbox. Use for signup, onboarding, account verification or account-change integration prototypes and provider failure handling. Real checks, OTP delivery and production coverage require a separate authorized service.
 ---
 
 Inspect the application's framework and server routes. Preserve existing conventions. Read [the API contract](references/api.md) before generating calls.
@@ -16,7 +16,7 @@ Finish with runnable commands, actual tests, changed files, the endpoint to try,
 
 ## Customer task boundary
 
-For signup phone checks use `phone_intelligence`; number type is not ownership or OTP. For personal onboarding use `identity_verification`. Run `python examples/customer_tasks.py` from the developer-kit checkout for both offline flows. Identity fixtures do not create sessions: the customer app still needs user handoff, signed webhook validation, deduplication and pending/review/expired/abandoned recovery. Check authenticated merchant capabilities before trying conditional provider sandbox. Managed customers do not need to complete provider-rights intake unless bringing their own provider.
+For signup phone checks use `phone_intelligence`; number type is not ownership or OTP. For personal onboarding use `identity_verification`. Run `python examples/customer_tasks.py` from the developer-kit source directory for both offline flows. Identity fixtures do not create sessions: the customer app still needs user handoff, signed webhook validation, deduplication and pending/review/expired/abandoned recovery. Check authenticated merchant capabilities before trying conditional provider sandbox. Managed customers do not need to complete provider-rights intake unless bringing their own provider.
 
 ## Optional task feedback
 

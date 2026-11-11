@@ -21,7 +21,7 @@ MCP target: `.roo/mcp.json`. Skill target: `.roo/skills`.
 
 Open this workspace in Roo Code; project .roo/mcp.json uses streamable-http. Review the 14 Skills in .roo/skills.
 
-Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
+Try: “Plan a non-production Mexico verification pilot, identify missing permissions and
 evidence, then test a synthetic provider timeout. Do not authorize a real payment.”
 Expected: draft or missing-information output; simulated=true, verified=false,
 provider_calls=0. Timeouts, missing evidence and unsupported remain inconclusive.

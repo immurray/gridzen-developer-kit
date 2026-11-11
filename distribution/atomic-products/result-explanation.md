@@ -21,7 +21,7 @@ Handle pending, declined and unavailable as different integration states
 
 Turn a documented status into a clear recovery step without sending a new request. Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, payment or business approval.
 
-Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and funding. No adoption or performance claim is made.
+Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 
 ## Demonstration outline
 

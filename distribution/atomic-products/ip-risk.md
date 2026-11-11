@@ -11,7 +11,7 @@ Input: Authorized public IP address, consent reference, stable request UUID and 
 
 Result: IP risk signals and available explanatory evidence for the event; not an identity or fraud verdict.
 
-Boundary: Requires current supplier readiness and an eligible merchant. Paid mode requires confirmed prepaid credit. A risk score alone must not approve or reject a person.
+Boundary: Requires current supplier readiness and an eligible merchant. Paid mode requires the current authorized service terms and sufficient credit. A risk score alone must not approve or reject a person.
 
 One next action: [inspect this tool](https://gridzen.ai/tools/ip-risk/?source=referral).
 
@@ -19,9 +19,9 @@ One next action: [inspect this tool](https://gridzen.ai/tools/ip-risk/?source=re
 
 Use an IP risk signal in signup without calling it identity verification
 
-Request IP risk signals for one authorized registration event and keep the decision in your application. Requires current supplier readiness and an eligible merchant. Paid mode requires confirmed prepaid credit. A risk score alone must not approve or reject a person.
+Request IP risk signals for one authorized registration event and keep the decision in your application. Requires current supplier readiness and an eligible merchant. Paid mode requires the current authorized service terms and sufficient credit. A risk score alone must not approve or reject a person.
 
-Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and funding. No adoption or performance claim is made.
+Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 
 ## Demonstration outline
 

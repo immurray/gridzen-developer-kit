@@ -1,3 +1,5 @@
+> Historical release records below describe their dated versions. Current inventory: **14 Skills (6 research/workflow + 8 single-task)**. See [current installation](https://gridzen.ai/developers/harnesses.html).
+
 # Free rollout and social drafts — 2026-10-09
 
 Public repository: https://github.com/immurray/gridzen-developer-kit

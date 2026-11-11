@@ -21,7 +21,7 @@ MCP target: `opencode.json`. Skill target: `.opencode/skills`.
 
 Start OpenCode inside the project, then use opencode mcp list. No OAuth is required for this public preview.
 
-Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
+Try: “Plan a non-production Mexico verification pilot, identify missing permissions and
 evidence, then test a synthetic provider timeout. Do not authorize a real payment.”
 Expected: draft or missing-information output; simulated=true, verified=false,
 provider_calls=0. Timeouts, missing evidence and unsupported remain inconclusive.

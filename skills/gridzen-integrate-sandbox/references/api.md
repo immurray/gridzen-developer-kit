@@ -3,7 +3,7 @@
 Base: `https://gridzen.ai/developers/api`. No credentials needed for public research and synthetic fixtures. Production customer APIs have separate contracts and authorization.
 
 - `GET /coverage?country=ID&capability=bank_account_match`: dated research and source evidence.
-- `POST /plan` with `{"country":"ID","event":"payout"}`: research requirements and sandbox request. Events: onboarding, payout, account_change.
+- `POST /plan` with `{"country":"ID","event":"onboarding"}`: research requirements and sandbox request. The getting-started example uses the documented onboarding event.
 - `POST /sandbox/verifications` with `{"country":"ID","capability":"bank_account_match","scenario":"timeout"}`: synthetic result.
 - `GET /sandbox/verifications/{id}`: regenerate the deterministic fixture. IDs are not unique transaction IDs, secrets or evidence receipts.
 - `GET /explain/SIMULATED_PROVIDER_TIMEOUT`: meaning and next step.

@@ -2,7 +2,7 @@
 
 Display name: GridZen verification planning and sandbox
 Published namespace: support-35ug/gridzen-verification
-Listing: https://smithery.ai/servers/support-35ug/gridzen-verification
+Historical listing URL retired; use the current repository and official Registry entries.
 Public Streamable HTTP URL: https://gridzen.ai/developers/mcp
 Repository: https://github.com/immurray/gridzen-developer-kit
 

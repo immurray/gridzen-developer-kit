@@ -24,11 +24,11 @@ person is verified and no personal data or credentials are needed.
 
 Use cases:
 1. Research verification options and access requirements for a target country.
-2. Prepare an onboarding, payout or account-change integration plan.
+2. Prepare an onboarding, account verification or account-change integration plan.
 3. Exercise match, mismatch, not_found, timeout and unsupported outcomes.
 4. Keep missing evidence and upstream failures distinct from identity mismatches.
 
-Starter prompt: Plan a payout verification integration for Indonesia, then test
+Starter prompt: Plan a account verification integration for Indonesia, then test
 a provider timeout. Explain what still needs confirmation for a real pilot.
 
 ## Review instructions

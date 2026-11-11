@@ -11,7 +11,7 @@ Input: Operation date, tracking key, sending and receiving institution codes, ac
 
 Result: Task status, original-evidence availability, signature status and exact transaction binding. Pending or unavailable remains inconclusive.
 
-Boundary: Does not initiate a transfer or prove present account control, identity or a safe payout. Source access restrictions can delay a task.
+Boundary: Does not initiate a transfer or prove present account control, identity or a safe business action. Source access restrictions can delay a task.
 
 One next action: [inspect this tool](https://gridzen.ai/tools/mx-cep/?source=referral).
 
@@ -19,9 +19,9 @@ One next action: [inspect this tool](https://gridzen.ai/tools/mx-cep/?source=ref
 
 A payment screenshot versus a signed CEP: what can your reconciliation job accept?
 
-Retrieve the CEP for an authorized existing payment and inspect its signature and transaction binding. Does not initiate a transfer or prove present account control, identity or a safe payout. Source access restrictions can delay a task.
+Retrieve the CEP for an authorized existing payment and inspect its signature and transaction binding. Does not initiate a transfer or prove present account control, identity or a safe business action. Source access restrictions can delay a task.
 
-Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and funding. No adoption or performance claim is made.
+Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 
 ## Demonstration outline
 

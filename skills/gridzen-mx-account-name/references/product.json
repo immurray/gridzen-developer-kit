@@ -14,7 +14,7 @@
   "summary": [
     "Compare an expected beneficiary name with supported bank evidence for one authorized CLABE.",
     "Compara el nombre esperado del beneficiario con evidencia bancaria admitida para una CLABE autorizada.",
-    "针对一个获准查询的 CLABE，把预期收款人姓名与受支持的银行证据核对。",
+    "针对一个获准查询的 CLABE，把预期账户持有人姓名与受支持的银行证据核对。",
     "Đối chiếu tên người thụ hưởng dự kiến với bằng chứng ngân hàng hỗ trợ cho một CLABE được phép."
   ],
   "inputs": "CLABE, expected beneficiary name, holder type, current quote, authorization reference and stable request UUID.",
@@ -30,10 +30,10 @@
     "recover_mexico_account_name"
   ],
   "topics": [
-    "Check a new beneficiary CLABE before changing payout details",
+    "Check a new beneficiary CLABE before changing beneficiary details",
     "Separate the transfer principal, source cost and fee in a bank-name quote"
   ],
-  "audience": "Mexico marketplaces and payout integration teams",
+  "audience": "Mexico marketplaces and account verification integration teams",
   "query": [
     "Mexico CLABE beneficiary name API",
     "validar nombre beneficiario CLABE"
@@ -53,10 +53,10 @@
     "unit_minor": 600,
     "price_status": "approved",
     "availability": "prepaid",
+    "entry": "/console/bank-account-name/live",
     "principal_minor": 100,
     "provider_fee_ceiling_minor": 300,
-    "service_fee_minor": 200,
-    "entry": "/console/bank-account-name/live"
+    "service_fee_minor": 200
   },
   "sample_output": {
     "status": "review",

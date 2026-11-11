@@ -21,7 +21,7 @@ MCP target: `gridzen-clients/cline/cline_mcp_settings.json`. Skill target: `.cli
 
 Open Cline MCP Servers → Configure and merge the generated Gridzen entry, or use Remote Servers with Streamable HTTP. The generated project file is a handoff template, not a claim that the extension automatically reads it. Skills are copied into .cline/skills.
 
-Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
+Try: “Plan a non-production Mexico verification pilot, identify missing permissions and
 evidence, then test a synthetic provider timeout. Do not authorize a real payment.”
 Expected: draft or missing-information output; simulated=true, verified=false,
 provider_calls=0. Timeouts, missing evidence and unsupported remain inconclusive.

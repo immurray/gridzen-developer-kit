@@ -49,11 +49,11 @@
     "id": "identity_hosted",
     "country": null,
     "currency": "USD",
+    "price_status": "approved",
+    "availability": "payment_setup_pending",
     "package_checks": 10,
     "package_minor": 990,
     "valid_days": 90,
-    "price_status": "approved",
-    "availability": "payment_setup_pending",
     "entry": "/console/billing"
   },
   "sample_output": {

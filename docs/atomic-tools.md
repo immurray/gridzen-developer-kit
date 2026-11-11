@@ -42,7 +42,7 @@ The second command speaks MCP over stdio, so connect an MCP client rather than t
 
 ## Merchant profiles
 
-Register or sign in at the product's Console entry, read capabilities, complete the required enrollment/terms and fund through an actually available payment route. A static catalog or Skill is not current supplier availability. Existing USD package prices and MXN quote rules apply; no new trial budget is created by this release. Online checkout can remain unavailable while approved offline funding is offered for specific MXN products.
+Register or sign in at the product's Console entry, read capabilities, complete the required enrollment and accept the current service terms. A static catalog or Skill is not current supplier availability. Existing USD package prices and MXN quote rules apply; no new trial budget is created by this release. Current authenticated capabilities and the accepted quote determine whether a live request is available.
 
 Expose `GRIDZEN_API_KEY` to the local MCP process using your client’s private environment/secret facility. Optional `GRIDZEN_PROJECT_ID` is an already consented project ID. Never paste keys into model chat, source control, public issue bodies or example JSON. Shell-exported variables may not reach a GUI started from the dock; use its private launch environment or client-supported secret injection and confirm its MCP process can see the variable. The generated config contains no secret value.
 
