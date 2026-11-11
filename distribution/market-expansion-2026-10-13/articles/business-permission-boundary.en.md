@@ -63,6 +63,6 @@ Treat success as a fixture branch, not real-person approval. For reject, show a 
 
 ## Limits and production handoff
 
-No documents, phone numbers, credentials or real users are accepted by this trial. Production is a separate owner-approved free pilot. Current phone production provides basic validity only; hosted identity requires current confirmed free allowance and applicable supplier rights. Real payments remain disabled.
+No documents, phone numbers, credentials or real users are accepted by this trial. Production is a separate owner-approved free pilot. Current phone production provides basic validity only; hosted identity requires current confirmed free allowance and applicable supplier rights. Paid activation remains unavailable.
 
 [Run the account-free synthetic trial](https://gridzen.ai/console/start?lang=en) · [Get integration guidance](https://gridzen.ai/console/assessment?lang=en)

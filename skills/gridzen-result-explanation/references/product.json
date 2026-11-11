@@ -19,7 +19,7 @@
   ],
   "inputs": "A documented status code only; no raw identity documents, customer messages or credentials.",
   "output": "Meaning, whether the result is conclusive and a safe next step. Unknown codes remain unknown.",
-  "boundary": "Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, payment or business approval.",
+  "boundary": "Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, additional operation or business approval.",
   "entry": "/tools/result-explanation/#try",
   "guide": "/docs/response-reference/",
   "tools": [

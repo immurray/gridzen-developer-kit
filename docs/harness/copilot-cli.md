@@ -21,8 +21,8 @@ MCP target: `.github/mcp.json`. Skill target: `.github/skills`.
 
 Start Copilot CLI inside the trusted Git repository. Project .github/mcp.json and .github/skills supply MCP and Skills. Untrusted project settings may be ignored.
 
-Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
-evidence, then test a synthetic provider timeout. Do not authorize a real payment.”
+Try: “Plan a non-production Mexico verification pilot, identify missing permissions and
+evidence, then test a synthetic provider timeout. Do not treat a synthetic result as production authorization.”
 Expected: draft or missing-information output; simulated=true, verified=false,
 provider_calls=0. Timeouts, missing evidence and unsupported remain inconclusive.
 Tool names are get_coverage, plan_verification, create_sandbox_verification,

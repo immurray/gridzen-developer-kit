@@ -48,3 +48,110 @@ def test_docs_example_uses_existing_onboarding_contract():
     from gridzen_developer import core
     assert core.plan('ID','onboarding')['event']=='onboarding'
     assert 'payout' in core.EVENTS  # No feature removed from the supported API.
+
+
+# Only current redistributable prose: do not rename the legacy API or Skill.
+PUBLIC_COPY_BAD = re.compile(
+    r"/(?:pricing|payments)(?:[/#?]|\b)|\b(?:payout(?:_account)?|funding|checkout|prepaid|payments?|pagos?|cobros?)\b"
+    r"|收款|出款|提现|付款|入金|收费|pagamentos?\s+reais|thanh\s+toán\s+thực", re.I,
+)
+
+def public_copy_normalized(text):
+    # This exact neutral CEP wording and existing endpoint remain supported.
+    text = text.replace('https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities', 'CEP_CAPABILITIES')
+    text = re.sub(r'(?<=SPEI )payment(?= evidence\b)', 'CEP', text, flags=re.I)
+    text = text.replace('payout-policy-designer', 'LEGACY_SKILL_IDENTIFIER')
+    text = text.replace('X-Gridzen-Task (signup_phone / identity_onboarding / payout_account)', 'LEGACY_TASK_HEADER_VALUES')
+    # Exact compatibility declarations and existing CEP discovery inputs only.
+    text = text.replace('legacy event identifier `payout`', 'legacy event identifier `EVENT`')
+    text = text.replace('event="payout", task="mx_cep_existing_payment"', 'event="EVENT", task="CEP_TASK"')
+    text = re.sub(r'(?<=SPEI )payment(?=-evidence approaches\b)', 'CEP', text)
+    text = re.sub(r'(?<=/)(?:payment-evidence)(?=/mx/cep(?:[/` .\"\']|$))', 'cep-evidence', text)
+    for phrase in ('independent payment record', 'Check a SPEI payment',
+                   'authorized existing payment', 'mexico payment operations'):
+        text = re.sub(re.escape(phrase), phrase.replace('payment', 'CEP'), text, flags=re.I)
+    for phrase in ('A payment screenshot versus a signed CEP', 'verify SPEI payment CEP API',
+                   'existing-payment CEP access', 'EXISTING SPEI payment CEP check',
+                   '查证一笔 SPEI 付款', '现有付款取得 CEP', 'Comprueba un pago SPEI',
+                   'verificar pago SPEI CEP API', 'CEP de un pago existente autorizado'):
+        text = text.replace(phrase, 'EXISTING_CEP_EVIDENCE')
+    return text
+
+
+def public_copy_violations(text):
+    return [match.group() for match in PUBLIC_COPY_BAD.finditer(public_copy_normalized(text))]
+
+
+def current_public_copy_paths():
+    metadata = tomllib.loads((ROOT/'pyproject.toml').read_text())
+    readme = metadata['project']['readme']
+    readme = readme if isinstance(readme, str) else readme['file']
+    paths = {ROOT/readme, *ROOT.glob('README*.md'), ROOT/'llms-install.md', ROOT/'docs/site-integration.md', ROOT/'NOTICE.md', ROOT/'SECURITY.md'}
+    paths.update((ROOT/'skills').rglob('*.md'))
+    paths.update((ROOT/'examples').rglob('*.md'))
+    paths.update((ROOT/'docs').rglob('*.md'))
+    paths.update((ROOT/'distribution').rglob('*.md'))
+    for files in metadata['tool']['setuptools']['data-files'].values():
+        paths.update(ROOT/name for name in files if name.startswith('docs/') and name.endswith('.md'))
+    return sorted(paths)
+
+
+@pytest.mark.parametrize('path', current_public_copy_paths(), ids=lambda p: str(p.relative_to(ROOT)))
+def test_current_readmes_and_bundled_guides_have_no_retired_service_copy(path):
+    assert not public_copy_violations(path.read_text()), path.relative_to(ROOT)
+
+
+@pytest.mark.parametrize('text', [
+    'https://gridzen.ai/pricing/', '[Prices](/pricing/)', '[Legacy](/payments)',
+    '[Legacy](https://gridzen.ai/console/payments?lang=en)',
+    'Real payments remain disabled.', 'Real payments are disabled.',
+    '收费', '生产收费尚未启用', '没有真实收费', 'checkout', 'prepaid', 'funding',
+    'payment', 'payments', 'pagos', 'cobro', 'cobros', '真实收费仍关闭', 'los cobros reales', 'El cobro real',
+    'pagos reales desactivados', 'cobros reales deshabilitados',
+    'No real payment authorization.', 'pagos reales deshabilitados',
+    'no autoriza altas ni pagos reales', '提现', '不授权真实入驻或付款', '收款', '出款',
+    'funding is the next step', '--event payout', '--event=payout', 'payout_account',
+    'examples/payout.py', 'pagamentos reais desabilitados', 'thanh toán thực bị vô hiệu hóa',
+    # The CEP exception must not hide unrelated claims within the same section.
+    'Existing Mexico SPEI payment evidence. Real payments remain disabled.',
+])
+def test_public_copy_guard_detects_retired_wording(text):
+    assert public_copy_violations(text)
+
+
+@pytest.mark.parametrize('text', [
+    'Existing Mexico SPEI payment evidence',
+    'https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities',
+    'skills/payout-policy-designer/SKILL.md',
+    'Task, pricing boundaries and zero-cost integration examples',
+    'not live identity verification; paid activation remains unavailable',
+])
+def test_public_copy_guard_preserves_evidence_identifiers_and_neutral_boundaries(text):
+    assert not public_copy_violations(text)
+
+
+@pytest.mark.parametrize('path', sorted((ROOT/'skills').glob('*/references/product.json')), ids=lambda p: str(p.relative_to(ROOT)))
+def test_bundled_product_reference_prose_has_no_retired_service_copy(path):
+    reference = json.loads(path.read_text())
+    # Check prose only; API availability enums and input contracts are unchanged.
+    for field in ('description', 'audience', 'boundary'):
+        assert not public_copy_violations(reference.get(field, '')), (path, field)
+
+
+def test_full_repository_copy_scope():
+    from importlib.util import spec_from_file_location, module_from_spec
+    spec = spec_from_file_location('copy_audit', ROOT/'scripts/audit_public_copy.py')
+    audit = module_from_spec(spec); spec.loader.exec_module(audit)
+    assert not audit.scan_repository()[1]
+
+
+@pytest.mark.parametrize('allowed', [
+    'Existing Mexico SPEI payment evidence',
+    'https://gridzen.ai/console/payment-evidence/mx/cep',
+    'skills/payout-policy-designer/SKILL.md',
+    'legacy event identifier `payout`',
+])
+@pytest.mark.parametrize('bad', ['payment', 'payments', 'pagos', 'cobro', 'cobros',
+                                  '收费', 'checkout', 'prepaid', 'funding', '/pricing/', '/payments'])
+def test_narrow_exceptions_never_hide_another_claim(allowed, bad):
+    assert public_copy_violations(allowed + ' ' + bad)

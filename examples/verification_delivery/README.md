@@ -1,10 +1,10 @@
 # Verification delivery fixtures / Flujos sintéticos / 核验交付模拟
 
-English: Python 3.10+ standard library only; no account, credential, network or payment. These fixtures teach application branching and persisted state, not real verification. The example.invalid link is deliberately non-executable. A live hosted link and signed provider callback require an authorized adapter, which this example does not implement. Approved grants only local fixture permissions after tenant/user/session binding and explicit customer policy. Free production phone checks currently do not return line type; an OTP recommendation does not send an OTP.
+English: Python 3.10+ standard library only; no account, credential or network access. These fixtures teach application branching and persisted state, not real verification. The example.invalid link is deliberately non-executable. A live hosted link and signed provider callback require an authorized adapter, which this example does not implement. Approved grants only local fixture permissions after tenant/user/session binding and explicit customer policy. Free production phone checks currently do not return line type; an OTP recommendation does not send an OTP.
 
-Español: Solo biblioteca estándar de Python 3.10+; sin cuenta, credenciales, red ni pagos. Son ejemplos sintéticos de decisiones y estado persistente, no verificaciones reales. El enlace example.invalid no funciona a propósito. Un enlace real y una firma de webhook requieren un adaptador autorizado no implementado aquí. Approved solo concede permisos locales de prueba tras comprobar organización, usuario, sesión y política. La ruta gratuita actual no devuelve el tipo de línea; recomendar OTP no envía un código.
+Español: Solo biblioteca estándar de Python 3.10+; sin cuenta, credenciales ni acceso a la red. Son ejemplos sintéticos de decisiones y estado persistente, no verificaciones reales. El enlace example.invalid no funciona a propósito. Un enlace real y una firma de webhook requieren un adaptador autorizado no implementado aquí. Approved solo concede permisos locales de prueba tras comprobar organización, usuario, sesión y política. La ruta gratuita actual no devuelve el tipo de línea; recomendar OTP no envía un código.
 
-中文：仅需 Python 3.10+ 标准库，不需要账号、凭证、联网或付款。模拟用于验证业务分支与持久化状态，不核验真人。example.invalid 链接刻意不可打开；真实链接及签名回调需另行接入授权适配器。Approved 仅在绑定与明确业务规则通过后更新本地模拟权限。免费生产路线不返回 line-type；需 OTP 不代表发送验证码。
+中文：仅需 Python 3.10+ 标准库，不需要账号、凭证或联网。模拟用于验证业务分支与持久化状态，不核验真人。example.invalid 链接刻意不可打开；真实链接及签名回调需另行接入授权适配器。Approved 仅在绑定与明确业务规则通过后更新本地模拟权限。免费生产路线不返回 line-type；需 OTP 不代表发送验证码。
 
 ```bash
 cd examples/verification_delivery

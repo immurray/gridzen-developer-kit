@@ -36,7 +36,7 @@ Fourteen Skills: the original six research/workflow Skills plus eight single-tas
 
 [Chinese and Spanish article files](https://github.com/immurray/gridzen-developer-kit/tree/main/distribution/market-expansion-2026-10-13/articles/) · [Demo video](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/market-expansion-2026-10-13/media/identity-three-outcomes.mp4).
 
-Public examples are synthetic. Approved prices and per-product availability are published at https://gridzen.ai/pricing/; paid activation remains unavailable. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
+Public examples are synthetic. Published per-product prices and availability are subject to the authenticated merchant console; paid activation remains unavailable. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
 
 [Per-check plan and activation requirements](https://gridzen.ai/console/quote?lang=en) · [JSON](https://gridzen.ai/console/api/commercial/options)
 
@@ -83,7 +83,7 @@ assert result['status'] == 'inconclusive'
 assert result['verified'] is False
 ```
 
-Only documented country/event/capability/scenario fields are accepted. Never send identity numbers, bank accounts, documents or credentials to the sandbox. Simulation IDs encode fixtures and are not unique transaction identifiers. A synthetic match cannot authorize real users or payments. Research evidence is distinct from Gridzen availability or commercial permission.
+Only documented country/event/capability/scenario fields are accepted. Never send identity numbers, bank accounts, documents or credentials to the sandbox. Simulation IDs encode fixtures and are not unique transaction identifiers. A synthetic match cannot authorize real users or production actions. Research evidence is distinct from Gridzen availability or commercial permission.
 
 ## Repository source: local service and checks
 
@@ -237,7 +237,7 @@ Submitting an application never activates production. The owner must approve sup
 Real basic phone checks and retrieval of a historical Approved operator identity session were validated through the live customer API/MCP. New-session human completion and its final real webhook remain unvalidated. Operator tests, downloads and self-reported interest are not customer demand. This documentation update does not change the PyPI package or Registry version.
 
 
-Use `gridzen start --task identity_onboarding --lang en` to find the anonymous trial, free sandbox account and integration assistant. `gridzen start` makes no network calls. Account progress measurement is a separate, optional console consent; completing a sandbox does not verify a real person. Real payments remain disabled.
+Use `gridzen start --task identity_onboarding --lang en` to find the anonymous trial, free sandbox account and integration assistant. `gridzen start` makes no network calls. Account progress measurement is a separate, optional console consent; completing a sandbox does not verify a real person. Paid activation remains unavailable.
 
 ## Complete a customer task
 
@@ -249,7 +249,7 @@ Use `gridzen start --task identity_onboarding --lang en` to find the anonymous t
 - [Importable n8n fixture workflow](examples/n8n/README.md)
 
 These are synthetic integration examples. They do not prove real identity,
-production webhook delivery, customer adoption or payment. No account is needed
+production webhook delivery or customer adoption. No account is needed
 for the anonymous response trial or local examples.
 
 Install all fourteen skills into your project:
@@ -267,7 +267,7 @@ In the installed package or developer source ZIP, use `gridzen tools --product m
 
 ## Mexico identity and beneficiary-name comparison
 
-[Task, pricing boundaries and zero-cost integration examples](docs/mexico-identity-account.md) cover first account binding, account changes and exception review. The 14 MXN quote does not enable production calls; read the authenticated capability response. Public MCP and Skills remain research/synthetic only.
+[Task, pricing boundaries and zero-cost integration examples](docs/mexico-identity-account.md) cover first account binding, account changes and exception review. Published per-product prices and availability are subject to the authenticated merchant console; read the authenticated capability response. Public MCP and Skills remain research/synthetic only.
 
 [Run the identity/account result example offline, without signup](examples/mx_identity_account/).
 

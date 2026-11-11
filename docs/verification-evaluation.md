@@ -19,8 +19,7 @@ There is no measured time-saving or price-advantage claim in this guide.
 For production, confirm the exact country/product, current supplier rights,
 consent and data handling, recovery owner and application action. Obtain a current
 quote for query units, minimums and taxes; separate integration and ongoing
-operations. Research coverage is not commercial availability. Real self-service
-payments remain disabled. Do not send identity documents or credentials to the
+operations. Research coverage is not commercial availability. Paid activation remains unavailable. Do not send identity documents or credentials to the
 public research MCP or synthetic examples.
 
 ## 中文
@@ -36,7 +35,7 @@ public research MCP or synthetic examples.
 
 正式使用前确认国家与产品、当前供应商权限、用户同意、资料处理、异常恢复负责人及
 客户后台动作。查询费收集当期计费单位、最低消费与税费依据，接入和维护另列。
-研究覆盖不等于商业可用，真实自助收款仍关闭。不要向公开研究 MCP 或合成示例提交
+研究覆盖不等于商业可用，付费开通仍不可用。不要向公开研究 MCP 或合成示例提交
 证件资料与凭据。
 
 ## Español
@@ -55,6 +54,5 @@ responsabilidades del flujo. No se afirma un ahorro de tiempo o precio sin medir
 Confirme país/producto, derechos actuales, consentimiento, tratamiento de datos,
 responsable de recuperación y acción de su aplicación. Obtenga una cotización
 actual con unidades, mínimos e impuestos; separe integración y operación.
-Investigación no equivale a disponibilidad comercial. El cobro real de
-autoservicio sigue desactivado. No envíe documentos de identidad o credenciales
+Investigación no equivale a disponibilidad comercial. La activación comercial sigue sin estar disponible. No envíe documentos de identidad o credenciales
 al MCP público de investigación ni a los ejemplos sintéticos.

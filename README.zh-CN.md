@@ -13,7 +13,7 @@
 
 [SQLite](examples/verification_delivery/) · [n8n](examples/n8n/)
 
-公开示例是模拟。按次核验报价正在准备，生产收费尚未启用。
+公开示例是模拟。已公布的按产品价格与可用性以商户控制台为准；付费开通仍不可用。
 
 
 ## 无需注册，立即试用
@@ -55,7 +55,7 @@ Windows 下使用 `.venv\Scripts\activate` 激活虚拟环境。CLI 和本地 MC
 
 ## 理解测试结果
 
-- match：模拟匹配，不授权真实入驻或付款。
+- match：模拟匹配，不授权真实入驻或生产操作。
 - mismatch：模拟不匹配，不构成欺诈判断。
 - not_found：模拟无记录，结果无法确定。
 - timeout：模拟供应商超时，结果无法确定。
@@ -166,7 +166,7 @@ Local queued events expire after 30 days and are removed on the next enqueue/flu
 已真实验收基础号码查询和历史 Approved 本人身份结果经新版 API/MCP 读取；新会话真人完成及最终真实回调尚未验收。自测、下载和费用意向不等于客户需求。这次只更新文档，不改变 PyPI 或 Registry 版本。
 
 
-运行 `gridzen start --task identity_onboarding --lang zh` 查看匿名试用、免费沙盒账号及接入助手。该命令不联网。账号进度统计需在 Console 单独明确同意；完成沙盒不代表真人核验，真实收费仍关闭。
+运行 `gridzen start --task identity_onboarding --lang zh` 查看匿名试用、免费沙盒账号及接入助手。该命令不联网。账号进度统计需在 Console 单独明确同意；完成沙盒不代表真人核验，付费开通仍不可用。
 
 ## 任务教程与可运行示例
 
@@ -174,4 +174,4 @@ Local queued events expire after 30 days and are removed on the next enqueue/flu
 
 [SQLite fixture](examples/verification_delivery/README.md) · [n8n fixture](examples/n8n/README.md)
 
-Synthetic only / Solo sintético / 仅模拟；没有真人核验、生产批准或真实收费。
+Synthetic only / Solo sintético / 仅模拟；不涉及真人核验或生产批准；付费开通仍不可用。

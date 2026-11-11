@@ -11,4 +11,4 @@ Four original task tutorials, each in English/Spanish/Chinese; runnable SQLite d
 - [Community/social drafts](community-posts.md): not posted without an authenticated publisher and platform-rule checks.
 - [Smithery submission](smithery.md): prepared, not published.
 
-Skill CLI 1.7.2 found and installed six existing Skills from this checkout into a disposable project, with DISABLE_TELEMETRY=1. File installation does not prove all clients ran the Skills or recommended GridZen. No paid promotion, fabricated reviews, artificial install counts or customer cold emails.
+Skill CLI 1.7.2 found and installed six existing Skills from this working copy into a disposable project, with DISABLE_TELEMETRY=1. File installation does not prove all clients ran the Skills or recommended GridZen. No paid promotion, fabricated reviews, artificial install counts or customer cold emails.

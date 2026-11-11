@@ -54,6 +54,6 @@ El éxito es una rama sintética, no aprobación de una persona real. Para recha
 
 ## Límites y conexión a producción
 
-No envíe documentos, números reales ni credenciales a esta prueba. Producción es un piloto gratuito aprobado por el responsable. La ruta telefónica solo cubre validez básica; identidad requiere cuota gratuita confirmada y permisos aplicables. Los cobros reales están desactivados.
+No envíe documentos, números reales ni credenciales a esta prueba. Producción es un piloto gratuito aprobado por el responsable. La ruta telefónica solo cubre validez básica; identidad requiere cuota gratuita confirmada y permisos aplicables. La activación comercial sigue sin estar disponible.
 
 [Run the account-free synthetic trial](https://gridzen.ai/console/start?lang=es) · [Get integration guidance](https://gridzen.ai/console/assessment?lang=es)

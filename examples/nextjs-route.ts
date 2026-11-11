@@ -1,5 +1,5 @@
 // Copy to app/api/verification-sandbox/route.ts in a Next.js app.
-// Synthetic fixtures only. Never use this route to authorize real payouts.
+// Synthetic fixtures only. Never use this route to authorize production actions.
 export async function POST(request: Request) {
   let input: unknown;
   try { input = await request.json(); } catch {

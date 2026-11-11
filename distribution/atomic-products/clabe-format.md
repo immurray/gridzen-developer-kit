@@ -1,6 +1,6 @@
 # Check CLABE formatting
 
-Audience: Mexico account forms and payment-file import developers
+Audience: Mexico account forms and account-file import developers
 
 Problem-led hooks:
 

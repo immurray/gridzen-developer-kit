@@ -100,7 +100,7 @@ def simulate(country_code, capability_id, scenario='match'):
  c=country(country_code);capability(capability_id)
  if scenario not in SCENARIOS:raise ValueError('UNKNOWN_SCENARIO')
  code={'match':'SIMULATED_MATCH','mismatch':'SIMULATED_MISMATCH','not_found':'SIMULATED_NOT_FOUND','timeout':'SIMULATED_PROVIDER_TIMEOUT','unsupported':'SIMULATED_UNSUPPORTED'}[scenario]
- result={'id':f"sim_v1:{c['code']}:{capability_id}:{scenario}",'mode':'sandbox','simulated':True,'verified':False,'live_available':False,'provider_calls':0,'country':c['code'],'capability':capability_id,'fixture_outcome':scenario,'status':'inconclusive' if scenario in ('not_found','timeout','unsupported') else 'completed','evidence':[],'reason_code':code,'explanation':explain(code),'notice':'Deterministic synthetic fixture, not a unique transaction or an identity verification. Do not use to approve real people or payments.'}
+ result={'id':f"sim_v1:{c['code']}:{capability_id}:{scenario}",'mode':'sandbox','simulated':True,'verified':False,'live_available':False,'provider_calls':0,'country':c['code'],'capability':capability_id,'fixture_outcome':scenario,'status':'inconclusive' if scenario in ('not_found','timeout','unsupported') else 'completed','evidence':[],'reason_code':code,'explanation':explain(code),'notice':'Deterministic synthetic fixture, not a unique transaction or an identity verification. Do not use to approve real people or production actions.'}
 
  if capability_id=='phone_intelligence':
   result['phone']={'valid':True if scenario in ('match','mismatch') else None,'line_type':'mobile' if scenario=='match' else 'voip' if scenario=='mismatch' else None,'ownership_verified':False,'otp_delivered':False,'source':'synthetic_fixture'}
