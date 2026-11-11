@@ -1,4 +1,4 @@
-# Gridzen 开发者工具包 0.7.1
+# Gridzen 开发者工具包 0.7.2
 
 [直连还是使用 GridZen：按任务评估](docs/verification-evaluation.md#中文) · [正式上线与费用检查](https://gridzen.ai/console/learn?lang=zh&source=developer_kit#decision-fit)
 
@@ -81,7 +81,7 @@ Skills 安装：`npx skills add immurray/gridzen-developer-kit`。
 源码、版本下载、官方 MCP Registry 和三个 Skills.sh 技能页已公开；Docker 目录投稿待审核。各渠道真实状态及剩余步骤见[发布台账](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/STATUS.md)。
 
 
-## 14 bundled Skills (0.7.1)
+## 14 bundled Skills (0.7.2)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
 and all 14 Skill directories.

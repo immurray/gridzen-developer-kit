@@ -19,7 +19,7 @@
   ],
   "inputs": "Subject authorization reference, stable request UUID and explicit trial or paid mode; no document or face in the assistant chat.",
   "output": "Hosted URL, task state and authoritative completion status. Approved does not grant application permissions.",
-  "boundary": "The person completes identity and liveness steps. New-person full approval acceptance remains pending; paid activation remains unavailable.",
+  "boundary": "The person completes identity and liveness steps. Read the original task for its authoritative result. Completion does not grant business permissions; live access requires product enrollment and confirmed service credit.",
   "entry": "/console/production?task=identity_onboarding",
   "guide": "/guides/missing-verification-webhook/",
   "tools": [
