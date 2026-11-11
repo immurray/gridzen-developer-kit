@@ -11,7 +11,7 @@
 - [延迟回调恢复](https://gridzen.ai/console/learn/callback-recovery?lang=zh)
 - [核验后业务权限](https://gridzen.ai/console/learn/business-permission-boundary?lang=zh)
 
-[SQLite](examples/verification_delivery/) · [n8n](examples/n8n/) · [Smithery](https://smithery.ai/servers/support-35ug/gridzen-verification)
+[SQLite](examples/verification_delivery/) · [n8n](examples/n8n/)
 
 公开示例是模拟。按次核验报价正在准备，生产收费尚未启用。
 
@@ -34,9 +34,9 @@
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install './gridzen-developer-kit[mcp]'
-gridzen plan --country ID --event payout
+gridzen plan --country ID --event onboarding
 gridzen simulate --country ID --capability bank_account_match --scenario timeout
-python gridzen-developer-kit/examples/payout.py
+python gridzen-developer-kit/examples/customer_tasks.py
 ```
 
 Windows 下使用 `.venv\Scripts\activate` 激活虚拟环境。CLI 和本地 MCP 安装后可离线使用；Python HTTP SDK 与示例调用公开沙盒。
@@ -102,8 +102,8 @@ copy a complete directory into your assistant's configured Skills directory to
 activate it. Installing a wheel does not automatically activate a client's Skills.
 
 The existing select/integrate/explain Skills remain available. Added offline
-workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
-`provider-rights-readiness`. Each includes MIT, README, complete response fixtures
+workflows, version 1.0.0, cover evaluation scope, evidence-review policies and
+provider-rights readiness. Each includes MIT, README, complete response fixtures
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
 
@@ -134,7 +134,7 @@ gridzen feedback --task signup_phone --country US --outcome blocked --blocker mi
 gridzen feedback --input task-summary.json --share
 ```
 
-Phone intelligence is not OTP or ownership verification. Identity fixtures are not hosted document/liveness sessions. Payout matching remains a prototype with no real enabled route. Provider intake Skills are for provider operations/BYO, not a universal customer gate.
+Phone intelligence is not OTP or ownership verification. Identity fixtures are not hosted document/liveness sessions. Provider intake Skills are for provider operations/BYO, not a universal customer gate.
 
 Remote APIs count fixed task/capability/country/stage/error categories for 90 days, including technical failures. They store no arguments, identity data, credentials, raw chats or per-user tracking. Local feedback is off by default. After explicit opt-in, CLI and stdio MCP automatically upload category-only events. Reading static Skills remains unobservable. Optional feedback requires explicit consent, contains only fixed categories, and is unverified self-reported evidence. A SHA-256 hash of its random receipt ID is retained 30 days for 30-day retry deduplication; the ID itself is not stored. Counters are capped at 10,000 requests/day and 500 summaries/day per database; missing history or offline usage is unknown. Requests are not unique customers.
 

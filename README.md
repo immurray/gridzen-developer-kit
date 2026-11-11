@@ -21,7 +21,7 @@ Open [GridZen instant trial](https://gridzen.ai/console/start?lang=en) to run sy
 
 For persistent test records and supplier sandbox callbacks, connect a verified merchant sandbox account. Production access is capability-specific: eligible routes may offer bounded real trials, while others remain unavailable. Read the authenticated capability conditions; published prices do not enable paid purchases. This documentation update does not change PyPI or the official MCP Registry version.
 
-Fourteen Skills: the original six research/workflow Skills plus eight single-task profiles. Three new tools run offline; five merchant profiles call the existing authenticated GridZen API only with separate authorization, current availability and funding. The anonymous remote MCP retains five research/synthetic tools and never performs live verification. Research covers 198 countries/territories as a dated 2026-10-07 snapshot, not live service coverage.
+Fourteen Skills: the original six research/workflow Skills plus eight single-task profiles. Three new tools run offline; five merchant profiles call the existing authenticated GridZen API only with separate authorization, current availability and permitted use. The anonymous remote MCP retains five research/synthetic tools and never performs live verification. Research covers 198 countries/territories as a dated 2026-10-07 snapshot, not live service coverage.
 
 [中文指南](README.zh-CN.md) · [Guía en español](README.es.md)
 
@@ -34,9 +34,9 @@ Fourteen Skills: the original six research/workflow Skills plus eight single-tas
 | Missing or delayed callback | [Guide](https://gridzen.ai/console/learn/callback-recovery?lang=en) | [Recovery fixture](examples/verification_delivery/) |
 | Verification to business permission | [Guide](https://gridzen.ai/console/learn/business-permission-boundary?lang=en) | [Self-hosted n8n fixture](examples/n8n/) |
 
-[Chinese and Spanish article files](distribution/market-expansion-2026-10-13/articles/) · [Demo video](distribution/market-expansion-2026-10-13/media/identity-three-outcomes.mp4) · [Smithery listing](https://smithery.ai/servers/support-35ug/gridzen-verification).
+[Chinese and Spanish article files](distribution/market-expansion-2026-10-13/articles/) · [Demo video](distribution/market-expansion-2026-10-13/media/identity-three-outcomes.mp4).
 
-Public examples are synthetic. Approved prices and per-product availability are published at https://gridzen.ai/pricing/; live payments remain disabled. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
+Public examples are synthetic. Approved prices and per-product availability are published at https://gridzen.ai/pricing/; paid activation remains unavailable. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
 
 [Per-check plan and activation requirements](https://gridzen.ai/console/quote?lang=en) · [JSON](https://gridzen.ai/console/api/commercial/options)
 
@@ -51,9 +51,9 @@ python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install './gridzen-developer-kit[mcp]'
 gridzen coverage --country ID --capability bank_account_match
-gridzen plan --country ID --event payout
+gridzen plan --country ID --event onboarding
 gridzen simulate --country ID --capability bank_account_match --scenario timeout
-python gridzen-developer-kit/examples/payout.py
+python gridzen-developer-kit/examples/customer_tasks.py
 ```
 
 Python 3.11+. CLI and MCP use the bundled offline catalog and fixtures; the Python HTTP client/example calls the public sandbox. Dependencies are downloaded only during installation. API reference: https://gridzen.ai/developers/api/openapi.json .
@@ -77,7 +77,7 @@ Copy the individual directories from `skills/` into your compatible agent's proj
 ```python
 from gridzen_developer.client import Gridzen
 client = Gridzen()
-plan = client.plan('ID', 'payout')
+plan = client.plan('ID', 'onboarding')
 result = client.simulate('ID', 'bank_account_match', 'not_found')
 assert result['status'] == 'inconclusive'
 assert result['verified'] is False
@@ -85,7 +85,7 @@ assert result['verified'] is False
 
 Only documented country/event/capability/scenario fields are accepted. Never send identity numbers, bank accounts, documents or credentials to the sandbox. Simulation IDs encode fixtures and are not unique transaction identifiers. A synthetic match cannot authorize real users or payments. Research evidence is distinct from Gridzen availability or commercial permission.
 
-## Repository checkout: local service and checks
+## Repository source: local service and checks
 
 ```sh
 python -m pip install '.[test,server]'
@@ -96,7 +96,7 @@ uvicorn gridzen_developer.server:app --host 127.0.0.1 --port 8030
 
 Production uses an independent container at localhost:8030 proxied only under `/developers/`. See deploy/compose.yml and deploy/developers.conf. Removing that proxy file and stopping this container rolls back the preview; the existing API and Agent Company stacks are separate.
 
-## Repository checkout: build distributions
+## Repository source: build distributions
 
 `python scripts/build_downloads.py` creates allowlisted developer-kit and Skills ZIPs; it excludes tests, deployment files, private credentials and itself from recursive download packaging. `python scripts/build_catalog.py <repo>/docs/research/identity-verification/2026-10-07` refreshes the public research projection. Main repository report files remain the provenance source.
 
@@ -160,8 +160,8 @@ copy a complete directory into your assistant's configured Skills directory to
 activate it. Installing a wheel does not automatically activate a client's Skills.
 
 The existing select/integrate/explain Skills remain available. Added offline
-workflows, version 1.0.0: `mexico-pilot-scoper`, `payout-policy-designer`, and
-`provider-rights-readiness`. Each includes MIT, README, complete response fixtures
+workflows, version 1.0.0, cover evaluation scope, evidence-review policies and
+provider-rights readiness. Each includes MIT, README, complete response fixtures
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
 
@@ -207,7 +207,7 @@ gridzen feedback --task signup_phone --country US --outcome blocked --blocker mi
 gridzen feedback --input task-summary.json --share
 ```
 
-Phone intelligence is not OTP or ownership verification. Identity fixtures are not hosted document/liveness sessions. Payout matching remains a prototype with no real enabled route. Provider intake Skills are for provider operations/BYO, not a universal customer gate.
+Phone intelligence is not OTP or ownership verification. Identity fixtures are not hosted document/liveness sessions. Provider intake Skills are for provider operations/BYO, not a universal customer gate.
 
 Remote APIs count fixed task/capability/country/stage/error categories for 90 days, including technical failures. They store no arguments, identity data, credentials, raw chats or per-user tracking. Local feedback is off by default. After explicit opt-in, CLI and stdio MCP automatically upload category-only events. Reading static Skills remains unobservable. Optional feedback requires explicit consent, contains only fixed categories, and is unverified self-reported evidence. A SHA-256 hash of its random receipt ID is retained 30 days for 30-day retry deduplication; the ID itself is not stored. Counters are capped at 10,000 requests/day and 500 summaries/day per database; missing history or offline usage is unknown. Requests are not unique customers.
 
@@ -263,7 +263,7 @@ not prove all agents have executed or recommended the skills.
 
 ## Existing Mexico SPEI payment evidence
 
-In the updated GitHub checkout or developer ZIP (the existing PyPI release does not yet include this task), use `gridzen plan --country MX --event payout --task mx_cep_existing_payment --stage production` to discover the separate authenticated CEP trial. Public tools remain research/synthetic only. [Live capability conditions](https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities) require a merchant key; do not send transaction details or keys to public tools. [Runnable offline example](examples/cep_reconciliation/) makes no network calls. CEP preserves original XML, independent signature and exact expected-transaction binding; historical names do not establish current identity or account control. No transfer is created; paid checkout remains disabled.
+In the updated GitHub source tree or developer ZIP (the existing PyPI release does not yet include this task), use `gridzen tools --product mx-cep` to discover the separate authenticated CEP workflow. Public tools remain research/synthetic only. [Live capability conditions](https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities) require a merchant key; do not send transaction details or keys to public tools. [Runnable offline example](examples/cep_reconciliation/) makes no network calls. CEP preserves original XML, independent signature and exact expected-transaction binding; historical names do not establish current identity or account control. This workflow verifies existing SPEI evidence; it does not initiate a transfer.
 
 ## Mexico identity and beneficiary-name comparison
 
