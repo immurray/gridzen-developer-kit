@@ -13,3 +13,7 @@
 ## 2026-11-11 · PyPI 0.7.1 发行准备（murray 明确授权）
 
 将已上线的核验文案、14个Skills和公开指南并入新的wheel/sdist，补齐安装后本地文档与示例，修正中西语README旧发行/能力表述。沿用既有Trusted Publisher，仅新增包安装完整性验收，旧版不覆盖；远程Registry版本和业务权限不变。发布及干净PyPI安装的真实结果以发行收据为准。
+
+### 0.7.1 发布验收结果
+
+[PR #6](https://github.com/immurray/gridzen-developer-kit/pull/6) 已合并，v0.7.1 经原 Trusted Publisher 发布。官方PyPI全新环境的CLI、14个Skills和真实stdio MCP通过；127份随包文件与官网最新源ZIP逐字节一致，其中77份Skill文件与Skill ZIP一致。旧版哈希未变，官网仅更新源ZIP/校验清单两份文件，不改变服务代码或自动部署范围。详见 `distribution/release-0.7.1.json`。

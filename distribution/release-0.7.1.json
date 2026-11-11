@@ -1,0 +1,63 @@
+{
+  "version": "0.7.1",
+  "recorded_at": "2026-11-11T04:23:42.286696+00:00",
+  "status": "published_and_verified",
+  "source_head": "771b6020d7e10136e92ffc4da0b35725bec90508",
+  "release_commit": "4fac05849fa661a451164feb252ec24315def0ab",
+  "tag": "v0.7.1",
+  "source_pr": "https://github.com/immurray/gridzen-developer-kit/pull/6",
+  "pypi": "https://pypi.org/project/gridzen-developer-kit/0.7.1/",
+  "github_release": "https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.7.1",
+  "workflow": "https://github.com/immurray/gridzen-developer-kit/actions/runs/42958360435",
+  "artifacts": [
+    {
+      "filename": "gridzen_developer_kit-0.7.1-py3-none-any.whl",
+      "sha256": "13da709f3ef8a9a09a691d139d940d82cd795309206d054e9b66301c221d8a35",
+      "upload_time": "2026-11-11T04:19:14.189545Z"
+    },
+    {
+      "filename": "gridzen_developer_kit-0.7.1.tar.gz",
+      "sha256": "9b959374f2801ddc40ef3d9bd6ead6d08004bc4692483b92c4a28f1ff163f202",
+      "upload_time": "2026-11-11T04:19:15.663528Z"
+    }
+  ],
+  "checks": {
+    "unit_tests_passed": 81,
+    "candidate_wheel_clean_install": "passed",
+    "candidate_sdist_clean_install": "passed",
+    "pypi_clean_install": "passed",
+    "pypi_index": "https://pypi.org/simple",
+    "local_wheel_or_source_used_for_pypi_acceptance": false,
+    "installed_version": "0.7.1",
+    "canonical_skill_count": 14,
+    "profiles": 8,
+    "cli_commands_checked": 10,
+    "ten_client_setup_and_idempotency": "passed",
+    "actual_stdio_mcp": "passed",
+    "installed_canonical_files": 127,
+    "website_source_files_equal": 127,
+    "website_skill_files_equal": 77,
+    "relative_markdown_links": "passed",
+    "metadata_description_matches_readme": "passed",
+    "historical_0_7_0_hashes_unchanged": true,
+    "live_provider_calls": 0
+  },
+  "website_download_sha256": {
+    "gridzen-developer-kit.zip": "881f864e37cf4c1e9e3d5c0856d46af161ad10b3e2a8b8939c245c704b38d21b",
+    "gridzen-skills.zip": "2bab236fed326c6ac97cfe312bd902cbd2143eca49967d6c072e8cd8405f7b5c"
+  },
+  "publication_scope": {
+    "new_pypi_version": true,
+    "historical_artifacts_overwritten": false,
+    "registry_submission": false,
+    "hosted_business_runtime_changed": false,
+    "website_payload_files_changed": 2,
+    "auto_deploy_scope_changed": false
+  },
+  "commands": [
+    "python3 -m venv <fresh-environment>",
+    "<fresh-environment>/bin/python -m pip install --no-cache-dir --index-url https://pypi.org/simple gridzen-developer-kit==0.7.1",
+    "<fresh-environment>/bin/python scripts/check_installed_package.py --source-root . --website-source <live-source.zip> --website-skills <live-skills.zip>",
+    "<fresh-environment>/bin/python scripts/check_mcp.py"
+  ]
+}
