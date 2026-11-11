@@ -10,7 +10,7 @@ rights in, any provider's API, records or personal data.
 The catalog is a dated research snapshot (2026-10-07), with provenance and
 source links. A record means research evidence exists, not current Gridzen
 commercial availability. All live routes are disabled. Synthetic tests never
-verify real people or authorize onboarding or payments.
+verify real people or authorize onboarding or production actions.
 
 Dependencies retain their own licenses and are installed separately; no
 third-party runtime or private Gridzen operational data is bundled.

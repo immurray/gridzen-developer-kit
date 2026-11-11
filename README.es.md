@@ -167,7 +167,7 @@ Solicitar no activa producción. El responsable confirma derechos del proveedor,
 Se validaron una consulta real de teléfono y la lectura de una sesión histórica Approved del operador mediante API/MCP. Falta validar la finalización humana de una sesión nueva y su webhook final real. Pruebas internas, descargas e interés declarado no demuestran demanda. Esta actualización documental no cambia versiones de PyPI ni Registry.
 
 
-Use `gridzen start --task identity_onboarding --lang es` para encontrar la prueba anónima, la cuenta gratuita de sandbox y el asistente. El comando no hace llamadas de red. La medición de progreso requiere consentimiento opcional en la consola. Completar el sandbox no verifica a una persona real; los cobros reales siguen desactivados.
+Use `gridzen start --task identity_onboarding --lang es` para encontrar la prueba anónima, la cuenta gratuita de sandbox y el asistente. El comando no hace llamadas de red. La medición de progreso requiere consentimiento opcional en la consola. Completar el sandbox no verifica a una persona real; la activación comercial sigue sin estar disponible.
 
 ## Guías y ejemplos ejecutables
 
@@ -175,4 +175,4 @@ Use `gridzen start --task identity_onboarding --lang es` para encontrar la prueb
 
 [SQLite fixture](examples/verification_delivery/README.md) · [n8n fixture](examples/n8n/README.md)
 
-Synthetic only / Solo sintético / 仅模拟；没有真人核验、生产批准或真实收费。
+Synthetic only / Solo sintético / 仅模拟；不涉及真人核验或生产批准；付费开通仍不可用。

@@ -63,6 +63,6 @@ success 只代表模拟分支，不代表真人通过。reject 应显示可恢�
 
 ## 限制与生产接入
 
-不要向该试用提交证件、真实号码、凭证或真人资料。生产是独立且经负责人批准的免费试点。号码生产路线仅提供基础有效性；托管身份路线需要当前有效的免费额度与适用上游权限。真实收费仍关闭。
+不要向该试用提交证件、真实号码、凭证或真人资料。生产是独立且经负责人批准的免费试点。号码生产路线仅提供基础有效性；托管身份路线需要当前有效的免费额度与适用上游权限。付费开通仍不可用。
 
 [Run the account-free synthetic trial](https://gridzen.ai/console/start?lang=zh) · [Get integration guidance](https://gridzen.ai/console/assessment?lang=zh)

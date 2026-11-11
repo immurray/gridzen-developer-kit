@@ -2,7 +2,7 @@
 
 Current inventory is 14 Skills: 6 research/workflow Skills and 8 single-task profiles. Public examples describe onboarding and account verification; existing CEP/SPEI receipt inspection remains available under its existing authorization rules. No execution, billing, provider access or API enum changes are made.
 
-The legacy `payout-policy-designer` identifier and helper inputs remain compatible. It drafts an offline verification-evidence policy, never a payment operation or authorization. Dated release receipts retain their historical counts and now explicitly distinguish the current inventory.
+The legacy `payout-policy-designer` identifier and helper inputs remain compatible. It drafts an offline verification-evidence policy, never a production operation or authorization. Dated release receipts retain their historical counts and now explicitly distinguish the current inventory.
 
 The source ZIP now contains the Mexico identity/account and multilingual UI guides referenced by its examples and README. Public release records and media use repository links rather than missing archive-relative paths. All individual Skill ZIPs retain their original directory/name identities and licenses; source README, Skill files and ZIP checksums are checked together.
 

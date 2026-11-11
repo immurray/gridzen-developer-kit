@@ -54,6 +54,5 @@ responsabilidades del flujo. No se afirma un ahorro de tiempo o precio sin medir
 Confirme país/producto, derechos actuales, consentimiento, tratamiento de datos,
 responsable de recuperación y acción de su aplicación. Obtenga una cotización
 actual con unidades, mínimos e impuestos; separe integración y operación.
-Investigación no equivale a disponibilidad comercial. El cobro real de
-autoservicio sigue desactivado. No envíe documentos de identidad o credenciales
+Investigación no equivale a disponibilidad comercial. La activación comercial sigue sin estar disponible. No envíe documentos de identidad o credenciales
 al MCP público de investigación ni a los ejemplos sintéticos.
