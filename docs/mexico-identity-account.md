@@ -12,7 +12,7 @@ Customer guide: https://gridzen.ai/merchant-guide.html . Downloadable PDF: https
 4. Submit the verification data for a quote. Review the current price and any necessary task-specific authorization before creating the check.
 5. Keep the original request UUID and task ID; read results, status and charges from the same record. Recover an uncertain request rather than replacing it.
 
-Supported account types, regions, grades, availability, limits and prices belong to the authenticated capabilities, product page and accepted quote. They are not fixed in this general guide. If an operation involves actual movement of money or source costs, it must be specifically disclosed and authorized before the action; account registration or general enrollment does not imply that consent.
+Supported account types, regions, grades, availability, limits and prices belong to the authenticated capabilities, product page and accepted quote. They are not fixed in this general guide. Any task-specific source costs or additional actions must be specifically disclosed and authorized before execution; account registration or general enrollment does not imply that consent.
 
 ## Results
 

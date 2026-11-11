@@ -1,6 +1,6 @@
 # GridZen developer kit — 0.7.1
 
-Public research and synthetic sandbox, not real identity verification or payment authorization. Python 3.11+.
+Public research and synthetic sandbox, not live identity verification or production authorization. Python 3.11+.
 
 ```sh
 python3 -m venv .venv

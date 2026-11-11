@@ -55,7 +55,7 @@ Windows 下使用 `.venv\Scripts\activate` 激活虚拟环境。CLI 和本地 MC
 
 ## 理解测试结果
 
-- match：模拟匹配，不授权真实入驻或付款。
+- match：模拟匹配，不授权真实入驻或生产操作。
 - mismatch：模拟不匹配，不构成欺诈判断。
 - not_found：模拟无记录，结果无法确定。
 - timeout：模拟供应商超时，结果无法确定。

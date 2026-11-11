@@ -17,3 +17,7 @@
 ### 0.7.1 发布验收结果
 
 [PR #6](https://github.com/immurray/gridzen-developer-kit/pull/6) 已合并，v0.7.1 经原 Trusted Publisher 发布。官方PyPI全新环境的CLI、14个Skills和真实stdio MCP通过；127份随包文件与官网最新源ZIP逐字节一致，其中77份Skill文件与Skill ZIP一致。旧版哈希未变，官网仅更新源ZIP/校验清单两份文件，不改变服务代码或自动部署范围。详见 `distribution/release-0.7.1.json`。
+
+## 2026-11-11 · README 与长说明文案后续修正（候选）
+
+三语 README、安装说明及随包客户端指南统一使用核验和生产授权边界，价格说明沿用商户控制台与现有报价入口。补充词表回归并核对墨西哥身份与账户指南；保留既有 CEP/SPEI 凭证核验、兼容标识与接口行为。版本仍为 0.7.1；本候选未合并、未上传 PyPI，已发布长说明和线上内容不因此更新。

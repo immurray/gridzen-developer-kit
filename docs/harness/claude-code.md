@@ -22,7 +22,7 @@ MCP target: `.mcp.json`. Skill target: `.claude/skills`.
 
 
 Try: “Plan a non-production Mexico verification pilot, identify missing permissions and
-evidence, then test a synthetic provider timeout. Do not authorize a real payment.”
+evidence, then test a synthetic provider timeout. Do not treat a synthetic result as production authorization.”
 Expected: draft or missing-information output; simulated=true, verified=false,
 provider_calls=0. Timeouts, missing evidence and unsupported remain inconclusive.
 Tool names are get_coverage, plan_verification, create_sandbox_verification,

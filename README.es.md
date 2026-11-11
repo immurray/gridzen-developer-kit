@@ -13,7 +13,7 @@
 
 [SQLite](examples/verification_delivery/) · [n8n](examples/n8n/)
 
-Los ejemplos son sintéticos. Se prepara el precio por verificación; pagos reales deshabilitados.
+Los ejemplos son sintéticos. Se prepara el precio por verificación; la activación comercial sigue sin estar disponible.
 
 
 ## Probar inmediatamente sin registro
@@ -55,7 +55,7 @@ Copia cada carpeta de `skills/` al directorio de habilidades del agente, conserv
 
 ## Interpretación
 
-- match: coincidencia simulada; no autoriza altas ni pagos reales.
+- match: coincidencia simulada; no autoriza altas reales ni acciones en producción.
 - mismatch: discrepancia simulada; no demuestra fraude.
 - not_found: sin registro simulado; no concluyente.
 - timeout: espera agotada simulada; no concluyente.
