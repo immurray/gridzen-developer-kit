@@ -1,6 +1,6 @@
 ---
 name: gridzen-hosted-identity
-description: Create a hosted verification link and retrieve its authoritative result after the person completes the journey. Use for small b2b onboarding teams and saas developers. The person completes identity and liveness steps. New-person full approval acceptance remains pending; online purchases require payment-channel acceptance.
+description: Create a hosted verification link and retrieve its authoritative result after the person completes the journey. Use for small b2b onboarding teams and saas developers. The person completes identity and liveness steps. Read the original task for its authoritative result. Completion does not grant business permissions; live access requires product enrollment and confirmed service credit.
 license: MIT
 metadata:
   compatibility: Python 3.11 or newer; gridzen-developer-kit >= 0.7.0. Separate merchant authorization and accepted service terms required for live calls.
@@ -16,7 +16,7 @@ Inputs: Subject authorization reference, stable request UUID and explicit trial 
 
 Return: Hosted URL, task state and authoritative completion status. Approved does not grant application permissions.
 
-The person completes identity and liveness steps. New-person full approval acceptance remains pending; online purchases require payment-channel acceptance.
+The person completes identity and liveness steps. Read the original task for its authoritative result. Completion does not grant business permissions; live access requires product enrollment and confirmed service credit.
 
 Read [the product reference](references/product.json) for the tool allowlist, input/output examples and current-availability entry. Examples are synthetic, never production evidence. Run `gridzen tools --product hosted-identity` to inspect the installed product before connecting.
 
