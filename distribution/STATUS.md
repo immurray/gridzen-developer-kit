@@ -1,7 +1,7 @@
 # Documentation-aligned release — 0.7.1
 
 Published and verified: [PyPI 0.7.1](https://pypi.org/project/gridzen-developer-kit/0.7.1/)
-and [GitHub v0.7.1](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.7.1/).
+and [GitHub v0.7.1](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.7.1).
 The existing Trusted Publisher workflow succeeded. A fresh environment installed
 from official PyPI with its cache disabled: CLI, 14 Skills, ten-client setup,
 127 installed files and actual stdio MCP passed. All 127 assets match the live
