@@ -16,6 +16,11 @@ jobs:
       - run: python scripts/check_mcp.py
       - run: python scripts/validate_distribution.py
       - run: python -m build && python -m twine check dist/*.whl dist/*.tar.gz
+      - name: Validate installed wheel and bundled public guides
+        run: |
+          python -m venv "$RUNNER_TEMP/gridzen-package-check"
+          "$RUNNER_TEMP/gridzen-package-check/bin/python" -m pip install dist/*.whl
+          "$RUNNER_TEMP/gridzen-package-check/bin/python" scripts/check_installed_package.py --source-root .
       - uses: actions/upload-artifact@v4
         with:
           name: gridzen-distributions

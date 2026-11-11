@@ -13,3 +13,6 @@ include docs/verification-evaluation.md
 
 include docs/atomic-tools.md
 recursive-include examples/atomic_tools *.json *.py *.md
+
+include llms-install.md docs/activation.md docs/mexico-identity-account.md docs/multilingual-ui.md
+recursive-include examples *.md *.json *.py *.ts

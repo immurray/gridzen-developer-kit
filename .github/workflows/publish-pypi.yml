@@ -18,6 +18,11 @@ jobs:
       - run: python scripts/build_downloads.py && python scripts/build_plugins.py
       - run: python -m pytest -q tests && python scripts/check_mcp.py && python scripts/validate_distribution.py
       - run: python -m build --outdir python-dist && python -m twine check python-dist/*
+      - name: Validate installed wheel and bundled public guides
+        run: |
+          python -m venv "$RUNNER_TEMP/gridzen-package-check"
+          "$RUNNER_TEMP/gridzen-package-check/bin/python" -m pip install python-dist/*.whl
+          "$RUNNER_TEMP/gridzen-package-check/bin/python" scripts/check_installed_package.py --source-root .
       - uses: actions/upload-artifact@v4
         with:
           name: python-package
@@ -54,4 +59,4 @@ jobs:
       - name: Publish release assets
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" python-dist/* src/gridzen_developer/web/downloads/*.zip src/gridzen_developer/web/downloads/sha256.json dist/gridzen-verification-*.zip dist/plugin-sha256.json --title "Gridzen Developer Kit $GITHUB_REF_NAME" --notes "Eight single-task profiles and fourteen Skills. Three offline utilities require no account. Five separate merchant profiles require existing authorization, funding and current capabilities. Anonymous remote MCP retains its five research/synthetic tools. Profile installation does not grant production access or spend authorization."
+        run: gh release create "$GITHUB_REF_NAME" python-dist/* src/gridzen_developer/web/downloads/*.zip src/gridzen_developer/web/downloads/sha256.json dist/gridzen-verification-*.zip dist/plugin-sha256.json --title "Gridzen Developer Kit $GITHUB_REF_NAME" --notes "Eight single-task profiles and fourteen Skills. Three offline utilities require no account. Five separate merchant profiles require existing authorization, permitted use and current capabilities. Anonymous remote MCP retains its five research/synthetic tools. Profile installation does not grant production access or spend authorization."

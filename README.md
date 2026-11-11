@@ -1,4 +1,4 @@
-# Gridzen Developer Kit 0.7.0
+# Gridzen Developer Kit 0.7.1
 
 The hosted developer interface supports Vietnamese alongside English, Spanish and Simplified Chinese: https://gridzen.ai/developers/?lang=vi . UI language does not enable live checks or country coverage. See [UI language maintenance](docs/multilingual-ui.md).
 
@@ -19,7 +19,7 @@ python3 -m venv .venv
 
 Open [GridZen instant trial](https://gridzen.ai/console/start?lang=en) to run synthetic signup-phone and identity-onboarding responses without an account, API key or approval. Success, rejection and unavailable scenarios make no upstream calls and verify no real person. Agents can use the separate [key-free trial MCP](https://gridzen.ai/console/downloads/quickstart_mcp.py), installed with `mcp==2.3.0` and `httpx==0.28.1` in a virtual environment.
 
-For persistent test records and supplier sandbox callbacks, connect a verified merchant sandbox account. Production access is capability-specific: eligible routes may offer bounded real trials, while others remain unavailable. Read the authenticated capability conditions; published prices do not enable paid purchases. This documentation update does not change PyPI or the official MCP Registry version.
+For persistent test records and supplier sandbox callbacks, connect a verified merchant sandbox account. Production access is capability-specific: eligible routes may offer bounded real trials, while others remain unavailable. Read the authenticated capability conditions; published prices do not enable paid purchases. Package releases and the hosted MCP Registry entry have independent versions; installing this package grants no merchant permissions.
 
 Fourteen Skills: the original six research/workflow Skills plus eight single-task profiles. Three new tools run offline; five merchant profiles call the existing authenticated GridZen API only with separate authorization, current availability and permitted use. The anonymous remote MCP retains five research/synthetic tools and never performs live verification. Research covers 198 countries/territories as a dated 2026-10-07 snapshot, not live service coverage.
 
@@ -113,10 +113,10 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.7.0"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.7.1"
 ```
 
-PyPI 0.7.0 is published and verified. Install with `python -m pip install
+Install the latest PyPI release with `python -m pip install --upgrade
 gridzen-developer-kit`. See [the release tracker](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/STATUS.md) for
 publication and installation evidence.
 
@@ -139,14 +139,14 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 Source and previous release downloads are public. Existing Registry and Skills.sh listings cover the research service; new product profiles are not separate approved listings. Docker catalog submission is awaiting review. See [the publication ledger](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/STATUS.md) for exact status and remaining platform steps.
 
 
-## 14 bundled Skills (0.7.0)
+## 14 bundled Skills (0.7.1)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
 and all 14 Skill directories.
 
 The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification. No extra MCP
-dependency installation is required. Version 0.7.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.7.0/).
+dependency installation is required. Check available versions on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/).
 
 ```sh
 gridzen coverage --country MX
@@ -165,7 +165,7 @@ provider-rights readiness. Each includes MIT, README, complete response fixtures
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
 
-## Configure your assistant (v0.7.0)
+## Configure your assistant (v0.7.1)
 
 ```sh
 python3 -m venv .venv
@@ -230,7 +230,7 @@ Local queued events expire after 30 days and are removed on the next enqueue/flu
 
 ## Separate owner-approved customer pilot
 
-The published 0.6.0 kit and its five public tools remain research/synthetic tools. A separate hosted pilot accepts customer applications for basic signup-phone validity and hosted personal identity onboarding: [apply](https://gridzen.ai/console/pilot?lang=en), [integration guide](https://gridzen.ai/console/pilot-guide?lang=en), [public scope](https://gridzen.ai/guides/customer-pilot/).
+The package and its five public tools retain their research/synthetic boundaries. A separate hosted pilot accepts customer applications for basic signup-phone validity and hosted personal identity onboarding: [apply](https://gridzen.ai/console/pilot?lang=en), [integration guide](https://gridzen.ai/console/pilot-guide?lang=en), [public scope](https://gridzen.ai/guides/customer-pilot/).
 
 Submitting an application never activates production. The owner must approve supplier rights, downstream agreements, capabilities, request limits and expiry; only confirmed free allowances are used. The production pilot has its own downloaded MCP client and merchant API key. Do not send documents, faces or provider keys to the public research MCP. Basic phone validity does not provide OTP or ownership.
 
@@ -263,10 +263,25 @@ not prove all agents have executed or recommended the skills.
 
 ## Existing Mexico SPEI payment evidence
 
-In the updated GitHub source tree or developer ZIP (the existing PyPI release does not yet include this task), use `gridzen tools --product mx-cep` to discover the separate authenticated CEP workflow. Public tools remain research/synthetic only. [Live capability conditions](https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities) require a merchant key; do not send transaction details or keys to public tools. [Runnable offline example](examples/cep_reconciliation/) makes no network calls. CEP preserves original XML, independent signature and exact expected-transaction binding; historical names do not establish current identity or account control. This workflow verifies existing SPEI evidence; it does not initiate a transfer.
+In the installed package or developer source ZIP, use `gridzen tools --product mx-cep` to discover the separate authenticated CEP workflow. Public tools remain research/synthetic only. [Live capability conditions](https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities) require a merchant key; do not send transaction details or keys to public tools. [Runnable offline example](examples/cep_reconciliation/) makes no network calls. CEP preserves original XML, independent signature and exact expected-transaction binding; historical names do not establish current identity or account control. This workflow verifies existing SPEI evidence; it does not initiate a transfer.
 
 ## Mexico identity and beneficiary-name comparison
 
 [Task, pricing boundaries and zero-cost integration examples](docs/mexico-identity-account.md) cover first account binding, account changes and exception review. The 14 MXN quote does not enable production calls; read the authenticated capability response. Public MCP and Skills remain research/synthetic only.
 
 [Run the identity/account result example offline, without signup](examples/mx_identity_account/).
+
+## Documents included with pip installation
+
+The wheel and source distribution include the same 14 canonical Skill directories
+and public integration guides as the website source download. English, Chinese and
+Spanish READMEs, task guides, ten-client instructions, examples and client templates
+are installed under `share/gridzen-developer-kit/` in your Python environment.
+
+```sh
+python -c "import sysconfig; from pathlib import Path; print(Path(sysconfig.get_path('data')) / 'share/gridzen-developer-kit/README.md')"
+```
+
+Open that README or `docs/harness/README.md` locally. Research snapshots and old
+offline identifiers remain compatible; they do not grant live verification or
+business authorization. CEP/SPEI guides describe evidence for existing transactions.

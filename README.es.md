@@ -1,4 +1,4 @@
-# Kit de desarrollo Gridzen 0.6.0
+# Kit de desarrollo Gridzen 0.7.1
 
 [Integración directa o GridZen: evalúe su tarea](docs/verification-evaluation.md#español) · [Preparación y costes](https://gridzen.ai/console/learn?lang=es&source=developer_kit#decision-fit)
 
@@ -20,9 +20,9 @@ Los ejemplos son sintéticos. Se prepara el precio por verificación; pagos real
 
 Abra la [prueba inmediata de GridZen](https://gridzen.ai/console/start?lang=es) para simular comprobaciones telefónicas e incorporación de identidad sin cuenta, clave ni aprobación. Los escenarios de éxito, rechazo e indisponibilidad no llaman a proveedores reales ni verifican personas. Los agentes pueden usar el [MCP de prueba sin clave](https://gridzen.ai/console/downloads/quickstart_mcp.py) con `mcp==2.3.0` y `httpx==0.28.1` en un entorno virtual.
 
-Conecte una cuenta sandbox con correo verificado para guardar registros y recibir callbacks. La producción sigue siendo un piloto gratuito controlado; autoservicio de producción y pagos no están habilitados. Esta actualización documental no cambia PyPI ni la versión del registro oficial MCP.
+Conecte una cuenta sandbox con correo verificado para guardar registros y recibir callbacks. El acceso real depende de cada producto: algunas rutas permiten pruebas limitadas y otras siguen sin estar disponibles. Consulta capacidades y permisos autenticados; un precio publicado no habilita compras. El paquete y el MCP Registry remoto tienen versiones independientes; instalar no concede permisos de comerciante.
 
-Investigación sobre 198 países y territorios, planificación de integraciones, cinco resultados simulados, CLI/SDK HTTP de Python, MCP local y 14 Skills. No hay canales de proveedores reales activos. Ningún resultado simulado verifica a una persona real.
+Investigación sobre 198 países y territorios, planificación de integraciones, cinco resultados simulados, CLI/SDK HTTP de Python, MCP local y 14 Skills. El MCP público de investigación y simulación no llama a proveedores reales; los perfiles de comerciante requieren autorización separada. Ningún resultado simulado verifica a una persona real.
 
 Prueba y guía: https://gridzen.ai/developers/ . El selector permite cambiar entre español, inglés y chino, y recuerda la elección. La investigación es del 2026-10-07; las fuentes y sus restricciones se conservan en el idioma original.
 
@@ -49,9 +49,9 @@ Añade un servidor stdio local a un cliente compatible y sustituye command por l
 {"mcpServers":{"gridzen":{"command":"/absolute/path/to/.venv/bin/gridzen-mcp","args":[]}}}
 ```
 
-Prueba: «Planifica una verificación de pagos para Indonesia y simula una espera agotada del proveedor». Las cinco herramientas consultan cobertura, planifican, generan simulaciones, recuperan pruebas y explican resultados. La configuración depende del cliente; no hay endpoint MCP remoto de producción.
+Prueba: «Planifica una verificación de incorporación para Indonesia y simula una espera agotada del proveedor». Las cinco herramientas consultan cobertura, planifican, generan simulaciones, recuperan pruebas y explican resultados. La configuración depende del cliente; no hay endpoint MCP remoto de producción.
 
-Copia cada carpeta de `skills/` al directorio de habilidades del agente, conservando `SKILL.md` y sus referencias. Los 6 Skills de investigación/flujos cubren selección, integración de pruebas, explicación de resultados, preparación de permisos, políticas de pagos y planificación de pilotos en México. Los identificadores permanecen en inglés; el agente puede explicar los resultados en español.
+Copia cada carpeta de `skills/` al directorio de habilidades del agente, conservando `SKILL.md` y sus referencias. Los 6 Skills de investigación/flujos cubren selección, integración de pruebas, explicación de resultados, preparación de permisos, políticas de revisión de evidencia y planificación de pilotos en México. Los identificadores permanecen en inglés; el agente puede explicar los resultados en español.
 
 ## Interpretación
 
@@ -82,14 +82,14 @@ Código original bajo MIT; consulte NOTICE.md para los derechos de terceros.
 El código, las descargas, la entrada oficial de MCP Registry y tres páginas de Skills.sh están publicados. La propuesta del catálogo de Docker está pendiente de revisión. Consulta [el registro de publicación](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/STATUS.md).
 
 
-## 14 bundled Skills (0.7.0)
+## 14 bundled Skills (0.7.1)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
 and all 14 Skill directories.
 
 The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification. No extra MCP
-dependency installation is required. Version 0.6.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/).
+dependency installation is required. Check available versions on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/).
 
 ```sh
 gridzen coverage --country MX
@@ -160,7 +160,7 @@ Local queued events expire after 30 days and are removed on the next enqueue/flu
 
 ## Piloto independiente con aprobación del responsable
 
-El kit publicado 0.6.0 y sus cinco herramientas públicas siguen siendo de investigación y simulación. Puede solicitar un piloto independiente de validez básica del teléfono e incorporación de identidad: [solicitud](https://gridzen.ai/console/pilot?lang=es), [guía](https://gridzen.ai/console/pilot-guide?lang=es), [alcance](https://gridzen.ai/es/guides/customer-pilot/).
+El paquete y sus cinco herramientas públicas conservan sus límites de investigación y simulación. Puede solicitar un piloto independiente de validez básica del teléfono e incorporación de identidad: [solicitud](https://gridzen.ai/console/pilot?lang=es), [guía](https://gridzen.ai/console/pilot-guide?lang=es), [alcance](https://gridzen.ai/es/guides/customer-pilot/).
 
 Solicitar no activa producción. El responsable confirma derechos del proveedor, acuerdos, capacidades, límites y vencimiento; solo se usan cupos gratuitos confirmados. El piloto utiliza un cliente MCP separado y una clave comercial. No envíe documentos, caras ni claves del proveedor al MCP público. La validez básica no proporciona OTP ni prueba de titularidad.
 
