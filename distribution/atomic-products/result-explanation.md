@@ -11,7 +11,7 @@ Input: A documented status code only; no raw identity documents, customer messag
 
 Result: Meaning, whether the result is conclusive and a safe next step. Unknown codes remain unknown.
 
-Boundary: Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, payment or business approval.
+Boundary: Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, additional operation or business approval.
 
 One next action: [inspect this tool](https://gridzen.ai/tools/result-explanation/?source=referral).
 
@@ -19,7 +19,7 @@ One next action: [inspect this tool](https://gridzen.ai/tools/result-explanation
 
 Handle pending, declined and unavailable as different integration states
 
-Turn a documented status into a clear recovery step without sending a new request. Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, payment or business approval.
+Turn a documented status into a clear recovery step without sending a new request. Explanations do not change the provider result, issue a compliance conclusion or authorize a retry, additional operation or business approval.
 
 Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 

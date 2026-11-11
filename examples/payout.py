@@ -1,4 +1,4 @@
-"""Run: python examples/payout.py. Sends only synthetic scenario parameters."""
+"""Legacy event compatibility example. Sends only synthetic scenario parameters."""
 from gridzen_developer.client import Gridzen
 api=Gridzen()
 plan=api.plan('ID','payout')

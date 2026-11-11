@@ -13,7 +13,7 @@
 
 [SQLite](examples/verification_delivery/) · [n8n](examples/n8n/)
 
-Los ejemplos son sintéticos. Se prepara el precio por verificación; la activación comercial sigue sin estar disponible.
+Los ejemplos son sintéticos. Los precios publicados por producto y su disponibilidad se rigen por la consola del comerciante; la activación comercial sigue sin estar disponible.
 
 
 ## Probar inmediatamente sin registro

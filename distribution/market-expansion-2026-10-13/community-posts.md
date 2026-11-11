@@ -7,7 +7,7 @@ URL: https://gridzen.ai/console/start?lang=en
 
 We built GridZen's account-free response trial and SQLite delivery fixtures for developers building seller onboarding. You can run success, rejection and unavailable outcomes without entering a document, a face image or a provider credential. The local example exercises duplicate callbacks, binding, deadlines and permission decisions. There is an importable n8n workflow too.
 
-This is synthetic integration testing. Public MCP/Skills do not verify real people, send OTP or approve production. Our controlled production pilot is separate and real payments are off. I would like feedback from developers implementing verification-to-permission flows: which missing recovery branch makes this unusable in your app?
+This is synthetic integration testing. Public MCP/Skills do not verify real people, send OTP or approve production. Our controlled production pilot is separate and paid activation remains unavailable. I would like feedback from developers implementing verification-to-permission flows: which missing recovery branch makes this unusable in your app?
 
 Code: https://github.com/immurray/gridzen-developer-kit/tree/main/examples/verification_delivery
 
@@ -42,4 +42,4 @@ https://gridzen.ai/console/start?lang=en
 
 Title: Identity onboarding: test success, rejection and unavailable before production
 
-Description: This screen recording shows GridZen's account-free **synthetic** trial. No person is verified, no provider session is created, no OTP is sent and no payment occurs. The repository contains the corresponding callback/permission fixture and n8n workflow. Production requires a separately approved route.
+Description: This screen recording shows GridZen's account-free **synthetic** trial. No person is verified, no provider session is created, no OTP is sent and no production action is authorized. The repository contains the corresponding callback/permission fixture and n8n workflow. Production requires a separately approved route.

@@ -1,6 +1,6 @@
 {
   "kind": "normal",
-  "prompt": "Create an offline draft from these synthetic references. Do not approve a real pilot, payment or provider.",
+  "prompt": "Create an offline draft from these synthetic references. Do not approve a real pilot, production action or provider.",
   "input": {
     "country": "MX",
     "event": "payout",

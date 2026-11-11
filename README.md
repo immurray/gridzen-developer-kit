@@ -267,7 +267,7 @@ In the installed package or developer source ZIP, use `gridzen tools --product m
 
 ## Mexico identity and beneficiary-name comparison
 
-[Task, pricing boundaries and zero-cost integration examples](docs/mexico-identity-account.md) cover first account binding, account changes and exception review. The 14 MXN quote does not enable production calls; read the authenticated capability response. Public MCP and Skills remain research/synthetic only.
+[Task, pricing boundaries and zero-cost integration examples](docs/mexico-identity-account.md) cover first account binding, account changes and exception review. Published per-product prices and availability are subject to the authenticated merchant console; read the authenticated capability response. Public MCP and Skills remain research/synthetic only.
 
 [Run the identity/account result example offline, without signup](examples/mx_identity_account/).
 

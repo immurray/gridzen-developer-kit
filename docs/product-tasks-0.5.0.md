@@ -2,9 +2,9 @@
 
 # Product tasks and evidence in 0.5.0
 
-Six Skills remain. Select/integrate/explain are the main customer path; provider rights are advanced BYO/provider operations; payout policy and Mexico scope remain supporting drafts. Five MCP tools remain backwards compatible.
+Six Skills remain. Select/integrate/explain are the main customer path; provider rights are advanced BYO/provider operations; account verification policy and Mexico scope remain supporting drafts. Five MCP tools remain backwards compatible.
 
-Priority tasks: signup_phone (phone validity/type, no OTP or ownership) and identity_onboarding (personal document/liveness prototype; fixtures do not create hosted sessions). Payout account matching is a synthetic prototype, with no live route enabled. Task-specific planner reports production blockers and required lifecycle work. examples/customer_tasks.py tests five fixture outcomes for each priority task. examples/identity_lifecycle.py is a caller-owned local lifecycle sketch with pending/review/completed/expired/abandoned and duplicate handling, not a provider integration.
+Priority tasks: signup_phone (phone validity/type, no OTP or ownership) and identity_onboarding (personal document/liveness prototype; fixtures do not create hosted sessions). Account-name matching is a synthetic prototype, with no live route enabled. Task-specific planner reports production blockers and required lifecycle work. examples/customer_tasks.py tests five fixture outcomes for each priority task. examples/identity_lifecycle.py is a caller-owned local lifecycle sketch with pending/review/completed/expired/abandoned and duplicate handling, not a provider integration.
 
 Remote attempts collect only fixed categories, including rejected arguments and HTTP failures. Local stdio and Skills do not automatically send anything. gridzen feedback writes a category-only local summary; --share is an explicit network action. Summary outcomes are unverified, receipt hashes deduplicate retries within a UTC day, aggregates expire after 90 days and receipt hashes after 30 days, cleaned on the next write. Raw UUIDs, credentials, prompts and personal fields are not stored. Daily caps: 10000 attempts / 500 summaries per database. Source evidence is separate from execution mode.
 

@@ -11,7 +11,7 @@ Input: Subject authorization reference, stable request UUID and explicit trial o
 
 Result: Hosted URL, task state and authoritative completion status. Approved does not grant application permissions.
 
-Boundary: The person completes identity and liveness steps. New-person full approval acceptance remains pending; online purchases require payment-channel acceptance.
+Boundary: The person completes identity and liveness steps. New-person full approval acceptance remains pending; paid activation remains unavailable.
 
 One next action: [inspect this tool](https://gridzen.ai/tools/hosted-identity/?source=referral).
 
@@ -19,7 +19,7 @@ One next action: [inspect this tool](https://gridzen.ai/tools/hosted-identity/?s
 
 Start a hosted identity journey without putting documents in an AI chat
 
-Create a hosted verification link and retrieve its authoritative result after the person completes the journey. The person completes identity and liveness steps. New-person full approval acceptance remains pending; online purchases require payment-channel acceptance.
+Create a hosted verification link and retrieve its authoritative result after the person completes the journey. The person completes identity and liveness steps. New-person full approval acceptance remains pending; paid activation remains unavailable.
 
 Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 

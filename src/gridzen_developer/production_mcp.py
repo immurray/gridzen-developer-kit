@@ -24,7 +24,7 @@ from mcp.types import ToolAnnotations
 BASE = "https://gridzen.ai/console/api/production"
 
 # Product profiles reduce the tools advertised to an assistant. They do not
-# replace the backend's merchant permissions, enrollment or funding checks.
+# replace the backend's merchant permissions, enrollment or service-credit checks.
 PROFILES = {
     'mx-cep': ('mexico_cep_capabilities', 'submit_mexico_cep_check', 'get_mexico_cep_check', 'recover_mexico_cep_check'),
     'mx-account-name': ('mexico_account_name_capabilities', 'quote_mexico_account_name', 'verify_mexico_account_name', 'get_mexico_account_name', 'recover_mexico_account_name'),
@@ -124,7 +124,7 @@ def make_server(api, profile=None):
         "GridZen Production",
         version="0.3.0",
         middleware=[validate],
-        instructions="Separately gated production routes. First read capabilities; enrollment is completed by the business representative in the console. Supplier costs may apply within server-enforced limits; current funding, checkout availability and charges follow the console status and accepted product quote. Paid identity and risk calls require explicit billing_mode=paid and confirmed prepaid credit; never purchase or top up automatically. Mutations require explicit subject consent and intended user action. Phone checks validity only, not possession. Identity documents and faces go directly to hosted provider. Registration-risk checks return IP-only signals, never identity verification. Return provider evidence, never infer fraud or approve a customer automatically. Reuse idempotency UUID on retry; no automatic replacement after ambiguous submission.",
+        instructions="Separately gated production routes. First read capabilities; enrollment is completed by the business representative in the console. Supplier costs may apply within server-enforced limits; current service credit, activation availability and charges follow the console status and accepted product quote. Paid identity and risk calls require explicit billing_mode=paid and confirmed service credit; never purchase or top up automatically. Mutations require explicit subject consent and intended user action. Phone checks validity only, not possession. Identity documents and faces go directly to hosted provider. Registration-risk checks return IP-only signals, never identity verification. Return provider evidence, never infer fraud or approve a customer automatically. Reuse idempotency UUID on retry; no automatic replacement after ambiguous submission.",
     )
     read = ToolAnnotations(
         readOnlyHint=True,
@@ -244,12 +244,12 @@ def make_server(api, profile=None):
 
     @server.tool(annotations=read, structured_output=True)
     async def mexico_account_name_capabilities() -> dict[str, Any]:
-        """Read the funding mode, customer charge, supported receiving banks and execution gates. An operator-funded trial is not customer debt. Does not transfer money."""
+        """Read the service-credit mode, customer charge, supported receiving banks and execution gates. An operator-funded trial is not customer debt. Does not transfer money."""
         return await api.micro('GET', '/capabilities')
 
     @server.tool(annotations=read, structured_output=True)
     async def quote_mexico_account_name(clabe: str, account_name: str, account_holder_type: str, verification_mode: Literal['name_match','statement_amount']='name_match') -> dict[str, Any]:
-        """Get an expiring quote. Show principal, provider and GridZen fees and maximum debit separately. No payment. Copy the exact quote_token and terms_version after explicit authorization."""
+        """Get an expiring quote. Show principal, provider and GridZen fees and maximum debit separately. No production action is authorized. Copy the exact quote_token and terms_version after explicit authorization."""
         return await api.micro('POST', '/quote', {'clabe':clabe, 'name':account_name,
                                                 'account_holder_type':account_holder_type,'verification_mode':verification_mode})
 
@@ -257,7 +257,7 @@ def make_server(api, profile=None):
     async def verify_mexico_account_name(clabe: str, account_name: str, account_holder_type: str,
             quote_token: str, idempotency_key: str, consent_reference: str,
             consent_to_verify: bool, authorize_transfer: bool, verification_mode: Literal['name_match','statement_amount']='name_match',terms_version: str='') -> dict[str, Any]:
-        """MONEY MOVEMENT: explicitly authorize the full quote, including principal, provider fees and any GridZen service fee. Pass its exact quote_token and terms_version. Funding is operator trial or actual merchant prepayment, never inferred debt. Not OTP or document identity. After ambiguity read the original request; never create a replacement automatically."""
+        """MONEY MOVEMENT: explicitly authorize the full quote, including principal, provider fees and any GridZen service fee. Pass its exact quote_token and terms_version. Service credit is an operator trial allowance or an actual merchant balance, never inferred debt. Not OTP or document identity. After ambiguity read the original request; never create a replacement automatically."""
         key, ref = consent(idempotency_key, consent_reference, consent_to_verify)
         if authorize_transfer is not True:
             raise MCPError(code=-32602, message='Explicit authorization for this money transfer is required')
@@ -277,7 +277,7 @@ def make_server(api, profile=None):
 
     @server.tool(annotations=read, structured_output=True)
     async def recover_mexico_account_name(idempotency_key: str) -> dict[str, Any]:
-        """Reconcile an interrupted submission by its ORIGINAL request UUID. Never creates a payment."""
+        """Reconcile an interrupted submission by its ORIGINAL request UUID. Never initiates a new operation."""
         return await api.micro('GET','/requests/'+str(UUID(idempotency_key)))
 
     @server.tool(annotations=read, structured_output=True)
@@ -290,7 +290,7 @@ def make_server(api, profile=None):
         amount_minor: StrictInt, issuer_code: str, receiver_code: str, account: str,
         authorization_reference: str, authorized_to_query: StrictBool, business_website: str,
         expected_name: str='') -> dict[str, Any]:
-        """Queue one authorized EXISTING SPEI payment CEP check. Amount is integer MXN cents. Never creates a payment. Preserve original idempotency UUID after timeout."""
+        """Queue one authorized EXISTING SPEI payment CEP check. Amount is integer MXN cents. Never initiates a new operation. Preserve original idempotency UUID after timeout."""
         if authorized_to_query is not True:raise MCPError(code=-32602,message='Explicit authorization required')
         return await api.cep('POST','/checks',{'idempotency_key':str(UUID(idempotency_key)),
             'operation_date':operation_date,'tracking_key':tracking_key,'amount_minor':amount_minor,
@@ -338,7 +338,7 @@ def make_server(api, profile=None):
     @server.tool(annotations=read,structured_output=True)
     async def quote_mexico_identity_account(personal_number:str,clabe:str,bank_evidence_id:str|None=None,
         business_event:Literal['first_binding','account_change','exception_review']='first_binding') -> dict[str,Any]:
-        """Get a bound quote for identity and beneficiary-account verification from CURP and CLABE. Follow its current price, capabilities and required authorization. A quote creates no verification or payment; do not send real data to public research tools."""
+        """Get a bound quote for identity and beneficiary-account verification from CURP and CLABE. Follow its current price, capabilities and required authorization. A quote creates no verification or additional operation; do not send real data to public research tools."""
         return await api.identity_account('POST','/quote',identity_values(personal_number,clabe,bank_evidence_id,business_event))
 
     @server.tool(annotations=transfer,structured_output=True)
@@ -360,7 +360,7 @@ def make_server(api, profile=None):
 
     @server.tool(annotations=read,structured_output=True)
     async def recover_mexico_identity_account(idempotency_key:str) -> dict[str,Any]:
-        """Read the original identity/account task. No new query, payment or replacement request."""
+        """Read the original identity/account task. No new query, additional operation or replacement request."""
         return await api.identity_account('GET','/requests/'+str(UUID(idempotency_key)))
 
     tools.update(

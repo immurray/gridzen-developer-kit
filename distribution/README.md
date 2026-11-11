@@ -5,7 +5,7 @@ Registry namespace: ai.gridzen/verification
 Remote MCP: https://gridzen.ai/developers/mcp
 
 Use scripts/export_public.py to export only approved developer files into a
-fresh checkout of the public repository. Review the diff before pushing. Never
+fresh working copy of the public repository. Review the diff before pushing. Never
 copy the private repository, deployment credentials or operational database.
 
 Build: python scripts/build_downloads.py && python scripts/build_plugins.py
@@ -20,7 +20,7 @@ No PyPI status is inferred from building a wheel or triggering a workflow.
 
 Official registry: validate with scripts/validate_distribution.py; authenticate with the
 Gridzen domain HTTP proof, then mcp-publisher publish server.json. Private signing
-keys and registry tokens must remain outside this checkout and all distributions.
+keys and registry tokens must remain outside this working copy and all distributions.
 
 Other markets: see submissions.md for copy-ready material. Record the actual
 submission receipt and published URL in STATUS.md and the private release ledger. Mark a channel

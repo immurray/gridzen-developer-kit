@@ -37,4 +37,4 @@ original task for its authoritative result. A live authorized hosted journey has
 been accepted with signed notifications and authoritative completion; this
 single-case test does not enable customer purchases. Current capability and
 balance responses remain authoritative. An internal company-funded acceptance
-credit is not a customer payment or general merchant credit.
+credit is not general merchant credit.

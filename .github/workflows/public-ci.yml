@@ -16,6 +16,8 @@ jobs:
       - run: python scripts/check_mcp.py
       - run: python scripts/validate_distribution.py
       - run: python -m build && python -m twine check dist/*.whl dist/*.tar.gz
+      - name: Audit public copy and built long descriptions
+        run: python scripts/audit_public_copy.py --artifacts dist
       - name: Validate installed wheel and bundled public guides
         run: |
           python -m venv "$RUNNER_TEMP/gridzen-package-check"

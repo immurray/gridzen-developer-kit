@@ -4,7 +4,7 @@ This patch retains all fourteen Skills and unchanged MCP tool permissions. It
 removes the obsolete blanket statement that every new hosted-person acceptance
 is still pending and explains that task review/grade B do not suspend a merchant.
 Live use still requires product enrollment, actual service credit and explicit
-task authority. Payment readiness is not implied by the completed owner case.
+task authority. Commercial activation is not implied by the completed owner case.
 
 The 2026-11-11 native acceptance used Codex, Cursor and Google Antigravity to load
 five merchant Skills and public references, then read the same five real task
