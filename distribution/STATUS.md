@@ -1,3 +1,23 @@
+# Merchant readiness wording correction — 0.7.2
+
+This patch retains all fourteen Skills and unchanged MCP tool permissions. It
+removes the obsolete blanket statement that every new hosted-person acceptance
+is still pending and explains that task review/grade B do not suspend a merchant.
+Live use still requires product enrollment, actual service credit and explicit
+task authority. Payment readiness is not implied by the completed owner case.
+
+The 2026-11-11 native acceptance used Codex, Cursor and Google Antigravity to load
+five merchant Skills and public references, then read the same five real task
+results through a fixed, redacted local executor. It did not create five new
+charged tasks in each client. Other client/model combinations are not newly
+claimed by this patch. Private evidence remains outside this public repository.
+
+Local validation: 81 tests passed; actual local MCP contract and distribution
+schema checks passed; wheel/source build and Twine checks passed. PyPI installation
+is verified after the existing tagged Trusted Publisher workflow completes.
+
+---
+
 # Documentation-aligned release — 0.7.1
 
 Published and verified: [PyPI 0.7.1](https://pypi.org/project/gridzen-developer-kit/0.7.1/)
