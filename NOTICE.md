@@ -1,5 +1,7 @@
 # Source and data notice
 
+Package version: 0.7.3 (release candidate; publication requires owner approval).
+
 Gridzen's original code, Skills and documentation are MIT licensed. The original
 research compilation in `src/gridzen_developer/data/catalog.json` is included
 under that license only to the extent Gridzen holds rights in that compilation.

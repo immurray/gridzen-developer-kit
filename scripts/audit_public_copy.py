@@ -6,6 +6,7 @@ import re
 import runpy
 import subprocess
 import tarfile
+import tomllib
 import zipfile
 from email.parser import Parser
 
@@ -47,7 +48,11 @@ def scan_repository():
     rows, failures = [], []
     for path in scope_paths():
         relative = path.relative_to(ROOT)
-        text = normalize(path.read_text(), relative)
+        raw = path.read_text()
+        if path.parent == ROOT and path.name.startswith('README'):
+            if POLICY['strict_description_violations'](raw):
+                failures.append(f'{relative}: strict README description violation')
+        text = normalize(raw, relative)
         for line_number, line in enumerate(text.splitlines(), 1):
             rows.append(f'{relative}:{line_number}:{line}')
             if PATTERN.search(line):
@@ -57,6 +62,8 @@ def scan_repository():
 
 def check_artifacts(directory):
     checked = []
+    expected_version = tomllib.loads((ROOT/'pyproject.toml').read_text())['project']['version']
+    expected_lines = (ROOT/'README.md').read_text().rstrip().splitlines()
     for path in sorted(directory.iterdir()):
         payloads = []
         if path.suffix == '.whl':
@@ -65,12 +72,16 @@ def check_artifacts(directory):
         elif path.name.endswith('.tar.gz'):
             with tarfile.open(path) as archive:
                 payloads = [(m.name, archive.extractfile(m).read()) for m in archive if m.name.endswith('/PKG-INFO')]
+        if path.suffix == '.whl' or path.name.endswith('.tar.gz'):
+            assert payloads, (path, 'missing long-description metadata')
         for name, raw in payloads:
             metadata = Parser().parsestr(raw.decode('utf-8'))
             body = metadata.get_payload()
-            assert metadata['Version'] == '0.7.2', (path, 'version')
-            assert body.rstrip() == (ROOT/'README.md').read_text().rstrip(), (path, name, 'description drift')
-            assert not POLICY['public_copy_violations'](body), (path, name)
+            assert metadata['Version'] == expected_version, (path, 'version')
+            assert isinstance(body, str), (path, name, 'invalid description')
+            assert metadata['Description-Content-Type'] == 'text/markdown', (path, name, 'content type')
+            assert body.rstrip().splitlines() == expected_lines, (path, name, 'line-by-line description drift')
+            assert not POLICY['strict_description_violations'](body), (path, name)
             checked.append(f'{path.name}:{name}')
     assert any('.whl:' in n for n in checked) and any('.tar.gz:' in n for n in checked), 'wheel and sdist required'
     return checked
@@ -90,7 +101,7 @@ def main():
     print(f'PASS public copy: {len(scope_paths())} files; zero non-exempt matches')
     if args.artifacts:
         for name in check_artifacts(args.artifacts):
-            print('PASS long description:', name)
+            print('PASS long description:', name, '; version='+tomllib.loads((ROOT/'pyproject.toml').read_text())['project']['version']+'; line-by-line match; 0 red-line matches')
     return 0
 
 

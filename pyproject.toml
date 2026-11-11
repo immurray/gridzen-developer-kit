@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gridzen-developer-kit"
-version = "0.7.2"
+version = "0.7.3"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE", "NOTICE.md"]
@@ -64,7 +64,7 @@ Source = "https://github.com/immurray/gridzen-developer-kit"
 "share/gridzen-developer-kit/skills/gridzen-result-explanation/references" = ["skills/gridzen-result-explanation/references/product.json"]
 
 # Public documents and examples use the same relative paths as the source ZIP.
-"share/gridzen-developer-kit" = ["LICENSE", "NOTICE.md", "README.es.md", "README.md", "README.zh-CN.md", "llms-install.md"]
+"share/gridzen-developer-kit" = ["LICENSE", "NOTICE.md", "CHANGELOG.md", "README.es.md", "README.md", "README.zh-CN.md", "llms-install.md"]
 "share/gridzen-developer-kit/clients" = ["clients/claude-code.json", "clients/claude-desktop.json", "clients/cline.json", "clients/codex.toml", "clients/compatibility.json", "clients/copilot-cli.json", "clients/cursor.json", "clients/gemini-cli.json", "clients/opencode.json", "clients/roo-code.json", "clients/vscode.json"]
 "share/gridzen-developer-kit/docs" = ["docs/activation.md", "docs/atomic-tools.md", "docs/mexico-identity-account.md", "docs/multilingual-ui.md", "docs/verification-evaluation.md"]
 "share/gridzen-developer-kit/docs/harness" = ["docs/harness/README.md", "docs/harness/claude-code.md", "docs/harness/claude-desktop.md", "docs/harness/cline.md", "docs/harness/codex.md", "docs/harness/copilot-cli.md", "docs/harness/cursor.md", "docs/harness/gemini-cli.md", "docs/harness/opencode.md", "docs/harness/roo-code.md", "docs/harness/vscode.md"]

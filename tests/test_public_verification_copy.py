@@ -82,11 +82,16 @@ def public_copy_violations(text):
     return [match.group() for match in PUBLIC_COPY_BAD.finditer(public_copy_normalized(text))]
 
 
+def strict_description_violations(text):
+    # Root READMEs/PyPI descriptions cannot advertise even preserved identifiers.
+    return public_copy_violations(text) + re.findall(r'\bpayout(?:_account)?\b', text, re.I)
+
+
 def current_public_copy_paths():
     metadata = tomllib.loads((ROOT/'pyproject.toml').read_text())
     readme = metadata['project']['readme']
     readme = readme if isinstance(readme, str) else readme['file']
-    paths = {ROOT/readme, *ROOT.glob('README*.md'), ROOT/'llms-install.md', ROOT/'docs/site-integration.md', ROOT/'NOTICE.md', ROOT/'SECURITY.md'}
+    paths = {ROOT/readme, *ROOT.glob('README*.md'), ROOT/'llms-install.md', ROOT/'docs/site-integration.md', ROOT/'NOTICE.md', ROOT/'SECURITY.md', ROOT/'CHANGELOG.md'}
     paths.update((ROOT/'skills').rglob('*.md'))
     paths.update((ROOT/'examples').rglob('*.md'))
     paths.update((ROOT/'docs').rglob('*.md'))
@@ -98,7 +103,8 @@ def current_public_copy_paths():
 
 @pytest.mark.parametrize('path', current_public_copy_paths(), ids=lambda p: str(p.relative_to(ROOT)))
 def test_current_readmes_and_bundled_guides_have_no_retired_service_copy(path):
-    assert not public_copy_violations(path.read_text()), path.relative_to(ROOT)
+    guard = strict_description_violations if path.parent == ROOT and path.name.startswith('README') else public_copy_violations
+    assert not guard(path.read_text()), path.relative_to(ROOT)
 
 
 @pytest.mark.parametrize('text', [
@@ -155,3 +161,19 @@ def test_full_repository_copy_scope():
                                   '收费', 'checkout', 'prepaid', 'funding', '/pricing/', '/payments'])
 def test_narrow_exceptions_never_hide_another_claim(allowed, bad):
     assert public_copy_violations(allowed + ' ' + bad)
+
+
+@pytest.mark.parametrize('identifier', ['payout', 'payout_account', 'payout-policy-designer'])
+def test_root_readme_and_pypi_description_do_not_allow_compatibility_identifiers(identifier):
+    assert strict_description_violations(identifier)
+
+
+@pytest.mark.parametrize('neutral', [
+    'Paid activation remains unavailable.',
+    'la activación comercial sigue sin estar disponible.',
+    '付费开通仍不可用。',
+    'Existing Mexico SPEI payment evidence',
+    'https://gridzen.ai/console/api/payment-evidence/mx/cep/capabilities',
+])
+def test_strict_description_keeps_only_neutral_boundaries_and_cep(neutral):
+    assert not strict_description_violations(neutral)
