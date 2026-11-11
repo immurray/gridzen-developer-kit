@@ -1,9 +1,14 @@
 # Documentation-aligned release — 0.7.1
 
-Owner murray authorized a new immutable PyPI release on 2026-11-11. Candidate: 14
-Skills, updated public copy and installed public guides/examples. Publication is
-pending the existing Trusted Publisher workflow and clean PyPI installation check.
-No Registry submission, supplier action or business permission is granted.
+Published and verified: [PyPI 0.7.1](https://pypi.org/project/gridzen-developer-kit/0.7.1/)
+and [GitHub v0.7.1](https://github.com/immurray/gridzen-developer-kit/releases/tag/v0.7.1/).
+The existing Trusted Publisher workflow succeeded. A fresh environment installed
+from official PyPI with its cache disabled: CLI, 14 Skills, ten-client setup,
+127 installed files and actual stdio MCP passed. All 127 assets match the live
+website source ZIP; all 77 Skill files match its Skill ZIP. Clean wheel and sdist
+installations and 81 tests passed. Historical 0.7.0 hashes remain unchanged.
+[Machine-readable receipt](release-0.7.1.json). This patch changes no merchant
+permissions and makes no Registry submission or client/model certification claim.
 
 > Historical release records below describe their dated versions. Current inventory: **14 Skills (6 research/workflow + 8 single-task)**. See [current installation](https://gridzen.ai/developers/harnesses.html).
 
