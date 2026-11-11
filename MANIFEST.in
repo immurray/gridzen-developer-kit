@@ -1,4 +1,4 @@
-include LICENSE NOTICE.md README.md README.zh-CN.md README.es.md
+include LICENSE NOTICE.md CHANGELOG.md README.md README.zh-CN.md README.es.md
 prune src/gridzen_developer/web/downloads
 prune dist
 prune build

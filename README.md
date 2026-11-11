@@ -1,4 +1,4 @@
-# Gridzen Developer Kit 0.7.2
+# Gridzen Developer Kit 0.7.3
 
 The hosted developer interface supports Vietnamese alongside English, Spanish and Simplified Chinese: https://gridzen.ai/developers/?lang=vi . UI language does not enable live checks or country coverage. See [UI language maintenance](docs/multilingual-ui.md).
 
@@ -113,7 +113,7 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.7.2"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.7.3"
 ```
 
 Install the latest PyPI release with `python -m pip install --upgrade
@@ -139,7 +139,7 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 Source and previous release downloads are public. Existing Registry and Skills.sh listings cover the research service; new product profiles are not separate approved listings. Docker catalog submission is awaiting review. See [the publication ledger](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/STATUS.md) for exact status and remaining platform steps.
 
 
-## 14 bundled Skills (0.7.2)
+## 14 bundled Skills (0.7.3)
 
 `python -m pip install gridzen-developer-kit` installs the CLI, stdio MCP dependencies
 and all 14 Skill directories.
@@ -165,7 +165,7 @@ provider-rights readiness. Each includes MIT, README, complete response fixtures
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
 
-## Configure your assistant (v0.7.2)
+## Configure your assistant (v0.7.3)
 
 ```sh
 python3 -m venv .venv

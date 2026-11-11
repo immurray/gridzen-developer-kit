@@ -1,4 +1,4 @@
-# GridZen developer kit — 0.7.1
+# GridZen developer kit — 0.7.3
 
 Public research and synthetic sandbox, not live identity verification or production authorization. Python 3.11+.
 

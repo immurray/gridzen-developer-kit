@@ -49,7 +49,7 @@ def run_mcp(product):
                 if not isinstance(values,dict) or set(values)!=set(signature(fn).parameters) or any(type(v) is not str or len(v)>100 for v in values.values()):
                     raise MCPError(code=-32602,message='Only documented, bounded string fields are accepted.')
             return await next_call(ctx)
-        server=MCPServer('GridZen '+product,version='0.7.1',middleware=[strict],instructions=row['boundary'])
+        server=MCPServer('GridZen '+product,version='0.7.3',middleware=[strict],instructions=row['boundary'])
         server.tool(annotations=ToolAnnotations(readOnlyHint=True,destructiveHint=False,idempotentHint=True,openWorldHint=False),structured_output=True)(fn)
     server.run(transport='stdio')
 

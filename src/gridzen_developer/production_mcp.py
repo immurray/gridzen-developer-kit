@@ -122,7 +122,7 @@ def make_server(api, profile=None):
 
     server = MCPServer(
         "GridZen Production",
-        version="0.3.0",
+        version="0.7.3",
         middleware=[validate],
         instructions="Separately gated production routes. First read capabilities; enrollment is completed by the business representative in the console. Supplier costs may apply within server-enforced limits; current service credit, activation availability and charges follow the console status and accepted product quote. Paid identity and risk calls require explicit billing_mode=paid and confirmed service credit; never purchase or top up automatically. Mutations require explicit subject consent and intended user action. Phone checks validity only, not possession. Identity documents and faces go directly to hosted provider. Registration-risk checks return IP-only signals, never identity verification. Return provider evidence, never infer fraud or approve a customer automatically. Reuse idempotency UUID on retry; no automatic replacement after ambiguous submission.",
     )

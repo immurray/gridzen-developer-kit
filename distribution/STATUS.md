@@ -1,3 +1,7 @@
+# Long-description release preparation — 0.7.3
+
+Candidate only: the built descriptions use the cleaned GitHub README. Owner approval is required for merge, tag creation and PyPI publication. No package upload, hosted deployment or registry submission is performed by this change. Historical release receipts below remain unchanged.
+
 # Merchant readiness wording correction — 0.7.2
 
 This patch retains all fourteen Skills and unchanged MCP tool permissions. It
