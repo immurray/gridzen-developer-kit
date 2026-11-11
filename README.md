@@ -34,7 +34,7 @@ Fourteen Skills: the original six research/workflow Skills plus eight single-tas
 | Missing or delayed callback | [Guide](https://gridzen.ai/console/learn/callback-recovery?lang=en) | [Recovery fixture](examples/verification_delivery/) |
 | Verification to business permission | [Guide](https://gridzen.ai/console/learn/business-permission-boundary?lang=en) | [Self-hosted n8n fixture](examples/n8n/) |
 
-[Chinese and Spanish article files](distribution/market-expansion-2026-10-13/articles/) · [Demo video](distribution/market-expansion-2026-10-13/media/identity-three-outcomes.mp4).
+[Chinese and Spanish article files](https://github.com/immurray/gridzen-developer-kit/tree/main/distribution/market-expansion-2026-10-13/articles/) · [Demo video](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/market-expansion-2026-10-13/media/identity-three-outcomes.mp4).
 
 Public examples are synthetic. Approved prices and per-product availability are published at https://gridzen.ai/pricing/; paid activation remains unavailable. [Request an approved pilot](https://gridzen.ai/console/pilot), without sending identity documents or credentials to public MCP tools.
 
@@ -113,11 +113,11 @@ npx skills add immurray/gridzen-developer-kit
 Install the tagged Python/MCP release from GitHub (Python 3.11+ and Git):
 
 ```sh
-python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.6.0"
+python -m pip install "gridzen-developer-kit[mcp] @ git+https://github.com/immurray/gridzen-developer-kit.git@v0.7.0"
 ```
 
-PyPI 0.6.0 is published and verified. Install with `python -m pip install
-gridzen-developer-kit`. See [the release tracker](distribution/STATUS.md) for
+PyPI 0.7.0 is published and verified. Install with `python -m pip install
+gridzen-developer-kit`. See [the release tracker](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/STATUS.md) for
 publication and installation evidence.
 
 Remote client configuration (conventional JSON; client syntax may vary):
@@ -136,7 +136,7 @@ Original code and Skills: MIT. Research provenance and third-party rights:
 
 ## Marketplace availability
 
-Source and previous release downloads are public. Existing Registry and Skills.sh listings cover the research service; new product profiles are not separate approved listings. Docker catalog submission is awaiting review. See [the publication ledger](distribution/STATUS.md) for exact status and remaining platform steps.
+Source and previous release downloads are public. Existing Registry and Skills.sh listings cover the research service; new product profiles are not separate approved listings. Docker catalog submission is awaiting review. See [the publication ledger](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/STATUS.md) for exact status and remaining platform steps.
 
 
 ## 14 bundled Skills (0.7.0)
@@ -145,8 +145,8 @@ Source and previous release downloads are public. Existing Registry and Skills.s
 and all 14 Skill directories.
 
 The 14 Skills comprise 6 research/workflow Skills and 8 single-task profiles. Of the 8 profiles, 3 run offline and 5 merchant profiles require separate authorization. Five public MCP tools provide research/synthetic operations. No live identity verification. No extra MCP
-dependency installation is required. Version 0.6.0 is published on
-[PyPI](https://pypi.org/project/gridzen-developer-kit/0.6.0/).
+dependency installation is required. Version 0.7.0 is published on
+[PyPI](https://pypi.org/project/gridzen-developer-kit/0.7.0/).
 
 ```sh
 gridzen coverage --country MX
@@ -165,7 +165,7 @@ provider-rights readiness. Each includes MIT, README, complete response fixtures
 and agent acceptance prompts. They make no third-party calls and grant no real
 verification, legal approval or regulatory conclusion.
 
-## Configure your assistant (v0.6.0)
+## Configure your assistant (v0.7.0)
 
 ```sh
 python3 -m venv .venv

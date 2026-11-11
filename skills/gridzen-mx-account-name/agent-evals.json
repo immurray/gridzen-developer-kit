@@ -2,7 +2,7 @@
   "version": 1,
   "cases": [
     {
-      "request": "Check a new beneficiary CLABE before changing payout details",
+      "request": "Check a new beneficiary CLABE before changing beneficiary details",
       "expected": "Use this product only within its documented input/output and current permissions."
     },
     {

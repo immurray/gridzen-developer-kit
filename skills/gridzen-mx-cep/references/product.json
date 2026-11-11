@@ -19,7 +19,7 @@
   ],
   "inputs": "Operation date, tracking key, sending and receiving institution codes, account, amount and authorization reference.",
   "output": "Task status, original-evidence availability, signature status and exact transaction binding. Pending or unavailable remains inconclusive.",
-  "boundary": "Does not initiate a transfer or prove present account control, identity or a safe payout. Source access restrictions can delay a task.",
+  "boundary": "Does not initiate a transfer or prove present account control, identity or a safe business action. Source access restrictions can delay a task.",
   "entry": "/console/payment-evidence/mx/cep",
   "guide": "/mexico/cep-verification/",
   "tools": [

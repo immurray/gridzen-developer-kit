@@ -1,10 +1,10 @@
 # Match a CLABE name
 
-Audience: Mexico marketplaces and payout integration teams
+Audience: Mexico marketplaces and account verification integration teams
 
 Problem-led hooks:
 
-- Check a new beneficiary CLABE before changing payout details
+- Check a new beneficiary CLABE before changing beneficiary details
 - Separate the transfer principal, source cost and fee in a bank-name quote
 
 Input: CLABE, expected beneficiary name, holder type, current quote, authorization reference and stable request UUID.
@@ -17,11 +17,11 @@ One next action: [inspect this tool](https://gridzen.ai/tools/mx-account-name/?s
 
 ## Technical-post draft
 
-Check a new beneficiary CLABE before changing payout details
+Check a new beneficiary CLABE before changing beneficiary details
 
 Compare an expected beneficiary name with supported bank evidence for one authorized CLABE. A quoted microtransfer may apply and requires explicit recipient and spending authority. This is not document identity or proof of current account control.
 
-Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and funding. No adoption or performance claim is made.
+Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 
 ## Demonstration outline
 

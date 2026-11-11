@@ -21,7 +21,7 @@ MCP target: `.codex/config.toml`. Skill target: `.agents/skills`.
 
 Trust this project, then restart Codex. Project .codex/config.toml supplies MCP; .agents/skills supplies Skills. You may instead register user-scope MCP with codex mcp add gridzen --url https://gridzen.ai/developers/mcp.
 
-Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
+Try: “Plan a non-production Mexico verification pilot, identify missing permissions and
 evidence, then test a synthetic provider timeout. Do not authorize a real payment.”
 Expected: draft or missing-information output; simulated=true, verified=false,
 provider_calls=0. Timeouts, missing evidence and unsupported remain inconclusive.

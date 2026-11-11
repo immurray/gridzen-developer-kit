@@ -79,7 +79,7 @@ Código original bajo MIT; consulte NOTICE.md para los derechos de terceros.
 
 ## Publicación en directorios
 
-El código, las descargas, la entrada oficial de MCP Registry y tres páginas de Skills.sh están publicados. La propuesta del catálogo de Docker está pendiente de revisión. Consulta [el registro de publicación](distribution/STATUS.md).
+El código, las descargas, la entrada oficial de MCP Registry y tres páginas de Skills.sh están publicados. La propuesta del catálogo de Docker está pendiente de revisión. Consulta [el registro de publicación](https://github.com/immurray/gridzen-developer-kit/blob/main/distribution/STATUS.md).
 
 
 ## 14 bundled Skills (0.7.0)

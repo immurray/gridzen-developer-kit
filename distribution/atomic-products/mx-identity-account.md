@@ -21,7 +21,7 @@ Separate a name mismatch from missing evidence in CURP and CLABE onboarding
 
 Submit authorized CURP and CLABE for one identity and beneficiary-account comparison, with a bound quote. No unconditional approval or arbitrary person lookup. No direct bank-CURP identifier claim, unsupported card input or transfer without the quote's explicit authorization.
 
-Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and funding. No adoption or performance claim is made.
+Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 
 ## Demonstration outline
 

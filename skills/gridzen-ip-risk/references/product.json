@@ -19,7 +19,7 @@
   ],
   "inputs": "Authorized public IP address, consent reference, stable request UUID and explicit trial or paid mode.",
   "output": "IP risk signals and available explanatory evidence for the event; not an identity or fraud verdict.",
-  "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires confirmed prepaid credit. A risk score alone must not approve or reject a person.",
+  "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires the current authorized service terms and sufficient credit. A risk score alone must not approve or reject a person.",
   "entry": "/console/production",
   "guide": "/guides/current-capabilities/",
   "tools": [
@@ -49,11 +49,11 @@
     "id": "registration_risk",
     "country": null,
     "currency": "USD",
+    "price_status": "approved",
+    "availability": "payment_setup_pending",
     "package_checks": 100,
     "package_minor": 900,
     "valid_days": 90,
-    "price_status": "approved",
-    "availability": "payment_setup_pending",
     "entry": "/console/billing"
   },
   "sample_output": {

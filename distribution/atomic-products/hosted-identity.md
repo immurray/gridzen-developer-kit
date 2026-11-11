@@ -21,7 +21,7 @@ Start a hosted identity journey without putting documents in an AI chat
 
 Create a hosted verification link and retrieve its authoritative result after the person completes the journey. The person completes identity and liveness steps. New-person full approval acceptance remains pending; online purchases require payment-channel acceptance.
 
-Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and funding. No adoption or performance claim is made.
+Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 
 ## Demonstration outline
 

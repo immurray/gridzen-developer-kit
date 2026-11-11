@@ -1,3 +1,5 @@
+> Historical release records below describe their dated versions. Current inventory: **14 Skills (6 research/workflow + 8 single-task)**. See [current installation](https://gridzen.ai/developers/harnesses.html).
+
 # Single-task release — 0.7.0
 
 Eight new product Skills (1.0.0 each), eight MCP profiles and three offline CLI/browser utilities. The package contains fourteen Skills in total. Five merchant profiles wrap the existing authenticated API; this public repository contains no provider credentials, merchant records or private decision engine.
@@ -18,7 +20,7 @@ cost components. The first-party [decision cards](https://gridzen.ai/console/lea
 are live in English, Chinese and Spanish. The source download includes this guide.
 This documentation update creates no new PyPI version or MCP Registry release.
 
-Public-page checks on this date: the [Smithery listing](https://smithery.ai/servers/support-35ug/gridzen-verification)
+Public-page checks on this date: the Smithery listing (historical URL retired; no active link)
 returns HTTP 200; its client gateway remains unverified. The submitted n8n template's
 public entry `/workflows/20861` returns HTTP 404, so public availability and review
 approval are not claimed. HTTP reachability, marketplace approval and independent

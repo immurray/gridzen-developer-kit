@@ -96,7 +96,7 @@ window.GZ_DEVELOPER_LOCALES={
     "guide.test-p": "These commands test synthetic outcomes. Timeout and missing evidence are inconclusive. All results remain simulated=true and verified=false.",
     "guide.agent": "3. Connect your assistant",
     "guide.agent-p": "Choose your client for its exact MCP format and activation steps. The public endpoint needs no account or API key; client login and workspace approval are separate.",
-    "guide.prompt": "Ask: “Plan a payout verification integration for Indonesia, then test a provider timeout.” Five tools cover research, planning, simulation, fixture retrieval and explanation. Remote requests go to Gridzen; local stdio remains an offline option. Client configuration formats vary.",
+    "guide.prompt": "Ask: “Plan a account verification integration for Indonesia, then test a provider timeout.” Five tools cover research, planning, simulation, fixture retrieval and explanation. Remote requests go to Gridzen; local stdio remains an offline option. Client configuration formats vary.",
     "guide.skill": "4. Review the Skills",
     "guide.skill-p": "<a href=\"/developers/downloads/gridzen-skills.zip\">Download the fourteen Skills</a> and copy their individual folders into your agent's supported skill directory. Keep each <code>SKILL.md</code> and its references together. Select verification, integrate a sandbox, or explain a result.",
     "guide.http": "HTTP API",

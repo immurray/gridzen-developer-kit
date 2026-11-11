@@ -8,13 +8,13 @@
   "title": [
     "Compare identity and account",
     "Coteja identidad y cuenta",
-    "核对身份与收款账户",
+    "核对身份与账户",
     "Đối chiếu danh tính và tài khoản"
   ],
   "summary": [
     "Submit authorized CURP and CLABE for one identity and beneficiary-account comparison, with a bound quote.",
     "Envía CURP y CLABE autorizadas para un cotejo de identidad y cuenta beneficiaria con cotización vinculada.",
-    "按绑定报价提交已获授权的 CURP 与 CLABE，完成一次身份与收款账户核对。",
+    "按绑定报价提交已获授权的 CURP 与 CLABE，完成一次身份与账户核对。",
     "Gửi CURP và CLABE được phép để đối chiếu danh tính với tài khoản thụ hưởng theo báo giá ràng buộc."
   ],
   "inputs": "Authorized CURP and CLABE, current quote, required evidence and consents, stable request UUID.",
@@ -54,7 +54,6 @@
     "price_status": "approved",
     "availability": "prepaid",
     "entry": "/console/bank-account-name#identity-account",
-    "full_cost_ceiling_minor": 980,
     "tax_included": false
   },
   "sample_output": {

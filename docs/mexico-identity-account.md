@@ -8,7 +8,7 @@ Customer guide: https://gridzen.ai/merchant-guide.html . Downloadable PDF: https
 
 1. Register and verify your email at https://gridzen.ai/console/ ; complete requested account security steps.
 2. Register the actual legal business and permitted use, and explicitly accept the applicable terms and subject authority.
-3. Prepare funds using the workspace instructions. An offline funding request does not add balance; confirmed actual receipt and approval are required.
+3. Confirm current service conditions and available credit in the authenticated workspace. A request or tool installation does not grant live access.
 4. Submit the verification data for a quote. Review the current price and any necessary task-specific authorization before creating the check.
 5. Keep the original request UUID and task ID; read results, status and charges from the same record. Recover an uncertain request rather than replacing it.
 
@@ -36,8 +36,7 @@ The authenticated API base is `/console/api/bank-account-name/identity`. Keep th
 |---|---|---|
 | GET | `/capabilities` | Current supported capabilities and restrictions |
 | GET/POST | `/enrollment` | Read and explicitly accept use terms |
-| GET | `/wallet` | Shared balance, funding and charges |
-| GET/POST | `/topups` | Read or request offline funding; no immediate credit |
+| GET | `/wallet` | Service credit and recorded charges |
 | POST | `/quote` | Bind inputs to the current quote without a live check |
 | POST | `/checks` | Submit an authorized check with the quote and persistent UUID |
 | GET | `/checks`, `/checks/{id}` | Own task history and details |

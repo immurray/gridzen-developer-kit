@@ -29,7 +29,7 @@
     "Reject a mistyped CLABE before requesting a paid bank-name check",
     "CLABE checksum versus account ownership: two different answers"
   ],
-  "audience": "Mexico payout forms and payment-file import developers",
+  "audience": "Mexico account forms and payment-file import developers",
   "query": [
     "CLABE checksum validator",
     "validar dígito verificador CLABE"

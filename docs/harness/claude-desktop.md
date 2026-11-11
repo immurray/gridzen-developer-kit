@@ -21,7 +21,7 @@ MCP target: `gridzen-clients/claude-desktop/claude_desktop_config.json`. Skill t
 
 Import/merge the generated MCP entry into Claude Desktop’s developer configuration, replacing no existing servers. Setup uses the absolute executable path from this installation. Restart Desktop. Upload the 14 individual Skill ZIPs in Customize → Skills; a multi-Skill bundle is not a single upload. Account plan, code execution and policy restrictions still apply.
 
-Try: “Plan a non-production Mexico payout pilot, identify missing permissions and
+Try: “Plan a non-production Mexico verification pilot, identify missing permissions and
 evidence, then test a synthetic provider timeout. Do not authorize a real payment.”
 Expected: draft or missing-information output; simulated=true, verified=false,
 provider_calls=0. Timeouts, missing evidence and unsupported remain inconclusive.

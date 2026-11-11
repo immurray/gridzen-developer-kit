@@ -1,6 +1,6 @@
 ---
 name: gridzen-clabe-format
-description: Check an 18-digit CLABE checksum locally before starting an account verification. Use for mexico payout forms and payment-file import developers. A correct checksum does not prove that an account exists, can receive funds or belongs to a person.
+description: Check an 18-digit CLABE checksum locally before starting an account verification. Use for mexico account forms and payment-file import developers. A correct checksum does not prove that an account exists, can receive funds or belongs to a person.
 license: MIT
 metadata:
   compatibility: Python 3.11 or newer; gridzen-developer-kit >= 0.7.0. Offline utility.

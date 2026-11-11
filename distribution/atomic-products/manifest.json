@@ -27,7 +27,7 @@
       "audience": "Mexico payment operations, reconciliation developers and finance automation teams",
       "input": "Operation date, tracking key, sending and receiving institution codes, account, amount and authorization reference.",
       "output": "Task status, original-evidence availability, signature status and exact transaction binding. Pending or unavailable remains inconclusive.",
-      "boundary": "Does not initiate a transfer or prove present account control, identity or a safe payout. Source access restrictions can delay a task.",
+      "boundary": "Does not initiate a transfer or prove present account control, identity or a safe business action. Source access restrictions can delay a task.",
       "topics": [
         "A payment screenshot versus a signed CEP: what can your reconciliation job accept?",
         "Recover a pending SPEI evidence request without creating a duplicate"
@@ -92,12 +92,12 @@
     {
       "product_id": "mx-account-name",
       "title": "Match a CLABE name",
-      "audience": "Mexico marketplaces and payout integration teams",
+      "audience": "Mexico marketplaces and account verification integration teams",
       "input": "CLABE, expected beneficiary name, holder type, current quote, authorization reference and stable request UUID.",
       "output": "Task state and name comparison with its evidence and charges; uncertain similarity requires review.",
       "boundary": "A quoted microtransfer may apply and requires explicit recipient and spending authority. This is not document identity or proof of current account control.",
       "topics": [
-        "Check a new beneficiary CLABE before changing payout details",
+        "Check a new beneficiary CLABE before changing beneficiary details",
         "Separate the transfer principal, source cost and fee in a bank-name quote"
       ],
       "query_hypotheses": [
@@ -163,7 +163,7 @@
       "audience": "SaaS signup, marketplace and fraud operations developers",
       "input": "Authorized public IP address, consent reference, stable request UUID and explicit trial or paid mode.",
       "output": "IP risk signals and available explanatory evidence for the event; not an identity or fraud verdict.",
-      "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires confirmed prepaid credit. A risk score alone must not approve or reject a person.",
+      "boundary": "Requires current supplier readiness and an eligible merchant. Paid mode requires the current authorized service terms and sufficient credit. A risk score alone must not approve or reject a person.",
       "topics": [
         "Use an IP risk signal in signup without calling it identity verification",
         "Keep an unavailable IP score separate from low risk"
@@ -432,7 +432,7 @@
     {
       "product_id": "clabe-format",
       "title": "Check CLABE formatting",
-      "audience": "Mexico payout forms and payment-file import developers",
+      "audience": "Mexico account forms and payment-file import developers",
       "input": "An 18-digit CLABE, optionally separated by spaces or hyphens.",
       "output": "structure_valid, checksum_valid and institution code. No live bank query or account-ownership assertion.",
       "boundary": "A correct checksum does not prove that an account exists, can receive funds or belongs to a person.",

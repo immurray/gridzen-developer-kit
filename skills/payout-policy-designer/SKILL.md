@@ -1,11 +1,11 @@
 ---
 name: payout-policy-designer
-description: Draft a bounded payout policy specification with required evidence, exception review and caller-owned recovery. Use for drafting this bounded GridZen evaluation workflow, not live verification or service activation.
+description: Draft a bounded account verification policy specification with required evidence, exception review and caller-owned recovery. Use for drafting this bounded GridZen evaluation workflow, not live verification or service activation.
 ---
 
-# Payout decision policy designer
+# Account verification policy designer
 
-Draft one payout policy with the assertion each signal supports, required evidence, exception owner and caller action. Keep provider HTTP failure distinct from a returned policy outcome. Missing required evidence or provider failure should hold the caller workflow for review. A fallback requires its own authorized route. Mark policy_version and idempotency as design requirements, not existing alpha response features. Do not give unsupported numeric risk thresholds or execute payments.
+Draft one account verification policy with the assertion each signal supports, required evidence, exception owner and caller action. Keep provider HTTP failure distinct from a returned policy outcome. Missing required evidence or provider failure should hold the caller workflow for review. A fallback requires its own authorized route. Mark policy_version and idempotency as design requirements, not existing alpha response features. Do not give unsupported numeric risk thresholds or execute payments.
 
 Use non-sensitive references rather than identifiers, credentials or full contracts. Preserve supplied facts and mark unknowns explicitly. No external calls or authorization changes are part of this package.
 
@@ -17,7 +17,7 @@ Package version: 1.0.0. First-party static release only; no external marketplace
 
 ## Customer task boundary
 
-Payout account matching currently has no real enabled Gridzen route. Keep outputs as policy drafts and prototypes; record missing account-holder matching separately from technical failures.
+Account name matching currently has no real enabled Gridzen route. Keep outputs as policy drafts and prototypes; record missing account-holder matching separately from technical failures.
 
 ## Optional task feedback
 
@@ -25,3 +25,6 @@ Offline use is not tracked. Offer a category-only local task summary when the us
 
 
 Local feedback in kit 0.6.0 is off by default. If the CLI is installed, `gridzen telemetry status` shows consent. Never enable it on the user's behalf without explicit agreement. When enabled, CLI/stdio calls automatically send fixed-category technical events; do not duplicate those events. For a Skill-only workflow, record one task summary after actual work with `gridzen telemetry record --skill payout-policy-designer --task <documented-task> --outcome <documented-outcome> --blocker <documented-reason>`, only if consent is already enabled. Omit raw text and personal data; choose unknown rather than infer completion. Do not install a dependency just to report telemetry. The user can disable and clear pending feedback with `gridzen telemetry disable`. Reading these instructions alone is not tracked.
+
+
+Compatibility: the helper and examples retain the legacy event identifier `payout`. This is an offline evidence-planning contract, not a payment operation or authorization. Keep the original Skill name and accepted input values.

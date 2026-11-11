@@ -21,7 +21,7 @@ Clean international signup phone formatting before any paid check
 
 Remove presentation separators from an international number and check E.164-shaped syntax locally. Structure-only local utility. No network, OTP, lookup billing or claim that the number exists.
 
-Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and funding. No adoption or performance claim is made.
+Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 
 ## Demonstration outline
 

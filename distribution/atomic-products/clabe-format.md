@@ -1,6 +1,6 @@
 # Check CLABE formatting
 
-Audience: Mexico payout forms and payment-file import developers
+Audience: Mexico account forms and payment-file import developers
 
 Problem-led hooks:
 
@@ -21,7 +21,7 @@ Reject a mistyped CLABE before requesting a paid bank-name check
 
 Check an 18-digit CLABE checksum locally before starting an account verification. A correct checksum does not prove that an account exists, can receive funds or belongs to a person.
 
-Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and funding. No adoption or performance claim is made.
+Inspect the input, result and recovery boundary before integrating. Installation is free; authorized live execution follows its own quote and authorization. No adoption or performance claim is made.
 
 ## Demonstration outline
 
