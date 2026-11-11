@@ -35,7 +35,7 @@ def run_mcp(product):
     if row['kind']=='merchant':
         from .production_mcp import ProductionAPI,make_server
         try:api=ProductionAPI(os.environ.get('GRIDZEN_API_KEY',''),project_id=os.environ.get('GRIDZEN_PROJECT_ID') or None)
-        except ValueError:raise SystemExit('Set your merchant GRIDZEN_API_KEY in the local environment. Never paste it into chat; product enrollment and funding are separate.') from None
+        except ValueError:raise SystemExit('Set your merchant GRIDZEN_API_KEY in the local environment. Never paste it into chat; product enrollment and current authorization are separate.') from None
         server=make_server(api,product)
     else:
         from mcp.server import MCPServer
@@ -49,7 +49,7 @@ def run_mcp(product):
                 if not isinstance(values,dict) or set(values)!=set(signature(fn).parameters) or any(type(v) is not str or len(v)>100 for v in values.values()):
                     raise MCPError(code=-32602,message='Only documented, bounded string fields are accepted.')
             return await next_call(ctx)
-        server=MCPServer('GridZen '+product,version='0.7.0',middleware=[strict],instructions=row['boundary'])
+        server=MCPServer('GridZen '+product,version='0.7.1',middleware=[strict],instructions=row['boundary'])
         server.tool(annotations=ToolAnnotations(readOnlyHint=True,destructiveHint=False,idempotentHint=True,openWorldHint=False),structured_output=True)(fn)
     server.run(transport='stdio')
 

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gridzen-developer-kit"
-version = "0.7.0"
+version = "0.7.1"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE", "NOTICE.md"]
@@ -62,6 +62,19 @@ Source = "https://github.com/immurray/gridzen-developer-kit"
 "share/gridzen-developer-kit/skills/gridzen-phone-format/references" = ["skills/gridzen-phone-format/references/product.json"]
 "share/gridzen-developer-kit/skills/gridzen-result-explanation" = ["skills/gridzen-result-explanation/LICENSE", "skills/gridzen-result-explanation/README.md", "skills/gridzen-result-explanation/SKILL.md", "skills/gridzen-result-explanation/agent-evals.json"]
 "share/gridzen-developer-kit/skills/gridzen-result-explanation/references" = ["skills/gridzen-result-explanation/references/product.json"]
+
+# Public documents and examples use the same relative paths as the source ZIP.
+"share/gridzen-developer-kit" = ["LICENSE", "NOTICE.md", "README.es.md", "README.md", "README.zh-CN.md", "llms-install.md"]
+"share/gridzen-developer-kit/clients" = ["clients/claude-code.json", "clients/claude-desktop.json", "clients/cline.json", "clients/codex.toml", "clients/compatibility.json", "clients/copilot-cli.json", "clients/cursor.json", "clients/gemini-cli.json", "clients/opencode.json", "clients/roo-code.json", "clients/vscode.json"]
+"share/gridzen-developer-kit/docs" = ["docs/activation.md", "docs/atomic-tools.md", "docs/mexico-identity-account.md", "docs/multilingual-ui.md", "docs/verification-evaluation.md"]
+"share/gridzen-developer-kit/docs/harness" = ["docs/harness/README.md", "docs/harness/claude-code.md", "docs/harness/claude-desktop.md", "docs/harness/cline.md", "docs/harness/codex.md", "docs/harness/copilot-cli.md", "docs/harness/cursor.md", "docs/harness/gemini-cli.md", "docs/harness/opencode.md", "docs/harness/roo-code.md", "docs/harness/vscode.md"]
+"share/gridzen-developer-kit/examples/atomic_tools" = ["examples/atomic_tools/check.py"]
+"share/gridzen-developer-kit/examples/cep_reconciliation" = ["examples/cep_reconciliation/README.md", "examples/cep_reconciliation/example.py"]
+"share/gridzen-developer-kit/examples" = ["examples/customer_tasks.py", "examples/identity_lifecycle.py", "examples/nextjs-route.ts", "examples/payout.py"]
+"share/gridzen-developer-kit/examples/mx_identity_account" = ["examples/mx_identity_account/README.md", "examples/mx_identity_account/demo.py", "examples/mx_identity_account/fixtures.json"]
+"share/gridzen-developer-kit/examples/n8n" = ["examples/n8n/README.md", "examples/n8n/identity-delivery-fixture.json"]
+"share/gridzen-developer-kit/examples/verification_delivery" = ["examples/verification_delivery/README.md", "examples/verification_delivery/delivery.py", "examples/verification_delivery/server.py", "examples/verification_delivery/test_delivery.py"]
+"share/gridzen-developer-kit/scripts" = ["scripts/check_integration.py"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

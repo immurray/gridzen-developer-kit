@@ -1,3 +1,10 @@
+# Documentation-aligned release — 0.7.1
+
+Owner murray authorized a new immutable PyPI release on 2026-11-11. Candidate: 14
+Skills, updated public copy and installed public guides/examples. Publication is
+pending the existing Trusted Publisher workflow and clean PyPI installation check.
+No Registry submission, supplier action or business permission is granted.
+
 > Historical release records below describe their dated versions. Current inventory: **14 Skills (6 research/workflow + 8 single-task)**. See [current installation](https://gridzen.ai/developers/harnesses.html).
 
 # Single-task release — 0.7.0
