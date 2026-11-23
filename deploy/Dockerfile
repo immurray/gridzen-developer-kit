@@ -1,8 +1,12 @@
 FROM python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
 WORKDIR /srv
-COPY pyproject.toml README.md LICENSE NOTICE.md ./
+COPY pyproject.toml README.md README.es.md README.zh-CN.md LICENSE NOTICE.md CHANGELOG.md llms-install.md ./
 COPY skills ./skills
 COPY src ./src
+COPY clients ./clients
+COPY docs ./docs
+COPY examples ./examples
+COPY scripts/check_integration.py ./scripts/check_integration.py
 RUN pip install --no-cache-dir '.[server]' && useradd --uid 10001 --no-create-home developer && mkdir /metrics && chown 10001:10001 /metrics
 USER 10001
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PYTHONPATH=/srv/src

@@ -1,3 +1,4 @@
+from asyncio import to_thread
 from pathlib import Path
 import json, os, sqlite3
 from .product_feedback import record_safe, http_reason, accept_summary
@@ -41,7 +42,7 @@ async def bounds(request:Request,call_next):
  if request.method=='POST':
   body=await request.body()
   if len(body)>4096:
-   record_safe(os.environ.get('GRIDZEN_MCP_EVENTS_DB'),{'operation':'transport_rejected','source':'self_reported_test' if request.headers.get('x-gridzen-purpose')=='internal_test' else 'unknown','outcome':'integration_error','reason':'schema_error'})
+   await to_thread(record_safe,os.environ.get('GRIDZEN_MCP_EVENTS_DB'),{'operation':'transport_rejected','source':'self_reported_test' if request.headers.get('x-gridzen-purpose')=='internal_test' else 'unknown','outcome':'integration_error','reason':'schema_error'})
    return JSONResponse({'error':'REQUEST_TOO_LARGE'},status_code=413)
  dimensions=None
  operations={'/api/plan':'plan_verification','/api/coverage':'get_coverage','/api/sandbox/verifications':'create_sandbox_verification'}
@@ -55,12 +56,12 @@ async def bounds(request:Request,call_next):
   dimensions={'operation':operation,'task':arguments.get('task'),'capability':arguments.get('capability'),'country':arguments.get('country'),'stage':arguments.get('stage','prototype'),'source':'self_reported_test' if request.headers.get('x-gridzen-purpose')=='internal_test' else 'unknown','mode':'research' if operation in ('plan_verification','get_coverage') else 'synthetic_fixture'}
  try:response=await call_next(request)
  except Exception:
-  if dimensions:record_safe(os.environ.get('GRIDZEN_MCP_EVENTS_DB'),{**dimensions,'outcome':'integration_error','reason':'tool_error'})
+  if dimensions:await to_thread(record_safe,os.environ.get('GRIDZEN_MCP_EVENTS_DB'),{**dimensions,'outcome':'integration_error','reason':'tool_error'})
   raise
  if dimensions:
   if operation=='plan_verification' and arguments.get('task') in core.TASK_ROUTES:dimensions['capability']=core.TASK_ROUTES[arguments['task']][1]
   blocked=request.url.path=='/api/plan' and response.status_code<400 and (arguments.get('stage')=='production' or arguments.get('task') in ('phone_possession','business_onboarding','account_change'))
-  record_safe(os.environ.get('GRIDZEN_MCP_EVENTS_DB'),{**dimensions,'outcome':'integration_error' if response.status_code>=400 else 'capability_unavailable' if blocked else 'technical_success','reason':http_reason(response.status_code) if response.status_code>=400 else 'production_disabled' if blocked and arguments.get('stage')=='production' else 'unavailable_route' if blocked else 'none'})
+  await to_thread(record_safe,os.environ.get('GRIDZEN_MCP_EVENTS_DB'),{**dimensions,'outcome':'integration_error' if response.status_code>=400 else 'capability_unavailable' if blocked else 'technical_success','reason':http_reason(response.status_code) if response.status_code>=400 else 'production_disabled' if blocked and arguments.get('stage')=='production' else 'unavailable_route' if blocked else 'none'})
  response.headers['X-Content-Type-Options']='nosniff'
  response.headers['Referrer-Policy']='no-referrer'
  response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'"
@@ -86,7 +87,7 @@ async def feedback(request:Request):
  try:
   value=json.loads(await request.body())
   source=CALL_SOURCE.get()
-  accepted=accept_summary(os.environ.get('GRIDZEN_MCP_EVENTS_DB'),value,source if source in ('internal_test','self_reported_test') else 'self_reported_feedback')
+  accepted=await to_thread(accept_summary,os.environ.get('GRIDZEN_MCP_EVENTS_DB'),value,source if source in ('internal_test','self_reported_test') else 'self_reported_feedback')
  except ValueError:
   return JSONResponse({'error':'INVALID_FEEDBACK','message':'Only fixed categories and explicit consent are accepted; never submit personal fields.'},status_code=422)
  except (OSError, sqlite3.Error):
@@ -97,7 +98,7 @@ async def feedback(request:Request):
 @app.post('/api/usage-events')
 async def local_usage(request:Request):
  from .product_feedback import accept_usage
- try: accepted=accept_usage(os.environ.get('GRIDZEN_MCP_EVENTS_DB'),json.loads(await request.body()))
+ try: accepted=await to_thread(accept_usage,os.environ.get('GRIDZEN_MCP_EVENTS_DB'),json.loads(await request.body()))
  except ValueError: return JSONResponse({'error':'INVALID_USAGE_EVENT'},status_code=422)
  except (OSError,sqlite3.Error): accepted=False
  if not accepted: return JSONResponse({'error':'USAGE_TEMPORARILY_UNAVAILABLE'},status_code=503)
