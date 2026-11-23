@@ -92,7 +92,7 @@ async def feedback(request:Request):
  except (OSError, sqlite3.Error):
   accepted=False
  if not accepted:return JSONResponse({'error':'FEEDBACK_TEMPORARILY_UNAVAILABLE'},status_code=503)
- return {'accepted':True,'evidence':'self_reported','authenticated_customer':False,'retention':'aggregate 90 days; receipt hash 30 days','duplicate_receipts':'deduplicated within UTC day'}
+ return {'accepted':True,'evidence':'self_reported','authenticated_customer':False,'retention':'aggregate 90 days; receipt hash 30 days','duplicate_receipts':'deduplicated across the retained 30 UTC dates'}
 
 @app.post('/api/usage-events')
 async def local_usage(request:Request):

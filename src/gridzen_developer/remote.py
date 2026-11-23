@@ -1,7 +1,7 @@
 """Bounded, stateless public MCP transport. No accounts or providers; optional aggregate counts only."""
 from collections import OrderedDict
 import os
-from .usage import CALL_SOURCE
+from .usage import CALL_SOURCE, HOSTED_REQUEST
 from .product_feedback import record_safe, http_reason
 from time import monotonic
 from starlette.responses import JSONResponse
@@ -38,8 +38,11 @@ class CallSourceMiddleware:
    trusted=set(os.environ.get('GRIDZEN_MCP_LOCAL_TEST_PEERS','127.0.0.1,::1').split(','))
    source='internal_test' if peer in trusted and b'x-real-ip' not in headers and b'x-forwarded-for' not in headers else 'self_reported_test'
   token=CALL_SOURCE.set(source)
+  hosted=HOSTED_REQUEST.set(True)
   try: return await self.app(scope,receive,send)
-  finally: CALL_SOURCE.reset(token)
+  finally:
+   HOSTED_REQUEST.reset(hosted)
+   CALL_SOURCE.reset(token)
 
 class MCPBounds:
  """One process-wide and one per-client fixed window; no payload logging.

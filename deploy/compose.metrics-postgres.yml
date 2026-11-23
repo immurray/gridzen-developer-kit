@@ -1,0 +1,17 @@
+# Disposable hosted MCP candidate. The base deployment is not changed.
+name: gridzen-developer-metrics-rehearsal
+services:
+  developer:
+    image: ${GRIDZEN_DEVELOPER_IMAGE:?provide the isolated candidate image}
+    environment:
+      GRIDZEN_MCP_EVENTS_DB: ""
+      GRIDZEN_MCP_METRICS_STORAGE: postgres
+      GRIDZEN_MCP_METRICS_ENVIRONMENT: sandbox
+      GRIDZEN_MCP_METRICS_DSN_FILE: /run/secrets/mcp_metrics_writer
+    volumes: !override
+      - type: bind
+        source: ${GRIDZEN_MCP_METRICS_DSN_FILE:?provide the isolated hosted metrics writer file}
+        target: /run/secrets/mcp_metrics_writer
+        read_only: true
+        bind:
+          create_host_path: false

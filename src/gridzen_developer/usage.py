@@ -5,16 +5,23 @@ import os
 import sqlite3
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from . import hosted_metrics
 
 TOOLS = frozenset(('get_coverage', 'plan_verification', 'create_sandbox_verification', 'get_sandbox_verification', 'explain_result'))
 RETENTION_DAYS = 90
 CALL_SOURCE = ContextVar('gridzen_call_source', default='unknown')
+HOSTED_REQUEST = ContextVar('gridzen_hosted_request',default=False)
 SOURCES = frozenset(('internal_test', 'self_reported_test', 'unknown'))
 
 def record(path, tool, day=None, source='unknown'):
     if tool not in TOOLS:
         return
     source = source if source in SOURCES else 'unknown'
+    if hosted_metrics.selected():
+        hosted_metrics.write_call(day,tool,source)
+        return
+    if not path:
+        return
     day = day or datetime.now(timezone.utc).date()
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -41,6 +48,8 @@ def summarize(path, end=None):
     return result
 
 async def aggregate_calls(ctx, call_next):
+    if not HOSTED_REQUEST.get():
+        return await call_next(ctx)
     from .product_feedback import record_safe
     path=os.environ.get('GRIDZEN_MCP_EVENTS_DB')
     params=ctx.params if isinstance(ctx.params,dict) else {}
@@ -62,7 +71,7 @@ async def aggregate_calls(ctx, call_next):
         blocked=isinstance(structured,dict) and (structured.get('task_match_status') in ('unsupported','needs_clarification') or structured.get('requested_stage')=='production')
         reason='tool_error' if failed else 'production_disabled' if blocked and structured.get('requested_stage')=='production' else 'unavailable_route' if blocked else 'none'
         await asyncio.to_thread(record_safe,path,{**dimensions,'outcome':'integration_error' if failed else 'capability_unavailable' if blocked else 'technical_success','reason':reason})
-        if path and isinstance(name,str) and name in TOOLS and not failed:
+        if isinstance(name,str) and name in TOOLS and not failed:
             try:await asyncio.to_thread(record,path,name,source=CALL_SOURCE.get())
             except (OSError,sqlite3.Error):pass
     return result
