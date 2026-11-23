@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import sqlite3
 from uuid import UUID
+from . import hosted_metrics
 
 TASKS = frozenset(('signup_phone','identity_onboarding','payout_account','phone_possession','account_change','business_onboarding','select_method','diagnose_failure','provider_intake','payout_policy','mexico_pilot','other','unknown'))
 CAPABILITIES = frozenset(('official_identity','commercial_identity','consented_eid','bank_account_match','consented_bank','cardholder_name','phone_identity','phone_intelligence','identity_verification','otp','business_kyb','batch','webhook_recovery','policy_design','provider_rights','other','unknown'))
@@ -44,8 +45,11 @@ def ensure(db):
 
 
 def write(path, values, receipt=None, day=None):
+    safe=safe_dimensions(values)
+    if hosted_metrics.selected():
+        return hosted_metrics.write_feedback(safe,receipt,day)
     if not path: return False
-    day=day or datetime.now(timezone.utc).date();safe=safe_dimensions(values)
+    day=day or datetime.now(timezone.utc).date()
     Path(path).parent.mkdir(parents=True,exist_ok=True)
     with sqlite3.connect(path,timeout=2) as db:
         ensure(db);db.execute('BEGIN IMMEDIATE')

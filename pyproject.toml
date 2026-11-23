@@ -16,8 +16,8 @@ dependencies = ["mcp==2.3.0", "httpx==0.28.1"]
 
 [project.optional-dependencies]
 mcp = ["mcp==2.3.0"]
-server = ["mcp==2.3.0", "fastapi==0.142.4", "uvicorn==0.54.0"]
-test = ["pytest", "httpx", "mcp==2.3.0", "fastapi==0.142.4", "uvicorn==0.54.0"]
+server = ["mcp==2.3.0", "fastapi==0.142.4", "uvicorn==0.54.0", "psycopg[binary]==3.2.3"]
+test = ["pytest", "httpx", "mcp==2.3.0", "fastapi==0.142.4", "uvicorn==0.54.0", "psycopg[binary]==3.2.3"]
 
 [project.scripts]
 gridzen = "gridzen_developer.cli:main"
